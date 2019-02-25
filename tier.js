@@ -1,7 +1,7 @@
-
-
 function initchart(){
-    $("#musiclistid").append($("<option>").val(music_table[0][MUSIC_INDEX]).text(music_table[0][NAME_IMDEX]));
+    $("#musiclistid").append($("<option>").val(music_table[0][MUSIC_INDEX]).text(music_table[0][NAME_INDEX]));
+
+    //url読み込み等
     setDraggable();
 }
 
@@ -38,8 +38,9 @@ jQuery(function(){
         }
 
         for (var j = 0; j < return_array.length; j++){
-            $("#musiclistid").append($("<option>").val(return_array[j][MUSIC_INDEX]).text(return_array[j][NAME_IMDEX]));
+            $("#musiclistid").append($("<option>").val(return_array[j][MUSIC_INDEX]).text(return_array[j][NAME_INDEX]));
         }
+        
         
 
         //$("#aa").text("選択バージョン" + selectVal);
@@ -59,6 +60,30 @@ jQuery(function(){
               }
             return return_array; 
          }) */
+    });
+
+    $('#Generate').click(function () {
+
+        var selected_music_index = $("#musiclistid").val();
+        var disp_name = music_table[selected_music_index - 1][DISP_INDEX];
+
+        $("#musiclistid option").each( function(){
+            if($(this).val() == music_table[selected_music_index - 1][MUSIC_INDEX]) {
+              $(this).remove();
+            }
+        });
+        
+        var div_element = document.createElement("div");
+        div_element.innerHTML = 
+            '<div class="draggable music_box music_box_' + music_table[selected_music_index - 1][VER_INDEX] + 
+            '" id="iidaze_'+ music_table[selected_music_index - 1][MUSIC_INDEX] +'">' 
+            + disp_name + '</div>';
+        var parent_object = document.getElementById("generate_position");
+        parent_object.appendChild(div_element);
+
+
+        setDraggable();
+        
     });
 
     $('#test').click(function () {

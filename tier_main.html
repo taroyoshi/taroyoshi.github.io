@@ -25,9 +25,23 @@
     <title>IIDAZE</title>
 </head>
 <body onload="initchart()">
-
-    
-    <head>
+    <header>
+        <select name="target" id="targetid">
+            <option value="0">SCORE MAX</option>
+            <option value="1">SCORE AAA</option>
+            <option value="2">SCORE AA</option>
+            <option value="3">SCORE A</option>
+            <option value="4">FULL COMBO</option>
+            <option value="5">EX HARD CLEAR</option>
+            <option value="6">HARD CLEAR</option>
+            <option value="7">CLEAR</option>
+        </select>
+        <select name="opt" id="optid">
+            <option value="0">FREE</option>
+            <option value="1">RANDOM GROUP NG</option>
+            <option value="2">FLIP NG</option>
+            <option value="3">OFF OPTION</option>
+        </select>
         <select name="ver_list" id="verlistid">
             <option value="2">Substream</option>
             <option value="3">3rd style</option>
@@ -57,11 +71,13 @@
         </select>
 
         <select id="musiclistid"></select>
-        <div id="aa">a</div>
-    </head>
+        <input type="button" id="Generate"/>
+        <div id="generate_position"></div>
+        
+    </header>
 
-    <div id="a" class="draggable">aaa</div>
-    <div id="test">test</div>
-    <img src="test.jpeg" class="draggable">
+    <!-- <div id="a" class="draggable">aaa</div>
+    <div id="test">test</div> -->
+    
 </body>
 </HTML>

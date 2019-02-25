@@ -4,8 +4,48 @@
     height:100px;
 }
 
-.head{
-    background-color: aquamarine;
+header{
+    background-color:rgb(59, 216, 137);
     position:fixed;
     height:100px;
 }
+
+#musiclistid{
+    width:300px;
+}
+
+.music_box{
+    font-size: 13px;
+    vertical-align:bottom;
+    word-break : break-all;
+    background-color: rgb(16, 117, 143);
+    width:50px;
+    height:50px;
+    border-style: groove;
+}
+
+.music_box_2{background-color:yellow;}
+.music_box_3{background-color:deeppink;}
+.music_box_4{background-color:red}
+.music_box_5{background-color:darkblue; color:white}
+.music_box_6{background-color:mediumpurple}
+.music_box_7{background-color:silver}
+.music_box_8{background-color:orange}
+.music_box_9{background-color:aqua}
+.music_box_10{background-color:midnightblue}
+.music_box_11{background-color:rgb(80, 2, 2); color:white}
+.music_box_12{background-color:blue}
+.music_box_13{background-color:#666}
+.music_box_14{background-color:goldenrod}
+.music_box_15{background-color:#063}
+.music_box_16{background-color:hotpink}
+.music_box_17{background-color:#e5eeff}
+.music_box_18{background-color:#fcc800}
+.music_box_19{background-color:deepskyblue}
+.music_box_20{background-color:#DDD}
+.music_box_21{background-color:#300; color:white}
+.music_box_22{background-color:darkgray}
+.music_box_23{background-color:GOLD}
+.music_box_24{background-color:black; color:white}
+.music_box_25{background-color:lightgray}
+.music_box_26{background-color:rgb(41, 35, 4)}
