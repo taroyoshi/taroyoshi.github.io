@@ -8,6 +8,8 @@ function initchart(){
     for(var i = 0; i < MUSIC_NUM; i++){
         existArray =+ "0"; //これは62進数に置き換える
     }
+    
+    //a
     //url読み込み等
     //setDraggable();
 }
