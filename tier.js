@@ -127,10 +127,11 @@ jQuery(function(){
     
     $('#save').click(function () {
         if(window.confirm('今の状態をセーブしますか？')){
-            var comp = deflate(existArray);
+            //var comp = deflate(existArray);
+            var compressed = lzbase62.compress(existArray);  
             
             
-            document.cookie = "IIDAZE=" + comp;
+            document.cookie = "IIDAZE=" + compressed;
         }
         
     });
@@ -138,10 +139,11 @@ jQuery(function(){
     $('#load').click(function () {
         if(window.confirm('保存してある状態をロードしますか？')){
             
-            var comp = document.cookie;
-            comp = comp.replace("IIDAZE_", "");
+            var compressed = document.cookie;
             
-            var uncomp = inflate(comp);
+            compressed = compressed.replace("IIDAZE=", "");
+            var decompressed = lzbase62.decompress(compressed);  
+            //var uncomp = inflate(comp);
             
             
             //document.cookie =
@@ -150,23 +152,7 @@ jQuery(function(){
     });
     
     
-    // 圧縮関数 deflate.js
-    function deflate(val) {
-        val = encodeURIComponent(val); // UTF16 → UTF8
-        val = RawDeflate.deflate(val); // 圧縮
-        val = btoa(val); // base64エンコード
-        return val;
-    }
-
-    // 復号関数 inflate.js
-    function inflate(val) {
-        val = atob(val); // base64デコード
-        val = RawDeflate.inflate(val); // 復号
-        val = decodeURIComponent(val); // UTF8 → UTF16
-        return val;
-    }
     
-
     $('#test').click(function (){
         $(this).text("クリックされました");
     });
