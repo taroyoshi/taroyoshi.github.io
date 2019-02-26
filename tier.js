@@ -15,7 +15,9 @@ function setDraggable(){
 
 jQuery(function(){
 
-    
+    $("#dbltest").dblclick( function(){
+        $(this).text("ダブルクリック");
+    });
     //import music_table from "list";
 
     $("#verlistid").change( function(){
