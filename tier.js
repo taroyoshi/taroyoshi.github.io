@@ -6,7 +6,7 @@ function initchart(){
     $("#musiclistid").append($("<option>").val(music_table[0][MUSIC_INDEX]).text(music_table[0][NAME_INDEX]));
     
     for(var i = 0; i < MUSIC_NUM; i++){
-        existArray =+ "0"; //これは62進数に置き換える
+        existArray = existArray + "0"; //これは62進数に置き換える
     }
     
     //a
@@ -119,12 +119,55 @@ jQuery(function(){
 
         setDraggableAndDblclick();
         
-        existArray = existArray.slice(0, selected_music_index - 2) + "1" + existArray.slice(selected_music_index - 1);
+        existArray = existArray.slice(0, selected_music_index - 1) + "1" + existArray.slice(selected_music_index);
         //var tes2 = tes.slice(0, 2) + "a" + tes.slice(3);
         
     });
+    
+    
+    $('#save').click(function () {
+        if(window.confirm('今の状態をセーブしますか？')){
+            var comp = deflate(existArray);
+            
+            
+            document.cookie = "IIDAZE=" + comp;
+        }
+        
+    });
+    
+    $('#load').click(function () {
+        if(window.confirm('保存してある状態をロードしますか？')){
+            
+            var comp = document.cookie;
+            comp = comp.replace("IIDAZE_", "");
+            
+            var uncomp = inflate(comp);
+            
+            
+            //document.cookie =
+        }
+        
+    });
+    
+    
+    // 圧縮関数 deflate.js
+    function deflate(val) {
+        val = encodeURIComponent(val); // UTF16 → UTF8
+        val = RawDeflate.deflate(val); // 圧縮
+        val = btoa(val); // base64エンコード
+        return val;
+    }
 
-    $('#test').click(function () {
+    // 復号関数 inflate.js
+    function inflate(val) {
+        val = atob(val); // base64デコード
+        val = RawDeflate.inflate(val); // 復号
+        val = decodeURIComponent(val); // UTF8 → UTF16
+        return val;
+    }
+    
+
+    $('#test').click(function (){
         $(this).text("クリックされました");
     });
 });
