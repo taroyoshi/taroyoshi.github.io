@@ -16,6 +16,7 @@ header{
 }
 
 .music_box{
+    float:left;
     font-size: 13px;
     vertical-align:bottom;
     word-break : break-all;

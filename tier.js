@@ -1,19 +1,29 @@
+const MUSIC_NUM = 374;//20190226
+
+var existArray= "";
+
 function initchart(){
     $("#musiclistid").append($("<option>").val(music_table[0][MUSIC_INDEX]).text(music_table[0][NAME_INDEX]));
-
+    
+    for(var i = 0; i < MUSIC_NUM; i++){
+        existArray =+ "0"; //これは62進数に置き換える
+    }
     //url読み込み等
     //setDraggable();
 }
 
-function setDraggableAndDblclick(){
+function setDraggableAndDblclick(e){
 	$( ".draggable" ).draggable().dblclick(function(){
 	    
 	    if (event.ctrlKey && event.shiftKey) {
             $(this).remove();
             
+            var gatID = e.getAttribute("id");
+            var gatID_i = gatID.replace("iidaze_", "").to_i;
             
             //現在表示中のバージョンを確認して動作を分ける
             //セレクトボックス再挿入の処理
+            existArray = existArray.slice(0, gatID_i - 2) + "0" + existArray.slice(gatID_i - 1);
             
 	    }
 	    if (event.altKey) {
@@ -98,7 +108,7 @@ jQuery(function(){
         
         var div_element = document.createElement("div");
         div_element.innerHTML = 
-            '<div class="draggable dbltex music_box music_box_' + music_table[selected_music_index - 1][VER_INDEX] + 
+            '<div class="draggable music_box music_box_' + music_table[selected_music_index - 1][VER_INDEX] + 
             '" id="iidaze_'+ music_table[selected_music_index - 1][MUSIC_INDEX] +'">' 
             + disp_name + '</div>';
         var parent_object = document.getElementById("generate_position");
@@ -107,7 +117,8 @@ jQuery(function(){
 
         setDraggableAndDblclick();
         
-        
+        existArray = existArray.slice(0, selected_music_index - 2) + "1" + existArray.slice(selected_music_index - 1);
+        //var tes2 = tes.slice(0, 2) + "a" + tes.slice(3);
         
     });
 
