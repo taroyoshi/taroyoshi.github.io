@@ -130,7 +130,6 @@ jQuery(function(){
             //var comp = deflate(existArray);
             var compressed = lzbase62.compress(existArray);  
             
-            
             document.cookie = "IIDAZE=" + compressed;
         }
         
@@ -140,6 +139,19 @@ jQuery(function(){
         if(window.confirm('保存してある状態をロードしますか？')){
             
             var compressed = document.cookie;
+            
+            var key = 'IIDAZE';
+            var tmp = compressed.split(';');
+            var kv = searchStrFromArray(tmp, key);
+            
+            var index1 = tmp.indexOf(key, 0);
+        	if(index1 != -1){
+        		tmp = tmp.substring(index1,tmp.length);
+        		var index2 = tmp.indexOf("=",0) + 1;
+        		var index3 = tmp.indexOf(";",index2);
+        		return(document.location.href=decodeURIComponent(tmp.substring(index2,index3)));
+        	}
+                
             
             compressed = compressed.replace("IIDAZE=", "");
             var decompressed = lzbase62.decompress(compressed);  
@@ -157,3 +169,15 @@ jQuery(function(){
         $(this).text("クリックされました");
     });
 });
+
+function searchStrFromArray(arr, str){
+    arr.some(function(value) {
+        //cookie名と値に分ける
+        var content = value.split('=');
+        if(content[0] == str){
+            return content;
+        }
+    });
+    
+    return -1;
+}
