@@ -8,18 +8,21 @@ function initchart(){
 function setDraggableAndDblclick(){
 	$( ".draggable" ).draggable().dblclick(function(){
 	    
-	    
-	    if (event.ctrlKey) {
-	        //alert("Controlキーが押されました");
-	        var win = window.open('http://www.yahoo.co.jp', '_blank');
-	    }
-	    
-	    
-	    if (event.ctrlKey && event.shiftKey && event.altKey) {
+	    if (event.ctrlKey && event.shiftKey) {
             $(this).remove();
             
-            //セレクトボックスの処理
+            
+            //現在表示中のバージョンを確認して動作を分ける
+            //セレクトボックス再挿入の処理
+            
 	    }
+	    if (event.altKey) {
+	        //alert("Controlキーが押されました");
+	        //textageの対象譜面を別タブでオープン
+	        var win = window.open('http://www.yahoo.co.jp', '_blank');
+	        return;
+	    }
+	    
     });
 }
 
