@@ -2,11 +2,25 @@ function initchart(){
     $("#musiclistid").append($("<option>").val(music_table[0][MUSIC_INDEX]).text(music_table[0][NAME_INDEX]));
 
     //url読み込み等
-    setDraggable();
+    //setDraggable();
 }
 
-function setDraggable(){
-	$( ".draggable" ).draggable();
+function setDraggableAndDblclick(){
+	$( ".draggable" ).draggable().dblclick(function(){
+	    
+	    
+	    if (event.ctrlKey) {
+	        //alert("Controlキーが押されました");
+	        var win = window.open('http://www.yahoo.co.jp', '_blank');
+	    }
+	    
+	    
+	    if (event.ctrlKey && event.shiftKey && event.altKey) {
+            $(this).remove();
+            
+            //セレクトボックスの処理
+	    }
+    });
 }
 
 
@@ -15,9 +29,13 @@ function setDraggable(){
 
 jQuery(function(){
 
-    $("#dbltest").dblclick( function(){
+    $(".dbltest").dblclick( function(){
         $(this).text("ダブルクリック");
     });
+    
+    //$(".dbltex").on('dblclick', '.draggable', function(e) {
+    //    $(this).remove();
+    //});
     //import music_table from "list";
 
     $("#verlistid").change( function(){
@@ -77,14 +95,16 @@ jQuery(function(){
         
         var div_element = document.createElement("div");
         div_element.innerHTML = 
-            '<div class="draggable music_box music_box_' + music_table[selected_music_index - 1][VER_INDEX] + 
+            '<div class="draggable dbltex music_box music_box_' + music_table[selected_music_index - 1][VER_INDEX] + 
             '" id="iidaze_'+ music_table[selected_music_index - 1][MUSIC_INDEX] +'">' 
             + disp_name + '</div>';
         var parent_object = document.getElementById("generate_position");
         parent_object.appendChild(div_element);
 
 
-        setDraggable();
+        setDraggableAndDblclick();
+        
+        
         
     });
 
