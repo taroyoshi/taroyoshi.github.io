@@ -1,15 +1,16 @@
-#a{
-    background-color: blue;
-    width:100px;
-    height:100px;
-}
 
 header{
+    top: 0;
     background-color:rgb(59, 216, 137);
     position:fixed;
     height:50px;
     width:100%;
 }
+/* 
+.chart_axis{
+    width:100%;
+    height:1000px;
+} */
 
 #musiclistid{
     width:300px;
@@ -24,10 +25,16 @@ header{
     width:50px;
     height:50px;
     border-style: groove;
+    position:absolute;
 }
 
-#dbltest2{
-    padding-top:100px;
+#main{
+    width:2000px;
+    height:1500px;
+    margin-top:50px;
+    background-size: cover;
+    text-align: center;
+    background-image : url(img/backaxis.jpg );
 }
 
 .music_box_2{background-color:yellow;}
@@ -54,4 +61,4 @@ header{
 .music_box_23{background-color:GOLD}
 .music_box_24{background-color:black; color:white}
 .music_box_25{background-color:lightgray}
-.music_box_26{background-color:rgb(41, 35, 4)}
+.music_box_26{background-color:rgb(41, 35, 4); color:white}

@@ -1,37 +1,68 @@
 const MUSIC_NUM = 374;//20190226
 
-var existArray= "";
+var existArray= new Array(MUSIC_NUM);
 
 function initchart(){
     $("#musiclistid").append($("<option>").val(music_table[0][MUSIC_INDEX]).text(music_table[0][NAME_INDEX]));
     
     for(var i = 0; i < MUSIC_NUM; i++){
-        existArray = existArray + "0"; //これは62進数に置き換える
+        existArray[i] = 0; //これは62進数に置き換える
     }
+
+    
+
+    
     
     //a
     //url読み込み等
     //setDraggable();
 }
 
-function setDraggableAndDblclick(e){
-	$( ".draggable" ).draggable().dblclick(function(){
+function setDraggableAndDblclick(id){
+	$( id ).draggable().dblclick(function(){
 	    
 	    if (event.ctrlKey && event.shiftKey) {
             $(this).remove();
             
-            var gatID = e.getAttribute("id");
-            var gatID_i = gatID.replace("iidaze_", "").to_i;
+            var gatID = this.id;
+            gatID = gatID.replace("iidaze_", "");
+            var gatID_i = parseInt(gatID, 10);
             
             //現在表示中のバージョンを確認して動作を分ける
             //セレクトボックス再挿入の処理
-            existArray = existArray.slice(0, gatID_i - 2) + "0" + existArray.slice(gatID_i - 1);
-            
+            existArray[gatID_i] = 0;
+            if(music_table[gatID_i][VER_INDEX] == $("#verlistid").val()){
+                $("#musiclistid").append($("<option>").val(music_table[gatID_i][MUSIC_INDEX]).text(music_table[gatID_i][NAME_INDEX]));
+                
+            }
+            //var musiclist_options = $('#musiclistid').children();
+            //var a = musiclist_options[1].value;
 	    }
 	    if (event.altKey) {
-	        //alert("Controlキーが押されました");
-	        //textageの対象譜面を別タブでオープン
-	        var win = window.open('http://www.yahoo.co.jp', '_blank');
+	        
+            //textageの対象譜面を別タブでオープン
+            
+            var idname = $(this).attr("id"); 
+            var music_id = idname.replace("iidaze_","");
+            
+            const url1 = "http://textage.cc/score/";
+            const url2 = "/";
+            const url3 = ".html?D";
+            const url4 = "C00";
+
+            var version = music_table[music_id][VER_INDEX];
+            //substream対応
+            if(version == 2){
+                version = "s";
+            }
+            
+            var textage = music_table[music_id][ID_INDEX];
+            var difficult = music_table[music_id][DIFF_INDEX];
+
+            var url = url1 + version + url2 + textage + url3 + difficult + url4;
+
+            var win = window.open(url);
+            
 	        return;
 	    }
 	    
@@ -41,41 +72,7 @@ function setDraggableAndDblclick(e){
 
 
 jQuery(function(){
-
-    $('.dbltex').dblclick(function () {
-
-        var idname = $(this).attr("id"); 
-        var music_id = idname.replace("iidaze_","");
-        if (event.ctrlKey){
-            const url1 = "http://textage.cc/score/";
-            const url2 = "/";
-            const url3 = ".html?D";
-            const url4 = "C00";
-
-            var version = music_table[music_id][VER_INDEX];
-            var textage = music_table[music_id][ID_INDEX];
-            var difficult = music_table[music_id][DIFF_INDEX];
-
-            var url = url1 + version + url2 + textage + url3 + difficult + url4;
-
-            window.open(url);
-        }
-
-        $(this).slideUp();
-    });
-
-<<<<<<< HEAD
-=======
-    $(".dbltest").dblclick( function(){
-        $(this).text("ダブルクリック");
-    });
-    
-    //$(".dbltex").on('dblclick', '.draggable', function(e) {
-    //    $(this).remove();
-    //});
-    //import music_table from "list";
->>>>>>> adee875f1d3412b9e2b452f2dea3b0c48e77fc9b
-
+    //バージョン変更
     $("#verlistid").change( function(){
 
         sl = document.getElementById('musiclistid');
@@ -96,77 +93,69 @@ jQuery(function(){
         }
 
         for (var j = 0; j < return_array.length; j++){
-            $("#musiclistid").append($("<option>").val(return_array[j][MUSIC_INDEX]).text(return_array[j][NAME_INDEX]));
+            //存在判定配列の中をMUSI_INDEXに当てはまる部分を確認
+            if(existArray[return_array[j][MUSIC_INDEX]] == 0){
+                $("#musiclistid").append($("<option>").val(return_array[j][MUSIC_INDEX]).text(return_array[j][NAME_INDEX]));
+            }
         }
         
         
 
-        //$("#aa").text("選択バージョン" + selectVal);
-        /* var result = music_table.filter( function( value ) {
-
-            var return_array = [];
-
-             if(value[0] == selectVal){
-                return_array = value[2];
-            } 
-
-            /* for(var i=0;i<return_array.length;i++){
-                let op = document.createElement("option");
-                op.value = arr[i].val;  //value値
-                op.text = arr[i].txt;   //テキスト値
-                document.getElementById("sel1").appendChild(op);
-              }
-            return return_array; 
-         }) */
+        
     });
 
+    //生成
     $('#Generate').click(function () {
 
         var selected_music_index = $("#musiclistid").val();
-        var disp_name = music_table[selected_music_index - 1][DISP_INDEX];
+        var disp_name = music_table[selected_music_index][DISP_INDEX];
 
         $("#musiclistid option").each( function(){
-            if($(this).val() == music_table[selected_music_index - 1][MUSIC_INDEX]) {
+            if($(this).val() == music_table[selected_music_index][MUSIC_INDEX]) {
               $(this).remove();
             }
         });
         
         var div_element = document.createElement("div");
         div_element.innerHTML = 
-            '<div class="draggable music_box music_box_' + music_table[selected_music_index - 1][VER_INDEX] + 
-            '" id="iidaze_'+ music_table[selected_music_index - 1][MUSIC_INDEX] +'">' 
+            '<div class="music_box music_box_' + music_table[selected_music_index][VER_INDEX] + 
+            '" id="iidaze_'+ music_table[selected_music_index][MUSIC_INDEX] +'">' 
             + disp_name + '</div>';
         var parent_object = document.getElementById("generate_position");
         parent_object.appendChild(div_element);
 
 
-        setDraggableAndDblclick();
-        
-        existArray = existArray.slice(0, selected_music_index - 1) + "1" + existArray.slice(selected_music_index);
-        //var tes2 = tes.slice(0, 2) + "a" + tes.slice(3);
-        
+        setDraggableAndDblclick("#iidaze_" + String(music_table[selected_music_index][MUSIC_INDEX]));
+        existArray[selected_music_index] = 1;
+               
     });
-<<<<<<< HEAD
-
-=======
     
-    
->>>>>>> adee875f1d3412b9e2b452f2dea3b0c48e77fc9b
+    //保存
     $('#save').click(function () {
+
+        if (!window.localStorage) {
+            alert("お使いのブラウザはlocalstorageに対応していないため、セーブできません。");
+            return;
+        }
         if(window.confirm('今の状態をセーブしますか？')){
             //var comp = deflate(existArray);
             var compressed = lzbase62.compress(existArray);  
             
-            document.cookie = "IIDAZE=" + compressed;
+            //document.cookie = "IIDAZE=" + compressed;
+            window.localStorage.setItem(['IIDAZE'],[compressed]);
         }
         
     });
-    
+    //読み出し
     $('#load').click(function () {
+        if (!window.localStorage) {
+            alert("お使いのブラウザはlocalstorageに対応していないため、ロードできません。");
+            return;
+        }
         if(window.confirm('保存してある状態をロードしますか？')){
             
-            var compressed = document.cookie;
-            
+            //var compressed = document.cookie;
+            var compressed = window.localStorage.getItem(['IIDAZE']);
             var key = 'IIDAZE';
             var tmp = compressed.split(';');
             var kv = searchStrFromArray(tmp, key);
@@ -182,24 +171,20 @@ jQuery(function(){
             
             compressed = compressed.replace("IIDAZE=", "");
             var decompressed = lzbase62.decompress(compressed);  
-            //var uncomp = inflate(comp);
             
-            
-            //document.cookie =
         }
         
     });
-<<<<<<< HEAD
-
-
-
-    $('#test').click(function () {
-=======
-    
+/* 
+    $('#size').click(function(w, h) {
+        $(".chart_axis").css({
+            "width": w + "px",
+            "height": r + "px"
+        });
+    }); */
     
     
     $('#test').click(function (){
->>>>>>> adee875f1d3412b9e2b452f2dea3b0c48e77fc9b
         $(this).text("クリックされました");
     });
 });
@@ -214,8 +199,4 @@ function searchStrFromArray(arr, str){
     });
     
     return -1;
-<<<<<<< HEAD
 }
-=======
-}
->>>>>>> adee875f1d3412b9e2b452f2dea3b0c48e77fc9b
