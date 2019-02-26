@@ -1,3 +1,7 @@
+const MUSIC_NUM = 374;//20190226
+
+var existArray= "";
+
 function initchart(){
     $("#musiclistid").append($("<option>").val(music_table[0][MUSIC_INDEX]).text(music_table[0][NAME_INDEX]));
     
@@ -60,6 +64,17 @@ jQuery(function(){
         $(this).slideUp();
     });
 
+<<<<<<< HEAD
+=======
+    $(".dbltest").dblclick( function(){
+        $(this).text("ダブルクリック");
+    });
+    
+    //$(".dbltex").on('dblclick', '.draggable', function(e) {
+    //    $(this).remove();
+    //});
+    //import music_table from "list";
+>>>>>>> adee875f1d3412b9e2b452f2dea3b0c48e77fc9b
 
     $("#verlistid").change( function(){
 
@@ -131,7 +146,12 @@ jQuery(function(){
         //var tes2 = tes.slice(0, 2) + "a" + tes.slice(3);
         
     });
+<<<<<<< HEAD
 
+=======
+    
+    
+>>>>>>> adee875f1d3412b9e2b452f2dea3b0c48e77fc9b
     $('#save').click(function () {
         if(window.confirm('今の状態をセーブしますか？')){
             //var comp = deflate(existArray);
@@ -169,10 +189,17 @@ jQuery(function(){
         }
         
     });
+<<<<<<< HEAD
 
 
 
     $('#test').click(function () {
+=======
+    
+    
+    
+    $('#test').click(function (){
+>>>>>>> adee875f1d3412b9e2b452f2dea3b0c48e77fc9b
         $(this).text("クリックされました");
     });
 });
@@ -187,4 +214,8 @@ function searchStrFromArray(arr, str){
     });
     
     return -1;
+<<<<<<< HEAD
 }
+=======
+}
+>>>>>>> adee875f1d3412b9e2b452f2dea3b0c48e77fc9b
