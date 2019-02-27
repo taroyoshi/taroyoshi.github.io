@@ -3,7 +3,7 @@ const MUSIC_NUM = 374;//20190226
 var existArray= new Array(MUSIC_NUM);
 
 function initchart(){
-    $("#musiclistid").append($("<option>").val(music_table[0][MUSIC_INDEX]).text(music_table[0][NAME_INDEX]));
+    
     
     for(var i = 0; i < MUSIC_NUM; i++){
         existArray[i] = 0; //これは62進数に置き換える
@@ -13,9 +13,15 @@ function initchart(){
 
     
     
-    //a
+    
     //url読み込み等
-    //setDraggable();
+    
+    
+    //20190227現在 RUGGED ASHのみ確認して譜面選択セレクトボックスの初期化
+    if(existArray[0] === 0){
+        $("#musiclistid").append($("<option>").val(music_table[0][MUSIC_INDEX]).text(music_table[0][NAME_INDEX]));
+    }
+    
 }
 
 //ドラッグ可能, ダブルクリックイベント付与
@@ -87,7 +93,6 @@ jQuery(function(){
         
         var return_array = [];
 
-        //var a = music_table["holic"];
         for (var i = 0; i < music_table.length; i++){
             if(selectVal ==  music_table[i][VER_INDEX]){
                 return_array.push(music_table[i]);
@@ -101,10 +106,31 @@ jQuery(function(){
             }
         }
         
-        
-
-        
     });
+    
+    //初期化
+    $('#init').click(function () {
+        if(window.confirm('初期化を行いますか？ セーブしている内容も削除されます。')){
+            if(window.confirm('本当に初期化を行いますか？')){
+                
+                //loacl strageの削除
+                localStorage.removeItem("IIDZEpara"); 
+                for(var id = 0; id < MUSIC_NUM; id++){
+                    delID = "#iidaze_" + String(id);
+                    $(delID).remove();
+                }
+                
+                //セレクトボックスの変更は保存したぶっくまーく　参照
+                $("#verlistid").val = 2;
+                
+                
+                for(var i = 0; i < MUSIC_NUM; i++){
+                    existArray[i] = 0; //これは62進数に置き換える
+                }
+            }
+        }
+    });
+    
 
     //生成
     $('#Generate').click(function () {
@@ -143,10 +169,9 @@ jQuery(function(){
             
             //var compressedExist = lzbase62.compress(existArray);  
             
-            //loacl strageの削除
-            var madeUrl =  makeUrlPara(existArray);
+            var madeUrlPara =  makeUrlPara(existArray);
             
-            window.localStorage.setItem(['para'],[madeUrl]);
+            window.localStorage.setItem(['IIDZEpara'],[madeUrlPara]);
             
         }
         
@@ -159,16 +184,15 @@ jQuery(function(){
         }
         if(window.confirm('保存してある状態をロードしますか？')){
             
+            var iidazepara = window.localStorage.getItem(['IIDZEpara']);
+            //↑を分解
             
-            var compressed = window.localStorage.getItem(['IIDAZE']);
+            var decompExist = a;
+            var decompPos = a;
+            var decompTarget = a;
+            var decompOpt = a;
             
-            
-            var key = 'IIDAZE';
-            var tmp = compressed.split(';');
-            
-            
-            
-            var decompressed = lzbase62.decompress(compressed);  
+            //var decompressed = lzbase62.decompress(compressed);  
             
         }
         
