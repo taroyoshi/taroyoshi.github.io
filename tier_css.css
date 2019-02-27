@@ -24,7 +24,7 @@ header{
     background-size: cover;
     text-align: center;
     background-image : url(img/backaxis.jpg );
-    /*position:relative;*/
+    
     z-index:0;
 }
 
@@ -34,22 +34,23 @@ header{
     
     word-break : break-all;
     z-index: 10;
-    width:50px;
-    height:50px;
+    width:40px;
+    height:40px;
     border-style: groove;
     position:absolute;
+    
 }
 
 
 
-.music_box_2{background-color:yellow;}
-.music_box_3{background-color:deeppink;}
-.music_box_4{background-color:red}
+.music_box_2{background-color:yellow; opacity: 0.9;}
+.music_box_3{background-color:deeppink; opacity: 0.9;}
+.music_box_4{background-color:red; opacity: 0.9;}
 .music_box_5{background-color:darkblue; color:white}
-.music_box_6{background-color:mediumpurple}
-.music_box_7{background-color:silver}
-.music_box_8{background-color:orange}
-.music_box_9{background-color:aqua}
+.music_box_6{background-color:mediumpurple; opacity: 0.9;}
+.music_box_7{background-color:silver; opacity: 0.9;}
+.music_box_8{background-color:orange; opacity: 0.9;}
+.music_box_9{background-color:aqua; opacity: 0.9;}
 .music_box_10{background-color:midnightblue; color:white}
 .music_box_11{background-color:rgb(80, 2, 2); color:white}
 .music_box_12{background-color:blue}

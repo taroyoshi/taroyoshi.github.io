@@ -18,6 +18,7 @@ function initchart(){
     //setDraggable();
 }
 
+//ドラッグ可能, ダブルクリックイベント付与
 function setDraggableAndDblclick(id){
 	$( id ).draggable().dblclick(function(){
 	    
@@ -172,13 +173,7 @@ jQuery(function(){
         }
         
     });
-/* 
-    $('#size').click(function(w, h) {
-        $(".chart_axis").css({
-            "width": w + "px",
-            "height": r + "px"
-        });
-    }); */
+
     
     
     $('#test').click(function (){
@@ -206,7 +201,6 @@ function makeUrlPara(arr){
                 l62 = tos(l);
             }
             
-            
             //上位置取得, 62進数変換
             var t = each_id.style.top.replace("px","");
              if(t === ""){
@@ -226,13 +220,15 @@ function makeUrlPara(arr){
     //位置情報URLの圧縮
     var compressedPos = lzbase62.compress(retUrl);
     
-    return ("?ex-" + compressedExist + "-ps-" +compressedPos);
+    var targetsl = $("#targetid").val();
+    var optsl = $("#optid").val();
+    return ("?ex-" + compressedExist + "-ps-" +compressedPos + "-t-" + targetsl + "-o-" + optsl);
 }
     
 
 
 //不要?
-function searchStrFromArray(arr, str){
+/*function searchStrFromArray(arr, str){
     arr.some(function(value) {
         //cookie名と値に分ける
         var content = value.split('=');
@@ -242,4 +238,4 @@ function searchStrFromArray(arr, str){
     });
     
     return -1;
-}
+}*/
