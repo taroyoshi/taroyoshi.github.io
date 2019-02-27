@@ -139,14 +139,14 @@ jQuery(function(){
             return;
         }
         if(window.confirm('今の状態をセーブしますか？')){
-            //var comp = deflate(existArray);
-            var compressedExist = lzbase62.compress(existArray);  
+            
+            //var compressedExist = lzbase62.compress(existArray);  
             
             //loacl strageの削除
-            makeUrl(existArray);
+            var madeUrl =  makeUrlPara(existArray);
             
-            window.localStorage.setItem(['exist'],[compressedExist]);
-            window.localStorage.setItem(['pos'],[]);
+            window.localStorage.setItem(['para'],[madeUrl]);
+            
         }
         
     });
@@ -164,17 +164,7 @@ jQuery(function(){
             
             var key = 'IIDAZE';
             var tmp = compressed.split(';');
-            //var kv = searchStrFromArray(tmp, key);
-            /*
-            var index1 = tmp.indexOf(key, 0);
-        	if(index1 != -1){
-        		tmp = tmp.substring(index1,tmp.length);
-        		var index2 = tmp.indexOf("=",0) + 1;
-        		var index3 = tmp.indexOf(";",index2);
-        		return(document.location.href=decodeURIComponent(tmp.substring(index2,index3)));
-        	}
-        	*/
-              
+            
             
             
             var decompressed = lzbase62.decompress(compressed);  
@@ -196,25 +186,47 @@ jQuery(function(){
     });
 });
 
-function makeUrl(arr){
+function makeUrlPara(arr){
     
     var retUrl = "";
     
     for(var id = 0; id < MUSIC_NUM; id++){
         if(arr[id] == 1){
-            
+            //ID取得
             var each_id = document.getElementById('iidaze_'+ id);
-            //if (parseInt(each_id.style.left) >= 1280
-            var l = each_id.style.left;
-            var l36 = parseInt(l).toString(36);
-            var t = each_id.style.top;
-            var t36 = parseInt(t).toString(36);
+            var l62, t62;
             
-            returl = retUrl + l36 + t36;
+            
+            //左位置取得, 62進数変換
+            var l = each_id.style.left.replace("px","");
+            if(l === ""){
+                l62 = "00";
+            }
+            else{
+                l62 = tos(l);
+            }
+            
+            
+            //上位置取得, 62進数変換
+            var t = each_id.style.top.replace("px","");
+             if(t === ""){
+                t62 = "00";
+            }
+            else{
+                t62 = tos(t);
+            }
+        
+            //圧縮前文字列に格納
+            retUrl = retUrl + l62 + t62;
         }
     }
     
-    return retUrl;
+    //存在判定配列の圧縮
+    var compressedExist = lzbase62.compress(existArray);  
+    //位置情報URLの圧縮
+    var compressedPos = lzbase62.compress(retUrl);
+    
+    return ("?ex-" + compressedExist + "-ps-" +compressedPos);
 }
     
 

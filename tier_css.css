@@ -5,6 +5,7 @@ header{
     position:fixed;
     height:50px;
     width:100%;
+    z-index: 15;
 }
 /* 
 .chart_axis{
@@ -23,7 +24,7 @@ header{
     background-size: cover;
     text-align: center;
     background-image : url(img/backaxis.jpg );
-    position:relative;
+    /*position:relative;*/
     z-index:0;
 }
 
