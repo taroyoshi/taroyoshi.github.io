@@ -16,18 +16,6 @@ header{
     width:300px;
 }
 
-.music_box{
-    float:left;
-    font-size: 13px;
-    vertical-align:bottom;
-    word-break : break-all;
-    background-color: rgb(16, 117, 143);
-    width:50px;
-    height:50px;
-    border-style: groove;
-    position:absolute;
-}
-
 #main{
     width:2000px;
     height:1500px;
@@ -35,7 +23,23 @@ header{
     background-size: cover;
     text-align: center;
     background-image : url(img/backaxis.jpg );
+    position:relative;
+    z-index:0;
 }
+
+.music_box{
+    float:left;
+    font-size: 12px;
+    
+    word-break : break-all;
+    z-index: 10;
+    width:50px;
+    height:50px;
+    border-style: groove;
+    position:absolute;
+}
+
+
 
 .music_box_2{background-color:yellow;}
 .music_box_3{background-color:deeppink;}

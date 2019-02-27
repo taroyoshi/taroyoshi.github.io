@@ -143,10 +143,10 @@ jQuery(function(){
             var compressedExist = lzbase62.compress(existArray);  
             
             //loacl strageの削除
+            makeUrl(existArray);
             
-            
-            window.localStorage.setItem(['IIDAZE'],[compressedExist]);
-            window.localStorage.setItem(['test'],[123]);
+            window.localStorage.setItem(['exist'],[compressedExist]);
+            window.localStorage.setItem(['pos'],[]);
         }
         
     });
@@ -196,11 +196,27 @@ jQuery(function(){
     });
 });
 
-function makeUrl(){
+function makeUrl(arr){
     
+    var retUrl = "";
     
+    for(var id = 0; id < MUSIC_NUM; id++){
+        if(arr[id] == 1){
+            
+            var each_id = document.getElementById('iidaze_'+ id);
+            //if (parseInt(each_id.style.left) >= 1280
+            var l = each_id.style.left;
+            var l36 = parseInt(l).toString(36);
+            var t = each_id.style.top;
+            var t36 = parseInt(t).toString(36);
+            
+            returl = retUrl + l36 + t36;
+        }
+    }
     
+    return retUrl;
 }
+    
 
 
 //不要?
