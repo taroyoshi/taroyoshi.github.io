@@ -51,6 +51,7 @@ function setDraggableAndDblclick(id){
             const url4 = "C00";
 
             var version = music_table[music_id][VER_INDEX];
+            
             //substream対応
             if(version == 2){
                 version = "s";
@@ -94,7 +95,7 @@ jQuery(function(){
 
         for (var j = 0; j < return_array.length; j++){
             //存在判定配列の中をMUSI_INDEXに当てはまる部分を確認
-            if(existArray[return_array[j][MUSIC_INDEX]] == 0){
+            if(existArray[return_array[j][MUSIC_INDEX]] === 0){
                 $("#musiclistid").append($("<option>").val(return_array[j][MUSIC_INDEX]).text(return_array[j][NAME_INDEX]));
             }
         }
@@ -124,7 +125,7 @@ jQuery(function(){
         var parent_object = document.getElementById("generate_position");
         parent_object.appendChild(div_element);
 
-
+        //対象IDをドラッグ可, ダブルクリックイベント付与
         setDraggableAndDblclick("#iidaze_" + String(music_table[selected_music_index][MUSIC_INDEX]));
         existArray[selected_music_index] = 1;
                
@@ -139,10 +140,13 @@ jQuery(function(){
         }
         if(window.confirm('今の状態をセーブしますか？')){
             //var comp = deflate(existArray);
-            var compressed = lzbase62.compress(existArray);  
+            var compressedExist = lzbase62.compress(existArray);  
             
-            //document.cookie = "IIDAZE=" + compressed;
-            window.localStorage.setItem(['IIDAZE'],[compressed]);
+            //loacl strageの削除
+            
+            
+            window.localStorage.setItem(['IIDAZE'],[compressedExist]);
+            window.localStorage.setItem(['test'],[123]);
         }
         
     });
@@ -154,12 +158,14 @@ jQuery(function(){
         }
         if(window.confirm('保存してある状態をロードしますか？')){
             
-            //var compressed = document.cookie;
+            
             var compressed = window.localStorage.getItem(['IIDAZE']);
+            
+            
             var key = 'IIDAZE';
             var tmp = compressed.split(';');
-            var kv = searchStrFromArray(tmp, key);
-            
+            //var kv = searchStrFromArray(tmp, key);
+            /*
             var index1 = tmp.indexOf(key, 0);
         	if(index1 != -1){
         		tmp = tmp.substring(index1,tmp.length);
@@ -167,9 +173,10 @@ jQuery(function(){
         		var index3 = tmp.indexOf(";",index2);
         		return(document.location.href=decodeURIComponent(tmp.substring(index2,index3)));
         	}
-                
+        	*/
+              
             
-            compressed = compressed.replace("IIDAZE=", "");
+            
             var decompressed = lzbase62.decompress(compressed);  
             
         }
@@ -189,6 +196,14 @@ jQuery(function(){
     });
 });
 
+function makeUrl(){
+    
+    
+    
+}
+
+
+//不要?
 function searchStrFromArray(arr, str){
     arr.some(function(value) {
         //cookie名と値に分ける
