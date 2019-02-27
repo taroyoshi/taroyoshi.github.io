@@ -6,7 +6,7 @@ function initchart(){
     
     
     for(var i = 0; i < MUSIC_NUM; i++){
-        existArray[i] = 0; //これは62進数に置き換える
+        existArray[i] = "0"; //これは62進数に置き換える
     }
 
     
@@ -18,7 +18,7 @@ function initchart(){
     
     
     //20190227現在 RUGGED ASHのみ確認して譜面選択セレクトボックスの初期化
-    if(existArray[0] === 0){
+    if(existArray[0] == "0"){
         $("#musiclistid").append($("<option>").val(music_table[0][MUSIC_INDEX]).text(music_table[0][NAME_INDEX]));
     }
     
@@ -26,6 +26,7 @@ function initchart(){
 
 //ドラッグ可能, ダブルクリックイベント付与
 function setDraggableAndDblclick(id){
+
 	$( id ).draggable().dblclick(function(){
 	    
 	    if (event.ctrlKey && event.shiftKey) {
@@ -37,7 +38,7 @@ function setDraggableAndDblclick(id){
             
             //現在表示中のバージョンを確認して動作を分ける
             //セレクトボックス再挿入の処理
-            existArray[gatID_i] = 0;
+            existArray[gatID_i] = "0";
             if(music_table[gatID_i][VER_INDEX] == $("#verlistid").val()){
                 $("#musiclistid").append($("<option>").val(music_table[gatID_i][MUSIC_INDEX]).text(music_table[gatID_i][NAME_INDEX]));
                 
@@ -101,7 +102,9 @@ jQuery(function(){
 
         for (var j = 0; j < return_array.length; j++){
             //存在判定配列の中をMUSI_INDEXに当てはまる部分を確認
-            if(existArray[return_array[j][MUSIC_INDEX]] === 0){
+
+            var a = existArray[return_array[j][MUSIC_INDEX]];//debug
+            if(existArray[return_array[j][MUSIC_INDEX]] == "0"){
                 $("#musiclistid").append($("<option>").val(return_array[j][MUSIC_INDEX]).text(return_array[j][NAME_INDEX]));
             }
         }
@@ -120,12 +123,19 @@ jQuery(function(){
                     $(delID).remove();
                 }
                 
-                //セレクトボックスの変更は保存したぶっくまーく　参照
-                $("#verlistid").val = 2;
-                
+                //一旦substreamに
+                $("#verlistid").val("2");
+
+                //譜面リスト初期化
+                sl = document.getElementById('musiclistid');
+                while(sl.lastChild)
+                {
+                    sl.removeChild(sl.lastChild);
+                }
+                $("#musiclistid").append($("<option>").val(music_table[0][MUSIC_INDEX]).text(music_table[0][NAME_INDEX]));
                 
                 for(var i = 0; i < MUSIC_NUM; i++){
-                    existArray[i] = 0; //これは62進数に置き換える
+                    existArray[i] = "0";
                 }
             }
         }
@@ -154,7 +164,7 @@ jQuery(function(){
 
         //対象IDをドラッグ可, ダブルクリックイベント付与
         setDraggableAndDblclick("#iidaze_" + String(music_table[selected_music_index][MUSIC_INDEX]));
-        existArray[selected_music_index] = 1;
+        existArray[selected_music_index] = "1";
                
     });
     
@@ -171,7 +181,7 @@ jQuery(function(){
             
             var madeUrlPara =  makeUrlPara(existArray);
             
-            window.localStorage.setItem(['IIDZEpara'],[madeUrlPara]);
+            window.localStorage.setItem(['IIDAZEpara'],[madeUrlPara]);
             
         }
         
@@ -184,13 +194,29 @@ jQuery(function(){
         }
         if(window.confirm('保存してある状態をロードしますか？')){
             
-            var iidazepara = window.localStorage.getItem(['IIDZEpara']);
+            var iidazepara = window.localStorage.getItem(['IIDAZEpara']);
             //↑を分解
             
-            var decompExist = a;
-            var decompPos = a;
-            var decompTarget = a;
-            var decompOpt = a;
+            //var exst = iidazepara.indexOf("?ex-");
+            var psst = iidazepara.indexOf("-ps-");
+            var tst = iidazepara.indexOf("-t-");
+            var ost = iidazepara.indexOf("-o-");
+
+
+            //return ("?ex-" + compressedExist + "-ps-" +compressedPos + "-t-" + targetsl + "-o-" + optsl);
+
+
+            var decompExist = iidazepara.substring(4, psst);
+            var decompPos = iidazepara.substring(psst + 4, tst);
+            var Target = iidazepara.substring(tst + 3, ost);
+            var Opt = iidazepara.substring(ost + 3, ost + 4);
+
+            
+            existArray =  lzbase62.decompress(decompExist).split(",");
+
+            $("#targetid").val(String(Target));
+            $("#optid").val(String(Opt));
+
             
             //var decompressed = lzbase62.decompress(compressed);  
             
@@ -248,18 +274,3 @@ function makeUrlPara(arr){
     var optsl = $("#optid").val();
     return ("?ex-" + compressedExist + "-ps-" +compressedPos + "-t-" + targetsl + "-o-" + optsl);
 }
-    
-
-
-//不要?
-/*function searchStrFromArray(arr, str){
-    arr.some(function(value) {
-        //cookie名と値に分ける
-        var content = value.split('=');
-        if(content[0] == str){
-            return content;
-        }
-    });
-    
-    return -1;
-}*/
