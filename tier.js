@@ -8,12 +8,7 @@ function initchart(){
     for(var i = 0; i < MUSIC_NUM; i++){
         existArray[i] = "0"; //これは62進数に置き換える
     }
-
-    
-
-    
-    
-    
+ 
     //url読み込み等
     
     
@@ -24,7 +19,10 @@ function initchart(){
     
 }
 
+
+/*==================================================================================================
 //ドラッグ可能, ダブルクリックイベント付与
+==================================================================================================*/
 function setDraggableAndDblclick(id){
 
 	$( id ).draggable().dblclick(function(){
@@ -36,15 +34,14 @@ function setDraggableAndDblclick(id){
             gatID = gatID.replace("iidaze_", "");
             var gatID_i = parseInt(gatID, 10);
             
-            //現在表示中のバージョンを確認して動作を分ける
+            //現在表示中のバージョンを確認して動作を分けるべきか?
             //セレクトボックス再挿入の処理
             existArray[gatID_i] = "0";
             if(music_table[gatID_i][VER_INDEX] == $("#verlistid").val()){
                 $("#musiclistid").append($("<option>").val(music_table[gatID_i][MUSIC_INDEX]).text(music_table[gatID_i][NAME_INDEX]));
                 
             }
-            //var musiclist_options = $('#musiclistid').children();
-            //var a = musiclist_options[1].value;
+            
 	    }
 	    if (event.altKey) {
 	        
@@ -81,43 +78,28 @@ function setDraggableAndDblclick(id){
 
 
 jQuery(function(){
-    //バージョン変更
+    
+    /*==================================================================================================
+    //バージョン変更jQuery
+    ==================================================================================================*/
     $("#verlistid").change( function(){
 
-        sl = document.getElementById('musiclistid');
-        while(sl.lastChild)
-        {
-            sl.removeChild(sl.lastChild);
-        }
-
         const selectVal = $("#verlistid").val();
-        
-        var return_array = [];
 
-        for (var i = 0; i < music_table.length; i++){
-            if(selectVal ==  music_table[i][VER_INDEX]){
-                return_array.push(music_table[i]);
-            }
-        }
-
-        for (var j = 0; j < return_array.length; j++){
-            //存在判定配列の中をMUSI_INDEXに当てはまる部分を確認
-
-            var a = existArray[return_array[j][MUSIC_INDEX]];//debug
-            if(existArray[return_array[j][MUSIC_INDEX]] == "0"){
-                $("#musiclistid").append($("<option>").val(return_array[j][MUSIC_INDEX]).text(return_array[j][NAME_INDEX]));
-            }
-        }
-        
+        MusicSelectBoxChange(selectVal);
     });
     
-    //初期化
+    /*==================================================================================================
+    //初期化jQuery
+    ==================================================================================================*/
     $('#init').click(function () {
         if(window.confirm('初期化を行いますか？ セーブしている内容も削除されます。')){
             if(window.confirm('本当に初期化を行いますか？')){
                 
                 //loacl strageの削除
                 localStorage.removeItem("IIDZEpara"); 
+
+                //BOX全削除
                 for(var id = 0; id < MUSIC_NUM; id++){
                     delID = "#iidaze_" + String(id);
                     $(delID).remove();
@@ -141,13 +123,15 @@ jQuery(function(){
         }
     });
     
-
-    //生成
+    /*==================================================================================================
+    //生成jQuery
+    ==================================================================================================*/
     $('#Generate').click(function () {
 
         var selected_music_index = $("#musiclistid").val();
         var disp_name = music_table[selected_music_index][DISP_INDEX];
 
+        //譜面セレクトボックスから削除
         $("#musiclistid option").each( function(){
             if($(this).val() == music_table[selected_music_index][MUSIC_INDEX]) {
               $(this).remove();
@@ -168,7 +152,10 @@ jQuery(function(){
                
     });
     
-    //保存
+    
+    /*==================================================================================================
+    //保存jQuery
+    ==================================================================================================*/
     $('#save').click(function () {
 
         if (!window.localStorage) {
@@ -186,7 +173,10 @@ jQuery(function(){
         }
         
     });
-    //読み出し
+    
+    /*==================================================================================================
+    //読出jQuery
+    ==================================================================================================*/
     $('#load').click(function () {
         if (!window.localStorage) {
             alert("お使いのブラウザはlocalstorageに対応していないため、ロードできません。");
@@ -205,32 +195,100 @@ jQuery(function(){
 
             //return ("?ex-" + compressedExist + "-ps-" +compressedPos + "-t-" + targetsl + "-o-" + optsl);
 
+            //BOX全削除
+            for(var id = 0; id < MUSIC_NUM; id++){
+                if(existArray[id] == "1"){
+                    delID = "#iidaze_" + String(id);
+                    $(delID).remove();
+                }
+            }
 
-            var decompExist = iidazepara.substring(4, psst);
-            var decompPos = iidazepara.substring(psst + 4, tst);
+            var compExist = iidazepara.substring(4, psst);
+            var compPos = iidazepara.substring(psst + 4, tst);
             var Target = iidazepara.substring(tst + 3, ost);
             var Opt = iidazepara.substring(ost + 3, ost + 4);
 
+            existArray =  lzbase62.decompress(compExist).split(",");
             
-            existArray =  lzbase62.decompress(decompExist).split(",");
+            decompPosL = [];
+            decompPosT = [];
+            decompStr = lzbase62.decompress(compPos);
+            for(var l = 0; l < decompStr.length; l = l + 4){
+                //デコード後文字列から４文字毎に切り出し、左位置 上位置毎を取得し10進数に戻して格納
+                decompPosL.push(tot(decompStr.substring(l, l + 2)));
+                decompPosT.push(tot(decompStr.substring(l + 2, l + 4)));
+            }
 
+            var posn = 0;
+
+            for(var id = 0; id < MUSIC_NUM; id++){
+                
+                if(existArray[id] == 1){
+
+                    var div_element = document.createElement("div");
+                    var parent_object = document.getElementById("generate_position");
+                    var disp_name = music_table[id][DISP_INDEX];
+                    div_element.innerHTML = 
+                        '<div class="music_box music_box_' + music_table[id][VER_INDEX] + 
+                        '" id="iidaze_'+ music_table[id][MUSIC_INDEX] +
+                        '" style="left: '+ decompPosL[posn] +'px; top: '+ decompPosT[posn] +'px;">' + disp_name + '</div>';
+                    
+                    parent_object.appendChild(div_element);
+                    setDraggableAndDblclick("#iidaze_" + music_table[id][MUSIC_INDEX]);
+                    posn = posn + 1;
+                }
+            }
+
+            //目標, オプションのセレクトボックス変更
             $("#targetid").val(String(Target));
             $("#optid").val(String(Opt));
-
             
-            //var decompressed = lzbase62.decompress(compressed);  
-            
+            //バージョンをsubstreamに
+            $("#verlistid").val("2");
+            MusicSelectBoxChange(2);        
         }
         
     });
 
     
+    /*==================================================================================================
+    //譜面セレクトボックス生成
+    ==================================================================================================*/
+    function MusicSelectBoxChange(version){
+        sl = document.getElementById('musiclistid');
+        while(sl.lastChild)
+        {
+            sl.removeChild(sl.lastChild);
+        }
+
+        const selectVal = $("#verlistid").val();
+        
+        var return_array = [];
+
+        for (var i = 0; i < music_table.length; i++){
+            if(selectVal ==  music_table[i][VER_INDEX]){
+                return_array.push(music_table[i]);
+            }
+        }
+
+        for (var j = 0; j < return_array.length; j++){
+            //存在判定配列の中をMUSIC_INDEXに当てはまる部分を確認
+            if(existArray[return_array[j][MUSIC_INDEX]] == "0"){
+                $("#musiclistid").append($("<option>").val(return_array[j][MUSIC_INDEX]).text(return_array[j][NAME_INDEX]));
+            }
+        }
+
+    }
     
     $('#test').click(function (){
         $(this).text("クリックされました");
     });
 });
 
+
+/*==================================================================================================
+//パラメータ作成
+==================================================================================================*/
 function makeUrlPara(arr){
     
     var retUrl = "";
