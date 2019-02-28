@@ -48,7 +48,7 @@
 	"bugs": "https://bugs.jqueryui.com/",
 	"license": "MIT",
 	"scripts": {
-	    "start": "node tier.js"
+	    "start": "node tier_main.html"
 	},
 	"dependencies": {},
 	"devDependencies": {
