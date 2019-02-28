@@ -48,6 +48,7 @@
 	"bugs": "https://bugs.jqueryui.com/",
 	"license": "MIT",
 	"scripts": {
+	    "start": "tier.js",
 		"test": "grunt"
 	},
 	"dependencies": {},
