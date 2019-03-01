@@ -66,7 +66,13 @@ function setDraggableAndDblclick(id){
             var textage = music_table[music_id][ID_INDEX];
             var difficult = music_table[music_id][DIFF_INDEX];
 
-            var url = url1 + version + url2 + textage + url3 + difficult + url4;
+            var url = url1 + 
+                    version + 
+                    url2 + 
+                    textage + 
+                    url3 + 
+                    difficult + 
+                    url4;
 
             var win = window.open(url);
             
@@ -75,8 +81,16 @@ function setDraggableAndDblclick(id){
 	    
     });
 }
-
-
+/*======================================================================
+//ホバーイベント付与
+======================================================================*/
+function setHover(id, music_name){
+    $( id ).hover(function(){
+        $("#OnMusicName").val(music_name);
+    },function(){
+        $("#OnMusicName").val("");
+    });
+}
 
 jQuery(function(){
     
@@ -89,6 +103,8 @@ jQuery(function(){
 
         MusicSelectBoxChange(selectVal);
     });
+
+    
     
     /*==================================================================================================
     //初期化jQuery
@@ -140,17 +156,22 @@ jQuery(function(){
         });
         
         var div_element = document.createElement("div");
-        div_element.innerHTML = 
-            '<div class="music_box music_box_' + music_table[selected_music_index][VER_INDEX] + 
-            '" id="iidaze_'+ music_table[selected_music_index][MUSIC_INDEX] +'">' 
-            + disp_name + '</div>';
+        div_element.innerHTML = '<div class="music_box music_box_' + 
+                                music_table[selected_music_index][VER_INDEX] + 
+                                '" id="iidaze_'+ 
+                                music_table[selected_music_index][MUSIC_INDEX] +
+                                '">' + 
+                                disp_name + 
+                                '</div>';
         var parent_object = document.getElementById("generate_position");
         parent_object.appendChild(div_element);
 
         //対象IDをドラッグ可, ダブルクリックイベント付与
         setDraggableAndDblclick("#iidaze_" + String(music_table[selected_music_index][MUSIC_INDEX]));
         existArray[selected_music_index] = "1";
-               
+       
+        setHover("#iidaze_" + String(music_table[selected_music_index][MUSIC_INDEX]), 
+                music_table[selected_music_index][NAME_INDEX]);
     });
     
     
@@ -281,9 +302,7 @@ jQuery(function(){
 
     }
     
-    $('#test').click(function (){
-        $(this).text("クリックされました");
-    });
+    
 });
 
 

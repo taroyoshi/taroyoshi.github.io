@@ -20,7 +20,7 @@ header{
     margin:1px 3px;
  }
 .button{
-    
+    margin-top:8px;
     height:30px;
     width:90px;
 }
@@ -39,6 +39,10 @@ header{
     
     z-index:0;
 }
+#OnMusicName{
+    width:380px;
+}
+
 
 .music_box{
     float:left;
