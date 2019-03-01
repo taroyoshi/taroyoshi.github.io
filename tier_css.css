@@ -6,12 +6,24 @@ header{
     height:50px;
     width:100%;
     z-index: 15;
+    min-width:1200px;
 }
-/* 
-.chart_axis{
-    width:100%;
-    height:1000px;
-} */
+
+.HeadBlock{
+    margin:5px 3px;
+    
+    float:left;
+}
+
+.HeadBlock p{
+    font-size:13px;
+    margin:1px 3px;
+ }
+.button{
+    
+    height:30px;
+    width:90px;
+}
 
 #musiclistid{
     width:300px;

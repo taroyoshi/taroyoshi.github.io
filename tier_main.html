@@ -29,55 +29,69 @@
 </head>
 <body onload="initchart()">
     <header>
-        <select name="target" id="targetid">
-            <option value="0">SCORE MAX</option>
-            <option value="1">SCORE AAA</option>
-            <option value="2">SCORE AA</option>
-            <option value="3">SCORE A</option>
-            <option value="4">FULL COMBO</option>
-            <option value="5">EX HARD CLEAR</option>
-            <option value="6">HARD CLEAR</option>
-            <option value="7">CLEAR</option>
-        </select>
-        <select name="opt" id="optid">
-            <option value="0">FREE</option>
-            <option value="1">RANDOM GROUP NG</option>
-            <option value="2">FLIP NG</option>
-            <option value="3">OFF OPTION</option>
-        </select>
-        <select name="ver_list" id="verlistid">
-            <option value="2">Substream</option>
-            <option value="3">3rd style</option>
-            <option value="4">4th style</option>
-            <option value="5">5th style</option>
-            <option value="6">6th style</option>
-            <option value="7">7th style</option>
-            <option value="8">8th style</option>
-            <option value="9">9th style</option>
-            <option value="10">10th style</option>
-            <option value="11">IIDX RED</option>
-            <option value="12">HAPPY SKY</option>
-            <option value="13">DistrteD</option>
-            <option value="14">GOLD</option>
-            <option value="15">DJ TROOPERS</option>
-            <option value="16">EMPRESS</option>
-            <option value="17">SIRIUS</option>
-            <option value="18">Resort Anthem</option>
-            <option value="19">Lincle</option>
-            <option value="20">tricolo</option>
-            <option value="21">SPADA</option>
-            <option value="22">PENDUAL</option>
-            <option value="23">copula</option>
-            <option value="24">SINOBUZ</option>
-            <option value="25">CANNON BALLERS</option>
-            <option value="26">Rootage</option>          
-        </select>
-
-        <select id="musiclistid"></select>
-        <input type="button" id="Generate" value="Generate"/>
-        <input type="button" id="save" value="Save"/>
-        <input type="button" id="load" value="Load"/>
-        <input type="button" id="init" value="初期化"/>
+        <div class="HeadBlock">
+            <p>目標設定</p>
+            <select name="target" id="targetid">
+                <option value="0">SCORE MAX</option>
+                <option value="1">SCORE AAA</option>
+                <option value="2">SCORE AA</option>
+                <option value="3">SCORE A</option>
+                <option value="4">FULL COMBO</option>
+                <option value="5">EX HARD CLEAR</option>
+                <option value="6">HARD CLEAR</option>
+                <option value="7">CLEAR</option>
+            </select>
+        </div>
+        
+        <div class="HeadBlock">
+            <p>オプション指定</p>
+            <select name="opt" id="optid">
+                <option value="0">FREE</option>
+                <option value="1">RANDOM GROUP NG</option>
+                <option value="2">FLIP NG</option>
+                <option value="3">OFF OPTION</option>
+            </select>
+        </div>
+        
+        <div class="HeadBlock">
+            <p>バージョン選択</p>
+            <select name="ver_list" id="verlistid">
+                <option value="2">Substream</option>
+                <option value="3">3rd style</option>
+                <option value="4">4th style</option>
+                <option value="5">5th style</option>
+                <option value="6">6th style</option>
+                <option value="7">7th style</option>
+                <option value="8">8th style</option>
+                <option value="9">9th style</option>
+                <option value="10">10th style</option>
+                <option value="11">IIDX RED</option>
+                <option value="12">HAPPY SKY</option>
+                <option value="13">DistrteD</option>
+                <option value="14">GOLD</option>
+                <option value="15">DJ TROOPERS</option>
+                <option value="16">EMPRESS</option>
+                <option value="17">SIRIUS</option>
+                <option value="18">Resort Anthem</option>
+                <option value="19">Lincle</option>
+                <option value="20">tricolo</option>
+                <option value="21">SPADA</option>
+                <option value="22">PENDUAL</option>
+                <option value="23">copula</option>
+                <option value="24">SINOBUZ</option>
+                <option value="25">CANNON BALLERS</option>
+                <option value="26">Rootage</option>          
+            </select>
+        </div>
+        
+        <div class="HeadBlock">
+            <p>譜面選択</p>
+            <select id="musiclistid"></select>
+        </div>
+        <input type="button" class="button" id="Generate" value="Generate"/>
+        <input type="button" class="button" id="save" value="Save"/>
+        <input type="button" class="button" id="load" value="Load"/>
+        <input type="button" class="button" id="init" value="初期化"/>
 
         
     </header>
