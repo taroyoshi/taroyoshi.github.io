@@ -92,6 +92,8 @@ function setHover(id, music_name){
     });
 }
 
+
+//jQuery
 jQuery(function(){
     
     /*==================================================================================================
@@ -114,7 +116,7 @@ jQuery(function(){
             if(window.confirm('本当に初期化を行いますか？')){
                 
                 //loacl strageの削除
-                localStorage.removeItem("IIDZEpara"); 
+                localStorage.removeItem("IIDAZEpara"); 
 
                 //BOX全削除
                 for(var id = 0; id < MUSIC_NUM; id++){
@@ -214,9 +216,6 @@ jQuery(function(){
             var tst = iidazepara.indexOf("-t-");
             var ost = iidazepara.indexOf("-o-");
 
-
-            //return ("?ex-" + compressedExist + "-ps-" +compressedPos + "-t-" + targetsl + "-o-" + optsl);
-
             //BOX全削除
             for(var id = 0; id < MUSIC_NUM; id++){
                 if(existArray[id] == "1"){
@@ -225,11 +224,12 @@ jQuery(function(){
                 }
             }
 
-            var compExist = iidazepara.substring(4, psst);
-            var compPos = iidazepara.substring(psst + 4, tst);
-            var Target = iidazepara.substring(tst + 3, ost);
-            var Opt = iidazepara.substring(ost + 3, ost + 4);
+            var compExist = iidazepara.substring(4, psst);      //解凍前存在判定
+            var compPos = iidazepara.substring(psst + 4, tst);  //解凍前配置位置
+            var Target = iidazepara.substring(tst + 3, ost);    //目標
+            var Opt = iidazepara.substring(ost + 3, ost + 4);   //オプション
 
+            //存在判定を解凍, カンマで区切って配列化
             existArray =  lzbase62.decompress(compExist).split(",");
             
             decompPosL = [];
@@ -274,7 +274,7 @@ jQuery(function(){
 
     
     /*==================================================================================================
-    //譜面セレクトボックス生成
+    //譜面セレクトボックス変更
     ==================================================================================================*/
     function MusicSelectBoxChange(version){
         sl = document.getElementById('musiclistid');
@@ -282,17 +282,19 @@ jQuery(function(){
         {
             sl.removeChild(sl.lastChild);
         }
-
+        //選択中バージョン取得
         const selectVal = $("#verlistid").val();
         
         var return_array = [];
 
+        //該当バージョン譜面全取得
         for (var i = 0; i < music_table.length; i++){
             if(selectVal ==  music_table[i][VER_INDEX]){
                 return_array.push(music_table[i]);
             }
         }
 
+        //譜面セレクトボックス格納
         for (var j = 0; j < return_array.length; j++){
             //存在判定配列の中をMUSIC_INDEXに当てはまる部分を確認
             if(existArray[return_array[j][MUSIC_INDEX]] == "0"){
@@ -307,7 +309,7 @@ jQuery(function(){
 
 
 /*==================================================================================================
-//パラメータ作成
+//パラメータ作成 (arr: 存在判定配列)
 ==================================================================================================*/
 function makeUrlPara(arr){
     
@@ -317,8 +319,7 @@ function makeUrlPara(arr){
         if(arr[id] == 1){
             //ID取得
             var each_id = document.getElementById('iidaze_'+ id);
-            var l62, t62;
-            
+            var l62, t62;            
             
             //左位置取得, 62進数変換
             var l = each_id.style.left.replace("px","");
