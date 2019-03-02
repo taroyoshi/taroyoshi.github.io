@@ -47,7 +47,7 @@ header{
 .music_box{
     float:left;
     font-size: 12px;
-    
+    border-radius: 5px;
     word-break : break-all;
     z-index: 10;
     width:40px;
