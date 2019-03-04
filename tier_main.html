@@ -29,7 +29,7 @@
 <body onload="initchart()">
     <header>
         <div class="HeadBlock">
-            <p>目標設定</p>
+            <p>TARGET LEVEL</p>
             <select name="target" id="targetid">
                 <option value="0">SCORE MAX</option>
                 <option value="1">SCORE AAA</option>
@@ -43,7 +43,7 @@
         </div>
         
         <div class="HeadBlock">
-            <p>オプション指定</p>
+            <p>OPTION</p>
             <select name="opt" id="optid">
                 <option value="0">FREE</option>
                 <option value="1">RANDOM GROUP NG</option>
@@ -53,7 +53,7 @@
         </div>
         
         <div class="HeadBlock">
-            <p>バージョン選択</p>
+            <p>VERSION</p>
             <select name="ver_list" id="verlistid">
                 <option value="2">Substream</option>
                 <option value="3">3rd style</option>
@@ -84,30 +84,42 @@
         </div>
         
         <div class="HeadBlock">
-            <p>譜面選択</p>
+            <p>MUSIC & SCORE</p>
             <select id="musiclistid"></select>
         </div>
         
         <input type="button" class="button" id="Generate" value="Generate"/>
         <input type="button" class="button" id="save" value="Save"/>
         <input type="button" class="button" id="load" value="Load"/>
-        <input type="button" class="button" id="config_search" value="設定 検索"/>
+        <input type="button" class="button" id="config_search" value="Config Serch"/>
         
-        <input type="button" class="button" id="init" value="初期化"/>
+        <input type="button" class="button" id="init" value="Initialize"/>
 
         <input type="text" id="OnMusicName" readonly>
 
         
 
-        <!-- モーダル出して検索ジャンプ&対象のボックスを目立たせる??? -->
+        
         
     </header>
     
-    <div id="modal-main">モーダルウィンドウ</div>
+    
+    
+    <div id="modal-main">
+        <div class="config_content">
+            Created by<br/>
+            <input type="text" id="CreatedName"><br/>
+            
+            <input type="button" class="button" id="config_save" value="Save"/>
+            <input type="button" class="button" id="modal_close" value="close"/>
+        
+        
+        </div>
+    </div>
     
     <div id="main">
         <div id="generate_position"></div>
-        
+        <div id="fadeLayer"></div>
     </div>
     
     

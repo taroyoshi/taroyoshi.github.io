@@ -20,9 +20,11 @@ header{
     margin:1px 3px;
  }
 .button{
+    font-size: 12px;
     margin-top:8px;
     height:30px;
     width:80px;
+    text-align: center;
 }
 
 #musiclistid{
@@ -31,12 +33,11 @@ header{
 
 #main{
     width:2000px;
-    height:1500px;
+    height:1480px;
     margin-top:50px;
     background-size: cover;
     text-align: center;
     background-image : url(img/backaxis.jpg );
-    
     z-index:0;
 }
 #OnMusicName{
@@ -57,7 +58,6 @@ header{
     height:40px;
     border-style: groove;
     position:absolute;
-    
 }
 
 .music_box_2{background-color:yellow; opacity: 0.9;}
@@ -96,8 +96,20 @@ header{
     top:50%;
     left:50%;
     text-align:center;
-    color: red;
-    background-color: blue;
+    color: black;
+    background-color: white;
     position:fixed;
     z-index: 20;
+    border-radius: 5px;
+    border: solid 1px blue;
+}
+
+#fadeLayer {
+    position:absolute;
+    width:100%;
+    height:100%;
+    background-color:#000000;
+    opacity:0.5;
+    visibility:hidden;
+    z-index:18;
 }

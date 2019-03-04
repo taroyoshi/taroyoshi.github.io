@@ -290,10 +290,14 @@ jQuery(function(){
         //モーダルウィンドウを表示
         $("#modal-main").fadeIn("slow");
         
-        //画面のどこかをクリックしたらモーダルを閉じる
-        $("#modal-main").click(function(){
+        var target = document.getElementById("fadeLayer");
+        target.style.visibility = "visible";
+      
+        
+        $("#modal_close").click(function(){
             $("#modal-main").fadeOut("slow",function(){
-                $('#modal-main').remove() ;
+                var target = document.getElementById("fadeLayer");
+                target.style.visibility = "hidden";
             });
         });
         
