@@ -48,7 +48,7 @@
                 <option value="0">FREE</option>
                 <option value="1">RANDOM GROUP NG</option>
                 <option value="2">FLIP NG</option>
-                <option value="3">OFF OPTION</option>
+                <option value="3">OFF OPTION ONLY</option>
             </select>
         </div>
         
@@ -104,13 +104,7 @@
     
     <div id="modal-main">
         <div class="config_content">
-            Created by<br/>
-            <input type="text" id="CreatedName"><br/>
-            
-            <input type="button" class="modal_button" id="config_save" value="Save"/>
-            <input type="button" class="modal_button" id="modal_close" value="close"/>
-        
-            <div class="HeadBlock">
+            <div class="search">
                 <p>VERSION & MUSIC SCORE(mounted)</p>
                 <select name="ver_list" id="mouted_verlistid">
                     <option value="2">Substream</option>
@@ -140,9 +134,17 @@
                     <option value="26">Rootage</option>          
                 </select>
                 <select id="mounted_musiclistid"></select>
+                
+                <input type="button" class="modal_button" id="search_move" value="Search"/>
             </div>
             
-            <input type="button" class="modal_button" id="search_move" value="Search"/>
+            
+            <p>Created by</p>
+            <input type="text" id="CreatedName"><br/>
+            
+            <input type="button" class="modal_button" id="config_save" value="Save"/>
+            <input type="button" class="modal_button" id="modal_close" value="close"/>
+            <br/>
         </div>
     </div>
     

@@ -37,7 +37,7 @@ header{
 
 #main{
     width:2000px;
-    height:1480px;
+    height:1500px;
     margin-top:50px;
     background-size: cover;
     text-align: center;
@@ -96,7 +96,7 @@ header{
 #modal-main {
     display: none;
     width: 500px;
-    height: 300px;
+    height: 250px;
     margin: auto;
     top:50%;
     left:50%;
@@ -107,6 +107,15 @@ header{
     z-index: 20;
     border-radius: 5px;
     border: solid 1px blue;
+    float: none;
+}
+
+.search{
+    text-align: center;
+}
+
+.config_content p{
+    margin:15px 0 2px;
 }
 
 #fadeLayer {

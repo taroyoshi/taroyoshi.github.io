@@ -6,7 +6,7 @@ function initchart(){
     
     
     for(var i = 0; i < MUSIC_NUM; i++){
-        existArray[i] = "0"; //これは62進数に置き換える
+        existArray[i] = "0";
     }
  
     //url読み込み等
@@ -87,6 +87,8 @@ function setDraggableAndDblclick(id){
 function setHover(id, music_name){
     $( id ).hover(function(){
         $("#OnMusicName").val(music_name);
+        //TODO ここに吹き出しの処理
+        
     },function(){
         $("#OnMusicName").val("");
     });
@@ -108,6 +110,7 @@ jQuery(function(){
 
         const selectVal = $("#verlistid").val();
 
+        //取得したバージョンでセレクトボックス作成
         MusicSelectBoxChange(selectVal);
     });
 
@@ -198,7 +201,6 @@ jQuery(function(){
             var madeUrlPara =  makeUrlPara(existArray);
             
             window.localStorage.setItem(['IIDAZEpara'],[madeUrlPara]);
-            
         }
         
     });
@@ -270,6 +272,10 @@ jQuery(function(){
             $("#targetid").val(String(Target));
             $("#optid").val(String(Opt));
             
+            //タイトル変更
+            var name =  window.localStorage.getItem(['IIDAZEname']);
+            document.title= name + "'s DP difficult 12 Tier Chart";
+            
             //バージョンをsubstreamに
             $("#verlistid").val("2");
             MusicSelectBoxChange(2);        
@@ -290,12 +296,9 @@ jQuery(function(){
         //モーダルウィンドウを表示
         $("#modal-main").fadeIn("slow");
         
-        var image = new Image();
-        var width;
-        var height;
-        
         var target = document.getElementById("main");
         
+        //以下 おそらく間違ってる
         $("#fadeLayer").css({
             "width": target.style.width + "px",
             "height": target.style.height + "px",
@@ -322,7 +325,7 @@ jQuery(function(){
                 }
             }
     
-            //譜面セレクトボックス格納
+            //配置済み譜面セレクトボックス格納
             for (var j = 0; j < return_array.length; j++){
                 //存在判定配列の中をMUSIC_INDEXに当てはまる部分を確認
                 if(existArray[return_array[j][MUSIC_INDEX]] == "1"){
@@ -337,30 +340,42 @@ jQuery(function(){
         
         
         
+        var layer = document.getElementById("fadeLayer");
         
-        
-        
-        
+        //モーダル内ボタン押下イベント
         $(".modal_button").click(function(){
             $("#modal-main").fadeOut("slow",function(){
                 
-                var id =  $(this).attr("id");
+                var id =  $(".modal_button").attr("id");
                 
                 switch(id){
-                    case 'config_save':
-                        break;
-                    case 'modal_close':
-                        break;
                     case 'search_move':
                         var mouted_selectVal = $("#mouted_verlistid").val();
                         
-                        
+                        //TODO 対象ボックスまで表示移動 document.getElementById("target").scrollIntoView(true)
+                        //      対象ボックスを目立たせる 一定時間window.setTimeout("呼び出す関数", "待機時間")
                         
                         
                         break;
+                        
+                    //名前の保存
+                    case 'config_save':
+                        var name = $("#CreatedName").val();
+                        if(name){
+                            window.localStorage.setItem(['IIDAZEname'],[name]);
+                            document.title= name + "'s DP difficult 12 Tier Chart";
+                        }
+                        break;
+                        
+                    //何もせずモーダルをクローズ
+                    case 'modal_close':
+                        break;
+                        
+                        
+                    //twitter共有をここに追加
                 }
                 
-                target.style.visibility = "hidden";
+                layer.style.visibility = "hidden";
             });
         });
         
