@@ -374,11 +374,12 @@ jQuery(function(){
                 
                 switch(id){
                     case 'search_move':
-                        var mouted_selectVal = $("#mounted_musiclistid").val();
+                        var mounted_selectVal = $("#mounted_musiclistid").val();
                         
-                        document.getElementById("iidaze_" + mouted_selectVal).scrollIntoView(true);
+                        //スクロールが正しくない
+                        document.getElementById("iidaze_" + mounted_selectVal).scrollIntoView(true);
                         
-                        $("iidaze_" + mouted_selectVal).css({
+                        $("iidaze_" + mounted_selectVal).css({
                             //"left": ((w - cw)/2) + "px",
                             //"top": ((h - ch)/2) + "px"
                         });
