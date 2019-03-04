@@ -1,9 +1,8 @@
 const MUSIC_NUM = 374;//20190226
 
-var existArray= new Array(MUSIC_NUM);//存在判定はキーバリューにするべきか? ()以後の譜面追加対応しやすくするため)
+var existArray= new Array(MUSIC_NUM);//存在判定はキーバリューにするべきか? (以後の譜面追加対応しやすくするため)
 
 function initchart(){
-    
     
     for(var i = 0; i < MUSIC_NUM; i++){
         existArray[i] = "0";
@@ -91,13 +90,14 @@ function setHover(id, music_name){
 
         var each_id = document.getElementById(id.replace("#", ""));
 
-        //左位置, 上位置取得
+        //左位置取得
         var l = each_id.style.left.replace("px","");
         if(l == ""){
             l = 0;
         }
         l = String(parseInt(l, 10) + 50) + "px";
 
+        //上位置取得
         var t = each_id.style.top.replace("px","");
         if(t == ""){
             t = 0;
@@ -137,8 +137,6 @@ jQuery(function(){
         MusicSelectBoxChange(selectVal);
     });
 
-    
-    
     /*==================================================================================================
     //初期化jQuery
     ==================================================================================================*/
@@ -219,9 +217,7 @@ jQuery(function(){
             return;
         }
         if(window.confirm('今の状態をセーブしますか？')){
-            
-            //var compressedExist = lzbase62.compress(existArray);  
-            
+                        
             var madeUrlPara =  makeUrlPara(existArray);
             
             window.localStorage.setItem(['IIDAZEpara'],[madeUrlPara]);
@@ -240,9 +236,8 @@ jQuery(function(){
         if(window.confirm('保存してある状態をロードしますか？')){
             
             var iidazepara = window.localStorage.getItem(['IIDAZEpara']);
-            //↑を分解
             
-            //var exst = iidazepara.indexOf("?ex-");
+            //iidazeparaを分解, パラメータ分割位置把握
             var psst = iidazepara.indexOf("-ps-");
             var tst = iidazepara.indexOf("-t-");
             var ost = iidazepara.indexOf("-o-");
@@ -330,7 +325,7 @@ jQuery(function(){
             "visibility": "visible"
         });
         
-        
+        //配置済みバージョンセレクトボックス変更イベント
         $("#mouted_verlistid").change( function(){
             sl = document.getElementById('mounted_musiclistid');
             while(sl.lastChild)
@@ -358,6 +353,7 @@ jQuery(function(){
             }
         });
         
+        //Twitter共有用URL作成, クリックイベント設定
         var preUrl = "https://twitter.com/intent/tweet?url=";
         var iidazeUrl = "https://taroyoshi.github.io/tier_main.html";//GitHub pages用
         var para = makeUrlPara(existArray);
@@ -368,16 +364,12 @@ jQuery(function(){
         });
             
         
-        
-        
         //モーダル内ボタン押下イベント
         $(".modal_button").click(function(){
 
             var id =  $(this).attr("id");
             var layer = document.getElementById("fadeLayer");
-            
-            //ここでURL生成
-
+        
             $("#modal-main").fadeOut("slow",function(){
                 
                 switch(id){
@@ -409,12 +401,8 @@ jQuery(function(){
                         break;
 
                     case 'tweet':
-                    //urlの先に貼るリンク
-                    //https://twitter.com/intent/tweet?url=
                         break;
                         
-                        
-                    //twitter共有をここに追加
                 }
                 
                 layer.style.visibility = "hidden";
