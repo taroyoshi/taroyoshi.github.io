@@ -9,7 +9,7 @@ function initchart(){
         existArray[i] = "0";
     }
  
-    //url読み込み等
+    //TODO url読み込み等
     
     
     //20190227現在 RUGGED ASHのみ確認して譜面選択セレクトボックスの初期化
@@ -18,9 +18,9 @@ function initchart(){
     }
     
 }
-//TODO 説明ページ, マウスオン吹き出しhttp://php.o0o0.jp/article/jquery-balloons
+//TODO 説明ページ, マウスオン吹き出し位置調整
 
-// 背景TODO画像 差し替え
+
 
 /*==================================================================================================
 //ドラッグ可能, ダブルクリックイベント付与
@@ -30,6 +30,7 @@ function setDraggableAndDblclick(id){
 	$( id ).draggable().dblclick(function(){
 	    
 	    if (event.ctrlKey && event.shiftKey) {
+            $(this).unwrap();
             $(this).remove();
             
             var gatID = this.id;
@@ -41,9 +42,9 @@ function setDraggableAndDblclick(id){
             existArray[gatID_i] = "0";
             if(music_table[gatID_i][VER_INDEX] == $("#verlistid").val()){
                 $("#musiclistid").append($("<option>").val(music_table[gatID_i][MUSIC_INDEX]).text(music_table[gatID_i][NAME_INDEX]));
-                
             }
-            
+            $(".arrow_box").unwrap();
+            $(".arrow_box").remove();
 	    }
 	    if (event.altKey) {
 	        
@@ -83,25 +84,46 @@ function setDraggableAndDblclick(id){
     });
 }
 /*======================================================================
-//ホバーイベント付与
+//ホバーイベント付与 (id : "iidaze_～")
 ======================================================================*/
 function setHover(id, music_name){
     $( id ).hover(function(){
-        $("#OnMusicName").val(music_name);
-        //TODO ここに吹き出しの処理
+
+        var each_id = document.getElementById(id.replace("#", ""));
+
+        //左位置, 上位置取得
+        var l = each_id.style.left.replace("px","");
+        if(l == ""){
+            l = 0;
+        }
+        l = String(parseInt(l, 10) + 50) + "px";
+
+        var t = each_id.style.top.replace("px","");
+        if(t == ""){
+            t = 0;
+        }
+        t = String(parseInt(t, 10) + 50) + "px";
+
+        var div_element = document.createElement("div");
+        var parent_object = document.getElementById('main');
+        div_element.innerHTML = '<div class="arrow_box" style="left: ' +
+                                l +
+                                '; top:' +
+                                t +
+                                ';">' +
+                                music_name +
+                                '</div>';
+        
+        parent_object.append(div_element);
         
     },function(){
-        $("#OnMusicName").val("");
+        $(".arrow_box").remove();
     });
 }
 
-
-
-
-
-
-
-//jQuery
+/*==================================================================================================
+jQuery
+==================================================================================================*/
 jQuery(function(){
     
     /*==================================================================================================
@@ -167,6 +189,7 @@ jQuery(function(){
         });
         
         var div_element = document.createElement("div");
+        //attrで行うべき? このままだと2重のdivになるから控えたい。
         div_element.innerHTML = '<div class="music_box music_box_' + 
                                 music_table[selected_music_index][VER_INDEX] + 
                                 '" id="iidaze_'+ 
@@ -175,7 +198,7 @@ jQuery(function(){
                                 disp_name + 
                                 '</div>';
         var parent_object = document.getElementById("generate_position");
-        parent_object.appendChild(div_element);
+        parent_object.append(div_element);
 
         //対象IDをドラッグ可, ダブルクリックイベント付与
         setDraggableAndDblclick("#iidaze_" + String(music_table[selected_music_index][MUSIC_INDEX]));
@@ -258,6 +281,7 @@ jQuery(function(){
                     var div_element = document.createElement("div");
                     var parent_object = document.getElementById("generate_position");
                     var disp_name = music_table[id2][DISP_INDEX];
+                    //attrで行うべき? このままだと2重のdivになるから控えたい。
                     div_element.innerHTML = 
                         '<div class="music_box music_box_' + music_table[id2][VER_INDEX] + 
                         '" id="iidaze_'+ music_table[id2][MUSIC_INDEX] +
@@ -307,7 +331,6 @@ jQuery(function(){
         });
         
         
-        
         $("#mouted_verlistid").change( function(){
             sl = document.getElementById('mounted_musiclistid');
             while(sl.lastChild)
@@ -335,25 +358,38 @@ jQuery(function(){
             }
         });
         
+        var preUrl = "https://twitter.com/intent/tweet?url=";
+        var iidazeUrl = "https://taroyoshi.github.io/tier_main.html";//GitHub pages用
+        var para = makeUrlPara(existArray);
+        var url = "window.open('" + preUrl + iidazeUrl + para + "')";
+        $('#tweet').removeAttr('src');
+        $('#tweet').attr({
+            'onclick': url
+        });
+            
         
         
-        
-        
-        
-        
-        var layer = document.getElementById("fadeLayer");
         
         //モーダル内ボタン押下イベント
         $(".modal_button").click(function(){
+
+            var id =  $(this).attr("id");
+            var layer = document.getElementById("fadeLayer");
+            
+            //ここでURL生成
+
             $("#modal-main").fadeOut("slow",function(){
-                
-                var id =  $(".modal_button").attr("id");
                 
                 switch(id){
                     case 'search_move':
-                        var mouted_selectVal = $("#mouted_verlistid").val();
+                        var mouted_selectVal = $("#mounted_musiclistid").val();
                         
-                        //TODO 対象ボックスまで表示移動 document.getElementById("target").scrollIntoView(true)
+                        document.getElementById("iidaze_" + mouted_selectVal).scrollIntoView(true);
+                        
+                        $("iidaze_" + mouted_selectVal).css({
+                            //"left": ((w - cw)/2) + "px",
+                            //"top": ((h - ch)/2) + "px"
+                        });
                         //      対象ボックスを目立たせる 一定時間window.setTimeout("呼び出す関数", "待機時間")
                         
                         
@@ -370,6 +406,11 @@ jQuery(function(){
                         
                     //何もせずモーダルをクローズ
                     case 'modal_close':
+                        break;
+
+                    case 'tweet':
+                    //urlの先に貼るリンク
+                    //https://twitter.com/intent/tweet?url=
                         break;
                         
                         
@@ -400,17 +441,7 @@ jQuery(function(){
             });
         }
     });
-    
-    
-    
-    
-    
-    
-    
-    
-    
-
-    
+        
     /*==================================================================================================
     //譜面セレクトボックス変更
     ==================================================================================================*/
@@ -440,7 +471,6 @@ jQuery(function(){
             }
         }
     }
-    
     
 });
 
