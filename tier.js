@@ -290,16 +290,81 @@ jQuery(function(){
         //モーダルウィンドウを表示
         $("#modal-main").fadeIn("slow");
         
-        var target = document.getElementById("fadeLayer");
-        target.style.visibility = "visible";
-      
+        var image = new Image();
+        var width;
+        var height;
         
-        $("#modal_close").click(function(){
+        var target = document.getElementById("main");
+        
+        $("#fadeLayer").css({
+            "width": target.style.width + "px",
+            "height": target.style.height + "px",
+            "visibility": "visible"
+        });
+        
+        
+        
+        $("#mouted_verlistid").change( function(){
+            sl = document.getElementById('mounted_musiclistid');
+            while(sl.lastChild)
+            {
+                sl.removeChild(sl.lastChild);
+            }
+            //選択中バージョン取得
+            const selectVal = $("#mouted_verlistid").val();
+            
+            var return_array = [];
+    
+            //該当バージョン譜面全取得
+            for (var i = 0; i < music_table.length; i++){
+                if(selectVal ==  music_table[i][VER_INDEX]){
+                    return_array.push(music_table[i]);
+                }
+            }
+    
+            //譜面セレクトボックス格納
+            for (var j = 0; j < return_array.length; j++){
+                //存在判定配列の中をMUSIC_INDEXに当てはまる部分を確認
+                if(existArray[return_array[j][MUSIC_INDEX]] == "1"){
+                    $("#mounted_musiclistid").append($("<option>").val(return_array[j][MUSIC_INDEX]).text(return_array[j][NAME_INDEX]));
+                }
+            }
+        });
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        $(".modal_button").click(function(){
             $("#modal-main").fadeOut("slow",function(){
-                var target = document.getElementById("fadeLayer");
+                
+                var id =  $(this).attr("id");
+                
+                switch(id){
+                    case 'config_save':
+                        break;
+                    case 'modal_close':
+                        break;
+                    case 'search_move':
+                        var mouted_selectVal = $("#mouted_verlistid").val();
+                        
+                        
+                        
+                        
+                        break;
+                }
+                
                 target.style.visibility = "hidden";
             });
         });
+        
+        
         
         //画面の左上からmodal-mainの横幅・高さを引き、その値を2で割ると画面中央の位置が計算できます
         $(window).resize(modalResize);
@@ -358,7 +423,6 @@ jQuery(function(){
                 $("#musiclistid").append($("<option>").val(return_array[j][MUSIC_INDEX]).text(return_array[j][NAME_INDEX]));
             }
         }
-
     }
     
     

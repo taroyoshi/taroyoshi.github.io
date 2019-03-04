@@ -1,4 +1,8 @@
 
+html,body, #main{
+    height:100%;
+}
+
 header{
     top: 0;
     background-color:rgb(59, 216, 137);
@@ -19,7 +23,7 @@ header{
     font-size:13px;
     margin:1px 3px;
  }
-.button{
+.button, .modal_button{
     font-size: 12px;
     margin-top:8px;
     height:30px;
@@ -40,6 +44,7 @@ header{
     background-image : url(img/backaxis.jpg );
     z-index:0;
 }
+
 #OnMusicName{
     display: block;
     float: right;
