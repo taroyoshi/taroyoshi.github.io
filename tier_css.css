@@ -40,6 +40,9 @@ header{
     z-index:0;
 }
 #OnMusicName{
+    display: block;
+    float: right;
+    margin:8px 8px 0 0;
     width:380px;
 }
 
@@ -56,8 +59,6 @@ header{
     position:absolute;
     
 }
-
-
 
 .music_box_2{background-color:yellow; opacity: 0.9;}
 .music_box_3{background-color:deeppink; opacity: 0.9;}
@@ -84,3 +85,19 @@ header{
 .music_box_24{background-color:black; color:white; opacity: 0.9;}
 .music_box_25{background-color:lightgray; opacity: 0.9;}
 .music_box_26{background-color:rgb(41, 35, 4); color:white; opacity: 0.9;}
+
+
+/* モーダル コンテンツエリア */
+#modal-main {
+    display: none;
+    width: 500px;
+    height: 300px;
+    margin: auto;
+    top:50%;
+    left:50%;
+    text-align:center;
+    color: red;
+    background-color: blue;
+    position:fixed;
+    z-index: 20;
+}

@@ -24,7 +24,6 @@
     <script language="javascript" src="tier.js"></script>
     
     
-
     <title>IIDAZE</title>
 </head>
 <body onload="initchart()">
@@ -88,21 +87,31 @@
             <p>譜面選択</p>
             <select id="musiclistid"></select>
         </div>
+        
         <input type="button" class="button" id="Generate" value="Generate"/>
         <input type="button" class="button" id="save" value="Save"/>
         <input type="button" class="button" id="load" value="Load"/>
+        <input type="button" class="button" id="config_search" value="設定 検索"/>
+        
         <input type="button" class="button" id="init" value="初期化"/>
 
         <input type="text" id="OnMusicName" readonly>
 
+        
 
-        <!-- モーダル出して検索ジャンプ&対象のボックスを目立たせる??? -->a
-        <input type="button" class="button" id="search" value="検索ウィンドウ"/>
+        <!-- モーダル出して検索ジャンプ&対象のボックスを目立たせる??? -->
+        
     </header>
+    
+    <div id="modal-main">モーダルウィンドウ</div>
+    
     <div id="main">
-        <div id="generate_position"></div>    
+        <div id="generate_position"></div>
+        
     </div>
     
+    
+ 
     
 </body>
 </HTML>

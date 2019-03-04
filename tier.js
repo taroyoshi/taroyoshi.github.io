@@ -93,6 +93,11 @@ function setHover(id, music_name){
 }
 
 
+
+
+
+
+
 //jQuery
 jQuery(function(){
     
@@ -243,20 +248,20 @@ jQuery(function(){
 
             var posn = 0;
 
-            for(var id = 0; id < MUSIC_NUM; id++){
+            for(var id2 = 0; id2 < MUSIC_NUM; id2++){
                 
-                if(existArray[id] == 1){
+                if(existArray[id2] == 1){
 
                     var div_element = document.createElement("div");
                     var parent_object = document.getElementById("generate_position");
-                    var disp_name = music_table[id][DISP_INDEX];
+                    var disp_name = music_table[id2][DISP_INDEX];
                     div_element.innerHTML = 
-                        '<div class="music_box music_box_' + music_table[id][VER_INDEX] + 
-                        '" id="iidaze_'+ music_table[id][MUSIC_INDEX] +
+                        '<div class="music_box music_box_' + music_table[id2][VER_INDEX] + 
+                        '" id="iidaze_'+ music_table[id2][MUSIC_INDEX] +
                         '" style="left: '+ decompPosL[posn] +'px; top: '+ decompPosT[posn] +'px;">' + disp_name + '</div>';
                     
                     parent_object.appendChild(div_element);
-                    setDraggableAndDblclick("#iidaze_" + music_table[id][MUSIC_INDEX]);
+                    setDraggableAndDblclick("#iidaze_" + music_table[id2][MUSIC_INDEX]);
                     posn = posn + 1;
                 }
             }
@@ -271,6 +276,54 @@ jQuery(function(){
         }
         
     });
+    
+    
+    
+    /*==================================================================================================
+    //設定 検索モーダルウィンドウ
+    ==================================================================================================*/
+    $("#config_search").click(function(){
+        
+        //画面中央を計算する関数を実行
+        modalResize();
+        
+        //モーダルウィンドウを表示
+        $("#modal-main").fadeIn("slow");
+        
+        //画面のどこかをクリックしたらモーダルを閉じる
+        $("#modal-main").click(function(){
+            $("#modal-main").fadeOut("slow",function(){
+                $('#modal-main').remove() ;
+            });
+        });
+        
+        //画面の左上からmodal-mainの横幅・高さを引き、その値を2で割ると画面中央の位置が計算できます
+        $(window).resize(modalResize);
+        
+        function modalResize(){
+        
+            var w = $(window).width();
+            var h = $(window).height();
+            
+            var cw = $("#modal-main").outerWidth();
+            var ch = $("#modal-main").outerHeight();
+            
+            //取得した値をcssに追加する
+            $("#modal-main").css({
+                "left": ((w - cw)/2) + "px",
+                "top": ((h - ch)/2) + "px"
+            });
+        }
+    });
+    
+    
+    
+    
+    
+    
+    
+    
+    
 
     
     /*==================================================================================================
