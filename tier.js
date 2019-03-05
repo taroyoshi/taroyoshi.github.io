@@ -18,7 +18,7 @@ function initchart(){
     }
     
 }
-//TODO 説明ページ
+//TODO 説明ページ←ポートフォリオで
 
 
 

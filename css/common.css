@@ -1,4 +1,8 @@
-.head_button{
+.head-outer{
     width:100px;
     height:50px;
+}
+
+body{
+    background-image: url(img/wpIMGL2790_TP_V.jpg);
 }
