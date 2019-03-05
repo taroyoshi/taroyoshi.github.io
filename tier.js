@@ -12,12 +12,13 @@ function initchart(){
     
     
     //20190227現在 RUGGED ASHのみ確認して譜面選択セレクトボックスの初期化
+    //以後、Substreamや2ndに追加されたら改修
     if(existArray[0] == "0"){
         $("#musiclistid").append($("<option>").val(music_table[0][MUSIC_INDEX]).text(music_table[0][NAME_INDEX]));
     }
     
 }
-//TODO 説明ページ, マウスオン吹き出し位置調整
+//TODO 説明ページ
 
 
 
@@ -28,6 +29,7 @@ function setDraggableAndDblclick(id){
 
 	$( id ).draggable().dblclick(function(){
 	    
+	    //対象を削除, セレクトボックス内に再挿入
 	    if (event.ctrlKey && event.shiftKey) {
             $(this).unwrap();
             $(this).remove();
@@ -45,12 +47,10 @@ function setDraggableAndDblclick(id){
             $(".arrow_box").unwrap();
             $(".arrow_box").remove();
 	    }
+	    //textageの対象譜面を別タブでオープン
 	    if (event.altKey) {
-	        
-            //textageの対象譜面を別タブでオープン
             
-            var idname = $(this).attr("id"); 
-            var music_id = idname.replace("iidaze_","");
+            var music_id = id.replace("#iidaze_","");
             
             const url1 = "http://textage.cc/score/";
             const url2 = "/";
@@ -92,15 +92,25 @@ function setHover(id, music_name){
 
         //左位置取得
         var l = each_id.style.left.replace("px","");
-        if(l == ""){
+        if(l === ""){
             l = 0;
+        }
+        
+        if(l >= 1800)
+        {
+            l = l - 150;
         }
         l = String(parseInt(l, 10) + 50) + "px";
 
         //上位置取得
         var t = each_id.style.top.replace("px","");
-        if(t == ""){
+        if(t === ""){
             t = 0;
+        }
+        
+        if(t >= 1350)
+        {
+            t = t - 150;
         }
         t = String(parseInt(t, 10) + 50) + "px";
 
@@ -117,6 +127,7 @@ function setHover(id, music_name){
         parent_object.append(div_element);
         
     },function(){
+        $(".arrow_box").unwrap();
         $(".arrow_box").remove();
     });
 }
@@ -187,6 +198,7 @@ jQuery(function(){
         });
         
         var div_element = document.createElement("div");
+        
         //attrで行うべき? このままだと2重のdivになるから控えたい。
         div_element.innerHTML = '<div class="music_box music_box_' + 
                                 music_table[selected_music_index][VER_INDEX] + 
@@ -262,7 +274,7 @@ jQuery(function(){
             decompPosT = [];
             decompStr = lzbase62.decompress(compPos);
             for(var l = 0; l < decompStr.length; l = l + 4){
-                //デコード後文字列から４文字毎に切り出し、左位置 上位置毎を取得し10進数に戻して格納
+                //デコード後文字列から4文字毎に切り出し、左位置 上位置毎を取得し10進数に戻して格納
                 decompPosL.push(tot(decompStr.substring(l, l + 2)));
                 decompPosT.push(tot(decompStr.substring(l + 2, l + 4)));
             }
@@ -276,6 +288,7 @@ jQuery(function(){
                     var div_element = document.createElement("div");
                     var parent_object = document.getElementById("generate_position");
                     var disp_name = music_table[id2][DISP_INDEX];
+                    
                     //attrで行うべき? このままだと2重のdivになるから控えたい。
                     div_element.innerHTML = 
                         '<div class="music_box music_box_' + music_table[id2][VER_INDEX] + 
@@ -362,6 +375,12 @@ jQuery(function(){
         $('#tweet').attr({
             'onclick': url
         });
+        
+        //Substreamの確認
+        $("#mouted_verlistid").val("2");
+        if(existArray[0] == "1"){
+            $("#mounted_musiclistid").append($("<option>").val(music_table[0][MUSIC_INDEX]).text(music_table[0][NAME_INDEX]));
+        }
             
         
         //モーダル内ボタン押下イベント
@@ -376,16 +395,20 @@ jQuery(function(){
                     case 'search_move':
                         var mounted_selectVal = $("#mounted_musiclistid").val();
                         
-                        //スクロールが正しくない
-                        document.getElementById("iidaze_" + mounted_selectVal).scrollIntoView(true);
+                        if(mounted_selectVal === null){
+                            alert("配置済みの譜面を選択してください。");
+                            break;
+                        }
                         
-                        $("iidaze_" + mounted_selectVal).css({
-                            //"left": ((w - cw)/2) + "px",
-                            //"top": ((h - ch)/2) + "px"
-                        });
-                        //      対象ボックスを目立たせる 一定時間window.setTimeout("呼び出す関数", "待機時間")
+                        //移動させたい位置の要素を取得
+                        var element = document.getElementById("iidaze_" + mounted_selectVal);
+                        var rect = element.getBoundingClientRect();
                         
+                        var positionLeft = Math.round(rect.left);
+                        var positionTop = Math.round(rect.top);
                         
+                        scrollTo(positionLeft, positionTop);
+                       
                         break;
                         
                     //名前の保存

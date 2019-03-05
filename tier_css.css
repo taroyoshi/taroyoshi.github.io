@@ -60,38 +60,38 @@ header{
     position:absolute;
 }
 
-.music_box_2{background-color:yellow; opacity: 0.9;}
-.music_box_3{background-color:deeppink; opacity: 0.9;}
-.music_box_4{background-color:red; opacity: 0.9;}
-.music_box_5{background-color:darkblue; color:white; opacity: 0.9;}
-.music_box_6{background-color:mediumpurple; opacity: 0.9;}
-.music_box_7{background-color:silver; opacity: 0.9;}
-.music_box_8{background-color:orange; opacity: 0.9;}
-.music_box_9{background-color:aqua; opacity: 0.9;}
-.music_box_10{background-color:midnightblue; color:white; opacity: 0.9;}
-.music_box_11{background-color:rgb(80, 2, 2); color:white; opacity: 0.9;}
-.music_box_12{background-color:blue; opacity: 0.9;}
-.music_box_13{background-color:#666; opacity: 0.9;}
-.music_box_14{background-color:goldenrod; opacity: 0.9;}
-.music_box_15{background-color:#063; opacity: 0.9;}
-.music_box_16{background-color:hotpink; opacity: 0.9;}
-.music_box_17{background-color:#e5eeff; opacity: 0.9;}
-.music_box_18{background-color:#fcc800; opacity: 0.9;}
-.music_box_19{background-color:deepskyblue; opacity: 0.9;}
-.music_box_20{background-color:#DDD; opacity: 0.9;}
-.music_box_21{background-color:#300; color:white; opacity: 0.9;}
-.music_box_22{background-color:darkgray; opacity: 0.9;}
-.music_box_23{background-color:GOLD; opacity: 0.9;}
-.music_box_24{background-color:black; color:white; opacity: 0.9;}
-.music_box_25{background-color:lightgray; opacity: 0.9;}
-.music_box_26{background-color:rgb(41, 35, 4); color:white; opacity: 0.9;}
+.music_box_2{background-color:yellow; opacity: 0.8;}
+.music_box_3{background-color:deeppink; opacity: 0.8;}
+.music_box_4{background-color:red; opacity: 0.8;}
+.music_box_5{background-color:darkblue; color:white; opacity: 0.8;}
+.music_box_6{background-color:mediumpurple; opacity: 0.8;}
+.music_box_7{background-color:silver; opacity: 0.8;}
+.music_box_8{background-color:orange; opacity: 0.8;}
+.music_box_9{background-color:aqua; opacity: 0.8;}
+.music_box_10{background-color:midnightblue; color:white; opacity: 0.8;}
+.music_box_11{background-color:rgb(80, 2, 2); color:white; opacity: 0.8;}
+.music_box_12{background-color:blue; opacity: 0.8;}
+.music_box_13{background-color:#666; opacity: 0.8;}
+.music_box_14{background-color:goldenrod; opacity: 0.8;}
+.music_box_15{background-color:#063; opacity: 0.8;}
+.music_box_16{background-color:hotpink; opacity: 0.8;}
+.music_box_17{background-color:#e5eeff; opacity: 0.8;}
+.music_box_18{background-color:#fcc800; opacity: 0.8;}
+.music_box_19{background-color:deepskyblue; opacity: 0.8;}
+.music_box_20{background-color:#DDD; opacity: 0.8;}
+.music_box_21{background-color:#300; color:white; opacity: 0.8;}
+.music_box_22{background-color:darkgray; opacity: 0.8;}
+.music_box_23{background-color:GOLD; opacity: 0.8;}
+.music_box_24{background-color:black; color:white; opacity: 0.8;}
+.music_box_25{background-color:lightgray; opacity: 0.8;}
+.music_box_26{background-color:rgb(41, 35, 4); color:white; opacity: 0.8;}
 
 
 /* モーダル コンテンツエリア */
 #modal-main {
     display: none;
     width: 500px;
-    height: 250px;
+    height: 300px;
     margin: auto;
     top:50%;
     left:50%;
@@ -123,13 +123,16 @@ header{
     z-index:18;
 }
 
+#tweet{
+    margin-top:20px;
+}
+
 /*吹き出し*/
 .arrow_box {
-    /*display: none;*/
     width: auto;
-    height: 30px;
+    height: 25px;
     position: absolute;
-    padding: 16px;
+    opacity: 0.8;
     border-radius: 8px;
     background: #333;
     color: #fff;
