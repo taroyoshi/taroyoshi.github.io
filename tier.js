@@ -213,7 +213,8 @@ jQuery(function(){
         //対象IDをドラッグ可, ダブルクリックイベント付与
         setDraggableAndDblclick("#iidaze_" + String(music_table[selected_music_index][MUSIC_INDEX]));
         existArray[selected_music_index] = "1";
-       
+        
+        //対象IDにマウスオーバーで表示
         setHover("#iidaze_" + String(music_table[selected_music_index][MUSIC_INDEX]), 
                 music_table[selected_music_index][NAME_INDEX]);
     });
@@ -437,7 +438,7 @@ jQuery(function(){
         
         
         
-        //画面の左上からmodal-mainの横幅・高さを引き、その値を2で割ると画面中央の位置が計算できます
+        //画面の左上からmodal-mainの横幅・高さを引き 2で割ると画面中央の位置
         $(window).resize(modalResize);
         
         function modalResize(){
