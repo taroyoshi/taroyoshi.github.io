@@ -296,7 +296,9 @@ jQuery(function(){
                         '" style="left: '+ decompPosL[posn] +'px; top: '+ decompPosT[posn] +'px;">' + disp_name + '</div>';
                     
                     parent_object.appendChild(div_element);
-                    setDraggableAndDblclick("#iidaze_" + music_table[id2][MUSIC_INDEX]);
+                    setDraggableAndDblclick("#iidaze_" + String(music_table[id2][MUSIC_INDEX]));
+                    setHover("#iidaze_" + String(music_table[id2][MUSIC_INDEX]), 
+                                                 music_table[id2][NAME_INDEX]);
                     posn = posn + 1;
                 }
             }
