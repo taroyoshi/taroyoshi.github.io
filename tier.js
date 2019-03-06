@@ -4,6 +4,10 @@ var existArray= new Array(MUSIC_NUM);//存在判定はキーバリューにす�
 
 function initchart(){
     
+    var gatUrl = document.location.href;
+    var n = gatUrl.search("tier_main.html");
+    
+    
     for(var i = 0; i < MUSIC_NUM; i++){
         existArray[i] = "0";
     }
