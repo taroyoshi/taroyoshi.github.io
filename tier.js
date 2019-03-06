@@ -1,9 +1,15 @@
-const MUSIC_NUM = 374;//20190226
+const MUSIC_NUM = 374;//20190225
 
 var existArray= new Array(MUSIC_NUM);//存在判定はキーバリューにするべきか? (以後の譜面追加対応しやすくするため)
 
 //TODO 名前をパラメータに追加(もしくはIIDXのIDにするべきか?)
+//TODO 目標とオプションは一つにまとめるべきか
+//TODO 説明画面モーダル
 
+
+/*==================================================================================================
+//チャート画面読み出し時処理(付随されているURLパラメータによって処理を判断)
+==================================================================================================*/
 function initchart(){
     
     var gatUrl = document.location.href;
@@ -140,8 +146,119 @@ function setHover(id, music_name){
     });
 }
 
+
+
+
+
 /*==================================================================================================
+//パラメータ解析, 配置 (para: パラメータ)
+==================================================================================================*/
+function paraAnlyzeSet(iidazepara){
+    
+    //iidazeparaを分解, パラメータ分割位置把握
+    var psst = iidazepara.indexOf("-ps-");
+    var tst = iidazepara.indexOf("-t-");
+    var ost = iidazepara.indexOf("-o-");
+
+    //BOX全削除
+    for(var id = 0; id < MUSIC_NUM; id++){
+        if(existArray[id] == "1"){
+            delID = "#iidaze_" + String(id);
+            $(delID).remove();
+        }
+        existArray[id] = "0";
+    }
+
+    var compExist = iidazepara.substring(3, psst);      //解凍前存在判定
+    var compPos = iidazepara.substring(psst + 4, tst);  //解凍前配置位置
+    var Target = iidazepara.substring(tst + 3, ost);    //目標
+    var Opt = iidazepara.substring(ost + 3, ost + 4);   //オプション
+
+    //存在判定を解凍, カンマで区切って配列化
+    existArray =  lzbase62.decompress(compExist).split(",");
+    
+    decompPosL = [];
+    decompPosT = [];
+    decompStr = lzbase62.decompress(compPos);
+    for(var l = 0; l < decompStr.length; l = l + 4){
+        //デコード後文字列から4文字毎に切り出し、左位置 上位置毎を取得し10進数に戻して格納
+        decompPosL.push(tot(decompStr.substring(l, l + 2)));
+        decompPosT.push(tot(decompStr.substring(l + 2, l + 4)));
+    }
+
+    var posn = 0;
+
+    for(var id2 = 0; id2 < MUSIC_NUM; id2++){
+        
+        if(existArray[id2] == 1){
+
+            var div_element = document.createElement("div");
+            var parent_object = document.getElementById("generate_position");
+            var disp_name = music_table[id2][DISP_INDEX];
+            
+            //attrで行うべき? このままだと2重のdivになるから控えたい。
+            div_element.innerHTML = 
+                '<div class="music_box music_box_' + music_table[id2][VER_INDEX] + 
+                '" id="iidaze_'+ music_table[id2][MUSIC_INDEX] +
+                '" style="left: '+ decompPosL[posn] +'px; top: '+ decompPosT[posn] +'px;">' + disp_name + '</div>';
+            
+            parent_object.appendChild(div_element);
+            setDraggableAndDblclick("#iidaze_" + String(music_table[id2][MUSIC_INDEX]));
+            setHover("#iidaze_" + String(music_table[id2][MUSIC_INDEX]), 
+                                         music_table[id2][NAME_INDEX]);
+            posn = posn + 1;
+        }
+    }
+
+    //目標, オプションのセレクトボックス変更
+    $("#targetid").val(String(Target));
+    $("#optid").val(String(Opt));
+    
+    //タイトル変更
+    var name =  window.localStorage.getItem(['IIDAZEname']);
+    document.title= name + "'s DP difficult 12 Tier Chart";
+    
+    //バージョンをsubstreamに
+    $("#verlistid").val("2");
+    MusicSelectBoxChange(2);        
+}
+
+/*==================================================================================================
+//譜面セレクトボックス変更
+==================================================================================================*/
+function MusicSelectBoxChange(version){
+    sl = document.getElementById('musiclistid');
+    while(sl.lastChild)
+    {
+        sl.removeChild(sl.lastChild);
+    }
+    //選択中バージョン取得
+    const selectVal = $("#verlistid").val();
+    
+    var return_array = [];
+
+    //該当バージョン譜面全取得
+    for (var i = 0; i < music_table.length; i++){
+        if(selectVal ==  music_table[i][VER_INDEX]){
+            return_array.push(music_table[i]);
+        }
+    }
+
+    //譜面セレクトボックス格納
+    for (var j = 0; j < return_array.length; j++){
+        //存在判定配列の中をMUSIC_INDEXに当てはまる部分を確認
+        if(existArray[return_array[j][MUSIC_INDEX]] == "0"){
+            $("#musiclistid").append($("<option>").val(return_array[j][MUSIC_INDEX]).text(return_array[j][NAME_INDEX]));
+        }
+    }
+}
+
+
+
+/*==================================================================================================
+----------------------------------------------------------------------------------------------------
 jQuery
+----------------------------------------------------------------------------------------------------
 ==================================================================================================*/
 jQuery(function(){
     
@@ -460,108 +577,3 @@ function makeUrlPara(arr){
 }
 
 
-
-
-
-/*==================================================================================================
-//パラメータ解析, 配置 (para: パラメータ)
-==================================================================================================*/
-function paraAnlyzeSet(iidazepara){
-    
-    //iidazeparaを分解, パラメータ分割位置把握
-    var psst = iidazepara.indexOf("-ps-");
-    var tst = iidazepara.indexOf("-t-");
-    var ost = iidazepara.indexOf("-o-");
-
-    //BOX全削除
-    for(var id = 0; id < MUSIC_NUM; id++){
-        if(existArray[id] == "1"){
-            delID = "#iidaze_" + String(id);
-            $(delID).remove();
-        }
-        existArray[id] = "0";
-    }
-
-    var compExist = iidazepara.substring(3, psst);      //解凍前存在判定
-    var compPos = iidazepara.substring(psst + 4, tst);  //解凍前配置位置
-    var Target = iidazepara.substring(tst + 3, ost);    //目標
-    var Opt = iidazepara.substring(ost + 3, ost + 4);   //オプション
-
-    //存在判定を解凍, カンマで区切って配列化
-    existArray =  lzbase62.decompress(compExist).split(",");
-    
-    decompPosL = [];
-    decompPosT = [];
-    decompStr = lzbase62.decompress(compPos);
-    for(var l = 0; l < decompStr.length; l = l + 4){
-        //デコード後文字列から4文字毎に切り出し、左位置 上位置毎を取得し10進数に戻して格納
-        decompPosL.push(tot(decompStr.substring(l, l + 2)));
-        decompPosT.push(tot(decompStr.substring(l + 2, l + 4)));
-    }
-
-    var posn = 0;
-
-    for(var id2 = 0; id2 < MUSIC_NUM; id2++){
-        
-        if(existArray[id2] == 1){
-
-            var div_element = document.createElement("div");
-            var parent_object = document.getElementById("generate_position");
-            var disp_name = music_table[id2][DISP_INDEX];
-            
-            //attrで行うべき? このままだと2重のdivになるから控えたい。
-            div_element.innerHTML = 
-                '<div class="music_box music_box_' + music_table[id2][VER_INDEX] + 
-                '" id="iidaze_'+ music_table[id2][MUSIC_INDEX] +
-                '" style="left: '+ decompPosL[posn] +'px; top: '+ decompPosT[posn] +'px;">' + disp_name + '</div>';
-            
-            parent_object.appendChild(div_element);
-            setDraggableAndDblclick("#iidaze_" + String(music_table[id2][MUSIC_INDEX]));
-            setHover("#iidaze_" + String(music_table[id2][MUSIC_INDEX]), 
-                                         music_table[id2][NAME_INDEX]);
-            posn = posn + 1;
-        }
-    }
-
-    //目標, オプションのセレクトボックス変更
-    $("#targetid").val(String(Target));
-    $("#optid").val(String(Opt));
-    
-    //タイトル変更
-    var name =  window.localStorage.getItem(['IIDAZEname']);
-    document.title= name + "'s DP difficult 12 Tier Chart";
-    
-    //バージョンをsubstreamに
-    $("#verlistid").val("2");
-    MusicSelectBoxChange(2);        
-}
-
-/*==================================================================================================
-//譜面セレクトボックス変更
-==================================================================================================*/
-function MusicSelectBoxChange(version){
-    sl = document.getElementById('musiclistid');
-    while(sl.lastChild)
-    {
-        sl.removeChild(sl.lastChild);
-    }
-    //選択中バージョン取得
-    const selectVal = $("#verlistid").val();
-    
-    var return_array = [];
-
-    //該当バージョン譜面全取得
-    for (var i = 0; i < music_table.length; i++){
-        if(selectVal ==  music_table[i][VER_INDEX]){
-            return_array.push(music_table[i]);
-        }
-    }
-
-    //譜面セレクトボックス格納
-    for (var j = 0; j < return_array.length; j++){
-        //存在判定配列の中をMUSIC_INDEXに当てはまる部分を確認
-        if(existArray[return_array[j][MUSIC_INDEX]] == "0"){
-            $("#musiclistid").append($("<option>").val(return_array[j][MUSIC_INDEX]).text(return_array[j][NAME_INDEX]));
-        }
-    }
-}
