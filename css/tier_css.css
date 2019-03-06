@@ -41,7 +41,7 @@ header{
     margin-top:50px;
     background-size: cover;
     text-align: center;
-    background-image : url(img/backaxis.jpg );
+    background-image : url(../img/backaxis.jpg );
     z-index:0;
     position:relative;
 }
