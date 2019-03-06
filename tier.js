@@ -2,6 +2,8 @@ const MUSIC_NUM = 374;//20190226
 
 var existArray= new Array(MUSIC_NUM);//存在判定はキーバリューにするべきか? (以後の譜面追加対応しやすくするため)
 
+//TODO 名前をパラメータに追加(もしくはIIDXのIDにするべきか?)
+
 function initchart(){
     
     var gatUrl = document.location.href;
