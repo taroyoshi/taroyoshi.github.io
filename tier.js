@@ -5,6 +5,7 @@ var existArray= new Array(MUSIC_NUM);//存在判定はキーバリューにす�
 //TODO 名前をパラメータに追加(もしくはIIDXのIDにするべきか?)
 //TODO 目標とオプションは一つにまとめるべきか
 //TODO 説明画面モーダル
+//TODO モーダル中の通常ボタンの無効化
 
 
 /*==================================================================================================
@@ -253,8 +254,70 @@ function MusicSelectBoxChange(version){
     }
 }
 
+/*==================================================================================================
+//パラメータ作成 (arr: 存在判定配列)
+==================================================================================================*/
+function makeUrlPara(arr){
+    
+    var retUrl = "";
+    
+    for(var id = 0; id < MUSIC_NUM; id++){
+        if(arr[id] == 1){
+            //ID取得
+            var each_id = document.getElementById('iidaze_'+ id);
+            var l62, t62;            
+            
+            //左位置取得, 62進数変換
+            var l = each_id.style.left.replace("px","");
+            if(l === ""){
+                l62 = "00";
+            }
+            else{
+                l62 = tos(l);
+            }
+            
+            //上位置取得, 62進数変換
+            var t = each_id.style.top.replace("px","");
+             if(t === ""){
+                t62 = "00";
+            }
+            else{
+                t62 = tos(t);
+            }
+        
+            //圧縮前文字列に格納
+            retUrl = retUrl + l62 + t62;
+        }
+    }
+    
+    //存在判定配列の圧縮
+    var compressedExist = lzbase62.compress(existArray);  
+    //位置情報URLの圧縮
+    var compressedPos = lzbase62.compress(retUrl);
+    
+    var targetsl = $("#targetid").val();
+    var optsl = $("#optid").val();
+    return ("?ex-" + compressedExist + "-ps-" +compressedPos + "-t-" + targetsl + "-o-" + optsl);
+}
 
 
+/*==================================================================================================
+//モーダルウィンドウ位置
+==================================================================================================*/
+function modalResize(id){
+        
+    var w = $(window).width();
+    var h = $(window).height();
+    
+    var cw = $(id).outerWidth();
+    var ch = $(id).outerHeight();
+    
+    //取得した値をcssに追加する
+    $(id).css({
+        "left": ((w - cw)/2) + "px",
+        "top": ((h - ch)/2) + "px"
+    });
+}
 /*==================================================================================================
 ----------------------------------------------------------------------------------------------------
 jQuery
@@ -388,7 +451,7 @@ jQuery(function(){
     $("#config_search").click(function(){
         
         //画面中央を計算する関数を実行
-        modalResize();
+        modalResize("#modal-main");
         
         //モーダルウィンドウを表示
         $("#modal-main").fadeIn("slow");
@@ -433,7 +496,6 @@ jQuery(function(){
         //Twitter共有用URL作成, クリックイベント設定
         var preUrl = "https://twitter.com/intent/tweet?url=";
         
-        
         var gatUrl = document.location.href;
         var n = gatUrl.search("tier_main.html");
         
@@ -442,7 +504,7 @@ jQuery(function(){
         
         var para = makeUrlPara(existArray);
         var url = "window.open('" + preUrl + iidazeUrl + para + "')";
-        $('#tweet').removeAttr('src');
+        $('#tweet').removeAttr('onclick');
         $('#tweet').attr({
             'onclick': url
         });
@@ -509,71 +571,47 @@ jQuery(function(){
         //画面の左上からmodal-mainの横幅・高さを引き 2で割ると画面中央の位置
         $(window).resize(modalResize);
         
-        function modalResize(){
         
-            var w = $(window).width();
-            var h = $(window).height();
-            
-            var cw = $("#modal-main").outerWidth();
-            var ch = $("#modal-main").outerHeight();
-            
-            //取得した値をcssに追加する
-            $("#modal-main").css({
-                "left": ((w - cw)/2) + "px",
-                "top": ((h - ch)/2) + "px"
-            });
-        }
     });
         
+    /*==================================================================================================
+    //説明モーダルウィンドウ
+    ==================================================================================================*/
+    $("#info").click(function(){
+        
+        //画面中央を計算する関数を実行
+        modalResize("#info_modal-main");
+        
+        //モーダルウィンドウを表示
+        $("#info_modal-main").fadeIn("slow");
+        
+        var target = document.getElementById("main");
+        
+        //以下 おそらく間違ってる
+        $("#fadeLayer").css({
+            "width": target.style.width + "px",
+            "height": target.style.height + "px",
+            "visibility": "visible"
+        });
+        
+        
+        //モーダル内ボタン押下イベント
+        $(".modal_button").click(function(){
+            var id =  $(this).attr("id");
+            var layer = document.getElementById("fadeLayer");
+        
+            $("#info_modal-main").fadeOut("slow",function(){
+                 switch(id){
+                    case 'info_modal_close':
+                        layer.style.visibility = "hidden";
+                        break;
+                 }
+            });
+        });
+    });
     
     
 });
 
-
-/*==================================================================================================
-//パラメータ作成 (arr: 存在判定配列)
-==================================================================================================*/
-function makeUrlPara(arr){
-    
-    var retUrl = "";
-    
-    for(var id = 0; id < MUSIC_NUM; id++){
-        if(arr[id] == 1){
-            //ID取得
-            var each_id = document.getElementById('iidaze_'+ id);
-            var l62, t62;            
-            
-            //左位置取得, 62進数変換
-            var l = each_id.style.left.replace("px","");
-            if(l === ""){
-                l62 = "00";
-            }
-            else{
-                l62 = tos(l);
-            }
-            
-            //上位置取得, 62進数変換
-            var t = each_id.style.top.replace("px","");
-             if(t === ""){
-                t62 = "00";
-            }
-            else{
-                t62 = tos(t);
-            }
-        
-            //圧縮前文字列に格納
-            retUrl = retUrl + l62 + t62;
-        }
-    }
-    
-    //存在判定配列の圧縮
-    var compressedExist = lzbase62.compress(existArray);  
-    //位置情報URLの圧縮
-    var compressedPos = lzbase62.compress(retUrl);
-    
-    var targetsl = $("#targetid").val();
-    var optsl = $("#optid").val();
-    return ("?ex-" + compressedExist + "-ps-" +compressedPos + "-t-" + targetsl + "-o-" + optsl);
-}
 
 

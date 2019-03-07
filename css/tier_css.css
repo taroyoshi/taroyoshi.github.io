@@ -88,7 +88,7 @@ header{
 
 
 /* モーダル コンテンツエリア */
-#modal-main {
+#modal-main{
     display: none;
     width: 500px;
     height: 300px;
@@ -125,6 +125,25 @@ header{
 
 #tweet{
     margin-top:20px;
+}
+
+
+/* 説明モーダル コンテンツエリア */
+#info_modal-main{
+    display: none;
+    width: 700px;
+    height: 600px;
+    margin: auto;
+    top:50%;
+    left:50%;
+    text-align:center;
+    color: black;
+    background-color: white;
+    position:fixed;
+    z-index: 20;
+    border-radius: 5px;
+    border: solid 1px blue;
+    float: none;
 }
 
 /*吹き出し*/
