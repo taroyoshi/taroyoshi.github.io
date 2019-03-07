@@ -30,6 +30,16 @@
     
 }
 
+#name{
+    background-color: white;
+    opacity: 0.8;
+    width: 300px;
+    height: 500px;
+    padding: 20px 0 0 20px;
+    margin: 20px 0 0 20px;
+    border: solid 2px skyblue;
+}
+
 #iidaze_wrap{
     background-color: white;
     opacity:0.8;

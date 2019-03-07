@@ -616,7 +616,6 @@ jQuery(function(){
             "visibility": "visible"
         });
         
-        
         //モーダル内ボタン押下イベント
         $(".modal_button").click(function(){
             var id =  $(this).attr("id");
