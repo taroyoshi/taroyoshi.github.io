@@ -450,6 +450,15 @@ jQuery(function(){
     ==================================================================================================*/
     $("#config_search").click(function(){
         
+        
+        var button_elements = document.getElementsByClassName("button");
+        
+        for(var e = 0; e < button_elements.length; e++){
+            button_elements[e].setAttribute("disabled", "disabled");
+        }
+        
+        
+        
         //画面中央を計算する関数を実行
         modalResize("#modal-main");
         
@@ -563,6 +572,13 @@ jQuery(function(){
                 }
                 
                 layer.style.visibility = "hidden";
+                
+                var button_elements = document.getElementsByClassName("button");
+        
+                for(var e = 0; e < button_elements.length; e++){
+                    button_elements[e].removeAttribute("disabled");
+                }
+                
             });
         });
         
@@ -578,6 +594,12 @@ jQuery(function(){
     //説明モーダルウィンドウ
     ==================================================================================================*/
     $("#info").click(function(){
+        
+        var button_elements = document.getElementsByClassName("button");
+        
+        for(var e = 0; e < button_elements.length; e++){
+            button_elements[e].setAttribute("disabled", "disabled");
+        }
         
         //画面中央を計算する関数を実行
         modalResize("#info_modal-main");
@@ -607,6 +629,12 @@ jQuery(function(){
                         break;
                  }
             });
+            
+            var button_elements = document.getElementsByClassName("button");
+        
+            for(var e = 0; e < button_elements.length; e++){
+                button_elements[e].removeAttribute("disabled");
+            }
         });
     });
     
