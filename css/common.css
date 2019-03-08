@@ -8,7 +8,7 @@
     vertical-align:middle;
     background-color: rgb(255,175,255);
     border: solid 2px skyblue;
-    
+    padding-top:10px;
 }
 .header{
     background-color: rgb(230,230,230);
@@ -23,6 +23,7 @@
     height:100%;
 }
 .main_wrraper{
+    padding-top:15px;
     height:980px;
     width:auto;
     background-size: cover;
@@ -43,10 +44,19 @@
 #iidaze_wrap{
     background-color: white;
     opacity:0.8;
+    width:80%;
     padding:10px 0 0 10px;
     margin-left:20px;
     border: solid 2px skyblue;
 }
 #iidaze_wrap h1{
     margin-top: 1px;
+    margin-bottom: 3px;
+}
+
+#iidaze_wrap h2{
+    margin-top: 10px;
+}
+#iidaze_wrap p{
+    margin-bottom: 1px;
 }

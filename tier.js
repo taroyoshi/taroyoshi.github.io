@@ -550,6 +550,12 @@ jQuery(function(){
                         var positionTop = Math.round(rect.top);
                         
                         scrollTo(positionLeft, positionTop);
+                        /*
+                        setTimeout(function(){
+                            $("#iidaze_" + mounted_selectVal).css({
+                            "border": "1px solid yellow"
+                        }, 100);
+                        */    
                        
                         break;
                         
