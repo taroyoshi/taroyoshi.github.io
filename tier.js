@@ -2,11 +2,10 @@ const MUSIC_NUM = 374;//20190225
 
 var existArray= new Array(MUSIC_NUM);//存在判定はキーバリューにするべきか? (以後の譜面追加対応しやすくするため)
 
-//TODO 名前をパラメータに追加(もしくはIIDXのIDにするべきか?)
-//TODO 目標とオプションは一つにまとめるべきか
-//TODO 説明画面モーダル
-//TODO モーダル中の通常ボタンの無効化
 
+
+
+//Save, Load時に名前の一致かを確認
 
 /*==================================================================================================
 //チャート画面読み出し時処理(付随されているURLパラメータによって処理を判断)
@@ -157,9 +156,9 @@ function setHover(id, music_name){
 function paraAnlyzeSet(iidazepara){
     
     //iidazeparaを分解, パラメータ分割位置把握
-    var psst = iidazepara.indexOf("-ps-");
-    var tst = iidazepara.indexOf("-t-");
-    var ost = iidazepara.indexOf("-o-");
+    var psst = iidazepara.indexOf("-p-");
+    var tost = iidazepara.indexOf("-to-");
+    var nst = iidazepara.indexOf("-n-");
 
     //BOX全削除
     for(var id = 0; id < MUSIC_NUM; id++){
@@ -170,10 +169,10 @@ function paraAnlyzeSet(iidazepara){
         existArray[id] = "0";
     }
 
-    var compExist = iidazepara.substring(3, psst);      //解凍前存在判定
-    var compPos = iidazepara.substring(psst + 4, tst);  //解凍前配置位置
-    var Target = iidazepara.substring(tst + 3, ost);    //目標
-    var Opt = iidazepara.substring(ost + 3, ost + 4);   //オプション
+    var compExist = iidazepara.substring(2, psst);      //解凍前存在判定
+    var compPos = iidazepara.substring(psst + 3, tost);  //解凍前配置位置
+    var TargetOption = iidazepara.substring(tost + 4, nst);    //目標, オプション
+    var Name = iidazepara.substring(nst + 3, iidazepara.length);   //名前
 
     //存在判定を解凍, カンマで区切って配列化
     existArray =  lzbase62.decompress(compExist).split(",");
@@ -212,12 +211,15 @@ function paraAnlyzeSet(iidazepara){
     }
 
     //目標, オプションのセレクトボックス変更
-    $("#targetid").val(String(Target));
-    $("#optid").val(String(Opt));
+    $("#targetid").val(String(TargetOption.substring(0,1)));
+    $("#optid").val(String(TargetOption.substring(1,2)));
     
     //タイトル変更
-    var name =  window.localStorage.getItem(['IIDAZEname']);
-    document.title= name + "'s DP difficult 12 Tier Chart";
+    //var name =  window.localStorage.getItem(['IIDAZEname']);
+    if(Name != "null"){
+        document.title= Name + "'s DP difficult 12 Tier Chart";    
+    }
+    
     
     //バージョンをsubstreamに
     $("#verlistid").val("2");
