@@ -4,8 +4,8 @@ var existArray= new Array(MUSIC_NUM);//存在判定はキーバリューにす�
 
 
 
-
-//Save, Load時に名前の一致かを確認
+//TODO 検索後に吹き出しと目立たせる
+//TODO Save, Load時に名前の一致かを確認
 
 /*==================================================================================================
 //チャート画面読み出し時処理(付随されているURLパラメータによって処理を判断)
@@ -147,9 +147,6 @@ function setHover(id, music_name){
 }
 
 
-
-
-
 /*==================================================================================================
 //パラメータ解析, 配置 (para: パラメータ)
 ==================================================================================================*/
@@ -169,8 +166,8 @@ function paraAnlyzeSet(iidazepara){
         existArray[id] = "0";
     }
 
-    var compExist = iidazepara.substring(2, psst);      //解凍前存在判定
-    var compPos = iidazepara.substring(psst + 3, tost);  //解凍前配置位置
+    var compExist = iidazepara.substring(2, psst);              //解凍前存在判定
+    var compPos = iidazepara.substring(psst + 3, tost);         //解凍前配置位置
     var TargetOption = iidazepara.substring(tost + 4, nst);    //目標, オプション
     var Name = iidazepara.substring(nst + 3, iidazepara.length);   //名前
 
@@ -407,7 +404,7 @@ jQuery(function(){
         
         //対象IDにマウスオーバーで表示
         setHover("#iidaze_" + String(music_table[selected_music_index][MUSIC_INDEX]), 
-                music_table[selected_music_index][NAME_INDEX]);
+                                    music_table[selected_music_index][NAME_INDEX]);
     });
     
     
@@ -453,7 +450,7 @@ jQuery(function(){
     ==================================================================================================*/
     $("#config_search").click(function(){
         
-        
+        //ヘッダーのボタン無効化
         var button_elements = document.getElementsByClassName("button");
         
         for(var e = 0; e < button_elements.length; e++){
@@ -513,6 +510,7 @@ jQuery(function(){
         var iidazeUrl = gatUrl.slice(0, n + 14);
         
         var para = makeUrlPara(existArray);
+        //VS Codeのローカルデバッグだと機能しない?
         var url = "window.open('" + preUrl + iidazeUrl + para + "')";
         $('#tweet').removeAttr('onclick');
         $('#tweet').attr({
@@ -524,11 +522,11 @@ jQuery(function(){
         if(existArray[0] == "1"){
             $("#mounted_musiclistid").append($("<option>").val(music_table[0][MUSIC_INDEX]).text(music_table[0][NAME_INDEX]));
         }
-            
         
         //モーダル内ボタン押下イベント
         $(".modal_button").click(function(){
 
+            //押されたボタンのID
             var id =  $(this).attr("id");
             var layer = document.getElementById("fadeLayer");
         
@@ -545,12 +543,14 @@ jQuery(function(){
                         
                         //移動させたい位置の要素を取得
                         var element = document.getElementById("iidaze_" + mounted_selectVal);
+                        //位置情報など
                         var rect = element.getBoundingClientRect();
                         
                         var positionLeft = Math.round(rect.left);
                         var positionTop = Math.round(rect.top);
                         
                         scrollTo(positionLeft, positionTop);
+                        //ここで対象のCSS書き換えとか行うか
                         /*
                         setTimeout(function(){
                             $("#iidaze_" + mounted_selectVal).css({
@@ -580,6 +580,7 @@ jQuery(function(){
                 
                 layer.style.visibility = "hidden";
                 
+                //ヘッダーのボタン有効化
                 var button_elements = document.getElementsByClassName("button");
         
                 for(var e = 0; e < button_elements.length; e++){
@@ -600,6 +601,7 @@ jQuery(function(){
     ==================================================================================================*/
     $("#info").click(function(){
         
+        //ヘッダーのボタン無効化
         var button_elements = document.getElementsByClassName("button");
         
         for(var e = 0; e < button_elements.length; e++){
@@ -634,6 +636,7 @@ jQuery(function(){
                  }
             });
             
+            //ヘッダーのボタン有効化
             var button_elements = document.getElementsByClassName("button");
         
             for(var e = 0; e < button_elements.length; e++){
@@ -641,8 +644,6 @@ jQuery(function(){
             }
         });
     });
-    
-    
 });
 
 
