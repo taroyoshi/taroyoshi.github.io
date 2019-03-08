@@ -297,7 +297,8 @@ function makeUrlPara(arr){
     
     var targetsl = $("#targetid").val();
     var optsl = $("#optid").val();
-    return ("?ex-" + compressedExist + "-ps-" +compressedPos + "-t-" + targetsl + "-o-" + optsl);
+    var name = window.localStorage.getItem(['IIDAZEname']);
+    return ("?e-" + compressedExist + "-p-" +compressedPos + "-to-" + targetsl + optsl + "-n-" + name);
 }
 
 
@@ -456,9 +457,7 @@ jQuery(function(){
         for(var e = 0; e < button_elements.length; e++){
             button_elements[e].setAttribute("disabled", "disabled");
         }
-        
-        
-        
+
         //画面中央を計算する関数を実行
         modalResize("#modal-main");
         
@@ -587,8 +586,6 @@ jQuery(function(){
                 
             });
         });
-        
-        
         
         //画面の左上からmodal-mainの横幅・高さを引き 2で割ると画面中央の位置
         $(window).resize(modalResize);

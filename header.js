@@ -1,5 +1,5 @@
 $(function(){
-    //$("#header-outer").load("../html/header.html #header-inner");
+    
     $("#header-outer").load("../html/header.html #header-inner");
     
     setTimeout(function(){
