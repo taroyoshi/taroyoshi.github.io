@@ -49,7 +49,7 @@ function setDraggableAndDblclick(id){
             $(this).remove();
             
             var gatID = this.id;
-            gatID = gatID.replace("iidaze_", "");
+            gatID = gatID.replace("iidaxe_", "");
             var gatID_i = parseInt(gatID, 10);
             
             //現在表示中のバージョンを確認して動作を分けるべきか?
@@ -64,7 +64,7 @@ function setDraggableAndDblclick(id){
 	    //textageの対象譜面を別タブでオープン
 	    if (event.altKey) {
             
-            var music_id = id.replace("#iidaze_","");
+            var music_id = id.replace("#iidaxe_","");
             
             const url1 = "http://textage.cc/score/";
             const url2 = "/";
@@ -97,7 +97,7 @@ function setDraggableAndDblclick(id){
     });
 }
 /*======================================================================
-//ホバーイベント付与 (id : "iidaze_～")
+//ホバーイベント付与 (id : "iidaxe_～")
 ======================================================================*/
 function setHover(id, music_name){
     $( id ).hover(function(){
@@ -150,26 +150,26 @@ function setHover(id, music_name){
 /*==================================================================================================
 //パラメータ解析, 配置 (para: パラメータ)
 ==================================================================================================*/
-function paraAnlyzeSet(iidazepara){
+function paraAnlyzeSet(iidaxepara){
     
-    //iidazeparaを分解, パラメータ分割位置把握
-    var psst = iidazepara.indexOf("-p-");
-    var tost = iidazepara.indexOf("-to-");
-    var nst = iidazepara.indexOf("-n-");
+    //iidaxeparaを分解, パラメータ分割位置把握
+    var psst = iidaxepara.indexOf("-p-");
+    var tost = iidaxepara.indexOf("-to-");
+    var nst = iidaxepara.indexOf("-n-");
 
     //BOX全削除
     for(var id = 0; id < MUSIC_NUM; id++){
         if(existArray[id] == "1"){
-            delID = "#iidaze_" + String(id);
+            delID = "#iidaxe_" + String(id);
             $(delID).remove();
         }
         existArray[id] = "0";
     }
 
-    var compExist = iidazepara.substring(2, psst);              //解凍前存在判定
-    var compPos = iidazepara.substring(psst + 3, tost);         //解凍前配置位置
-    var TargetOption = iidazepara.substring(tost + 4, nst);    //目標, オプション
-    var Name = iidazepara.substring(nst + 3, iidazepara.length);   //名前
+    var compExist = iidaxepara.substring(2, psst);              //解凍前存在判定
+    var compPos = iidaxepara.substring(psst + 3, tost);         //解凍前配置位置
+    var TargetOption = iidaxepara.substring(tost + 4, nst);    //目標, オプション
+    var Name = iidaxepara.substring(nst + 3, iidaxepara.length);   //名前
 
     //存在判定を解凍, カンマで区切って配列化
     existArray =  lzbase62.decompress(compExist).split(",");
@@ -196,12 +196,12 @@ function paraAnlyzeSet(iidazepara){
             //attrで行うべき? このままだと2重のdivになるから控えたい。
             div_element.innerHTML = 
                 '<div class="music_box music_box_' + music_table[id2][VER_INDEX] + 
-                '" id="iidaze_'+ music_table[id2][MUSIC_INDEX] +
+                '" id="iidaxe_'+ music_table[id2][MUSIC_INDEX] +
                 '" style="left: '+ decompPosL[posn] +'px; top: '+ decompPosT[posn] +'px;">' + disp_name + '</div>';
             
             parent_object.appendChild(div_element);
-            setDraggableAndDblclick("#iidaze_" + String(music_table[id2][MUSIC_INDEX]));
-            setHover("#iidaze_" + String(music_table[id2][MUSIC_INDEX]), 
+            setDraggableAndDblclick("#iidaxe_" + String(music_table[id2][MUSIC_INDEX]));
+            setHover("#iidaxe_" + String(music_table[id2][MUSIC_INDEX]), 
                                          music_table[id2][NAME_INDEX]);
             posn = posn + 1;
         }
@@ -212,7 +212,7 @@ function paraAnlyzeSet(iidazepara){
     $("#optid").val(String(TargetOption.substring(1,2)));
     
     //タイトル変更
-    //var name =  window.localStorage.getItem(['IIDAZEname']);
+    //var name =  window.localStorage.getItem(['IIDAXEname']);
     if(Name != "null"){
         document.title= Name + "'s DP difficult 12 Tier Chart";    
     }
@@ -263,7 +263,7 @@ function makeUrlPara(arr){
     for(var id = 0; id < MUSIC_NUM; id++){
         if(arr[id] == 1){
             //ID取得
-            var each_id = document.getElementById('iidaze_'+ id);
+            var each_id = document.getElementById('iidaxe_'+ id);
             var l62, t62;            
             
             //左位置取得, 62進数変換
@@ -296,7 +296,7 @@ function makeUrlPara(arr){
     
     var targetsl = $("#targetid").val();
     var optsl = $("#optid").val();
-    var name = window.localStorage.getItem(['IIDAZEname']);
+    var name = window.localStorage.getItem(['IIDAXEname']);
     return ("?e-" + compressedExist + "-p-" +compressedPos + "-to-" + targetsl + optsl + "-n-" + name);
 }
 
@@ -344,11 +344,11 @@ jQuery(function(){
             if(window.confirm('本当に初期化を行いますか？')){
                 
                 //loacl strageの削除
-                localStorage.removeItem("IIDAZEpara"); 
+                localStorage.removeItem("IIDAXEpara"); 
 
                 //BOX全削除
                 for(var id = 0; id < MUSIC_NUM; id++){
-                    delID = "#iidaze_" + String(id);
+                    delID = "#iidaxe_" + String(id);
                     $(delID).remove();
                 }
                 
@@ -390,7 +390,7 @@ jQuery(function(){
         //attrで行うべき? このままだと2重のdivになるから控えたい。
         div_element.innerHTML = '<div class="music_box music_box_' + 
                                 music_table[selected_music_index][VER_INDEX] + 
-                                '" id="iidaze_'+ 
+                                '" id="iidaxe_'+ 
                                 music_table[selected_music_index][MUSIC_INDEX] +
                                 '">' + 
                                 disp_name + 
@@ -399,11 +399,11 @@ jQuery(function(){
         parent_object.append(div_element);
 
         //対象IDをドラッグ可, ダブルクリックイベント付与
-        setDraggableAndDblclick("#iidaze_" + String(music_table[selected_music_index][MUSIC_INDEX]));
+        setDraggableAndDblclick("#iidaxe_" + String(music_table[selected_music_index][MUSIC_INDEX]));
         existArray[selected_music_index] = "1";
         
         //対象IDにマウスオーバーで表示
-        setHover("#iidaze_" + String(music_table[selected_music_index][MUSIC_INDEX]), 
+        setHover("#iidaxe_" + String(music_table[selected_music_index][MUSIC_INDEX]), 
                                     music_table[selected_music_index][NAME_INDEX]);
     });
     
@@ -421,7 +421,7 @@ jQuery(function(){
                         
             var madeUrlPara =  makeUrlPara(existArray);
             
-            window.localStorage.setItem(['IIDAZEpara'],[madeUrlPara]);
+            window.localStorage.setItem(['IIDAXEpara'],[madeUrlPara]);
         }
         
     });
@@ -436,9 +436,9 @@ jQuery(function(){
         }
         if(window.confirm('保存してある状態をロードしますか？')){
             
-            var iidazepara = window.localStorage.getItem(['IIDAZEpara']);
+            var iidaxepara = window.localStorage.getItem(['IIDAXEpara']);
             
-            paraAnlyzeSet(iidazepara);
+            paraAnlyzeSet(iidaxepara);
         }
         
     });
@@ -506,12 +506,12 @@ jQuery(function(){
         var gatUrl = document.location.href;
         var n = gatUrl.search("tier_main.html");
         
-        //var iidazeUrl = "https://taroyoshi.github.io/tier_main.html";//GitHub pages用
-        var iidazeUrl = gatUrl.slice(0, n + 14);
+        //var iidaxeUrl = "https://taroyoshi.github.io/tier_main.html";//GitHub pages用
+        var iidaxeUrl = gatUrl.slice(0, n + 14);
         
         var para = makeUrlPara(existArray);
         //VS Codeのローカルデバッグだと機能しない?
-        var url = "window.open('" + preUrl + iidazeUrl + para + "')";
+        var url = "window.open('" + preUrl + iidaxeUrl + para + "')";
         $('#tweet').removeAttr('onclick');
         $('#tweet').attr({
             'onclick': url
@@ -542,7 +542,7 @@ jQuery(function(){
                         }
                         
                         //移動させたい位置の要素を取得
-                        var element = document.getElementById("iidaze_" + mounted_selectVal);
+                        var element = document.getElementById("iidaxe_" + mounted_selectVal);
                         //位置情報など
                         var rect = element.getBoundingClientRect();
                         
@@ -553,7 +553,7 @@ jQuery(function(){
                         //ここで対象のCSS書き換えとか行うか
                         /*
                         setTimeout(function(){
-                            $("#iidaze_" + mounted_selectVal).css({
+                            $("#iidaxe_" + mounted_selectVal).css({
                             "border": "1px solid yellow"
                         }, 100);
                         */    
@@ -564,7 +564,7 @@ jQuery(function(){
                     case 'config_save':
                         var name = $("#CreatedName").val();
                         if(name){
-                            window.localStorage.setItem(['IIDAZEname'],[name]);
+                            window.localStorage.setItem(['IIDAXEname'],[name]);
                             document.title= name + "'s DP difficult 12 Tier Chart";
                         }
                         break;

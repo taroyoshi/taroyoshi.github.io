@@ -26,8 +26,8 @@
 }
 .main_wrraper{
     
-    padding-top:15px;
-    height:1480px;
+    padding:15px 0 15px;
+    min-height:980px;
     width:auto;
     background-size: cover;
     background-attachment:fixed;
@@ -36,8 +36,9 @@
 }
 
 #name{
+    color:black;
     background-color: white;
-    opacity: 0.8;
+    opacity: 0.9;
     /*width: 400px;*/
     height: auto;
     padding: 10px 0 0 20px;
@@ -45,29 +46,29 @@
     border: solid 2px skyblue;
 }
 
-#iidaze_wrap{
+#iidaxe_wrap{
     color:black;
     background-color: white;
-    opacity:0.8;
+    opacity:0.9;
     padding:10px 0 20px 10px;
     margin:50px 0 20px 20px;
     border: solid 2px skyblue;
 }
-#iidaze_wrap h1{
+#iidaxe_wrap h1{
     margin-top: 1px;
     margin-bottom: 3px;
 }
 
-#iidaze_wrap h2{
+#iidaxe_wrap h2{
     margin-top: 10px;
 }
-#iidaze_wrap p{
+#iidaxe_wrap p{
     margin-bottom: 1px;
 }
-#iidaze_wrap li{
+#iidaxe_wrap li{
     font-size: 14px;
 }
-#iidaze_wrap i{
+#iidaxe_wrap i{
     font-size: 30px;
     margin-top: 1px;
 }
