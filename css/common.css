@@ -12,7 +12,9 @@
 }
 .header{
     background-color: rgb(230,230,230);
-    padding-bottom: 60px;
+    position:fixed;
+    padding-bottom: 1px;
+    z-index: 5;
 }
 
 .head_button a{
@@ -23,10 +25,12 @@
     height:100%;
 }
 .main_wrraper{
+    
     padding-top:15px;
-    height:980px;
+    height:1480px;
     width:auto;
     background-size: cover;
+    background-attachment:fixed;
     background-image: url(../img/wpIMGL2790_TP_V.jpg);
     
 }
@@ -34,19 +38,19 @@
 #name{
     background-color: white;
     opacity: 0.8;
-    width: 400px;
-    height: 500px;
+    /*width: 400px;*/
+    height: auto;
     padding: 10px 0 0 20px;
-    margin: 10px 0 0 20px;
+    margin:50px 0 20px 20px;
     border: solid 2px skyblue;
 }
 
 #iidaze_wrap{
+    color:black;
     background-color: white;
     opacity:0.8;
-    width:80%;
-    padding:10px 0 0 10px;
-    margin-left:20px;
+    padding:10px 0 20px 10px;
+    margin:50px 0 20px 20px;
     border: solid 2px skyblue;
 }
 #iidaze_wrap h1{
@@ -59,4 +63,11 @@
 }
 #iidaze_wrap p{
     margin-bottom: 1px;
+}
+#iidaze_wrap li{
+    font-size: 14px;
+}
+#iidaze_wrap i{
+    font-size: 30px;
+    margin-top: 1px;
 }

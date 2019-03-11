@@ -22,6 +22,51 @@ $(function(){
         button_elements = document.getElementById(id);
         $("#" + id).parent().css('background-color', '#d67877');
         button_elements.remove();
-        
+    
+        setHover();
     },120);
+    
+    
+    
 });
+
+
+function setHover(){
+    $('.head_button').hover(function(){
+    
+        var id = $(this).attr("id");
+        var t;
+        
+        switch(id){
+            case "top":
+                t = "トップ";
+                break;
+            case "prof":
+                t = "自己紹介";
+                break;
+            case "prod":
+                t = "制作物";
+                break;
+        }
+        $(this).children("h4").text(t);
+        
+    },function(){
+        
+        var id = $(this).attr("id");
+        var bt;
+        
+        switch(id){
+            case "top":
+                bt = "TOP";
+                break;
+            case "prof":
+                bt = "Profile";
+                break;
+            case "prod":
+                bt = "Product";
+                break;
+        }
+        $(this).children("h4").text(bt);
+        
+    });
+}
