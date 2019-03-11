@@ -6,12 +6,14 @@ var existArray= new Array(MUSIC_NUM);//存在判定はキーバリューにす�
 
 //TODO 検索後に吹き出しと目立たせる
 //TODO Save, Load時に名前の一致かを確認
+//TODO 配置済み, 未配置一覧表示
 
 /*==================================================================================================
 //チャート画面読み出し時処理(付随されているURLパラメータによって処理を判断)
 ==================================================================================================*/
 function initchart(){
     
+    //遷移した際のURL取得
     var gatUrl = document.location.href;
     var urlLength = gatUrl.length;
     var n = gatUrl.search("tier_main.html");
@@ -30,6 +32,7 @@ function initchart(){
         }
     }
     else{
+        //パラメータを持って表示した場合、解析し配置
         var para = gatUrl.slice(n + 15, urlLength);
         
         paraAnlyzeSet(para);
@@ -155,7 +158,7 @@ function paraAnlyzeSet(iidaxepara){
     //iidaxeparaを分解, パラメータ分割位置把握
     var psst = iidaxepara.indexOf("-p-");
     var tost = iidaxepara.indexOf("-to-");
-    var nst = iidaxepara.indexOf("-n-");
+    var nst  = iidaxepara.indexOf("-n-");
 
     //BOX全削除
     for(var id = 0; id < MUSIC_NUM; id++){
@@ -168,8 +171,8 @@ function paraAnlyzeSet(iidaxepara){
 
     var compExist = iidaxepara.substring(2, psst);              //解凍前存在判定
     var compPos = iidaxepara.substring(psst + 3, tost);         //解凍前配置位置
-    var TargetOption = iidaxepara.substring(tost + 4, nst);    //目標, オプション
-    var Name = iidaxepara.substring(nst + 3, iidaxepara.length);   //名前
+    var TargetOption = iidaxepara.substring(tost + 4, nst);     //目標, オプション
+    var Name = iidaxepara.substring(nst + 3, iidaxepara.length);//名前
 
     //存在判定を解凍, カンマで区切って配列化
     existArray =  lzbase62.decompress(compExist).split(",");
@@ -212,11 +215,9 @@ function paraAnlyzeSet(iidaxepara){
     $("#optid").val(String(TargetOption.substring(1,2)));
     
     //タイトル変更
-    //var name =  window.localStorage.getItem(['IIDAXEname']);
     if(Name != "null"){
         document.title= Name + "'s DP difficult 12 Tier Chart";    
     }
-    
     
     //バージョンをsubstreamに
     $("#verlistid").val("2");
@@ -294,9 +295,11 @@ function makeUrlPara(arr){
     //位置情報URLの圧縮
     var compressedPos = lzbase62.compress(retUrl);
     
+    //目標, オプション, 作成者名取得
     var targetsl = $("#targetid").val();
     var optsl = $("#optid").val();
     var name = window.localStorage.getItem(['IIDAXEname']);
+    //パラメータ作成
     return ("?e-" + compressedExist + "-p-" +compressedPos + "-to-" + targetsl + optsl + "-n-" + name);
 }
 
@@ -443,8 +446,6 @@ jQuery(function(){
         
     });
     
-    
-    
     /*==================================================================================================
     //設定 検索モーダルウィンドウ
     ==================================================================================================*/
@@ -503,10 +504,10 @@ jQuery(function(){
         //Twitter共有用URL作成, クリックイベント設定
         var preUrl = "https://twitter.com/intent/tweet?url=";
         
+        //現在のURL取得。VS CODE等のローカルではこの部分の関係でデバッグ不可能
         var gatUrl = document.location.href;
         var n = gatUrl.search("tier_main.html");
         
-        //var iidaxeUrl = "https://taroyoshi.github.io/tier_main.html";//GitHub pages用
         var iidaxeUrl = gatUrl.slice(0, n + 14);
         
         var para = makeUrlPara(existArray);
@@ -533,6 +534,7 @@ jQuery(function(){
             $("#modal-main").fadeOut("slow",function(){
                 
                 switch(id){
+                    //検索, 移動
                     case 'search_move':
                         var mounted_selectVal = $("#mounted_musiclistid").val();
                         
@@ -573,11 +575,13 @@ jQuery(function(){
                     case 'modal_close':
                         break;
 
+                    //Twitter共有側で行うため、何もせずモーダルをクローズ
                     case 'tweet':
                         break;
                         
                 }
                 
+                //レイヤー非表示
                 layer.style.visibility = "hidden";
                 
                 //ヘッダーのボタン有効化
