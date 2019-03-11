@@ -129,7 +129,7 @@ music_table = [
     [18,120, "Dances with Snow Fairies", "dancwith", "Dances", "A"],
     [18,121, "ELECTRIC MASSIVE DIVER", "emassive", "MASSIVE", "A"],
     [18,122, "Kailua", "kailua", "Kailua", "A"],
-    [18,123, "PARADISE LOST", "paralost", "PARA LOS", "A"],
+    [18,123, "PARADISE LOST", "paralost", "PARA LOST", "A"],
     [18,124, "perditus†paradisus", "perditus", "p†p", "A"],
     [18,125, "reunion", "reunion", "reunion", "A"],
     [18,126, "SABER WING", "saberwng", "SABER", "A"],
