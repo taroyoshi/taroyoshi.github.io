@@ -7,7 +7,7 @@ var existArray= new Array(MUSIC_NUM);//存在判定はキーバリューにす�
 //TODO 一括生成(バージョンでやってもよいか?)(その場合重ねて生成されないように)
 //TODO 検索後に吹き出しと目立たせる
 //TODO Save, Load時に名前の一致かを確認
-
+//TODO sモーダル表示時のセレクト簿ボックス無効化
 //TODO LocalStoreageの名前必要?
 
 /*==================================================================================================
@@ -472,6 +472,7 @@ jQuery(function(){
         //ヘッダーのボタン無効化
         headEnable("disable");
 
+
         //画面中央を計算する関数を実行
         modalResize("#modal-main");
         
@@ -479,10 +480,7 @@ jQuery(function(){
         $("#modal-main").fadeIn("slow");
         
         //モーダル中背景
-        //var target = document.getElementById("main");
-        
         $("#fadeLayer").css({
-            //"width": target.style.width + "px",
             "width": $("main").css("width"),
             "height": $("main").css("height"),
             "visibility": "visible"
@@ -741,8 +739,7 @@ jQuery(function(){
                     //ヘッダーのボタン有効化
                     headEnable("enable");
                     
-                    var layer = document.getElementById("fadeLayer");
-                    layer.style.visibility = "hidden";
+                    $("#fadeLayer").css("visibility", "hidden");
 
                     $(".modal_button").off();
                     break;
