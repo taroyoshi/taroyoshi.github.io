@@ -4,10 +4,10 @@ var existArray= new Array(MUSIC_NUM);//存在判定はキーバリューにす�
 
 //TODO モーダル表示関連の関数での一括化
 
-//TODO 一括生成(バージョンでやってもよいか?)
+//TODO 一括生成(バージョンでやってもよいか?)(その場合重ねて生成されないように)
 //TODO 検索後に吹き出しと目立たせる
 //TODO Save, Load時に名前の一致かを確認
-//TODO 未配置一覧表示
+
 //TODO LocalStoreageの名前必要?
 
 /*==================================================================================================
@@ -231,12 +231,8 @@ function paraAnlyzeSet(iidaxepara){
 ==================================================================================================*/
 function MusicSelectBoxChange(version){
     
-    sl = document.getElementById('musiclistid');
+    $("#musiclistid").children("option").remove();
     
-    while(sl.lastChild)
-    {
-        sl.removeChild(sl.lastChild);
-    }
     //選択中バージョン取得
     const selectVal = $("#verlistid").val();
     
@@ -384,11 +380,8 @@ jQuery(function(){
                 $("#verlistid").val("2");
 
                 //譜面リスト初期化
-                sl = document.getElementById('musiclistid');
-                while(sl.lastChild)
-                {
-                    sl.removeChild(sl.lastChild);
-                }
+                $("#musiclistid").children().remove();
+
                 $("#musiclistid").append($("<option>").val(music_table[0][MUSIC_INDEX]).text(music_table[0][NAME_INDEX]));
                 
                 for(var i = 0; i < MUSIC_NUM; i++){
@@ -485,22 +478,21 @@ jQuery(function(){
         //モーダルウィンドウを表示
         $("#modal-main").fadeIn("slow");
         
-        var target = document.getElementById("main");
+        //モーダル中背景
+        //var target = document.getElementById("main");
         
-        //以下 おそらく間違ってる
         $("#fadeLayer").css({
-            "width": target.style.width + "px",
-            "height": target.style.height + "px",
+            //"width": target.style.width + "px",
+            "width": $("main").css("width"),
+            "height": $("main").css("height"),
             "visibility": "visible"
         });
         
         //配置済みバージョンセレクトボックス変更イベント
         $("#mouted_verlistid").change( function(){
-            sl = document.getElementById('mounted_musiclistid');
-            while(sl.lastChild)
-            {
-                sl.removeChild(sl.lastChild);
-            }
+            
+            $("#mounted_musiclistid").children().remove();
+            
             //選択中バージョン取得
             const selectVal = $("#mouted_verlistid").val();
             
@@ -550,10 +542,12 @@ jQuery(function(){
 
             //押されたボタンのID
             var id =  $(this).attr("id");
-            var layer = document.getElementById("fadeLayer");
         
             $("#modal-main").fadeOut("slow",function(){
                 
+                $(".modal_button").off();
+                $("#mouted_verlistid").off();
+
                 switch(id){
                     //検索, 移動
                     case 'search_move':
@@ -564,16 +558,9 @@ jQuery(function(){
                             break;
                         }
                         
-                        //移動させたい位置の要素を取得
-                        var element = document.getElementById("iidaxe_" + mounted_selectVal);
-                        //位置情報など
-                        //var rect = element.getBoundingClientRect();
-                        var style = window.getComputedStyle(element);
-                        var positionLeft = parseInt(style.left.replace("px", ""), 10);
-                        var positionTop = parseInt(style.top.replace("px", ""), 10);
-                        
-                        //var positionLeft = Math.round(rect.left + window.pageXOffset);
-                        //var positionTop = Math.round(rect.top + window.pageYOffset);
+                        //位置情報等
+                        var positionLeft = parseInt($("#iidaxe_" + mounted_selectVal).css("left").replace("px", ""), 10);
+                        var positionTop = parseInt($("#iidaxe_" + mounted_selectVal).css("top").replace("px", ""), 10);
                         
                         scrollTo(positionLeft, positionTop);
                         //ここで対象のCSS書き換えとか行うか
@@ -606,7 +593,7 @@ jQuery(function(){
                 }
                 
                 //レイヤー非表示
-                layer.style.visibility = "hidden";
+                $("#fadeLayer").css("visibility", "hidden");
                 
                 //ヘッダーのボタン有効化
                 headEnable("enable");
@@ -632,25 +619,23 @@ jQuery(function(){
         //モーダルウィンドウを表示
         $("#info_modal-main").fadeIn("slow");
         
-        var target = document.getElementById("main");
-        
-        //以下 おそらく間違ってる
+        //モーダル中背景
         $("#fadeLayer").css({
-            "width": target.style.width + "px",
-            "height": target.style.height + "px",
+            "width": $("main").css("width"),
+            "height": $("main").css("height"),
             "visibility": "visible"
         });
         
         //モーダル内ボタン押下イベント
         $(".modal_button").click(function(){
             var id =  $(this).attr("id");
-            var layer = document.getElementById("fadeLayer");
         
             $("#info_modal-main").fadeOut("slow",function(){
                  switch(id){
                     case 'info_modal_close':
-                        layer.style.visibility = "hidden";
-                        break;
+                    $("#fadeLayer").css("visibility", "hidden");
+                    $(".modal_button").off();
+                    break;
                  }
             });
             
@@ -674,20 +659,12 @@ jQuery(function(){
         headEnable("disable");
         
         //既存の配置済みリストを全削除
-        var setl = document.getElementById('setted_list');
-        var notl = document.getElementById('nosetted_list');
-    
-        while(setl.lastChild){
-            setl.removeChild(setl.lastChild);
-        }
-        while(notl.lastChild){
-            notl.removeChild(notl.lastChild);
-        }
-        
-        
+        $("#setted_list").children().remove();
+        $("#nosetted_list").children().remove();
         
         for(var id =0; id < existArray.length; id++){
             
+            //配置済み一覧作成
             if(existArray[id] == "1"){
         
                 if(music_table[id][VER_INDEX] != temp_ver_set){
@@ -695,10 +672,12 @@ jQuery(function(){
                     temp_ver_set = music_table[id][VER_INDEX];
                     
                     var ver_name = ver_table.filter(item => item[VER_INDEX] == temp_ver_set);
-                    $("#setted_list").append($("<p>").text(ver_name[0][VER_NAME_INDEX]));//filterで抽出したものが2次元配列のままであるので0番で代入
+                    //filterで抽出したものが2次元配列のままであるので0番で代入
+                    $("#setted_list").append($("<p>").text(ver_name[0][VER_NAME_INDEX]));
                 }
                 $("#setted_list").append($("<li>").text(music_table[id][NAME_INDEX]));
             }
+            //未配置一覧作成
             else if(existArray[id] == "0"){
             
                 if(music_table[id][VER_INDEX] != temp_ver_not_set){
@@ -706,62 +685,68 @@ jQuery(function(){
                     temp_ver_not_set = music_table[id][VER_INDEX];
                     
                     var ver_name = ver_table.filter(item => item[VER_INDEX] == temp_ver_not_set);
-                    $("#nosetted_list").append($("<p>").text(ver_name[0][VER_NAME_INDEX]));//filterで抽出したものが2次元配列のままであるので0番で代入
+                    //filterで抽出したものが2次元配列のままであるので0番で代入
+                    $("#nosetted_list").append($("<p>").text(ver_name[0][VER_NAME_INDEX]));
                 }
                 $("#nosetted_list").append($("<li>").text(music_table[id][NAME_INDEX]));
             }
-            
         }
         
         //画面中央を計算する関数を実行
         modalResize("#setted_modal-main");
         
+        //配置済みリスト表示
+        $("#setted_list").css("display", "block");
+        $("#nosetted_list").css("display", "none");
+        $("#setted_change").val("Not Setted");
+        $("#list_name").text("配置済み一覧");
+
         //モーダルウィンドウを表示
         $("#setted_modal-main").fadeIn("slow");
         
-        var target = document.getElementById("main");
+        //モーダル中背景
+        //var target = document.getElementById("main");
         
-        //以下 おそらく間違ってる
         $("#fadeLayer").css({
-            "width": target.style.width + "px",
-            "height": target.style.height + "px",
+            "width": $("main").css("width"),
+            "height": $("main").css("height"),
             "visibility": "visible"
         });
         
         //モーダル内ボタン押下イベント
         $(".modal_button").click(function(){
             var id =  $(this).attr("id");
-            
-            $("#setted_modal-main").fadeOut("slow",function(){
-                 switch(id){
+
+            switch(id){
                     
-                    case 'setted_change':
-                        
-                        var vis_se = document.getElementById("nosetted_list").style.visibility;
-                        var vis_no = document.getElementById("nosetted_list").style.visibility;
-                        
-                        if( vis_se.style.visibility == "visible" && vis_no.style.visibility == "hidden" ){
-                            vis_se.style.visibility = "hidden";
-                            vis_no.style.visibility = "visible";
-                        }
-                        else{
-                            vis_se.style.visibility = "visible";
-                            vis_no.style.visibility = "hidden";
-                        }
-                        
-                        break;
-                     
-                    case 'setted_modal_close':
-                        //ヘッダーのボタン有効化
-                        headEnable("enable");
-                        
-                        var layer = document.getElementById("fadeLayer");
-                        layer.style.visibility = "hidden";
-                        break;
-                 }
-            });
-            
-            
+                case 'setted_change':
+
+                    if( $("#setted_list").css("display") == "block" && $("#nosetted_list").css("display") == "none"){
+                        $("#setted_list").css("display", "none");
+                        $("#nosetted_list").css("display", "block");
+                        $(this).val("Setted");
+                        $("#list_name").text("未配置一覧");
+                    }
+                    else{
+                        $("#setted_list").css("display", "block");
+                        $("#nosetted_list").css("display", "none");
+                        $(this).val("Not Setted");
+                        $("#list_name").text("配置済み一覧");
+                    }
+                    
+                    break;
+                 
+                case 'setted_modal_close':
+                    $("#setted_modal-main").fadeOut("slow");
+                    //ヘッダーのボタン有効化
+                    headEnable("enable");
+                    
+                    var layer = document.getElementById("fadeLayer");
+                    layer.style.visibility = "hidden";
+
+                    $(".modal_button").off();
+                    break;
+                }
         });
         
         //画面の左上からmodal-mainの横幅・高さを引き 2で割ると画面中央の位置
