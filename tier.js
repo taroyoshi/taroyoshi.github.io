@@ -3,10 +3,12 @@ const MUSIC_NUM = 374;//20190225
 var existArray= new Array(MUSIC_NUM);//存在判定はキーバリューにするべきか? (以後の譜面追加対応しやすくするため)
 
 //TODO モーダル表示関連の関数での一括化
-//TODO 配置済みモーダルの位置, スクロールバー
+
+//TODO 一括生成(バージョンでやってもよいか?)
 //TODO 検索後に吹き出しと目立たせる
 //TODO Save, Load時に名前の一致かを確認
 //TODO 未配置一覧表示
+//TODO LocalStoreageの名前必要?
 
 /*==================================================================================================
 //チャート画面読み出し時処理(付随されているURLパラメータによって処理を判断)
@@ -344,10 +346,6 @@ function headEnable(bool){
 }
 
 
-
-
-
-
 /*==================================================================================================
 ----------------------------------------------------------------------------------------------------
 jQuery
@@ -569,10 +567,13 @@ jQuery(function(){
                         //移動させたい位置の要素を取得
                         var element = document.getElementById("iidaxe_" + mounted_selectVal);
                         //位置情報など
-                        var rect = element.getBoundingClientRect();
+                        //var rect = element.getBoundingClientRect();
+                        var style = window.getComputedStyle(element);
+                        var positionLeft = parseInt(style.left.replace("px", ""), 10);
+                        var positionTop = parseInt(style.top.replace("px", ""), 10);
                         
-                        var positionLeft = Math.round(rect.left);
-                        var positionTop = Math.round(rect.top);
+                        //var positionLeft = Math.round(rect.left + window.pageXOffset);
+                        //var positionTop = Math.round(rect.top + window.pageYOffset);
                         
                         scrollTo(positionLeft, positionTop);
                         //ここで対象のCSS書き換えとか行うか
@@ -656,6 +657,9 @@ jQuery(function(){
             //ヘッダーのボタン有効化
             headEnable("enable");
         });
+        
+        //画面の左上からmodal-mainの横幅・高さを引き 2で割ると画面中央の位置
+        $(window).resize(modalResize);
     });
     
     
@@ -664,16 +668,20 @@ jQuery(function(){
     ==================================================================================================*/
     $("#setted").click(function(){
     
-        var temp_ver = 0;
+        var temp_ver_set, temp_ver_not_set = 0;
         
         //ヘッダーのボタン無効化
         headEnable("disable");
         
-        sl = document.getElementById('setted_list');
+        //既存の配置済みリストを全削除
+        var setl = document.getElementById('setted_list');
+        var notl = document.getElementById('nosetted_list');
     
-        while(sl.lastChild)
-        {
-            sl.removeChild(sl.lastChild);
+        while(setl.lastChild){
+            setl.removeChild(setl.lastChild);
+        }
+        while(notl.lastChild){
+            notl.removeChild(notl.lastChild);
         }
         
         
@@ -682,16 +690,25 @@ jQuery(function(){
             
             if(existArray[id] == "1"){
         
-                if(music_table[id][VER_INDEX] != temp_ver){
+                if(music_table[id][VER_INDEX] != temp_ver_set){
                     
-                    temp_ver = music_table[id][VER_INDEX];
+                    temp_ver_set = music_table[id][VER_INDEX];
                     
-                    var ver_name = ver_table.filter(item => item[VER_INDEX] == temp_ver);
-                    
-                    $("#setted_list").append($("<p>").text(ver_name[0][VER_NAME_INDEX])); 
+                    var ver_name = ver_table.filter(item => item[VER_INDEX] == temp_ver_set);
+                    $("#setted_list").append($("<p>").text(ver_name[0][VER_NAME_INDEX]));//filterで抽出したものが2次元配列のままであるので0番で代入
                 }
-        
                 $("#setted_list").append($("<li>").text(music_table[id][NAME_INDEX]));
+            }
+            else if(existArray[id] == "0"){
+            
+                if(music_table[id][VER_INDEX] != temp_ver_not_set){
+                    
+                    temp_ver_not_set = music_table[id][VER_INDEX];
+                    
+                    var ver_name = ver_table.filter(item => item[VER_INDEX] == temp_ver_not_set);
+                    $("#nosetted_list").append($("<p>").text(ver_name[0][VER_NAME_INDEX]));//filterで抽出したものが2次元配列のままであるので0番で代入
+                }
+                $("#nosetted_list").append($("<li>").text(music_table[id][NAME_INDEX]));
             }
             
         }
@@ -714,19 +731,41 @@ jQuery(function(){
         //モーダル内ボタン押下イベント
         $(".modal_button").click(function(){
             var id =  $(this).attr("id");
-            var layer = document.getElementById("fadeLayer");
-        
+            
             $("#setted_modal-main").fadeOut("slow",function(){
                  switch(id){
+                    
+                    case 'setted_change':
+                        
+                        var vis_se = document.getElementById("nosetted_list").style.visibility;
+                        var vis_no = document.getElementById("nosetted_list").style.visibility;
+                        
+                        if( vis_se.style.visibility == "visible" && vis_no.style.visibility == "hidden" ){
+                            vis_se.style.visibility = "hidden";
+                            vis_no.style.visibility = "visible";
+                        }
+                        else{
+                            vis_se.style.visibility = "visible";
+                            vis_no.style.visibility = "hidden";
+                        }
+                        
+                        break;
+                     
                     case 'setted_modal_close':
+                        //ヘッダーのボタン有効化
+                        headEnable("enable");
+                        
+                        var layer = document.getElementById("fadeLayer");
                         layer.style.visibility = "hidden";
                         break;
                  }
             });
             
-            //ヘッダーのボタン有効化
-            headEnable("enable");
+            
         });
+        
+        //画面の左上からmodal-mainの横幅・高さを引き 2で割ると画面中央の位置
+        $(window).resize(modalResize);
     });
 });
 

@@ -105,7 +105,7 @@
         <div class="config_content">
             <div class="search">
                 <p>VERSION & MUSIC SCORE(mounted)</p>
-                <!-- ↓いずれテーブル化 -->
+                <!-- ↓いずれテーブル化 テーブル作成したので読み出し出来るように -->
                 <select name="ver_list" id="mouted_verlistid">
                     <option value="2">Substream</option>
                     <option value="3">3rd style</option>
@@ -118,7 +118,7 @@
                     <option value="10">10th style</option>
                     <option value="11">IIDX RED</option>
                     <option value="12">HAPPY SKY</option>
-                    <option value="13">DistrteD</option>
+                    <option value="13">DistorteD</option>
                     <option value="14">GOLD</option>
                     <option value="15">DJ TROOPERS</option>
                     <option value="16">EMPRESS</option>
@@ -154,7 +154,7 @@
     <div id="info_modal-main">
         <div class="config_content">
             
-            <h2> 機能説明</h2>
+            <h2 style="margin-left:10px">機能説明</h2>
             <ul>
                 <p>基本操作</p>
                 <li>VERSIONセレクトボックス変更でMUSIC & SCOREセレクトボックス内容が変更</li>
@@ -187,8 +187,13 @@
     <!-- 配置済みモーダル -->
     <div id="setted_modal-main">
         <div class="config_content">
-            <h2>配置済み一覧</h2>
+            <h2 style="margin-left:10px ">配置済み一覧</h2>
+            <input type="button" class="modal_button" id="setted_change" value="Not setted" style="float:right"/>
             <ul id="setted_list">
+                
+            </ul>
+            
+            <ul id="nosetted_list" style="visibility:hidden">
                 
             </ul>
             
