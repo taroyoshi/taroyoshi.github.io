@@ -382,3 +382,34 @@ music_table = [
     [26,373, "金野火織の金色提言", "_k_hiori", "金色", "A"]
 
 ]
+
+
+VER_NAME_INDEX = 2;
+
+ver_table = [
+    [2, 0, "Substream"],
+    [3, 1, "3rd style"],
+    [4, 2, "4th style"],
+    [5, 3, "5th style"],
+    [6, 4, "6th style"],
+    [7, 5, "7th style"],
+    [8, 6, "8th style"],
+    [9, 8, "9th style"],
+    [10, 9, "10th style"],
+    [11, 10, "IIDX RED"],
+    [12, 11, "HAPPY SKY"],
+    [13, 12, "Distrted"],
+    [14, 13, "GOLD"],
+    [15, 14, "DJ TROOPERS"],
+    [16, 15, "EMPRESS"],
+    [17, 16, "SIRIUS"],
+    [18, 17, "Resort Anthem"],
+    [19, 18, "Lincle"],
+    [20, 19, "tricolo"],
+    [21, 20, "SPADA"],
+    [22, 21, "PENDUAL"],
+    [23, 22, "copula"],
+    [24, 23, "SINOBUZ"],
+    [25, 24, "CANNON BALLERS"],
+    [26, 25, "Rootage"]
+]

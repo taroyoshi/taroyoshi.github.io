@@ -93,12 +93,13 @@
         <input type="button" class="button" id="load" value="Load"/>
         <input type="button" class="button" id="config_search" value="Config Serch"/>
         <input type="button" class="button" id="info" value="Information">
-        
+        <input type="button" class="button" id="setted" value="Setted">
         <input type="button" class="button" id="init" value="Initialize"/>
 
     </header>
     
     
+    <!--モーダルは全て別ファイルに置くべきか-->
     <!-- 設定モーダル -->
     <div id="modal-main">
         <div class="config_content">
@@ -166,18 +167,33 @@
                 <li>マウスオーバーで吹き出しによる情報表示</li>
                 <br>
                 <p>軸, 座標について</p>
-                <li>Y軸 : 対象譜面において設定した目標の達成難易度(上部 達成難度高, 下部 達成難度低)</li>
-                <li>X軸 : 対象譜面において特異であるか(左部 特異である, 右部 一般的である)</li>
-                
+                <li>Y軸 : 対象譜面において設定した目標の達成難易度(上部 達成難度高[difficult], 下部 達成難度低[easy])</li>
+                <li>X軸 : 対象譜面において特異であるか(左部 特異である[singular], 右部 一般的である[ordinary])</li>
+                (同じY座標にて、同程度の難易度ではあると思っても個人差, 譜面の特異性, 特徴から一般的で無い と考えるならば左部へ)<br>
                 <br>
                 <p>Config Searchボタン 及びモーダル</p>
-                <li>配置済みのものの位置を検索, 選択しその位置で表示を移動</li>
+                <li>配置済みのものの位置を検索, 選択しSerchボタンにてその位置に表示を移動</li>
                 <li>Name Saveにて作成者名保存しページタイトルに反映</li>
-                <li>作成した内容をTwitter共有用URLを作成し投稿可能</li>
+                <li>作成した内容をTwitter共有用URLを作成しTweetボタンにて投稿可能</li>
             </ul>
             
             <div style="text-align: center; margin-bottom:5px;">
                 <input type="button" class="modal_button" id="info_modal_close" value="Close"/>
+            </div>
+            
+        </div>
+    </div>
+    
+    <!-- 配置済みモーダル -->
+    <div id="setted_modal-main">
+        <div class="config_content">
+            <h2>配置済み一覧</h2>
+            <ul id="setted_list">
+                
+            </ul>
+            
+            <div style="text-align: center; margin-bottom:5px;">
+                <input type="button" class="modal_button" id="setted_modal_close" value="Close"/>
             </div>
             
         </div>

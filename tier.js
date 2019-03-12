@@ -2,11 +2,11 @@ const MUSIC_NUM = 374;//20190225
 
 var existArray= new Array(MUSIC_NUM);//存在判定はキーバリューにするべきか? (以後の譜面追加対応しやすくするため)
 
-
-//TODO 説明文において座標の説明
+//TODO モーダル表示関連の関数での一括化
+//TODO 配置済みモーダルの位置, スクロールバー
 //TODO 検索後に吹き出しと目立たせる
 //TODO Save, Load時に名前の一致かを確認
-//TODO 配置済み, 未配置一覧表示
+//TODO 未配置一覧表示
 
 /*==================================================================================================
 //チャート画面読み出し時処理(付随されているURLパラメータによって処理を判断)
@@ -228,7 +228,9 @@ function paraAnlyzeSet(iidaxepara){
 //譜面セレクトボックス変更
 ==================================================================================================*/
 function MusicSelectBoxChange(version){
+    
     sl = document.getElementById('musiclistid');
+    
     while(sl.lastChild)
     {
         sl.removeChild(sl.lastChild);
@@ -321,6 +323,31 @@ function modalResize(id){
         "top": ((h - ch)/2) + "px"
     });
 }
+
+/*==================================================================================================
+//ヘッダーボタン有効化, 無効化
+==================================================================================================*/
+function headEnable(bool){
+    
+    //ヘッダーのボタン無効化
+    var button_elements = document.getElementsByClassName("button");
+    
+    for(var e = 0; e < button_elements.length; e++){
+        
+        if(bool == "enable"){
+            button_elements[e].removeAttribute("disabled");
+        }
+        else if(bool == "disable"){
+            button_elements[e].setAttribute("disabled", "disabled");
+        }
+    }
+}
+
+
+
+
+
+
 /*==================================================================================================
 ----------------------------------------------------------------------------------------------------
 jQuery
@@ -452,11 +479,7 @@ jQuery(function(){
     $("#config_search").click(function(){
         
         //ヘッダーのボタン無効化
-        var button_elements = document.getElementsByClassName("button");
-        
-        for(var e = 0; e < button_elements.length; e++){
-            button_elements[e].setAttribute("disabled", "disabled");
-        }
+        headEnable("disable");
 
         //画面中央を計算する関数を実行
         modalResize("#modal-main");
@@ -585,11 +608,7 @@ jQuery(function(){
                 layer.style.visibility = "hidden";
                 
                 //ヘッダーのボタン有効化
-                var button_elements = document.getElementsByClassName("button");
-        
-                for(var e = 0; e < button_elements.length; e++){
-                    button_elements[e].removeAttribute("disabled");
-                }
+                headEnable("enable");
                 
             });
         });
@@ -603,12 +622,8 @@ jQuery(function(){
     ==================================================================================================*/
     $("#info").click(function(){
         
-        //ヘッダーのボタン無効化
-        var button_elements = document.getElementsByClassName("button");
-        
-        for(var e = 0; e < button_elements.length; e++){
-            button_elements[e].setAttribute("disabled", "disabled");
-        }
+        //ヘッダーのボタン無効か
+        headEnable("disable");
         
         //画面中央を計算する関数を実行
         modalResize("#info_modal-main");
@@ -639,11 +654,78 @@ jQuery(function(){
             });
             
             //ヘッダーのボタン有効化
-            var button_elements = document.getElementsByClassName("button");
+            headEnable("enable");
+        });
+    });
+    
+    
+    /*==================================================================================================
+    //配置済みモーダルウィンドウ
+    ==================================================================================================*/
+    $("#setted").click(function(){
+    
+        var temp_ver = 0;
         
-            for(var e = 0; e < button_elements.length; e++){
-                button_elements[e].removeAttribute("disabled");
+        //ヘッダーのボタン無効化
+        headEnable("disable");
+        
+        sl = document.getElementById('setted_list');
+    
+        while(sl.lastChild)
+        {
+            sl.removeChild(sl.lastChild);
+        }
+        
+        
+        
+        for(var id =0; id < existArray.length; id++){
+            
+            if(existArray[id] == "1"){
+        
+                if(music_table[id][VER_INDEX] != temp_ver){
+                    
+                    temp_ver = music_table[id][VER_INDEX];
+                    
+                    var ver_name = ver_table.filter(item => item[VER_INDEX] == temp_ver);
+                    
+                    $("#setted_list").append($("<p>").text(ver_name[0][VER_NAME_INDEX])); 
+                }
+        
+                $("#setted_list").append($("<li>").text(music_table[id][NAME_INDEX]));
             }
+            
+        }
+        
+        //画面中央を計算する関数を実行
+        modalResize("#setted_modal-main");
+        
+        //モーダルウィンドウを表示
+        $("#setted_modal-main").fadeIn("slow");
+        
+        var target = document.getElementById("main");
+        
+        //以下 おそらく間違ってる
+        $("#fadeLayer").css({
+            "width": target.style.width + "px",
+            "height": target.style.height + "px",
+            "visibility": "visible"
+        });
+        
+        //モーダル内ボタン押下イベント
+        $(".modal_button").click(function(){
+            var id =  $(this).attr("id");
+            var layer = document.getElementById("fadeLayer");
+        
+            $("#setted_modal-main").fadeOut("slow",function(){
+                 switch(id){
+                    case 'setted_modal_close':
+                        layer.style.visibility = "hidden";
+                        break;
+                 }
+            });
+            
+            //ヘッダーのボタン有効化
+            headEnable("enable");
         });
     });
 });

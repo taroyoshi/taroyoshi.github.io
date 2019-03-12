@@ -2,6 +2,7 @@ $(function(){
     
     $("#header-outer").load("../html/header.html #header-inner");
     
+    //js読み込みのタイミングの関係で遅延
     setTimeout(function(){
         
         var gatFile = document.location.pathname.split("/").pop();
@@ -24,7 +25,7 @@ $(function(){
         button_elements.remove();
     
         setHover();
-    },120);
+    },130);
     
 });
 
