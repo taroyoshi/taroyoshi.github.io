@@ -3,10 +3,9 @@ const MUSIC_NUM = 374;//20190225
 var existArray= new Array(MUSIC_NUM);//存在判定はキーバリューにするべきか? (以後の譜面追加対応しやすくするため)
 
 //TODO モーダル表示関連の関数での一括化
-//TODO 一括生成(バージョンでやってもよいか?)(その場合重ねて生成されないように)https://www.sejuku.net/blog/44811#multiselect
 //TODO 検索後に吹き出しと目立たせる
 //TODO Save, Load時に名前の一致かを確認
-//TODO 生成後は次のvalue選択にするべきか
+//TODO 一括生成時に生成位置 重ならないように? leftとtarget_num使う
 //TODO LocalStoreageの名前必要?
 
 /*==================================================================================================
@@ -379,6 +378,49 @@ function fadeLayerOn(){
 }
 
 /*==================================================================================================
+//生成
+==================================================================================================*/
+function MulchGenerate(){
+
+    var selected_music_index = $("#musiclistid").val();
+
+    for(var target_num = 0; target_num < selected_music_index.length; target_num++){
+
+        var disp_name = music_table[selected_music_index[target_num]][DISP_INDEX];
+
+        //譜面セレクトボックスから削除
+        $("#musiclistid option").each( function(){
+            if($(this).val() == music_table[selected_music_index[target_num]][MUSIC_INDEX]) {
+                $(this).remove();
+            }
+        });
+        
+        var div_element = document.createElement("div");
+        
+        //attrで行うべき? このままだと2重のdivになるから控えたい。
+        div_element.innerHTML = '<div class="music_box music_box_' + 
+                                music_table[selected_music_index[target_num]][VER_INDEX] + 
+                                '" id="iidaxe_'+ 
+                                music_table[selected_music_index[target_num]][MUSIC_INDEX] +
+                                '">' + 
+                                disp_name + 
+                                '</div>';
+        var parent_object = document.getElementById("generate_position");
+        parent_object.append(div_element);
+
+        //対象IDをドラッグ可, ダブルクリックイベント付与
+        setDraggableAndDblclick("#iidaxe_" + String(music_table[selected_music_index[target_num]][MUSIC_INDEX]));
+        existArray[selected_music_index[target_num]] = "1";
+        
+        //対象IDにマウスオーバーで表示
+        setHover("#iidaxe_" + String(music_table[selected_music_index[target_num]][MUSIC_INDEX]), 
+                                    music_table[selected_music_index[target_num]][NAME_INDEX]);
+    }
+}
+
+
+
+/*==================================================================================================
 ----------------------------------------------------------------------------------------------------
 jQuery
 ----------------------------------------------------------------------------------------------------
@@ -430,9 +472,10 @@ jQuery(function(){
     });
     
     /*==================================================================================================
-    //生成jQuery
+    //生成jQuery 関数化
     ==================================================================================================*/
-    $('#generate').click(function () {
+    /*
+    $('#genarate_modal').click(function () {
 
         var selected_music_index = $("#musiclistid").val();
         var disp_name = music_table[selected_music_index][DISP_INDEX];
@@ -465,7 +508,7 @@ jQuery(function(){
         setHover("#iidaxe_" + String(music_table[selected_music_index][MUSIC_INDEX]), 
                                     music_table[selected_music_index][NAME_INDEX]);
     });
-    
+    */
     
     /*==================================================================================================
     //保存jQuery
@@ -499,6 +542,49 @@ jQuery(function(){
             paraAnlyzeSet(iidaxepara);
         }
     });
+
+
+    /*==================================================================================================
+    //生成モーダルウィンドウ
+    ==================================================================================================*/
+    $("#generate").click(function(){
+        
+        //ヘッダーのボタン無効化
+        headEnable("disable");
+        
+        //画面中央を計算する関数を実行
+        modalResize("#generate_modal-main");
+        
+        //モーダルウィンドウを表示
+        $("#generate_modal-main").fadeIn("slow");
+        
+        //モーダル中背景表示
+        fadeLayerOn();
+        
+        //モーダル内ボタン押下イベント
+        $(".modal_button").click(function(){
+            
+            var id =  $(this).attr("id");
+
+            switch(id){
+                case 'genarate_modal':
+                    MulchGenerate();
+                    break;
+                case 'genarate_modal_close':
+                    
+                    $("#generate_modal-main").fadeOut();
+                    //イベント解除してモーダルを閉じる
+                    $("#fadeLayer").css("visibility", "hidden");
+                    $(".modal_button").off();
+                    //ヘッダーのボタン有効化
+                    headEnable("enable");
+                    break;
+            }
+        });
+            
+        //画面の左上からmodal-mainの横幅・高さを引き 2で割ると画面中央の位置
+        $(window).resize(modalResize);
+    });
     
     /*==================================================================================================
     //設定 検索モーダルウィンドウ
@@ -507,7 +593,6 @@ jQuery(function(){
         
         //ヘッダーのボタン無効化
         headEnable("disable");
-
 
         //画面中央を計算する関数を実行
         modalResize("#modal-main");
@@ -644,7 +729,7 @@ jQuery(function(){
     ==================================================================================================*/
     $("#info").click(function(){
         
-        //ヘッダーのボタン無効か
+        //ヘッダーのボタン無効化
         headEnable("disable");
         
         //画面中央を計算する関数を実行
@@ -664,10 +749,10 @@ jQuery(function(){
                  switch(id){
                     case 'info_modal_close':
                         
-                    //イベント解除してモーダルを閉じる
-                    $("#fadeLayer").css("visibility", "hidden");
-                    $(".modal_button").off();
-                    break;
+                        //イベント解除してモーダルを閉じる
+                        $("#fadeLayer").css("visibility", "hidden");
+                        $(".modal_button").off();
+                        break;
                  }
             });
             
