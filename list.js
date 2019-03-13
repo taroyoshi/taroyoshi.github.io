@@ -5,6 +5,8 @@ ID_INDEX = 3;
 DISP_INDEX = 4;
 DIFF_INDEX = 5; 
 
+//バージョン内インデックス追加?(バージョン内で何番目か)
+
 music_table = [
     [2,0, "RUGGED ASH†", "rugged_l", "RUGGED†", "A"],
     [3,1, "era(nostalmix)(H)", "eranos", "era(n H", "H"],

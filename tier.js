@@ -6,7 +6,7 @@ var existArray= new Array(MUSIC_NUM);//存在判定はキーバリューにす�
 //TODO 一括生成(バージョンでやってもよいか?)(その場合重ねて生成されないように)
 //TODO 検索後に吹き出しと目立たせる
 //TODO Save, Load時に名前の一致かを確認
-//TOBO ボックス削除後に、削除した物とバージョン選択セレクトボックスが同じ時に、正しい位置への再挿入
+//TODO 生成後は次のvalue選択にするべきか
 //TODO LocalStoreageの名前必要?
 
 /*==================================================================================================
@@ -56,12 +56,27 @@ function setDraggableAndDblclick(id){
             gatID = gatID.replace("iidaxe_", "");
             var gatID_i = parseInt(gatID, 10);
             
-            //現在表示中のバージョンを確認して動作を分けるべきか?
+            $("#musiclistid").val(0);
+            
+            
             //セレクトボックス再挿入の処理
             existArray[gatID_i] = "0";
             if(music_table[gatID_i][VER_INDEX] == $("#verlistid").val()){
                 $("#musiclistid").append($("<option>").val(music_table[gatID_i][MUSIC_INDEX]).text(music_table[gatID_i][NAME_INDEX]));
             }
+            
+            var sort_item = $("#musiclistid option").sort(function(a, b){
+                    return a.value > b.value ? 1 : -1;
+                });
+                
+            var selectVal = $("#musiclistid").val();
+            
+            $("#musiclistid").children("option").remove();
+            $("#musiclistid").append(sort_item);
+            $("#musiclistid").val(gatID_i);
+            
+            selectVal = $("#musiclistid").val();
+            
             $(".arrow_box").unwrap();
             $(".arrow_box").remove();
 	    }
@@ -97,7 +112,6 @@ function setDraggableAndDblclick(id){
             
 	        return;
 	    }
-	    
     });
 }
 /*======================================================================
@@ -469,7 +483,6 @@ jQuery(function(){
             
             window.localStorage.setItem(['IIDAXEpara'],[madeUrlPara]);
         }
-        
     });
     
     /*==================================================================================================
@@ -486,7 +499,6 @@ jQuery(function(){
             
             paraAnlyzeSet(iidaxepara);
         }
-        
     });
     
     /*==================================================================================================
@@ -584,6 +596,7 @@ jQuery(function(){
                         var positionLeft = parseInt($("#iidaxe_" + mounted_selectVal).css("left").replace("px", ""), 10);
                         var positionTop = parseInt($("#iidaxe_" + mounted_selectVal).css("top").replace("px", ""), 10);
                         
+                        //対象位置までスクロール
                         scrollTo(positionLeft, positionTop);
                         //ここで対象のCSS書き換えとか行うか
                         /*
@@ -641,7 +654,7 @@ jQuery(function(){
         //モーダルウィンドウを表示
         $("#info_modal-main").fadeIn("slow");
         
-        //モーダル中背景
+        //モーダル中背景表示
         fadeLayerOn();
         
         //モーダル内ボタン押下イベント
@@ -678,7 +691,7 @@ jQuery(function(){
         //ヘッダーのボタン無効化
         headEnable("disable");
         
-        //既存の配置済みリストを全削除
+        //既存の配置済み, 未配置リストを全削除
         $("#setted_list").children().remove();
         $("#nosetted_list").children().remove();
 
