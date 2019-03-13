@@ -3,11 +3,10 @@ const MUSIC_NUM = 374;//20190225
 var existArray= new Array(MUSIC_NUM);//存在判定はキーバリューにするべきか? (以後の譜面追加対応しやすくするため)
 
 //TODO モーダル表示関連の関数での一括化
-
 //TODO 一括生成(バージョンでやってもよいか?)(その場合重ねて生成されないように)
 //TODO 検索後に吹き出しと目立たせる
 //TODO Save, Load時に名前の一致かを確認
-//TODO sモーダル表示時のセレクト簿ボックス無効化
+//TOBO ボックス削除後に、削除した物とバージョン選択セレクトボックスが同じ時に、正しい位置への再挿入
 //TODO LocalStoreageの名前必要?
 
 /*==================================================================================================
@@ -339,8 +338,32 @@ function headEnable(bool){
             button_elements[e].setAttribute("disabled", "disabled");
         }
     }
+    
+    //ヘッダーのセレクトボックス無効化
+    var select_elements = document.getElementsByClassName("head_select");
+    
+    for(var n = 0; n < select_elements.length; n++){
+        
+        if(bool == "enable"){
+            select_elements[n].removeAttribute("disabled");
+        }
+        else if(bool == "disable"){
+            select_elements[n].setAttribute("disabled", true);
+        }
+    }
 }
 
+
+/*==================================================================================================
+////モーダル中背景 暗転
+==================================================================================================*/
+function fadeLayerOn(){
+    $("#fadeLayer").css({
+        "width": $("main").css("width"),
+        "height": $("main").css("height"),
+        "visibility": "visible"
+    });
+}
 
 /*==================================================================================================
 ----------------------------------------------------------------------------------------------------
@@ -354,6 +377,7 @@ jQuery(function(){
     ==================================================================================================*/
     $("#verlistid").change( function(){
 
+        //選択中バージョン取得
         const selectVal = $("#verlistid").val();
 
         //取得したバージョンでセレクトボックス作成
@@ -384,6 +408,7 @@ jQuery(function(){
 
                 $("#musiclistid").append($("<option>").val(music_table[0][MUSIC_INDEX]).text(music_table[0][NAME_INDEX]));
                 
+                //存在判定リセット
                 for(var i = 0; i < MUSIC_NUM; i++){
                     existArray[i] = "0";
                 }
@@ -480,11 +505,7 @@ jQuery(function(){
         $("#modal-main").fadeIn("slow");
         
         //モーダル中背景
-        $("#fadeLayer").css({
-            "width": $("main").css("width"),
-            "height": $("main").css("height"),
-            "visibility": "visible"
-        });
+        fadeLayerOn();
         
         //配置済みバージョンセレクトボックス変更イベント
         $("#mouted_verlistid").change( function(){
@@ -524,6 +545,8 @@ jQuery(function(){
         var para = makeUrlPara(existArray);
         //VS Codeのローカルデバッグだと機能しない?
         var url = "window.open('" + preUrl + iidaxeUrl + para + "')";
+        
+        //Tweetボタンにurl付与
         $('#tweet').removeAttr('onclick');
         $('#tweet').attr({
             'onclick': url
@@ -543,6 +566,7 @@ jQuery(function(){
         
             $("#modal-main").fadeOut("slow",function(){
                 
+                //イベント解除
                 $(".modal_button").off();
                 $("#mouted_verlistid").off();
 
@@ -618,11 +642,7 @@ jQuery(function(){
         $("#info_modal-main").fadeIn("slow");
         
         //モーダル中背景
-        $("#fadeLayer").css({
-            "width": $("main").css("width"),
-            "height": $("main").css("height"),
-            "visibility": "visible"
-        });
+        fadeLayerOn();
         
         //モーダル内ボタン押下イベント
         $(".modal_button").click(function(){
@@ -631,6 +651,8 @@ jQuery(function(){
             $("#info_modal-main").fadeOut("slow",function(){
                  switch(id){
                     case 'info_modal_close':
+                        
+                    //イベント解除してモーダルを閉じる
                     $("#fadeLayer").css("visibility", "hidden");
                     $(".modal_button").off();
                     break;
@@ -659,7 +681,8 @@ jQuery(function(){
         //既存の配置済みリストを全削除
         $("#setted_list").children().remove();
         $("#nosetted_list").children().remove();
-        
+
+        //初めてそのバージョンを格納する時にバージョン名を加える
         for(var id =0; id < existArray.length; id++){
             
             //配置済み一覧作成
@@ -703,13 +726,7 @@ jQuery(function(){
         $("#setted_modal-main").fadeIn("slow");
         
         //モーダル中背景
-        //var target = document.getElementById("main");
-        
-        $("#fadeLayer").css({
-            "width": $("main").css("width"),
-            "height": $("main").css("height"),
-            "visibility": "visible"
-        });
+        fadeLayerOn();
         
         //モーダル内ボタン押下イベント
         $(".modal_button").click(function(){
@@ -741,6 +758,7 @@ jQuery(function(){
                     
                     $("#fadeLayer").css("visibility", "hidden");
 
+                    //イベント解除
                     $(".modal_button").off();
                     break;
                 }
