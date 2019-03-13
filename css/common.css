@@ -25,7 +25,6 @@
     height:100%;
 }
 .main_wrraper{
-    
     padding:15px 0 15px;
     min-height:980px;
     width:auto;
@@ -35,14 +34,14 @@
     
 }
 
-#name{
+#index_main, #name{
     color:black;
     background-color: white;
     opacity: 0.9;
     /*width: 400px;*/
     height: auto;
     padding: 10px 0 10px 20px;
-    margin:50px 0 20px 20px;
+    margin:75px 0 20px 20px;
     border: solid 2px skyblue;
 }
 
@@ -55,7 +54,7 @@
     background-color: white;
     opacity:0.9;
     padding:10px 0 20px 10px;
-    margin:50px 0 20px 20px;
+    margin:75px 0 20px 20px;
     border: solid 2px skyblue;
 }
 #iidaxe_wrap h1{
