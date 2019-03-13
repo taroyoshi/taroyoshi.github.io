@@ -165,9 +165,11 @@ header{
     display: block;
 }
 
+
 #nosetted_list{
     display: none;
 }
+
 
 /*吹き出し*/
 .arrow_box {
