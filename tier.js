@@ -3,7 +3,7 @@ const MUSIC_NUM = 374;//20190225
 var existArray= new Array(MUSIC_NUM);//存在判定はキーバリューにするべきか? (以後の譜面追加対応しやすくするため)
 
 //TODO モーダル表示関連の関数での一括化
-//TODO 一括生成(バージョンでやってもよいか?)(その場合重ねて生成されないように)
+//TODO 一括生成(バージョンでやってもよいか?)(その場合重ねて生成されないように)https://www.sejuku.net/blog/44811#multiselect
 //TODO 検索後に吹き出しと目立たせる
 //TODO Save, Load時に名前の一致かを確認
 //TODO 生成後は次のvalue選択にするべきか
@@ -56,27 +56,26 @@ function setDraggableAndDblclick(id){
             gatID = gatID.replace("iidaxe_", "");
             var gatID_i = parseInt(gatID, 10);
             
+            //一旦選択状態無しに
             $("#musiclistid").val(0);
-            
             
             //セレクトボックス再挿入の処理
             existArray[gatID_i] = "0";
             if(music_table[gatID_i][VER_INDEX] == $("#verlistid").val()){
                 $("#musiclistid").append($("<option>").val(music_table[gatID_i][MUSIC_INDEX]).text(music_table[gatID_i][NAME_INDEX]));
             }
-            
+
+            //value昇順でソート            
             var sort_item = $("#musiclistid option").sort(function(a, b){
                     return a.value > b.value ? 1 : -1;
                 });
                 
-            var selectVal = $("#musiclistid").val();
-            
+            //一旦全削除し その後ソートしたものを格納。削除した物を選択状態に
             $("#musiclistid").children("option").remove();
             $("#musiclistid").append(sort_item);
             $("#musiclistid").val(gatID_i);
-            
-            selectVal = $("#musiclistid").val();
-            
+
+            //吹出削除            
             $(".arrow_box").unwrap();
             $(".arrow_box").remove();
 	    }
@@ -100,13 +99,13 @@ function setDraggableAndDblclick(id){
             var textage = music_table[music_id][ID_INDEX];
             var difficult = music_table[music_id][DIFF_INDEX];
 
-            var url = url1 + 
+            var url = url1 +        // http://textage.cc/score/
                     version + 
-                    url2 + 
+                    url2 +          // /
                     textage + 
-                    url3 + 
+                    url3 +          // .html?D
                     difficult + 
-                    url4;
+                    url4;           // C00
 
             var win = window.open(url);
             
