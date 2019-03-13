@@ -419,7 +419,7 @@ jQuery(function(){
     /*==================================================================================================
     //生成jQuery
     ==================================================================================================*/
-    $('#Generate').click(function () {
+    $('#generate').click(function () {
 
         var selected_music_index = $("#musiclistid").val();
         var disp_name = music_table[selected_music_index][DISP_INDEX];
