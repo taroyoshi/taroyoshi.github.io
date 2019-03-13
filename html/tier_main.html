@@ -89,7 +89,7 @@
             <select id="musiclistid" class="head_select"></select>
         </div>
         
-        <input type="button" class="button" id="Generate" value="Generate"/>
+        <input type="button" class="button" id="generate" value="Generate"/>
         <input type="button" class="button" id="save" value="Save"/>
         <input type="button" class="button" id="load" value="Load"/>
         <input type="button" class="button" id="config_search" value="Config Serch"/>
@@ -163,6 +163,7 @@
                 <li>Save, Loadボタンにより状態の保存, 読出(Local Storage使用)</li>
                 <li>保存, 読出を行う内容は、"生成および配置した位置", "TARGET LEVEL, OPTIONセレクトボックスの選択情報"</li>
                 <li>Initializeボタンで全て削除(保存内容も削除)</li>
+                <li>Settedボタンにより配置済みの一覧表示、モーダル内Not settedボタンで未配置一覧表示</li>
                 <li>Shiftキー+Ctrlキーの同時押ししながらボックスをダブルクリックで対象のみ削除(セレクトボックス内に再挿入)</li>
                 <li>Altキー押しながらダブルクリックで対象のボックスのTextageの譜面ページへ別ウィンドウにて移動</li>
                 <li>マウスオーバーで吹き出しによる情報表示</li>
@@ -189,8 +190,9 @@
     <div id="setted_modal-main">
         <div class="config_content">
             <div style="margin-left:10px" id="list_name">配置済み一覧</div>
-            <input type="button" class="modal_button" id="setted_change" value="Not Setted" style="float:right; margin:0 5px"/>
             <input type="button" class="modal_button" id="setted_modal_close" value="Close" style="float:right; margin:0 5px"/>
+            <input type="button" class="modal_button" id="setted_change" value="Not Setted" style="float:right; margin:0 5px"/>
+
             <ul id="setted_list">
                 <!-- 配置済み一覧生成位置 -->
             </ul>
