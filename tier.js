@@ -2,10 +2,9 @@ const MUSIC_NUM = 374;//20190225
 
 var existArray= new Array(MUSIC_NUM);//存在判定はキーバリューにするべきか? (以後の譜面追加対応しやすくするため)
 
-//TODO モーダル表示関連の関数での一括化
+//TODO モーダル表示関連の関数での一括化 及びhtmlの分割, JSによる読み込み化
 //TODO 検索後に吹き出しと目立たせる
 //TODO Save, Load時に名前の一致かを確認
-//TODO 一括生成時に生成位置 重ならないように? leftとtarget_num使う
 //TODO LocalStoreageの名前必要?
 
 /*==================================================================================================
@@ -378,7 +377,7 @@ function fadeLayerOn(){
 }
 
 /*==================================================================================================
-//生成
+//ボックス生成
 ==================================================================================================*/
 function MulchGenerate(){
 
@@ -402,7 +401,9 @@ function MulchGenerate(){
                                 music_table[selected_music_index[target_num]][VER_INDEX] + 
                                 '" id="iidaxe_'+ 
                                 music_table[selected_music_index[target_num]][MUSIC_INDEX] +
-                                '">' + 
+                                '" style="left:' + 
+                                (40 * target_num) +
+                                'px">' + 
                                 disp_name + 
                                 '</div>';
         var parent_object = document.getElementById("generate_position");
