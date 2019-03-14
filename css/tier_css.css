@@ -164,9 +164,10 @@ header{
 
 /* 説明モーダル コンテンツエリア */
 #info_modal-main{
+    overflow-y: scroll;
     display: none;
     width: 1000px;
-    height: auto;
+    height: 600px;
     margin: auto;
     top:50%;
     left:50%;
@@ -177,6 +178,11 @@ header{
     border-radius: 5px;
     border: solid 1px blue;
     float: none;
+}
+
+#info_modal-main span{
+    font-size:12px;
+    margin-top:1px;
 }
 
 /* 配置済みモーダル コンテンツエリア */
