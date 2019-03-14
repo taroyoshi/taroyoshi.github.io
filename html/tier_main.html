@@ -92,9 +92,9 @@
         </div>
         -->
         <input type="button" class="button" id="generate" value="Generate" style="margin-left:20px"/>
+        <input type="button" class="button" id="config_search" value="Config Serch"/>
         <input type="button" class="button" id="save" value="Save"/>
         <input type="button" class="button" id="load" value="Load"/>
-        <input type="button" class="button" id="config_search" value="Config Serch"/>
         <input type="button" class="button" id="info" value="Information">
         <input type="button" class="button" id="setted" value="Setted">
         <input type="button" class="button" id="init" value="Initialize"/>
@@ -206,8 +206,9 @@
                 <p>Generateボタン 及びウィンドウ</p>
                 <li>上部ヘッダー内Generateボタンにより生成用モーダルウィンドウ表示</li>
                 <li>VERSIONセレクトボックス変更でMUSIC & SCOREセレクトボックス内容が変更</li>
-                <li>Box Generateボタンにより MUSIC & SCORE選択中の内容でドラッグ可能なボックスを生成</li>
                 <li>MUSIC & SCOREのセレクトボックスはShiftキーやCtrlキーを押しながらにより複数選択可能</li>
+                <li>Box Generateボタンにより MUSIC & SCORE選択中の内容でドラッグ可能なボックスを生成</li>
+                <span>(複数選択を行っている状態で一括で生成可能)</span>
                 
                 <p>Config Searchボタン 及びウィンドウ</p>
                 <li>配置済みのものの位置を検索, 選択しSearchボタンにてその位置に表示を移動</li>
@@ -215,11 +216,11 @@
                 <li>作成した内容をTwitter共有用URLを作成しTweetボタンにて投稿可能</li>
                 
                 <p>ヘッダー内他ボタン</p>
-                <li>Save, Loadボタンにより状態の保存, 読出(Local Storage使用)</li>
-                <span>保存, 読出を行う内容は、"生成および配置した位置", "TARGET LEVEL, OPTIONセレクトボックスの選択情報"</span><br>
+                <li>Save, Loadボタンにより状態の保存, 読出(Local Storage使用)</li> 
+                <span>(保存, 読出を行う内容は、"生成および配置した位置", "TARGET LEVEL, OPTIONセレクトボックスの選択情報")</span><br>
+                <li>Settedボタンにより配置済みの一覧表示、モーダル内Not settedボタンで未配置一覧表示に切り替え</li>
                 <li>Initializeボタンで全て削除(保存内容も削除)</li>
-                <li>Settedボタンにより配置済みの一覧表示、モーダル内Not settedボタンで未配置一覧表示</li>
-                <li>Informationボタンで当ウィンドウの表示</li>
+                <span>(Informationボタンで当ウィンドウの表示)</span>
                 
                 <p>軸, 座標について</p>
                 <li>Y軸 : 対象譜面において設定した目標の達成難易度(上部 達成難度高[difficult], 下部 達成難度低[easy])</li>
