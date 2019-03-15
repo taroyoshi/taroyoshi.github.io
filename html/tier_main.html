@@ -51,46 +51,7 @@
                 <option value="3">OFF OPTION ONLY</option>
             </select>
         </div>
-        <!--
-        <div class="HeadBlock">
-            <p>VERSION</p>
-            <!-- ↓いずれテーブル化, jsで別ファイル化 --
-            <select name="ver_list" id="verlistid" class="head_select">
-                <option value="2">Substream</option>
-                <option value="3">3rd style</option>
-                <option value="4">4th style</option>
-                <option value="5">5th style</option>
-                <option value="6">6th style</option>
-                <option value="7">7th style</option>
-                <option value="8">8th style</option>
-                <option value="9">9th style</option>
-                <option value="10">10th style</option>
-                <option value="11">IIDX RED</option>
-                <option value="12">HAPPY SKY</option>
-                <option value="13">DistrteD</option>
-                <option value="14">GOLD</option>
-                <option value="15">DJ TROOPERS</option>
-                <option value="16">EMPRESS</option>
-                <option value="17">SIRIUS</option>
-                <option value="18">Resort Anthem</option>
-                <option value="19">Lincle</option>
-                <option value="20">tricolo</option>
-                <option value="21">SPADA</option>
-                <option value="22">PENDUAL</option>
-                <option value="23">copula</option>
-                <option value="24">SINOBUZ</option>
-                <option value="25">CANNON BALLERS</option>
-                <option value="26">Rootage</option>          
-            </select>
-        </div>
-    -->
-        <!--モーダル化-->
-        <!--
-        <div class="HeadBlock">
-            <p>MUSIC & SCORE</p>
-            <select id="musiclistid" class="head_select" multiple></select>
-        </div>
-        -->
+        
         <input type="button" class="button" id="generate" value="Generate" style="margin-left:20px"/>
         <input type="button" class="button" id="config_search" value="Config Serch"/>
         <input type="button" class="button" id="save" value="Save"/>
@@ -102,7 +63,7 @@
     </header>
     
     
-    <!--モーダルは全て別ファイルに置くべきか-->
+    <!-- モーダルは全て別ファイルに置くべきか-->
     <!-- 生成モーダル -->
     <div id="generate_modal-main">
         <div id="ver_list_container">
@@ -259,8 +220,12 @@
     </div>
     
     <div id="main">
-        <div id="generate_position"></div>
-        <div id="fadeLayer"></div>
+        <div id="generate_position">
+            <!-- ボックス生成位置 -->
+        </div>
+        <div id="fadeLayer">
+            <!--モーダル中暗転レイヤー-->
+        </div>
     </div>
     
 </body>
