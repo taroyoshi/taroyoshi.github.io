@@ -866,6 +866,3 @@ jQuery(function(){
         $(window).resize(modalResize);
     });
 });
-
-
-
