@@ -124,7 +124,7 @@ header{
     width:300px;
 }
 
-#del_list_container{
+#del_modal-main{
     display: none;
     width: 700px;
     height: auto;

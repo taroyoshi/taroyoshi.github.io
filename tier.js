@@ -546,7 +546,9 @@ jQuery(function(){
                     $("#generate_modal-main").fadeOut();
                     $(".modal_button").off();
                     //モーダルウィンドウを表示
-                    $("#del_list_container").fadeIn("slow");
+                    //画面中央を計算する関数を実行
+                    modalResize("#del_modal-main");
+                    $("#del_modal-main").fadeIn("slow");
         
                     
                     break;
