@@ -3,7 +3,7 @@ const MUSIC_NUM = 374;//20190225
 var existArray= new Array(MUSIC_NUM);//存在判定はキーバリューにするべきか? (以後の譜面追加対応しやすくするため)
 
 //TODO モーダル表示関連の関数での一括化 及びhtmlの分割, JSによる読み込み化
-//TODO 検索後に吹き出しと目立たせる
+//TODO 検索後に吹き出しと目立たせる　もしくはマウスアイコンをその位置へ https://www.ipentec.com/document/javascript-get-pointer-position
 //TODO Save, Load時に名前の一致かを確認
 //TODO LocalStoreageの名前必要?
 //TODO 一括削除は生成画面から派生して表示 一覧選択で別リストに移動→削除決定 という形式に
@@ -473,44 +473,6 @@ jQuery(function(){
         }
     });
     
-    /*==================================================================================================
-    //生成jQuery 関数化
-    ==================================================================================================*/
-    /*
-    $('#genarate_modal').click(function () {
-
-        var selected_music_index = $("#musiclistid").val();
-        var disp_name = music_table[selected_music_index][DISP_INDEX];
-
-        //譜面セレクトボックスから削除
-        $("#musiclistid option").each( function(){
-            if($(this).val() == music_table[selected_music_index][MUSIC_INDEX]) {
-              $(this).remove();
-            }
-        });
-        
-        var div_element = document.createElement("div");
-        
-        //attrで行うべき? このままだと2重のdivになるから控えたい。
-        div_element.innerHTML = '<div class="music_box music_box_' + 
-                                music_table[selected_music_index][VER_INDEX] + 
-                                '" id="iidaxe_'+ 
-                                music_table[selected_music_index][MUSIC_INDEX] +
-                                '">' + 
-                                disp_name + 
-                                '</div>';
-        var parent_object = document.getElementById("generate_position");
-        parent_object.append(div_element);
-
-        //対象IDをドラッグ可, ダブルクリックイベント付与
-        setDraggableAndDblclick("#iidaxe_" + String(music_table[selected_music_index][MUSIC_INDEX]));
-        existArray[selected_music_index] = "1";
-        
-        //対象IDにマウスオーバーで表示
-        setHover("#iidaxe_" + String(music_table[selected_music_index][MUSIC_INDEX]), 
-                                    music_table[selected_music_index][NAME_INDEX]);
-    });
-    */
     
     /*==================================================================================================
     //保存jQuery
@@ -544,7 +506,6 @@ jQuery(function(){
             paraAnlyzeSet(iidaxepara);
         }
     });
-
 
     /*==================================================================================================
     //生成モーダルウィンドウ

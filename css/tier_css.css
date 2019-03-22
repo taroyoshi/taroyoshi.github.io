@@ -23,11 +23,15 @@ header{
     margin:1px 3px;
  }
 .button, .modal_button{
-    font-size: 11px;
+    font-size:11px;
     margin-top:8px;
     height:30px;
     width:85px;
     text-align: center;
+}
+
+#genarate_modal_delete{
+    margin-top:50px;
 }
 
 #musiclistid{
@@ -100,7 +104,6 @@ header{
     z-index: 20;
     border-radius: 5px;
     border: solid 1px blue;
-    
 }
 
 #ver_list_container{
@@ -108,7 +111,6 @@ header{
     display: inline-block;
     height:200px;
     width:200px;
-    
 }
 #ver_list_content{
     text-align: center;
@@ -120,6 +122,22 @@ header{
     display: inline-block;
     height:auto;
     width:300px;
+}
+
+#del_list_container{
+    display: none;
+    width: 700px;
+    height: auto;
+    padding-bottom: 20px;
+    top:50%;
+    left:50%;
+    text-align:center;
+    color: black;
+    background-color: white;
+    position:fixed;
+    z-index: 20;
+    border-radius: 5px;
+    border: solid 1px blue;
     
 }
 #modal-main{
