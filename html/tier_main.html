@@ -101,24 +101,33 @@
             </div>
             <input type="button" class="modal_button" id="genarate_modal" value="Box Generate"/><br>
             <input type="button" class="modal_button" id="genarate_modal_close" value="Close"/><br>
-            <input type="button" class="modal_button" id="genarate_modal_delete" value="Delete" disabled="true"/>
+            <input type="button" class="modal_button" id="genarate_modal_delete" value="Delete"/>
         </div>
         <div id="score_list">
             <p>MUSIC & SCORE</p>
-            <select id="musiclistid" multiple size="10"></select>
+            <select id="musiclistid" multiple size="10">
+                <!-- 譜面一覧作成位置 -->
+            </select>
         </div>
     </div>
     
     <!-- ここに一括削除モーダル 予定 -->
-    
     <div id="modal-main">
         <div id="del_list_container">
             <div class="config_content">
                 <input type="button" class="modal_button" id="select_delete" value="Delete"/>
                 <input type="button" class="modal_button" id="del_close" value="Close"/>
 
+                <select id="del_setted" multiple size="10">
+                    <!-- 配置済み一覧作成位置 -->
+                </select>
 
+                <input type="button" class="modal_button" id="del_move" value="＞＞"/>
+                <input type="button" class="modal_button" id="ccl_move" value="＜＜"/>
                 
+                <select id="del_decide" multiple size="10">
+                    <!-- 削除予定一覧作成位置 -->
+                </select>
             </div>
         </div>
     </div>

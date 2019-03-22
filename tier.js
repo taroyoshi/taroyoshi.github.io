@@ -473,7 +473,6 @@ jQuery(function(){
         }
     });
     
-    
     /*==================================================================================================
     //保存jQuery
     ==================================================================================================*/
@@ -533,8 +532,8 @@ jQuery(function(){
                 case 'genarate_modal':
                     MulchGenerate();
                     break;
-                case 'genarate_modal_close':
                     
+                case 'genarate_modal_close':
                     $("#generate_modal-main").fadeOut();
                     //イベント解除してモーダルを閉じる
                     $("#fadeLayer").css("visibility", "hidden");
@@ -542,11 +541,43 @@ jQuery(function(){
                     //ヘッダーのボタン有効化
                     headEnable("enable");
                     break;
+                    
+                case 'genarate_modal_delete':
+                    $("#generate_modal-main").fadeOut();
+                    $(".modal_button").off();
+                    //モーダルウィンドウを表示
+                    $("#del_list_container").fadeIn("slow");
+        
+                    
+                    break;
             }
         });
             
         //画面の左上からmodal-mainの横幅・高さを引き 2で割ると画面中央の位置
         $(window).resize(modalResize);
+    });
+    
+    
+        
+    /*==================================================================================================
+    //一括削除モーダルウィンドウ
+    ==================================================================================================*/
+    $("#genarate_modal_delete").click(function(){
+        
+        for(var id =0; id < existArray.length; id++){
+            
+            //配置済み一覧作成
+            if(existArray[id] == "1"){
+        
+                $("#del_setted").append($("<option>").val(music_table[id][MUSIC_INDEX]).text(music_table[id][NAME_INDEX]));
+            }
+            
+        }
+        
+        
+        
+        
+        
     });
     
     /*==================================================================================================
@@ -709,14 +740,14 @@ jQuery(function(){
             var id =  $(this).attr("id");
         
             $("#info_modal-main").fadeOut("slow",function(){
-                 switch(id){
+                switch(id){
                     case 'info_modal_close':
                         
                         //イベント解除してモーダルを閉じる
                         $("#fadeLayer").css("visibility", "hidden");
                         $(".modal_button").off();
                         break;
-                 }
+                }
             });
             
             //ヘッダーのボタン有効化
