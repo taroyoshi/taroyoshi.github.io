@@ -126,7 +126,7 @@ header{
 
 #del_modal-main{
     display: none;
-    width: 700px;
+    width: 1000px;
     height: auto;
     padding-bottom: 20px;
     top:50%;
@@ -138,8 +138,50 @@ header{
     z-index: 20;
     border-radius: 5px;
     border: solid 1px blue;
-    
 }
+
+#del_list_container{
+    position: relative;
+    height: 250px;
+}
+
+#del_decide{
+    position: absolute;
+    float:left;
+    top: 35%;
+    left:5%;
+    padding: 10px;
+}
+
+#del_setted{
+    position: absolute;
+    height: 200px;
+    width: 300px;
+    float:left;
+    top: 10%;
+    left:15%;
+    margin: 20px 25px;
+}
+
+#del_move_button{
+    position: absolute;
+    float:left;
+    top: 35%;
+    left:50%;
+    padding: 10px;
+}
+
+
+#del_select{
+    position: absolute;
+    height: 200px;
+    width: 300px;
+    float:left;
+    top: 10%;
+    left:60%;
+    margin: 20px 25px;
+}
+
 #modal-main{
     display: none;
     width: 500px;
