@@ -66,8 +66,8 @@ function setDraggableAndDblclick(id){
 
             //value昇順でソート            
             var sort_item = $("#musiclistid option").sort(function(a, b){
-                    return a.value > b.value ? 1 : -1;
-                });
+                return a.value > b.value ? 1 : -1;
+            });
                 
             //一旦全削除し その後ソートしたものを格納。削除した物を選択状態に
             $("#musiclistid").children("option").remove();
@@ -388,7 +388,7 @@ function MulchGenerate(){
 
         var disp_name = music_table[selected_music_index[target_num]][DISP_INDEX];
 
-        //譜面セレクトボックスから削除
+        //譜面セレクトボックスから削除 現状 これはいらない?
         $("#musiclistid option").each( function(){
             if($(this).val() == music_table[selected_music_index[target_num]][MUSIC_INDEX]) {
                 $(this).remove();
@@ -544,13 +544,11 @@ jQuery(function(){
                     
                 case 'genarate_modal_delete':
                     $("#generate_modal-main").fadeOut();
-                    $(".modal_button").off();
+                    //$(".modal_button").off();
                     //モーダルウィンドウを表示
                     //画面中央を計算する関数を実行
                     modalResize("#del_modal-main");
                     $("#del_modal-main").fadeIn("slow");
-        
-                    
                     break;
             }
         });
@@ -577,7 +575,74 @@ jQuery(function(){
         }
         
         
-        
+        //モーダル内ボタン押下イベント
+        $(".modal_button").click(function(){
+            
+            var id =  $(this).attr("id");
+            
+            var selected_music_index;
+
+            switch(id){
+                case 'select_delete':
+                    //del_settedから全部取得
+                    
+                    
+                    break;
+                    
+                case 'del_close':
+                    $("#del_modal-main").fadeOut();
+                    //イベント解除してモーダルを閉じる
+                    $("#fadeLayer").css("visibility", "hidden");
+                    $(".modal_button").off();
+                    //ヘッダーのボタン有効化
+                    headEnable("enable");
+                    break;
+                    
+                case 'del_move':
+                    selected_music_index = $("#del_setted").val();
+                    
+                    for(var target_num = 0; target_num < selected_music_index.length; target_num++){
+                        $("#del_setted option").each( function(){
+                            if($(this).val() == music_table[selected_music_index[target_num]][MUSIC_INDEX]) {
+                                $(this).remove();
+                                
+                                //del_selectに追加 要ソート
+                                
+                                /*以下そのままコピペ 要編集
+                                //value昇順でソート            
+                                var sort_item = $("#musiclistid option").sort(function(a, b){
+                                    return a.value > b.value ? 1 : -1;
+                                });
+                                    
+                                //一旦全削除し その後ソートしたものを格納。削除した物を選択状態に
+                                $("#musiclistid").children("option").remove();
+                                $("#musiclistid").append(sort_item);
+                                $("#musiclistid").val(gatID_i);
+                                
+                                */
+                                
+                            }
+                        });
+                    }
+                    
+                    break;
+                    
+                case 'ccl_move':
+                    selected_music_index = $("#del_select").val();
+                    
+                    for(var target_num = 0; target_num < selected_music_index.length; target_num++){
+                        $("#del_select option").each( function(){
+                            if($(this).val() == music_table[selected_music_index[target_num]][MUSIC_INDEX]) {
+                                $(this).remove();
+                                
+                                //del_settedに追加 要ソート
+                            }
+                        });
+                    }
+                
+                    break;
+            }
+        });
         
         
     });
