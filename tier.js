@@ -589,6 +589,10 @@ jQuery(function(){
                     //del_settedから全部取得
                     $("#del_setted option");
                     
+                    //del_settedのoptionを全削除
+                    
+                    //ボックスの削除実施
+                    
                     break;
                     
                 case 'del_close':
@@ -600,7 +604,7 @@ jQuery(function(){
                     headEnable("enable");
                     break;
                     
-                //以下2つの共通化は行うべきか
+                //以下2つの共通化は行うべきか sortはバージョン内インデックスで行うべきか
                 case 'del_move':
                     selected_music_index = $("#del_setted").val();
                     
@@ -652,8 +656,6 @@ jQuery(function(){
                     break;
             }
         });
-        
-        
     });
     
     /*==================================================================================================
