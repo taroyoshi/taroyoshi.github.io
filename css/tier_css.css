@@ -153,14 +153,18 @@ header{
     padding: 10px;
 }
 
-#del_setted{
+#del_setted_area{
     position: absolute;
     height: 200px;
     width: 300px;
     float:left;
-    top: 10%;
     left:15%;
-    margin: 20px 25px;
+    margin: 0 25px;
+}
+
+#del_setted{
+    width: 300px;
+    height: 180px;
 }
 
 #del_move_button{
@@ -172,14 +176,18 @@ header{
 }
 
 
-#del_select{
+#del_select_area{
     position: absolute;
     height: 200px;
     width: 300px;
     float:left;
-    top: 10%;
     left:60%;
-    margin: 20px 25px;
+    margin: 0 25px;
+}
+
+#del_select{
+    width: 300px;
+    height: 180px;
 }
 
 #modal-main{

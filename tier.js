@@ -537,7 +537,7 @@ jQuery(function(){
                     $("#generate_modal-main").fadeOut();
                     //イベント解除してモーダルを閉じる
                     $("#fadeLayer").css("visibility", "hidden");
-                    $(".modal_button").off();
+                    //$(".modal_button").off();
                     //ヘッダーのボタン有効化
                     headEnable("enable");
                     break;
@@ -564,6 +564,9 @@ jQuery(function(){
     ==================================================================================================*/
     $("#genarate_modal_delete").click(function(){
         
+        $("#del_setted").children("option").remove();
+        $("#del_select").children("option").remove();
+        
         for(var id =0; id < existArray.length; id++){
             
             //配置済み一覧作成
@@ -571,21 +574,20 @@ jQuery(function(){
         
                 $("#del_setted").append($("<option>").val(music_table[id][MUSIC_INDEX]).text(music_table[id][NAME_INDEX]));
             }
-            
         }
-        
         
         //モーダル内ボタン押下イベント
         $(".modal_button").click(function(){
             
             var id =  $(this).attr("id");
             
-            var selected_music_index;
+            var selected_music_index = null;
+            var sort_item = null;
 
             switch(id){
                 case 'select_delete':
                     //del_settedから全部取得
-                    
+                    $("#del_setted option");
                     
                     break;
                     
@@ -593,37 +595,34 @@ jQuery(function(){
                     $("#del_modal-main").fadeOut();
                     //イベント解除してモーダルを閉じる
                     $("#fadeLayer").css("visibility", "hidden");
-                    $(".modal_button").off();
+                    //$(".modal_button").off();
                     //ヘッダーのボタン有効化
                     headEnable("enable");
                     break;
                     
+                //以下2つの共通化は行うべきか
                 case 'del_move':
                     selected_music_index = $("#del_setted").val();
                     
                     for(var target_num = 0; target_num < selected_music_index.length; target_num++){
                         $("#del_setted option").each( function(){
                             if($(this).val() == music_table[selected_music_index[target_num]][MUSIC_INDEX]) {
+                                
                                 $(this).remove();
-                                
-                                //del_selectに追加 要ソート
-                                
-                                /*以下そのままコピペ 要編集
-                                //value昇順でソート            
-                                var sort_item = $("#musiclistid option").sort(function(a, b){
-                                    return a.value > b.value ? 1 : -1;
-                                });
-                                    
-                                //一旦全削除し その後ソートしたものを格納。削除した物を選択状態に
-                                $("#musiclistid").children("option").remove();
-                                $("#musiclistid").append(sort_item);
-                                $("#musiclistid").val(gatID_i);
-                                
-                                */
-                                
+                                $("#del_select").append($("<option>").val($(this).val()).text(this.text));
                             }
                         });
                     }
+                    
+                    //value昇順でソート            
+                    sort_item = $("#del_select option").sort(function(a, b){
+                        //return a.value > b.value ? 1 : -1;
+                        return a.value - b.value;
+                    });
+                    
+                    //一旦全削除し その後ソートしたものを格納
+                    $("#del_select").children("option").remove();
+                    $("#del_select").append(sort_item);
                     
                     break;
                     
@@ -633,12 +632,22 @@ jQuery(function(){
                     for(var target_num = 0; target_num < selected_music_index.length; target_num++){
                         $("#del_select option").each( function(){
                             if($(this).val() == music_table[selected_music_index[target_num]][MUSIC_INDEX]) {
+
                                 $(this).remove();
-                                
-                                //del_settedに追加 要ソート
+                                $("#del_setted").append($("<option>").val($(this).val()).text(this.text));
                             }
                         });
                     }
+                    
+                    //value昇順でソート            
+                    sort_item = $("#del_setted option").sort(function(a, b){
+                        //return a.value > b.value ? 1 : -1;
+                        return a.value - b.value;
+                    });
+                        
+                    //一旦全削除し その後ソートしたものを格納
+                    $("#del_setted").children("option").remove();
+                    $("#del_setted").append(sort_item);
                 
                     break;
             }
