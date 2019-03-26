@@ -390,7 +390,7 @@ function MulchGenerate(){
 
         var disp_name = music_table[selected_music_index[target_num]][DISP_INDEX];
 
-        //譜面セレクトボックスから削除 現状 これはいらない?
+        //譜面セレクトボックスから削除
         $("#musiclistid option").each( function(){
             if($(this).val() == music_table[selected_music_index[target_num]][MUSIC_INDEX]) {
                 $(this).remove();
@@ -524,8 +524,8 @@ jQuery(function(){
         //モーダル中背景表示
         fadeLayerOn();
         
+        //再度生成ウィンドウを開いた時の対応
         MusicSelectBoxChange($("verlistid").val);
-        
         
         //モーダル内ボタン押下イベント
         $(".modal_button").click(function(){
@@ -541,14 +541,14 @@ jQuery(function(){
                     $("#generate_modal-main").fadeOut();
                     //イベント解除してモーダルを閉じる
                     $("#fadeLayer").css("visibility", "hidden");
-                    //$(".modal_button").off();
+                    
                     //ヘッダーのボタン有効化
                     headEnable("enable");
                     break;
                     
                 case 'genarate_modal_delete':
                     $("#generate_modal-main").fadeOut();
-                    //$(".modal_button").off();
+                    
                     //モーダルウィンドウを表示
                     //画面中央を計算する関数を実行
                     modalResize("#del_modal-main");
