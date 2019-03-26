@@ -586,12 +586,16 @@ jQuery(function(){
 
             switch(id){
                 case 'select_delete':
-                    //del_settedから全部取得
-                    $("#del_setted option");
                     
-                    //del_settedのoptionを全削除
+                    $("#del_select option").each( function(){
+                        
+                            var id = "#iidaxe_" + $(this).val();
+                            
+                            $(id).unwrap();
+                            $(id).remove();
+                    });
                     
-                    //ボックスの削除実施
+                    $("#del_select option").remove();
                     
                     break;
                     

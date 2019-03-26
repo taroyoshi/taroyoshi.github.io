@@ -24,7 +24,7 @@ music_table = [
     [6,13, "NEMESIS", "nemesis", "NEME", "A", 2],
     [6,14, "route 80s", "r80s_emp", "80s", "A", 3],
     [6,15, "Summer Vacation(CU mix)", "summer", "Summ V", "A", 4],
-    [7,16, "A",  "A",  "a_amuro", "A", 0],
+    [7,16, "A",  "a_amuro",  "A", "A", 0],
     [7,17, "Cheer Train", "cheertra", "Cheer", "A", 1],
     [7,18, "Spica", "spica", "Spica", "A", 2],
     [7,19, "stoic", "stoic", "Stoic", "A", 3],
