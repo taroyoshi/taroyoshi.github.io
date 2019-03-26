@@ -3,9 +3,12 @@ const MUSIC_NUM = 374;//20190225
 var existArray= new Array(MUSIC_NUM);//存在判定はキーバリューにするべきか? (以後の譜面追加対応しやすくするため)
 
 //TODO モーダル表示関連の関数での一括化 及びhtmlの分割, JSによる読み込み化
-//TODO 検索後に吹き出しと目立たせる　もしくはマウスアイコンをその位置へ https://www.ipentec.com/document/javascript-get-pointer-position
+//TODO 検索後に吹き出しと目立たせる もしくはマウスアイコンをその位置へ https://www.ipentec.com/document/javascript-get-pointer-position
 //TODO Save, Load時に名前の一致かを確認
 //TODO LocalStoreageの名前必要?
+//TODO 生成ウィンドウ開いた時の整合性(表示したタイミングで削除とかみ合わない事がある)
+//TODO 生成関連で不要になったものの処理
+
 
 /*==================================================================================================
 //チャート画面読み出し時処理(付随されているURLパラメータによって処理を判断)
@@ -25,7 +28,7 @@ function initchart(){
         }
         
         //20190227現在 RUGGED ASHのみ確認して譜面選択セレクトボックスの初期化
-        //以後、Substreamや2ndに追加されたら改修
+        //以後、Substreamや2ndや1stに追加されたら改修
         if(existArray[0] == "0"){
             $("#musiclistid").append($("<option>").val(music_table[0][MUSIC_INDEX]).text(music_table[0][NAME_INDEX]));
         }
@@ -524,6 +527,9 @@ jQuery(function(){
         //モーダル中背景表示
         fadeLayerOn();
         
+        MusicSelectBoxChange($("verlistid").val);
+        
+        
         //モーダル内ボタン押下イベント
         $(".modal_button").click(function(){
             
@@ -592,6 +598,8 @@ jQuery(function(){
                         
                         $(id).unwrap();
                         $(id).remove();
+                        
+                        existArray[$(this).val()] = "0";
                     });
                     
                     $("#del_select option").remove();
