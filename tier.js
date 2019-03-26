@@ -63,6 +63,8 @@ function setDraggableAndDblclick(id){
                 $("#musiclistid").append($("<option>").val(music_table[gatID_i][MUSIC_INDEX]).text(music_table[gatID_i][NAME_INDEX]));
             }
 
+            /////////////////以下不要?
+
             //value昇順でソート            
             var sort_item = $("#musiclistid option").sort(function(a, b){
                 return a.value > b.value ? 1 : -1;
@@ -72,6 +74,8 @@ function setDraggableAndDblclick(id){
             $("#musiclistid").children("option").remove();
             $("#musiclistid").append(sort_item);
             $("#musiclistid").val(gatID_i);
+
+            /////////////////以上不要?
 
             //吹出削除            
             $(".arrow_box").unwrap();
@@ -617,7 +621,7 @@ jQuery(function(){
                         });
                     }
                     
-                    //value昇順でソート            
+                    //value昇順でソート 要バージョン内INDEXを用いたソートに変更   
                     sort_item = $("#del_select option").sort(function(a, b){
                         //return a.value > b.value ? 1 : -1;
                         return a.value - b.value;
@@ -642,7 +646,7 @@ jQuery(function(){
                         });
                     }
                     
-                    //value昇順でソート            
+                    //value昇順でソート 要バージョン内INDEXを用いたソートに変更 
                     sort_item = $("#del_setted option").sort(function(a, b){
                         //return a.value > b.value ? 1 : -1;
                         return a.value - b.value;
@@ -675,12 +679,12 @@ jQuery(function(){
         fadeLayerOn();
         
         //配置済みバージョンセレクトボックス変更イベント
-        $("#mouted_verlistid").change( function(){
+        $("#mounted_verlistid").change( function(){
             
             $("#mounted_musiclistid").children().remove();
             
             //選択中バージョン取得
-            const selectVal = $("#mouted_verlistid").val();
+            const selectVal = $("#mounted_verlistid").val();
             
             var return_array = [];
     
@@ -720,7 +724,7 @@ jQuery(function(){
         });
         
         //Substreamの確認
-        $("#mouted_verlistid").val("2");
+        $("#mounted_verlistid").val("2");
         if(existArray[0] == "1"){
             $("#mounted_musiclistid").append($("<option>").val(music_table[0][MUSIC_INDEX]).text(music_table[0][NAME_INDEX]));
         }
@@ -735,7 +739,7 @@ jQuery(function(){
                 
                 //イベント解除
                 $(".modal_button").off();
-                $("#mouted_verlistid").off();
+                $("#mounted_verlistid").off();
 
                 switch(id){
                     //検索, 移動
