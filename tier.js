@@ -33,7 +33,7 @@ function initchart(){
     else{
         //パラメータを持って表示した場合、解析し配置
         var para = gatUrl.slice(n + 15, urlLength);
-        
+        //パラメータ解析, 配置
         paraAnlyzeSet(para);
     }
 }
@@ -57,13 +57,13 @@ function setDraggableAndDblclick(id){
             //一旦選択状態無しに
             $("#musiclistid").val(0);
             
+//////////////////////////////////以下不要?
+            
             //セレクトボックス再挿入の処理
             existArray[gatID_i] = "0";
             if(music_table[gatID_i][VER_INDEX] == $("#verlistid").val()){
                 $("#musiclistid").append($("<option>").val(music_table[gatID_i][MUSIC_INDEX]).text(music_table[gatID_i][NAME_INDEX]));
             }
-
-            /////////////////以下不要?
 
             //value昇順でソート            
             var sort_item = $("#musiclistid option").sort(function(a, b){
@@ -75,7 +75,7 @@ function setDraggableAndDblclick(id){
             $("#musiclistid").append(sort_item);
             $("#musiclistid").val(gatID_i);
 
-            /////////////////以上不要?
+//////////////////////////////////以上不要?
 
             //吹出削除            
             $(".arrow_box").unwrap();
@@ -533,10 +533,12 @@ jQuery(function(){
             var id =  $(this).attr("id");
 
             switch(id){
+                //生成実行
                 case 'genarate_modal':
                     MulchGenerate();
                     break;
                     
+                //当モーダルをクローズ
                 case 'genarate_modal_close':
                     $("#generate_modal-main").fadeOut();
                     //イベント解除してモーダルを閉じる
@@ -546,6 +548,7 @@ jQuery(function(){
                     headEnable("enable");
                     break;
                     
+                //当モーダルをクローズし一括削除モーダルをオープン
                 case 'genarate_modal_delete':
                     $("#generate_modal-main").fadeOut();
                     
@@ -587,6 +590,7 @@ jQuery(function(){
             var sort_item = null;
 
             switch(id){
+                //Deleteセレクトボックス内のボックスを一括削除
                 case 'select_delete':
                     
                     $("#del_select option").each( function(){
@@ -602,7 +606,8 @@ jQuery(function(){
                     $("#del_select option").remove();
                     
                     break;
-                    
+                
+                //何もせずに当モーダルをクローズ
                 case 'del_close':
                     $("#del_modal-main").fadeOut();
                     //イベント解除してモーダルを閉じる
@@ -613,6 +618,7 @@ jQuery(function(){
                     break;
                     
                 //以下2つの共通化は行うべきか sortはバージョン内インデックスで行うべきか
+                //SettedからDeleteへ移動
                 case 'del_move':
                     selected_music_index = $("#del_setted").val();
                     
@@ -637,7 +643,8 @@ jQuery(function(){
                     $("#del_select").append(sort_item);
                     
                     break;
-                    
+                
+                //DeleteからSettedへ移動
                 case 'ccl_move':
                     selected_music_index = $("#del_select").val();
                     
@@ -910,7 +917,7 @@ jQuery(function(){
             var id =  $(this).attr("id");
 
             switch(id){
-                    
+                //配置済み, 未配置の表示切替
                 case 'setted_change':
 
                     if( $("#setted_list").css("display") == "block" && $("#nosetted_list").css("display") == "none"){
@@ -927,7 +934,7 @@ jQuery(function(){
                     }
                     
                     break;
-                 
+                //当モーダルをクローズ
                 case 'setted_modal_close':
                     $("#setted_modal-main").fadeOut("slow");
                     //ヘッダーのボタン有効化
