@@ -51,6 +51,7 @@ header{
     text-align: center;
     background-image : url(../img/backaxis.jpg );
     z-index:0;
+    left:0;
     position:relative;
 }
 
