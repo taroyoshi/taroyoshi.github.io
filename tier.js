@@ -480,7 +480,7 @@ jQuery(function(){
     $('#save').click(function () {
 
         if (!window.localStorage) {
-            alert("お使いのブラウザはlocalstorageに対応していないため、セーブできません。");
+            alert("お使いのブラウザはlocal Storageに対応していないため、セーブできません。");
             return;
         }
         if(window.confirm('今の状態をセーブしますか？')){
@@ -496,7 +496,7 @@ jQuery(function(){
     ==================================================================================================*/
     $('#load').click(function () {
         if (!window.localStorage) {
-            alert("お使いのブラウザはlocalstorageに対応していないため、ロードできません。");
+            alert("お使いのブラウザはlocal Storageに対応していないため、ロードできません。");
             return;
         }
         if(window.confirm('保存してある状態をロードしますか？')){
