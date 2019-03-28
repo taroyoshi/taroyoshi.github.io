@@ -57,10 +57,11 @@ function setDraggableAndDblclick(id){
             //一旦選択状態無しに
             $("#musiclistid").val(0);
             
+            //対象の存在判定削除
+            existArray[gatID_i] = "0";
+            
 //////////////////////////////////以下不要?
             
-            //セレクトボックス再挿入の処理
-            existArray[gatID_i] = "0";
             if(music_table[gatID_i][VER_INDEX] == $("#verlistid").val()){
                 $("#musiclistid").append($("<option>").val(music_table[gatID_i][MUSIC_INDEX]).text(music_table[gatID_i][NAME_INDEX]));
             }
@@ -98,7 +99,7 @@ function setDraggableAndDblclick(id){
                 version = "s";
             }
             
-            var textage = music_table[music_id][ID_INDEX];
+            var textage   = music_table[music_id][ID_INDEX];
             var difficult = music_table[music_id][DIFF_INDEX];
 
             var url = url1 +        // http://textage.cc/score/
@@ -418,7 +419,7 @@ function MulchGenerate(){
         
         //対象IDにマウスオーバーで表示
         setHover("#iidaxe_" + String(music_table[selected_music_index[target_num]][MUSIC_INDEX]), 
-                                    music_table[selected_music_index[target_num]][NAME_INDEX]);
+                                     music_table[selected_music_index[target_num]][NAME_INDEX]);
     }
 }
 
