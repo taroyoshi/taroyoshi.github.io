@@ -691,6 +691,9 @@ jQuery(function(){
         //モーダル中背景
         fadeLayerOn();
         
+        //URLテキストボックスの内容削除
+        $('#madeurl').val("");
+        
         //配置済みバージョンセレクトボックス変更イベント
         $("#mounted_verlistid").change( function(){
             
@@ -729,6 +732,9 @@ jQuery(function(){
         var para = makeUrlPara(existArray);
         //VS Codeのローカルデバッグだと機能しない?
         var url = "window.open('" + preUrl + iidaxeUrl + para + "')";
+        
+        //テキストボックスにURL添付
+        $('#madeurl').val( iidaxeUrl + para);
         
         //Tweetボタンにurl付与
         $('#tweet').removeAttr('onclick');
