@@ -284,7 +284,7 @@ function makeUrlPara(arr){
             
             //左位置取得, 62進数変換
             var l = each_id.style.left.replace("px","");
-            if(l === ""){
+            if(l === "" || l === 0){
                 l62 = "00";
             }
             else{
@@ -293,7 +293,7 @@ function makeUrlPara(arr){
             
             //上位置取得, 62進数変換
             var t = each_id.style.top.replace("px","");
-             if(t === ""){
+             if(t === "" || t === 0){
                 t62 = "00";
             }
             else{
