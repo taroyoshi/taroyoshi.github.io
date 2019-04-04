@@ -43,7 +43,10 @@ function initchart(){
 ==================================================================================================*/
 function setDraggableAndDblclick(id){
 
-	$( id ).draggable().dblclick(function(){
+	$( id ).draggable({
+	    containment: '#main',
+        scroll: false,
+	}).dblclick(function(){
 	    
 	    //対象を削除, セレクトボックス内に再挿入
 	    if (event.ctrlKey && event.shiftKey) {
@@ -284,20 +287,28 @@ function makeUrlPara(arr){
             
             //左位置取得, 62進数変換
             var l = each_id.style.left.replace("px","");
-            if(l === "" || l === 0){
+            if(l === "" || l === 0 || l == "0"){
                 l62 = "00";
             }
             else{
                 l62 = tos(l);
+                
+                if(l62.length < 2){
+                    l62 = "0" + l62;
+                }
             }
             
             //上位置取得, 62進数変換
             var t = each_id.style.top.replace("px","");
-             if(t === "" || t === 0){
+             if(t === "" || t === 0 || t == "0"){
                 t62 = "00";
             }
             else{
                 t62 = tos(t);
+                
+                if(t62.length < 2){
+                    t62 = "0" + t62;
+                }
             }
         
             //圧縮前文字列に格納
