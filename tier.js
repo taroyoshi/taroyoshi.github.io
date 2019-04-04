@@ -25,7 +25,7 @@ function initchart(){
         }
         
         //20190227現在 RUGGED ASHのみ確認して譜面選択セレクトボックスの初期化
-        //以後、Substreamや2ndや1stに追加されたら改修
+        //以後、Substreamや2ndや1stに追加されたら要改修
         if(existArray[0] == "0"){
             $("#musiclistid").append($("<option>").val(music_table[0][MUSIC_INDEX]).text(music_table[0][NAME_INDEX]));
         }
@@ -44,6 +44,7 @@ function initchart(){
 function setDraggableAndDblclick(id){
 
 	$( id ).draggable({
+	    //backaxis上のみドラッグ可能にする
 	    containment: '#main',
         scroll: false,
 	}).dblclick(function(){
@@ -293,6 +294,7 @@ function makeUrlPara(arr){
             else{
                 l62 = tos(l);
                 
+                //62進数変換して1文字の場合の補填
                 if(l62.length < 2){
                     l62 = "0" + l62;
                 }
@@ -306,6 +308,7 @@ function makeUrlPara(arr){
             else{
                 t62 = tos(t);
                 
+                //62進数変換して1文字の場合の補填
                 if(t62.length < 2){
                     t62 = "0" + t62;
                 }
@@ -972,7 +975,9 @@ jQuery(function(){
     
     
     
-    
+    /*==================================================================================================
+    //ヘッダースクロール制御
+    ==================================================================================================*/
     $(window).on("scroll", function(){
         $("header").css("left", -$(window).scrollLeft());
     });
