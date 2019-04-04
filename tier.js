@@ -76,7 +76,7 @@ function setDraggableAndDblclick(id){
                 
             //一旦全削除し その後ソートしたものを格納。削除した物を選択状態に
             $("#musiclistid").children("option").remove();
-            $("#musiclistid").append(sort_item);
+            $("#musibclistid").append(sort_item);
             $("#musiclistid").val(gatID_i);
 
 //////////////////////////////////以上不要?
@@ -969,4 +969,13 @@ jQuery(function(){
         //画面の左上からmodal-mainの横幅・高さを引き 2で割ると画面中央の位置
         $(window).resize(modalResize);
     });
+    
+    
+    
+    
+    $(window).on("scroll", function(){
+        $("header").css("left", -$(window).scrollLeft());
+    });
+        
+    
 });
