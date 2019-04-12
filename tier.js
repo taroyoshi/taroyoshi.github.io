@@ -7,7 +7,7 @@ var existArray= new Array(MUSIC_NUM);//存在判定はキーバリューにす�
 //TODO LocalStoreageの名前必要?
 //TODO 生成関連で不要になったものの処理確認
 //TODO Searchが不正確 Serachモーダルを開いたときのセレクトボックス
-//TODO 圧縮手段
+//TODO 圧縮手段変更 もしくはURL短縮サービス？ http://redv40.blogspot.com/2014/10/web-storage-lz-string.html
 
 /*==================================================================================================
 //チャート画面読み出し時処理(付随されているURLパラメータによって処理を判断)
