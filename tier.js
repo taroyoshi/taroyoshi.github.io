@@ -6,7 +6,7 @@ var existArray= new Array(MUSIC_NUM);//存在判定はキーバリューにす�
 //TODO Save, Load時に名前の一致かを確認
 //TODO LocalStoreageの名前必要?
 //TODO 生成関連で不要になったものの処理確認
-//TODO Searchが不正確 Serachモーダルを開いたときのセレクトボックス
+//TODO Searchが不正確 吹き出しか Serachモーダルを開いたときのセレクトボックス 
 //TODO 圧縮手段変更 もしくはURL短縮サービス？ http://redv40.blogspot.com/2014/10/web-storage-lz-string.html
 
 /*==================================================================================================
@@ -439,6 +439,16 @@ function MulchGenerate(){
     }
 }
 
+/*==================================================================================================
+//検索時の吹き出し削除
+==================================================================================================*/
+function deleteSetTimeHover(){
+    
+    
+    
+    $(".arrow_box").unwrap();
+    $(".arrow_box").remove();
+}
 
 /*==================================================================================================
 ----------------------------------------------------------------------------------------------------
@@ -792,6 +802,22 @@ jQuery(function(){
                         
                         //対象位置までスクロール
                         scrollTo(positionLeft, positionTop);
+                        
+                        var div_element = document.createElement("div");
+                        var parent_object = document.getElementById('main');
+                        div_element.innerHTML = '<div class="arrow_box" style="left: ' +
+                                                positionLeft +
+                                                '; top:' +
+                                                positionTop +
+                                                ';">' +
+                                                music_table[mounted_selectVal][NAME_INDEX] +
+                                                '</div>';
+                        
+                        parent_object.append(div_element);
+                        
+                        window.setTimeout("deleteSetTimeHover()", 5000);
+                        
+                        
                         //ここで対象のCSS書き換えとか行うか
                         /*
                         setTimeout(function(){
