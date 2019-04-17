@@ -65,25 +65,7 @@ function setDraggableAndDblclick(id){
             
             //対象の存在判定削除
             existArray[gatID_i] = "0";
-            
-//////////////////////////////////以下不要?
-            
-            if(music_table[gatID_i][VER_INDEX] == $("#verlistid").val()){
-                $("#musiclistid").append($("<option>").val(music_table[gatID_i][MUSIC_INDEX]).text(music_table[gatID_i][NAME_INDEX]));
-            }
-
-            //value昇順でソート            
-            var sort_item = $("#musiclistid option").sort(function(a, b){
-                return a.value > b.value ? 1 : -1;
-            });
-                
-            //一旦全削除し その後ソートしたものを格納。削除した物を選択状態に
-            $("#musiclistid").children("option").remove();
-            $("#musibclistid").append(sort_item);
-            $("#musiclistid").val(gatID_i);
-
-//////////////////////////////////以上不要?
-
+         
             //吹出削除            
             $(".arrow_box").unwrap();
             $(".arrow_box").remove();
@@ -639,7 +621,6 @@ jQuery(function(){
                     $("#del_modal-main").fadeOut();
                     //イベント解除してモーダルを閉じる
                     $("#fadeLayer").css("visibility", "hidden");
-                    //$(".modal_button").off();
                     //ヘッダーのボタン有効化
                     headEnable("enable");
                     break;
@@ -661,7 +642,6 @@ jQuery(function(){
                     
                     //value昇順でソート 要バージョン内INDEXを用いたソートに変更   
                     sort_item = $("#del_select option").sort(function(a, b){
-                        //return a.value > b.value ? 1 : -1;
                         return a.value - b.value;
                     });
                     
@@ -801,8 +781,9 @@ jQuery(function(){
                         var positionTop = parseInt($("#iidaxe_" + mounted_selectVal).css("top").replace("px", ""), 10);
                         
                         //対象位置までスクロール
-                        scrollTo(positionLeft, positionTop);
+                        window.scrollTo(positionLeft, positionTop);
                         
+                        /*
                         var div_element = document.createElement("div");
                         var parent_object = document.getElementById('main');
                         div_element.innerHTML = '<div class="arrow_box" style="left: ' +
@@ -816,7 +797,7 @@ jQuery(function(){
                         parent_object.append(div_element);
                         
                         window.setTimeout("deleteSetTimeHover()", 5000);
-                        
+                        */
                         
                         //ここで対象のCSS書き換えとか行うか
                         /*
