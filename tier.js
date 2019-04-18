@@ -424,11 +424,7 @@ function MulchGenerate(){
 //検索時の吹き出し削除
 ==================================================================================================*/
 function deleteSetTimeHover(){
-    
-    
-    
-    $(".arrow_box").unwrap();
-    $(".arrow_box").remove();
+    $("#searchSQ").remove();
 }
 
 /*==================================================================================================
@@ -787,29 +783,22 @@ jQuery(function(){
                         //対象位置までスクロール
                         window.scrollTo(positionLeft, positionTop);
                         
-                        /*
+                        
                         var div_element = document.createElement("div");
                         var parent_object = document.getElementById('main');
-                        div_element.innerHTML = '<div class="arrow_box" style="left: ' +
-                                                positionLeft +
-                                                '; top:' +
-                                                positionTop +
-                                                ';">' +
-                                                music_table[mounted_selectVal][NAME_INDEX] +
+                        div_element.innerHTML = '<div id="searchSQ" style="left: ' +
+                                                (positionLeft -3) +
+                                                'px; top:' +
+                                                (positionTop -3) +
+                                                'px;">' +
                                                 '</div>';
                         
                         parent_object.append(div_element);
                         
-                        window.setTimeout("deleteSetTimeHover()", 5000);
-                        */
-                        
-                        //ここで対象のCSS書き換えとか行うか
-                        /*
-                        setTimeout(function(){
-                            $("#iidaxe_" + mounted_selectVal).css({
-                            "border": "1px solid yellow"
-                        }, 100);
-                        */    
+                        $("#searchSQ").hover(function(){
+                            $(this).remove();
+                        });
+                        window.setTimeout("deleteSetTimeHover()", 3000);
                        
                         break;
                         

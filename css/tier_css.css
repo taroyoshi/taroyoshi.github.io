@@ -217,6 +217,15 @@ header{
     text-align: center;
 }
 
+#searchSQ{
+    position:absolute;
+    opacity: 1.0;
+    width: 48px;
+    height: 48px;
+    border: outset 2px red;
+    z-index: 31;
+}
+
 .config_content p{
     margin:15px 0 2px;
 }
