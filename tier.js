@@ -6,8 +6,7 @@ var existArray= new Array(MUSIC_NUM);//存在判定はキーバリューにす�
 //TODO Save, Load時に名前の一致かを確認
 //TODO LocalStoreageの名前必要?
 //TODO 生成関連で不要になったものの処理確認
-//TODO Searchが不正確 吹き出しか Serachモーダルを開いたときのセレクトボックス 
-//TODO 圧縮手段変更 もしくはURL短縮サービス？ http://redv40.blogspot.com/2014/10/web-storage-lz-string.html
+//TODO Searchが不正確 吹き出しか
 
 /*==================================================================================================
 //チャート画面読み出し時処理(付随されているURLパラメータによって処理を判断)
@@ -699,6 +698,11 @@ jQuery(function(){
         
         //URLテキストボックスの内容削除
         $('#madeurl').val("");
+        
+        $("#mounted_verlistid").val(2);
+        if(existArray[0] == "1"){
+            $("#musiclistid").append($("<option>").val(music_table[0][MUSIC_INDEX]).text(music_table[0][NAME_INDEX]));
+        }
         
         //配置済みバージョンセレクトボックス変更イベント
         $("#mounted_verlistid").change( function(){
