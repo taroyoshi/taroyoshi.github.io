@@ -437,16 +437,16 @@ function deleteSetTimeHover(){
 ==================================================================================================*/
 function InverAndSort(arr){
     sorted_item = arr.sort(function(a, b){
-        if(a[IN_VER_INDEX] > b[IN_VER_INDEX]){
-            return 1;
-        };
-        if(a[IN_VER_INDEX] < b[IN_VER_INDEX]){
-            return -1;               
-        };
         if(a[VER_INDEX] > b[VER_INDEX]){
             return 1;
         };
         if(a[VER_INDEX] < b[VER_INDEX]){
+            return -1;               
+        };
+        if(a[IN_VER_INDEX] > b[IN_VER_INDEX]){
+            return 1;
+        };
+        if(a[IN_VER_INDEX] < b[IN_VER_INDEX]){
             return -1;               
         };
     });
@@ -559,42 +559,321 @@ jQuery(function(){
         //再度生成ウィンドウを開いた時の対応
         MusicSelectBoxChange($("verlistid").val);
         
-        //モーダル内ボタン押下イベント
-        $(".modal_button").click(function(){
-            
-            var id =  $(this).attr("id");
-
-            switch(id){
-                //生成実行
-                case 'genarate_modal':
-                    MulchGenerate();
-                    break;
-                    
-                //当モーダルをクローズ
-                case 'genarate_modal_close':
-                    $("#generate_modal-main").fadeOut();
-                    //イベント解除してモーダルを閉じる
-                    $("#fadeLayer").css("visibility", "hidden");
-                    
-                    //ヘッダーのボタン有効化
-                    headEnable("enable");
-                    break;
-                    
-                //当モーダルをクローズし一括削除モーダルをオープン
-                case 'genarate_modal_delete':
-                    $("#generate_modal-main").fadeOut();
-                    
-                    //モーダルウィンドウを表示
-                    //画面中央を計算する関数を実行
-                    modalResize("#del_modal-main");
-                    $("#del_modal-main").fadeIn("slow");
-                    break;
-            }
-        });
-            
         //画面の左上からmodal-mainの横幅・高さを引き 2で割ると画面中央の位置
         $(window).resize(modalResize);
     });
+    
+    
+    /*==================================================================================================
+    //生成モーダル内ボタン
+    ==================================================================================================*/
+    $(".modal_button.gene").click(function(){
+        
+        var id =  $(this).attr("id");
+
+        switch(id){
+            //生成実行
+            case 'genarate_modal':
+                MulchGenerate();
+                break;
+                
+            //当モーダルをクローズ
+            case 'genarate_modal_close':
+                $("#generate_modal-main").fadeOut();
+                //イベント解除してモーダルを閉じる
+                $("#fadeLayer").css("visibility", "hidden");
+                
+                //ヘッダーのボタン有効化
+                headEnable("enable");
+                break;
+                
+            //当モーダルをクローズし一括削除モーダルをオープン
+            case 'genarate_modal_delete':
+                $("#generate_modal-main").fadeOut();
+                
+                //モーダルウィンドウを表示
+                //画面中央を計算する関数を実行
+                modalResize("#del_modal-main");
+                $("#del_modal-main").fadeIn("slow");
+                break;
+        }
+    });
+    
+    /*==================================================================================================
+    //一括削除モーダル内ボタン
+    ==================================================================================================*/
+    $(".modal_button.del").click(function(){
+        
+        var id =  $(this).attr("id");
+        
+        var selected_music_index = null;
+        var sort_item = null;
+
+        switch(id){
+            //Deleteセレクトボックス内のボックスを一括削除
+            case 'select_delete':
+                
+                $("#del_select option").each( function(){
+                    
+                    var id = "#iidaxe_" + $(this).val();
+                    
+                    $(id).unwrap();
+                    $(id).remove();
+                    
+                    existArray[$(this).val()] = "0";
+                });
+                
+                $("#del_select option").remove();
+                
+                break;
+            
+            //何もせずに当モーダルをクローズ
+            case 'del_close':
+                $("#del_modal-main").fadeOut();
+                //イベント解除してモーダルを閉じる
+                $("#fadeLayer").css("visibility", "hidden");
+                //ヘッダーのボタン有効化
+                headEnable("enable");
+                
+                break;
+                
+            //以下2つの共通化は行うべきか
+            //SettedからDeleteへ移動(＞＞ボタン)
+            case 'del_move':
+                var pre_del_items  = [];
+                var sort_del_items = [];
+                selected_music_index = $("#del_setted").val();
+                if(selected_music_index.length === 0){
+                    break;
+                }
+                
+                for(var target_num = 0; target_num < selected_music_index.length; target_num++){
+                    $("#del_setted option").each( function(){
+                        if($(this).val() == music_table[selected_music_index[target_num]][MUSIC_INDEX]) {
+                            $(this).remove();
+                            pre_del_items.push(music_table[$(this).val()]);
+                        }
+                    });
+                }
+                
+                $("#del_select option").each( function(){
+                    pre_del_items.push(music_table[$(this).val()]);
+                });
+                
+                //INDEX, IN_VER_INDEX昇順でソート
+                sort_del_items = InverAndSort(pre_del_items);
+                
+                //一旦全削除し その後ソートしたものを格納
+                $("#del_select").children("option").remove();
+                sort_del_items.map(item => 
+                    $("#del_select").append($("<option>").val(item[MUSIC_INDEX]).text(item[NAME_INDEX]))
+                );
+                
+                break;
+            
+            //DeleteからSettedへ移動(＜＜ボタン)
+            case 'ccl_move':
+                
+                var pre_ccl_items  = [];
+                var sort_ccl_items = [];
+                selected_music_index = $("#del_select").val();
+                if(selected_music_index.length === 0){
+                    break;
+                }
+                
+                for(var target_num = 0; target_num < selected_music_index.length; target_num++){
+                    $("#del_select option").each( function(){
+                        if($(this).val() == music_table[selected_music_index[target_num]][MUSIC_INDEX]) {
+                            $(this).remove();
+                            pre_ccl_items.push(music_table[$(this).val()]);
+                        }
+                    });
+                }
+                
+                $("#del_setted option").each( function(){
+                    pre_ccl_items.push(music_table[$(this).val()]);
+                });
+                
+                //INDEX, IN_VER_INDEX昇順でソート
+                sort_ccl_items = InverAndSort(pre_ccl_items);
+                
+                //一旦全削除し その後ソートしたものを格納
+                $("#del_setted").children("option").remove();
+                sort_ccl_items.map(item => 
+                    $("#del_setted").append($("<option>").val(item[MUSIC_INDEX]).text(item[NAME_INDEX]))
+                );
+                
+                break;
+            
+                
+                /* 旧
+                selected_music_index = $("#del_select").val();
+                if(selected_music_index.length === 0){
+                    break;
+                }
+                
+                
+                for(var target_num = 0; target_num < selected_music_index.length; target_num++){
+                    $("#del_select option").each( function(){
+                        if($(this).val() == music_table[selected_music_index[target_num]][MUSIC_INDEX]) {
+
+                            $(this).remove();
+                            $("#del_setted").append($("<option>").val($(this).val()).text(this.text));
+                        }
+                    });
+                }
+                
+                //value昇順でソート 要バージョン内INDEXを用いたソートに変更 
+                sort_item = $("#del_setted option").sort(function(a, b){
+                    //return a.value > b.value ? 1 : -1;
+                    return a.value - b.value;
+                });
+                    
+                //一旦全削除し その後ソートしたものを格納
+                $("#del_setted").children("option").remove();
+                $("#del_setted").append(sort_item);
+            
+                break;
+                */
+        }
+    });
+    
+    
+    /*==================================================================================================
+    //説明モーダル内ボタン
+    ==================================================================================================*/
+    $(".modal_button.info").click(function(){
+        var id =  $(this).attr("id");
+    
+        $("#info_modal-main").fadeOut("slow",function(){
+            switch(id){
+                case 'info_modal_close':
+                    
+                    //イベント解除してモーダルを閉じる
+                    $("#fadeLayer").css("visibility", "hidden");
+                    break;
+            }
+        });
+        
+        //ヘッダーのボタン有効化
+        headEnable("enable");
+    });
+    
+    
+    /*==================================================================================================
+    //検索 設定モーダル内ボタン
+    ==================================================================================================*/
+    $(".modal_button.config").click(function(){
+
+        //押されたボタンのID
+        var id =  $(this).attr("id");
+    
+        $("#modal-main").fadeOut("slow",function(){
+            
+            //イベント解除
+            $(".modal_button").off();
+            $("#mounted_verlistid").off();
+
+            switch(id){
+                //検索, 移動
+                case 'search_move':
+                    var mounted_selectVal = $("#mounted_musiclistid").val();
+                    
+                    if(mounted_selectVal === null){
+                        alert("配置済みの譜面を選択してください。");
+                        break;
+                    }
+                    
+                    //位置情報等
+                    var positionLeft = parseInt($("#iidaxe_" + mounted_selectVal).css("left").replace("px", ""), 10);
+                    var positionTop = parseInt($("#iidaxe_" + mounted_selectVal).css("top").replace("px", ""), 10);
+                    
+                    //対象位置までスクロール
+                    window.scrollTo(positionLeft, positionTop);
+                    
+                    
+                    var div_element = document.createElement("div");
+                    var parent_object = document.getElementById('main');
+                    div_element.innerHTML = '<div id="searchSQ" style="left: ' +
+                                            (positionLeft -3) +
+                                            'px; top:' +
+                                            (positionTop -3) +
+                                            'px;">' +
+                                            '</div>';
+                    
+                    parent_object.append(div_element);
+                    
+                    $("#searchSQ").hover(function(){
+                        $(this).remove();
+                    });
+                    window.setTimeout("deleteSetTimeHover()", 3000);
+                   
+                    break;
+                    
+                //名前の保存
+                case 'config_save':
+                    var name = $("#CreatedName").val();
+                    if(name){
+                        window.localStorage.setItem(['IIDAXEname'],[name]);
+                        document.title= name + "'s DP difficult 12 Tier Chart";
+                    }
+                    break;
+                    
+                //何もせずモーダルをクローズ
+                case 'modal_close':
+                    break;
+
+                //Twitter共有側で行うため、何もせずモーダルをクローズ
+                case 'tweet':
+                    break;
+                    
+            }
+            
+            //レイヤー非表示
+            $("#fadeLayer").css("visibility", "hidden");
+            
+            //ヘッダーのボタン有効化
+            headEnable("enable");
+            
+        });
+    });    
+    
+    /*==================================================================================================
+    //配置済み, 未配置一覧モーダル内ボタン
+    ==================================================================================================*/
+    $(".modal_button.setted").click(function(){
+        var id =  $(this).attr("id");
+
+        switch(id){
+            //配置済み, 未配置の表示切替
+            case 'setted_change':
+
+                if( $("#setted_list").css("display") == "block" && $("#nosetted_list").css("display") == "none"){
+                    $("#setted_list").css("display", "none");
+                    $("#nosetted_list").css("display", "block");
+                    $(this).val("Setted");
+                    $("#list_name").text("未配置一覧");
+                }
+                else{
+                    $("#setted_list").css("display", "block");
+                    $("#nosetted_list").css("display", "none");
+                    $(this).val("Not Setted");
+                    $("#list_name").text("配置済み一覧");
+                }
+                
+                break;
+            //当モーダルをクローズ
+            case 'setted_modal_close':
+                $("#setted_modal-main").fadeOut("slow");
+                //ヘッダーのボタン有効化
+                headEnable("enable");
+                
+                $("#fadeLayer").css("visibility", "hidden");
+
+                break;
+            }
+    });
+    
     
     /*==================================================================================================
     //一括削除モーダルウィンドウ
@@ -604,7 +883,8 @@ jQuery(function(){
         $("#del_setted").children("option").remove();
         $("#del_select").children("option").remove();
         
-        pre_sort_items = [];
+        pre_sort_items   = [];
+        setted_sort_item = [];
         
         for(var id =0; id < existArray.length; id++){
             //配置済み一覧作成(ソート前)
@@ -614,7 +894,7 @@ jQuery(function(){
             }
         }
         
-        //value昇順でソート 要バージョン内INDEXを用いたソートに変更   
+        //INDEX, IN_VER_INDEX昇順でソート
         setted_sort_item = InverAndSort(pre_sort_items);
         
         //一旦全削除し その後ソートしたものを格納
@@ -623,96 +903,9 @@ jQuery(function(){
             $("#del_setted").append($("<option>").val(item[MUSIC_INDEX]).text(item[NAME_INDEX]))
         );
         
-        $("#del_setted").append(setted_sort_item);
+        //$("#del_setted").append(setted_sort_item);
         
-        //モーダル内ボタン押下イベント
-        $(".modal_button").click(function(){
-            
-            var id =  $(this).attr("id");
-            
-            var selected_music_index = null;
-            var sort_item = null;
-
-            switch(id){
-                //Deleteセレクトボックス内のボックスを一括削除
-                case 'select_delete':
-                    
-                    $("#del_select option").each( function(){
-                        
-                        var id = "#iidaxe_" + $(this).val();
-                        
-                        $(id).unwrap();
-                        $(id).remove();
-                        
-                        existArray[$(this).val()] = "0";
-                    });
-                    
-                    $("#del_select option").remove();
-                    
-                    break;
-                
-                //何もせずに当モーダルをクローズ
-                case 'del_close':
-                    $("#del_modal-main").fadeOut();
-                    //イベント解除してモーダルを閉じる
-                    $("#fadeLayer").css("visibility", "hidden");
-                    //ヘッダーのボタン有効化
-                    headEnable("enable");
-                    break;
-                    
-                //以下2つの共通化は行うべきか
-                //SettedからDeleteへ移動(＞＞ボタン)
-                case 'del_move':
-                    selected_music_index = $("#del_setted").val();
-                    
-                    for(var target_num = 0; target_num < selected_music_index.length; target_num++){
-                        $("#del_setted option").each( function(){
-                            if($(this).val() == music_table[selected_music_index[target_num]][MUSIC_INDEX]) {
-                                
-                                $(this).remove();
-                                $("#del_select").append($("<option>").val($(this).val()).text(this.text));
-                            }
-                        });
-                    }
-                    
-                    //value昇順でソート 要バージョン内INDEXを用いたソートに変更   
-                    sort_item = $("#del_select option").sort(function(a, b){
-                        return a.value - b.value;
-                    });
-                    
-                    //一旦全削除し その後ソートしたものを格納
-                    $("#del_select").children("option").remove();
-                    $("#del_select").append(sort_item);
-                    
-                    break;
-                
-                //DeleteからSettedへ移動(＜＜ボタン)
-                case 'ccl_move':
-                    selected_music_index = $("#del_select").val();
-                    
-                    for(var target_num = 0; target_num < selected_music_index.length; target_num++){
-                        $("#del_select option").each( function(){
-                            if($(this).val() == music_table[selected_music_index[target_num]][MUSIC_INDEX]) {
-
-                                $(this).remove();
-                                $("#del_setted").append($("<option>").val($(this).val()).text(this.text));
-                            }
-                        });
-                    }
-                    
-                    //value昇順でソート 要バージョン内INDEXを用いたソートに変更 
-                    sort_item = $("#del_setted option").sort(function(a, b){
-                        //return a.value > b.value ? 1 : -1;
-                        return a.value - b.value;
-                    });
-                        
-                    //一旦全削除し その後ソートしたものを格納
-                    $("#del_setted").children("option").remove();
-                    $("#del_setted").append(sort_item);
-                
-                    break;
-            }
-        });
+        
     });
     
     /*==================================================================================================
@@ -794,81 +987,7 @@ jQuery(function(){
             $("#mounted_musiclistid").append($("<option>").val(music_table[0][MUSIC_INDEX]).text(music_table[0][NAME_INDEX]));
         }
         
-        //モーダル内ボタン押下イベント
-        $(".modal_button").click(function(){
-
-            //押されたボタンのID
-            var id =  $(this).attr("id");
         
-            $("#modal-main").fadeOut("slow",function(){
-                
-                //イベント解除
-                $(".modal_button").off();
-                $("#mounted_verlistid").off();
-
-                switch(id){
-                    //検索, 移動
-                    case 'search_move':
-                        var mounted_selectVal = $("#mounted_musiclistid").val();
-                        
-                        if(mounted_selectVal === null){
-                            alert("配置済みの譜面を選択してください。");
-                            break;
-                        }
-                        
-                        //位置情報等
-                        var positionLeft = parseInt($("#iidaxe_" + mounted_selectVal).css("left").replace("px", ""), 10);
-                        var positionTop = parseInt($("#iidaxe_" + mounted_selectVal).css("top").replace("px", ""), 10);
-                        
-                        //対象位置までスクロール
-                        window.scrollTo(positionLeft, positionTop);
-                        
-                        
-                        var div_element = document.createElement("div");
-                        var parent_object = document.getElementById('main');
-                        div_element.innerHTML = '<div id="searchSQ" style="left: ' +
-                                                (positionLeft -3) +
-                                                'px; top:' +
-                                                (positionTop -3) +
-                                                'px;">' +
-                                                '</div>';
-                        
-                        parent_object.append(div_element);
-                        
-                        $("#searchSQ").hover(function(){
-                            $(this).remove();
-                        });
-                        window.setTimeout("deleteSetTimeHover()", 3000);
-                       
-                        break;
-                        
-                    //名前の保存
-                    case 'config_save':
-                        var name = $("#CreatedName").val();
-                        if(name){
-                            window.localStorage.setItem(['IIDAXEname'],[name]);
-                            document.title= name + "'s DP difficult 12 Tier Chart";
-                        }
-                        break;
-                        
-                    //何もせずモーダルをクローズ
-                    case 'modal_close':
-                        break;
-
-                    //Twitter共有側で行うため、何もせずモーダルをクローズ
-                    case 'tweet':
-                        break;
-                        
-                }
-                
-                //レイヤー非表示
-                $("#fadeLayer").css("visibility", "hidden");
-                
-                //ヘッダーのボタン有効化
-                headEnable("enable");
-                
-            });
-        });
         
         //画面の左上からmodal-mainの横幅・高さを引き 2で割ると画面中央の位置
         $(window).resize(modalResize);
@@ -891,24 +1010,7 @@ jQuery(function(){
         //モーダル中背景表示
         fadeLayerOn();
         
-        //モーダル内ボタン押下イベント
-        $(".modal_button").click(function(){
-            var id =  $(this).attr("id");
         
-            $("#info_modal-main").fadeOut("slow",function(){
-                switch(id){
-                    case 'info_modal_close':
-                        
-                        //イベント解除してモーダルを閉じる
-                        $("#fadeLayer").css("visibility", "hidden");
-                        $(".modal_button").off();
-                        break;
-                }
-            });
-            
-            //ヘッダーのボタン有効化
-            headEnable("enable");
-        });
         
         //画面の左上からmodal-mainの横幅・高さを引き 2で割ると画面中央の位置
         $(window).resize(modalResize);
@@ -975,41 +1077,7 @@ jQuery(function(){
         //モーダル中背景
         fadeLayerOn();
         
-        //モーダル内ボタン押下イベント
-        $(".modal_button").click(function(){
-            var id =  $(this).attr("id");
-
-            switch(id){
-                //配置済み, 未配置の表示切替
-                case 'setted_change':
-
-                    if( $("#setted_list").css("display") == "block" && $("#nosetted_list").css("display") == "none"){
-                        $("#setted_list").css("display", "none");
-                        $("#nosetted_list").css("display", "block");
-                        $(this).val("Setted");
-                        $("#list_name").text("未配置一覧");
-                    }
-                    else{
-                        $("#setted_list").css("display", "block");
-                        $("#nosetted_list").css("display", "none");
-                        $(this).val("Not Setted");
-                        $("#list_name").text("配置済み一覧");
-                    }
-                    
-                    break;
-                //当モーダルをクローズ
-                case 'setted_modal_close':
-                    $("#setted_modal-main").fadeOut("slow");
-                    //ヘッダーのボタン有効化
-                    headEnable("enable");
-                    
-                    $("#fadeLayer").css("visibility", "hidden");
-
-                    //イベント解除
-                    $(".modal_button").off();
-                    break;
-                }
-        });
+        
         
         //画面の左上からmodal-mainの横幅・高さを引き 2で割ると画面中央の位置
         $(window).resize(modalResize);
