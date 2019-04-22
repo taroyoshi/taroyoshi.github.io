@@ -1,4 +1,4 @@
-const MUSIC_NUM = 374;//20190225
+const MUSIC_NUM = music_table.length;//20190225
 
 var existArray= new Array(MUSIC_NUM);//存在判定はキーバリューにするべきか? (以後の譜面追加対応しやすくするため)
 
@@ -247,6 +247,11 @@ function MusicSelectBoxChange(version){
         }
     }
 
+    //ソートしてから格納か、格納してからソートか 保留    
+    return_array.sort(function(a,b){
+        return a[IN_VER_INDEX] - b[IN_VER_INDEX];
+    });
+
     //譜面セレクトボックス格納
     for (var j = 0; j < return_array.length; j++){
         //存在判定配列の中をMUSIC_INDEXに当てはまる部分を確認
@@ -428,6 +433,29 @@ function deleteSetTimeHover(){
 }
 
 /*==================================================================================================
+//バージョン, バージョン内インデックスソート
+==================================================================================================*/
+function InverAndSort(arr){
+    sorted_item = arr.sort(function(a, b){
+        if(a[IN_VER_INDEX] > b[IN_VER_INDEX]){
+            return 1;
+        };
+        if(a[IN_VER_INDEX] < b[IN_VER_INDEX]){
+            return -1;               
+        };
+        if(a[VER_INDEX] > b[VER_INDEX]){
+            return 1;
+        };
+        if(a[VER_INDEX] < b[VER_INDEX]){
+            return -1;               
+        };
+    });
+    
+    return sorted_item;
+}
+
+
+/*==================================================================================================
 ----------------------------------------------------------------------------------------------------
 jQuery
 ----------------------------------------------------------------------------------------------------
@@ -576,14 +604,26 @@ jQuery(function(){
         $("#del_setted").children("option").remove();
         $("#del_select").children("option").remove();
         
-        for(var id =0; id < existArray.length; id++){
-            
-            //配置済み一覧作成
-            if(existArray[id] == "1"){
+        pre_sort_items = [];
         
-                $("#del_setted").append($("<option>").val(music_table[id][MUSIC_INDEX]).text(music_table[id][NAME_INDEX]));
+        for(var id =0; id < existArray.length; id++){
+            //配置済み一覧作成(ソート前)
+            if(existArray[id] == "1"){
+                //$("#del_setted").append($("<option>").val(music_table[id][MUSIC_INDEX]).text(music_table[id][NAME_INDEX]));
+                pre_sort_items.push(music_table[id]);
             }
         }
+        
+        //value昇順でソート 要バージョン内INDEXを用いたソートに変更   
+        setted_sort_item = InverAndSort(pre_sort_items);
+        
+        //一旦全削除し その後ソートしたものを格納
+        $("#del_setted").children("option").remove();
+        setted_sort_item.map(item => 
+            $("#del_setted").append($("<option>").val(item[MUSIC_INDEX]).text(item[NAME_INDEX]))
+        );
+        
+        $("#del_setted").append(setted_sort_item);
         
         //モーダル内ボタン押下イベント
         $(".modal_button").click(function(){
@@ -620,8 +660,8 @@ jQuery(function(){
                     headEnable("enable");
                     break;
                     
-                //以下2つの共通化は行うべきか sortはバージョン内インデックスで行うべきか
-                //SettedからDeleteへ移動
+                //以下2つの共通化は行うべきか
+                //SettedからDeleteへ移動(＞＞ボタン)
                 case 'del_move':
                     selected_music_index = $("#del_setted").val();
                     
@@ -646,7 +686,7 @@ jQuery(function(){
                     
                     break;
                 
-                //DeleteからSettedへ移動
+                //DeleteからSettedへ移動(＜＜ボタン)
                 case 'ccl_move':
                     selected_music_index = $("#del_select").val();
                     

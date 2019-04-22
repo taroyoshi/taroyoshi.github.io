@@ -8,9 +8,14 @@ IN_VER_INDEX = 6;//バージョン内における番号
 
 
 music_table = [
+    //2nd, Substream
     [2,0, "RUGGED ASH†", "rugged_l", "RUGGED†", "A", 0],
+    
+    //3rd
     [3,1, "era(nostalmix)(H)", "eranos", "era(n H", "H", 0],
     [3,2, "era(nostalmix)(A)", "eranos", "era(n A", "A", 1],
+    
+    //4th
     [3,3, "Holic", "holic", "Holi", "A", 2],
     [4,4, "DXY!(H)", "dxy", "DXY H", "H", 0],
     [4,5, "DXY!(A)", "dxy", "DXY A", "A", 1],
@@ -18,25 +23,37 @@ music_table = [
     [4,7, "minimalian", "mnmlian", "mini", "A", 3],
     [4,8, "starmine", "starmine", "star", "A", 4],
     [4,9, "SWEET LAB", "swtlab24", "SWEET", "A", 5],
+    
+    //5th
     [5,10, "QQQ", "qqq", "QQQ", "A", 0],
+    
+    //6th
     [6,11, "Colors(radio edit)", "colors", "Colors", "A", 0],
     [6,12, "G2", "g2", "G2", "A", 1],
     [6,13, "NEMESIS", "nemesis", "NEME", "A", 2],
     [6,14, "route 80s", "r80s_emp", "80s", "A", 3],
     [6,15, "Summer Vacation(CU mix)", "summer", "Summ V", "A", 4],
+    
+    //7th
     [7,16, "A",  "a_amuro",  "A", "A", 0],
     [7,17, "Cheer Train", "cheertra", "Cheer", "A", 1],
     [7,18, "Spica", "spica", "Spica", "A", 2],
     [7,19, "stoic", "stoic", "Stoic", "A", 3],
     [7,20, "革命(H)", "_kakumei", "革命H", "H", 4],
     [7,21, "革命(A)", "_kakumei", "革命A", "A", 5],
+    
+    //8th
     [8,22, "murmur twins", "murmur", "murmur", "A", 0],
     [8,23, "桜", "_sakura", "桜", "A", 1],
+    
+    //8th
     [9,24, "Karma", "karma", "Karma", "A", 0],
     [9,25, "lower world", "loworld", "lower", "A", 1],
     [9,26, "moon_child", "m_child", "moon", "A", 2],
     [9,27, "quasar", "quasar", "quasar", "A", 3],
     [9,28, "RISLIM-Remix-", "rislimr", "RISLIM", "A", 4],
+    
+    //10th
     [10,29, "GHOST REVIVAL", "ghost", "GHOST", "A", 0],
     [10,30, "Innocent Walls", "innocent", "Walls", "A", 1],
     [10,31, "Love Is Eternity", "loveter", "Eternity", "A", 2],
@@ -44,6 +61,8 @@ music_table = [
     [10,33, "One More Lovely", "onemore", "OML", "A", 4],
     [10,34, "1st Samurai", "1samurai", "1st", "A", 5],
     [10,35, "雪月花", "_stgekka", "雪月花", "A", 6],
+    
+    //IIDX RED
     [11,36, "AA", "aa_amuro", "AA", "A", 0],
     [11,37, "BLOCKS", "blocks", "BLOCKS", "A", 1],
     [11,38, "FAKE TIME(H)", "faketime", "FAKE H", "H", 2],
@@ -56,11 +75,15 @@ music_table = [
     [11,45, "Sphere", "sphere", "Sphere", "A", 9],
     [11,46, "spiral galaxy†", "spiral_l", "spiral", "A", 10],
     [11,47, "ピアノ協奏曲第１番 蠍火", "_psasori", "蠍火", "A", 11],
+    
+    //HAPPY SKY
     [12,48, "garden", "gardenhs", "garden", "A", 0],
     [12,49, "INAZUMA", "inazuma", "INAZUMA", "A", 1],
     [12,50, "Little Little Princess†", "littlepl", "LLP†", "A", 2],
     [12,51, "SCREAM SQUAD", "sc_squad", "SCREAM", "A", 3],
     [12,52, "冥", "_mei", "冥", "A", 4],
+    
+    //DistorteD
     [13,53, "Concertino in Blue", "concert", "Concertino", "A", 0],
     [13,54, "CONTRACT", "contract", "CONTRA", "A", 1],
     [13,55, "CONTRACT†", "contracl", "CONTRA†", "A", 2],
@@ -72,21 +95,26 @@ music_table = [
     [13,61, "華蝶風雪", "_kachofu", "華蝶風雪", "A", 8],
     [13,62, "カゴノトリ～弐式～", "_kagono", "カゴ", "A", 9],
     [13,63, "嘆きの樹", "_nageki", "嘆き", "A", 10],
+    
+    //GOLD
     [14,64, "Candy Galy", "candygal", "Candy", "A", 0],
     [14,65, "Fascination MAXX", "fas_maxx", "FaXX", "A", 1],
-    [14,66, "INORI", "inori", "INORI", "A", 2],
-    [14,67, "KAMAITACHI", "kmitachi", "KAMA", "A", 3],
-    [14,68, "KAMAITACHI†", "kmitachl", "KAMA †", "A", 4],
-    [14,69, "LASER CRUSTER", "lcruster", "LASER", "A", 5],
-    [14,70, "op.31 叙情", "op31jojo", "op.31", "A", 6],
-    [14,71, "Sense 2007(H)", "sens2007", "SenseH", "H", 7],
-    [14,72, "Sense 2007(A)", "sens2007", "SenseA", "A", 8],
-    [14,73, "smile", "smile", "smile", "A", 9],
-    [14,74, "snow storm", "snwstorm", "snow", "A", 10],
-    [14,75, "TRANOID", "tranoid", "TRANOID", "A", 11],
-    [14,76, "VANESSA", "vanessa", "VANESSA", "A", 12],
-    [14,77, "VANESSA†", "vanessal", "VANE †", "A", 13],
-    [14,78, "電人、暁に斃れる。", "_fattack", "暁", "A", 14],
+    //GRID KNIGHT†  2
+    [14,66, "INORI", "inori", "INORI", "A", 3],
+    [14,67, "KAMAITACHI", "kmitachi", "KAMA", "A", 4],
+    [14,68, "KAMAITACHI†", "kmitachl", "KAMA †", "A", 5],
+    [14,69, "LASER CRUSTER", "lcruster", "LASER", "A", 6],
+    [14,70, "op.31 叙情", "op31jojo", "op.31", "A", 7],
+    [14,71, "Sense 2007(H)", "sens2007", "SenseH", "H", 8],
+    [14,72, "Sense 2007(A)", "sens2007", "SenseA", "A", 9],
+    [14,73, "smile", "smile", "smile", "A", 10],
+    [14,74, "snow storm", "snwstorm", "snow", "A", 11],
+    [14,75, "TRANOID", "tranoid", "TRANOID", "A", 12],
+    [14,76, "VANESSA", "vanessa", "VANESSA", "A", 13],
+    [14,77, "VANESSA†", "vanessal", "VANE †", "A", 14],
+    [14,78, "電人、暁に斃れる。", "_fattack", "暁", "A", 15],
+    
+    //DJ TROOPERS
     [15,79, "Anisakis-somatic mutation type Forza", "anisakis", "Anisakis", "A", 0],
     [15,80, "Be OK", "be_ok", "Be OK", "A", 1],
     [15,81, "Blue Rain†", "bluerail", "Blue †", "A", 2],
@@ -104,6 +132,8 @@ music_table = [
     [15,93, "Ubertreffen†", "ubertrel", "Uber†", "A", 14],
     [15,94, "少年A", "_kid_a", "少年A", "A", 15],
     [15,95, "ミラージュレジデンス", "_m_resid", "ミラージュ", "A", 16],
+    
+    //EMPRESS
     [16,96, "Colorful Cookie", "cocookie", "Cookie", "A", 0],
     [16,97, "Go Beyond!!", "gobeyond", "Beyond", "A", 1],
     [16,98, "Kung-fu Empire†", "kungfu_l", "Empire†", "A", 2],
@@ -112,6 +142,8 @@ music_table = [
     [16,101, "卑弥呼", "_himiko", "卑弥呼", "A", 5],
     [16,102, "ミッドナイト堕天使", "_mdatn24", "堕天使", "A", 6],
     [16,103, "凛として咲く花の如く†", "_rintosl", "凛†", "A", 7],
+    
+    //SIRIUS
     [17,104, "Almagest", "almag_ra", "Almag", "A", 0],
     [17,105, "Bad Maniacs", "bmaniacs", "Bad", "A", 1],
     [17,106, "DOMINION", "dominion", "DOMI", "A", 2],
@@ -127,22 +159,27 @@ music_table = [
     [17,116, "SOLID STATE SQUAD", "sssquad", "SOLID", "A", 12],
     [17,117, "SOLID STATE SQUAD†", "sssquadl", "SOLID†", "A", 13],
     [17,118, "ワルツ第17番 ト短調 大犬のワルツ", "_valse17", "大犬", "A", 14],
+    
+    //RESORT ANTHEM
     [18,119, "Broken", "brokenrb", "Broken", "A", 0],
     [18,120, "Dances with Snow Fairies", "dancwith", "Dances", "A", 1],
     [18,121, "ELECTRIC MASSIVE DIVER", "emassive", "MASSIVE", "A", 2],
     [18,122, "Kailua", "kailua", "Kailua", "A", 3],
-    [18,123, "PARADISE LOST", "paralost", "PARA LOST", "A", 4],
-    [18,124, "perditus†paradisus", "perditus", "p†p", "A", 5],
-    [18,125, "reunion", "reunion", "reunion", "A", 6],
-    [18,126, "SABER WING", "saberwng", "SABER", "A", 7],
-    [18,127, "sakura storm", "sakurast", "sakura s", "A", 8],
-    [18,128, "Session 9-Chronicles-", "session9", "Session", "A", 9],
-    [18,129, "SPECIAL SUMMER CAMPAIGN!", "ssc", "SSCAMP", "A", 10],
-    [18,130, "THE BLACK KNIGHT", "tbknight", "BLACK K", "A", 11],
-    [18,131, "ZETA～素数の世界と超越者～", "zeta", "ZETA", "A", 12],
-    [18,132, "黒髪乱れし修羅となりて", "_krokami", "黒髪", "A", 13],
-    [18,133, "灼熱Beach Side Bunny", "_shakunt", "灼熱", "A", 14],
-    [18,134, "旅人リラン", "_t_rerun", "リラン", "A", 15],
+    //New Castle Legions 4    
+    [18,123, "PARADISE LOST", "paralost", "PARA LOST", "A", 5],
+    [18,124, "perditus†paradisus", "perditus", "p†p", "A", 6],
+    [18,125, "reunion", "reunion", "reunion", "A", 7],
+    [18,126, "SABER WING", "saberwng", "SABER", "A", 8],
+    [18,127, "sakura storm", "sakurast", "sakura s", "A", 9],
+    [18,128, "Session 9-Chronicles-", "session9", "Session", "A", 10],
+    [18,129, "SPECIAL SUMMER CAMPAIGN!", "ssc", "SSCAMP", "A", 11],
+    [18,130, "THE BLACK KNIGHT", "tbknight", "BLACK K", "A", 12],
+    [18,131, "ZETA～素数の世界と超越者～", "zeta", "ZETA", "A", 13],
+    [18,132, "黒髪乱れし修羅となりて", "_krokami", "黒髪", "A", 14],
+    [18,133, "灼熱Beach Side Bunny", "_shakunt", "灼熱", "A", 15],
+    [18,134, "旅人リラン", "_t_rerun", "リラン", "A", 16],
+    
+    //Lincle
     [19,135, "BLACK.by X-Cross Fade", "blackbyx", "BLACK X", "A", 0],
     [19,136, "DIAVOLO", "diavolo", "DIAVOLO", "A", 1],
     [19,137, "F", "f_amuro", "F", "A", 2],
@@ -165,6 +202,8 @@ music_table = [
     [19,154, "恋する☆宇宙戦争っ!!", "_koisuru", "宇宙戦争", "A", 19],
     [19,155, "聖人の塔", "_seijin", "聖人", "A", 20],
     [19,156, "天空の夜明け", "_tkyoake", "天空", "A", 21],
+    
+    //tricolo
     [20,157, "Confiserie", "confiser", "Confise", "A", 0],
     [20,158, "DAY DREAM", "daydream", "DAY DRE", "A", 1],
     [20,159, "Devilz Staircase", "devilz_s", "D Stair", "A", 2],
@@ -201,6 +240,8 @@ music_table = [
     [20,190, "たまゆら", "_tamayra", "たまゆら", "A", 33],
     [20,191, "仮想空間の旅人たち†", "_travell", "仮想空間†", "A", 34],
     [20,192, "トリカゴノ鳳凰", "_trikago", "トリカゴノ", "A", 35],
+    
+    //SPADA
     [21,193, "Adularia", "adularia", "Adularia", "A", 0],
     [21,194, "Ancient Scapes", "ancients", "Ancient S", "A", 1],
     [21,195, "Ancient Scapes†LEGGENDARIA", "ancientl", "Ancient S†", "A", 2],
@@ -237,6 +278,8 @@ music_table = [
     [21,226, "轟け！恋のビーンボール！！", "_todorok", "轟け", "A", 33],
     [21,227, "廿†", "_twentyl", "廿†", "A", 34],
     [21,228, "海神", "_wadatmi", "海神", "A", 35],
+    
+    //PENDUAL
     [22,229, "Beat Radiance†", "beatradl", "Beat R†", "A", 0],
     [22,230, "Broken Sword", "brokensw", "BroSwo", "A", 1],
     [22,231, "CHRONO DIVER -NORNIR-†", "chrononl", "NORNIR†", "A", 2],
@@ -275,6 +318,8 @@ music_table = [
     [22,264, "超青少年ノ為ノ超多幸ナ超古典的超舞曲", "_verycls", "超青少年", "A", 35],
     [22,265, "超青少年ノ為ノ超多幸ナ超古典的超舞曲†", "_verycsl", "超青少年†", "A", 36],
     [22,266, "Ｘ↑Ｘ↓", "_x7xl", "X↑X↓", "A", 37],
+    
+    //copula
     [23,267, "AO-1", "ao_1", "AO-1", "A", 0],
     [23,268, "Battle Train-IIDX Edition-", "btltrain", "BT IIDX", "A", 1],
     [23,269, "Blue Spring Express", "blspring", "BlueSE", "A", 2],
@@ -305,6 +350,8 @@ music_table = [
     [23,294, "めいさいアイドル☆あいむちゃん♪", "_meisai", "めいさい", "A", 27],
     [23,295, "灼熱 Pt.2 Long Train Running", "_syaku_2", "灼熱 Pt.2", "A", 28],
     [23,296, "真 地獄超特急 -HELL or HELL-", "_sjigoku", "地獄超特急", "A", 29],
+    
+    //SINOBUZ
     [24,297, "Amazing Mirage†", "amazingl", "Amazing†", "A", 0],
     [24,298, "Apocalypse", "apocalrf", "Apocalypse", "A", 1],
     [24,299, "BabeL ～Grand Story～", "babel_gs", "BabeL", "A", 2],
@@ -336,6 +383,8 @@ music_table = [
     [24,325, "九尾狐夜行", "_kyubi", "九尾", "A", 28],
     [24,326, "〆", "_shime", "〆", "A", 29],
     [24,327, "津軽雪", "_tgryuki", "津軽雪", "A", 30],
+    
+    //CANNON BALLERS
     [25,328, "AA -rebuild-", "aa_rebld", "AA re", "A", 0],
     [25,329, "ANCHOR", "anchor", "ANCHOR", "A", 1],
     [25,330, "Antigravity", "antigrav", "Anti", "A", 2],
@@ -366,23 +415,46 @@ music_table = [
     [25,355, "シムルグの目醒め", "_simurgh", "シムルグ", "A", 27],
     [25,356, "神謳 -RESONANCE-", "_resonan", "神謳", "A", 28],
     [25,357, "東京神話", "_tksinwa", "東京神話", "A", 29],
-    [26,358, "Catch Our Fire!", "catchfir", "Catch", "A", 0],
-    [26,359, "dAuntl3ss", "dauntl3s", "dAunt3ss", "A", 1],
-    [26,360, "Dr.Chemical & Killing Machine", "dr_chemi", "Dr.C", "A", 2],
-    [26,361, "Drastic Dramatic", "drasticd", "Drastic", "A", 3],
-    [26,362, "GIGA THRASH", "gigathra", "GIGA", "A", 4],
-    [26,363, "KILL EACH OTHER", "killeach", "KILL", "A", 5],
-    [26,364, "L.F.O", "lfo", "L.F.O", "A", 6],
-    [26,365, "Level One", "levelone", "Lv One", "A", 7],
-    [26,366, "LOST TECHNOLOGIE", "losttech", "LOST TEC", "A", 8],
-    [26,367, "Painful Fate", "painfate", "Painful", "A", 9],
-    [26,368, "Red. by Jack Trance", "red_jack", "Red J", "A", 10],
-    [26,369, "SIGMA", "sigma", "SIGMA", "A", 11],
-    [26,370, "THE DAY OF JUBILATIONS", "t_jubila", "JUBI", "A", 12],
-    [26,371, "The Rebellion of Sequencer", "t_rebeli", "TRoS", "A", 13],
-    [26,372, "Xlo", "xlo", "Xlo", "A", 14],
-    [26,373, "金野火織の金色提言", "_k_hiori", "金色", "A", 15]
-]
+    
+    //Rootage
+    //Carmina 0
+    //Carry Me Away 1
+    [26,358, "Catch Our Fire!", "catchfir", "Catch", "A", 2],
+    [26,359, "dAuntl3ss", "dauntl3s", "dAunt3ss", "A", 3],
+    [26,360, "Dr.Chemical & Killing Machine", "dr_chemi", "Dr.C", "A", 4],
+    [26,361, "Drastic Dramatic", "drasticd", "Drastic", "A", 5],
+    //EVANESCENT 6
+    [26,362, "GIGA THRASH", "gigathra", "GIGA", "A", 7],
+    [26,363, "KILL EACH OTHER", "killeach", "KILL", "A", 8],
+    [26,364, "L.F.O", "lfo", "L.F.O", "A", 9],
+    [26,365, "Level One", "levelone", "Lv One", "A", 10],
+    [26,366, "LOST TECHNOLOGIE", "losttech", "LOST TEC", "A", 11],
+    //Mächö Mönky 12
+    //Necroxis Girl 13
+    [26,367, "Painful Fate", "painfate", "Painful", "A", 14],
+    [26,368, "Red. by Jack Trance", "red_jack", "Red J", "A", 15],
+    [26,369, "SIGMA", "sigma", "SIGMA", "A", 16],
+    [26,370, "THE DAY OF JUBILATIONS", "t_jubila", "JUBI", "A", 17],
+    [26,371, "The Rebellion of Sequencer", "t_rebeli", "TRoS", "A", 18],
+    //Unbelief 19
+    [26,372, "Xlo", "xlo", "Xlo", "A", 20],
+    //抱きしめてモナムール 21
+    //Χ-DEN 22
+    [26,373, "金野火織の金色提言", "_k_hiori", "金色", "A", 23],
+    
+    //2019/4/22追加
+    [14,374, "GRID KNIGHT†", "gknightl", "GRID †", "A", 2],
+    [18,375, "New Castle Legions", "nwcasl26", "New Castle", "A", 4],
+    [26,376, "Carmina", "carmina", "Carmina", "A", 0],
+    [26,377, "Carry Me Away", "carryme", "Carry", "A", 1],
+    [26,378, "EVANESCENT", "evanscnt", "EVANESCENT", "A", 6],
+    [26,379, "Mächö Mönky", "machomnk", "Mächö", "A", 12],
+    [26,380, "Necroxis Girl", "necroxis", "Necroxis", "A", 13],
+    [26,381, "Unbelief", "unbelief", "Unbelief", "A", 19],
+    [26,382, "抱きしめてモナムール", "_dakismt", "モナムール", "A", 21],
+    [26,383, "Χ-DEN", "_kai_den", "Χ-DEN", "A", 22]
+    
+];
 
 VER_NAME_INDEX = 2;
 
@@ -412,4 +484,4 @@ ver_table = [
     [24, 23, "SINOBUZ"],
     [25, 24, "CANNON BALLERS"],
     [26, 25, "Rootage"]
-]
+];
