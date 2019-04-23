@@ -736,10 +736,6 @@ jQuery(function(){
     
         $("#modal-main").fadeOut("slow",function(){
             
-            //イベント解除 不要?
-            $(".modal_button").off();
-            $("#mounted_verlistid").off();
-
             switch(id){
                 //検索, 移動
                 case 'search_move':
@@ -948,9 +944,7 @@ jQuery(function(){
         if(existArray[0] == "1"){
             $("#mounted_musiclistid").append($("<option>").val(music_table[0][MUSIC_INDEX]).text(music_table[0][NAME_INDEX]));
         }
-        
-        
-        
+                
         //画面の左上からmodal-mainの横幅・高さを引き 2で割ると画面中央の位置
         $(window).resize(modalResize);
     });
@@ -1025,38 +1019,6 @@ jQuery(function(){
             });
         }
         
-/*
-        //初めてそのバージョンを格納する時にバージョン名を加える
-        for(var id =0; id < existArray.length; id++){
-            
-            //配置済み一覧作成
-            if(existArray[id] == "1"){
-        
-                if(music_table[id][VER_INDEX] != temp_ver_set){
-                    
-                    temp_ver_set = music_table[id][VER_INDEX];
-                    
-                    var ver_name = ver_table.filter(item => item[VER_INDEX] == temp_ver_set);
-                    //filterで抽出したものが2次元配列のままであるので0番で代入
-                    $("#setted_list").append($("<p>").text(ver_name[0][VER_NAME_INDEX]));
-                }
-                $("#setted_list").append($("<li>").text(music_table[id][NAME_INDEX]));
-            }
-            //未配置一覧作成
-            else if(existArray[id] == "0"){
-            
-                if(music_table[id][VER_INDEX] != temp_ver_not_set){
-                    
-                    temp_ver_not_set = music_table[id][VER_INDEX];
-                    
-                    var ver_name = ver_table.filter(item => item[VER_INDEX] == temp_ver_not_set);
-                    //filterで抽出したものが2次元配列のままであるので0番で代入
-                    $("#nosetted_list").append($("<p>").text(ver_name[0][VER_NAME_INDEX]));
-                }
-                $("#nosetted_list").append($("<li>").text(music_table[id][NAME_INDEX]));
-            }
-        }
-*/        
         //画面中央を計算する関数を実行
         modalResize("#setted_modal-main");
         
@@ -1082,6 +1044,5 @@ jQuery(function(){
     $(window).on("scroll", function(){
         $("header").css("left", -$(window).scrollLeft());
     });
-        
     
 });
