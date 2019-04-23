@@ -971,9 +971,7 @@ jQuery(function(){
         
         //モーダル中背景表示
         fadeLayerOn();
-        
-        
-        
+           
         //画面の左上からmodal-mainの横幅・高さを引き 2で割ると画面中央の位置
         $(window).resize(modalResize);
     });
@@ -995,7 +993,39 @@ jQuery(function(){
         //TODO existArrayから判定しないでmusic_tableのバージョン順→IN_VER_INDEX順→INDEXを見て判定 か?
         // もしくはバージョン名に-1のバリューを与えてソート?
 
+        for(var ver = 2; ver <= 26; ver++){
+            var singleVerList = music_table.filter(item => item[VER_INDEX] == ver);
+    
+            InverAndSort(singleVerList).map(function(v){ 
 
+                if(existArray[v[MUSIC_INDEX]] == "1"){
+
+                    if(v[VER_INDEX] != temp_ver_set){
+                    
+                        temp_ver_set = v[VER_INDEX];
+                        
+                        var ver_name = ver_table.filter(item => item[VER_INDEX] == temp_ver_set);
+                        //filterで抽出したものが2次元配列のままであるので0番で代入
+                        $("#setted_list").append($("<p>").text(ver_name[0][VER_NAME_INDEX]));
+                    }
+                    $("#setted_list").append($("<li>").text(v[NAME_INDEX]));
+                }
+                else if(existArray[v[MUSIC_INDEX]] == "0"){
+
+                    if(v[VER_INDEX] != temp_ver_not_set){
+                    
+                        temp_ver_not_set = v[VER_INDEX];
+                        
+                        var ver_name = ver_table.filter(item => item[VER_INDEX] == temp_ver_not_set);
+                        //filterで抽出したものが2次元配列のままであるので0番で代入
+                        $("#nosetted_list").append($("<p>").text(ver_name[0][VER_NAME_INDEX]));
+                    }
+                    $("#nosetted_list").append($("<li>").text(v[NAME_INDEX]));
+                }
+            });
+        }
+        
+/*
         //初めてそのバージョンを格納する時にバージョン名を加える
         for(var id =0; id < existArray.length; id++){
             
@@ -1026,7 +1056,7 @@ jQuery(function(){
                 $("#nosetted_list").append($("<li>").text(music_table[id][NAME_INDEX]));
             }
         }
-        
+*/        
         //画面中央を計算する関数を実行
         modalResize("#setted_modal-main");
         
