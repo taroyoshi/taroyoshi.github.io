@@ -7,7 +7,7 @@ var existArray= new Array(MUSIC_NUM);
 //TODO LocalStoreageの名前必要?
 //TODO Searchが不正確
 //TODO GenerateにInfomation
-//TODO まとめてドラッグ
+//TODO レイヤーの枠線
 
 /*==================================================================================================
 //チャート画面読み出し時処理(付随されているURLパラメータによって処理を判断)
@@ -52,7 +52,7 @@ function setDraggableAndDblclick(id){
 
         //以下 http://uenomemo.sakura.ne.jp/pcmemo/202 より引用
         start:function(e,ui){
-            $(".ui-selected").each(function(){
+            $(".ui-selected").not("#fadeLayer").each(function(){
             var apos = {
                 top:$(this).position().top-ui.position.top,
                 left:$(this).position().left-ui.position.left
@@ -61,7 +61,7 @@ function setDraggableAndDblclick(id){
             });
         },
         drag:function(e,ui){
-            $(".ui-selected").each(function(){
+            $(".ui-selected").not("#fadeLayer").each(function(){
                 $(this).css({
                     top:ui.position.top+$(this).data("apos").top,
                     left:ui.position.left+$(this).data("apos").left
@@ -509,8 +509,8 @@ jQuery
 ==================================================================================================*/
 jQuery(function(){
     
-    $("#main").selectable();
-    //$("#generate_position").selectable();
+    $("#main").not("#fadeLayer").selectable();
+    
 
     /*==================================================================================================
     //バージョン変更jQuery
