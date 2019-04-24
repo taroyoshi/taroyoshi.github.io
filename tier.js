@@ -232,7 +232,7 @@ function paraAnlyzeSet(iidaxepara){
                 if(disp_name != "p†p" && 
                     disp_name != "渚" && 
                     disp_name != "DEATH"){
-                    var Lid = "#iidaxe_"+ music_table[selected_music_index[target_num]][MUSIC_INDEX];
+                    var Lid = "#iidaxe_"+ music_table[id2][MUSIC_INDEX];
                     $(Lid).css({
                         "color": "red",
                     });
