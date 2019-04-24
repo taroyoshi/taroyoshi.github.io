@@ -55,6 +55,12 @@ header{
     position:relative;
 }
 
+
+#main .ui-selected {
+    
+    border: solid 2px red;;
+}
+
 .music_box{
     float:left;
     font-size: 12px;

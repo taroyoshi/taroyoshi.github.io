@@ -6,7 +6,8 @@ var existArray= new Array(MUSIC_NUM);
 //TODO Save, Load時に名前の一致かを確認
 //TODO LocalStoreageの名前必要?
 //TODO Searchが不正確
-//TODO 譜面生成時に全選択
+//TODO GenerateにInfomation
+//TODO まとめてドラッグ
 
 /*==================================================================================================
 //チャート画面読み出し時処理(付随されているURLパラメータによって処理を判断)
@@ -48,6 +49,25 @@ function setDraggableAndDblclick(id){
 	    //backaxis上のみドラッグ可能にする
 	    containment: '#main',
         scroll: false,
+
+        //以下 http://uenomemo.sakura.ne.jp/pcmemo/202 より引用
+        start:function(e,ui){
+            $(".ui-selected").each(function(){
+            var apos = {
+                top:$(this).position().top-ui.position.top,
+                left:$(this).position().left-ui.position.left
+            };
+            $(this).data("apos", apos);
+            });
+        },
+        drag:function(e,ui){
+            $(".ui-selected").each(function(){
+                $(this).css({
+                    top:ui.position.top+$(this).data("apos").top,
+                    left:ui.position.left+$(this).data("apos").left
+                });
+            });
+        }
 	}).dblclick(function(){
 	    
 	    //対象を削除, セレクトボックス内に再挿入
@@ -489,6 +509,9 @@ jQuery
 ==================================================================================================*/
 jQuery(function(){
     
+    $("#main").selectable();
+    //$("#generate_position").selectable();
+
     /*==================================================================================================
     //バージョン変更jQuery
     ==================================================================================================*/
