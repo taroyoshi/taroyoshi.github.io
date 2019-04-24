@@ -1,12 +1,12 @@
-const MUSIC_NUM = music_table.length;//20190225
+const MUSIC_NUM = music_table.length;
 
-var existArray= new Array(MUSIC_NUM);//存在判定はキーバリューにするべきか? (以後の譜面追加対応しやすくするため)
+var existArray= new Array(MUSIC_NUM);
 
 //TODO モーダル表示関連の関数での一括化 及びhtmlの分割, JSによる読み込み化
 //TODO Save, Load時に名前の一致かを確認
 //TODO LocalStoreageの名前必要?
-//TODO 配置済みが追加譜面の関係で不正確
 //TODO Searchが不正確
+//TODO 譜面生成時に全選択
 
 /*==================================================================================================
 //チャート画面読み出し時処理(付随されているURLパラメータによって処理を判断)
@@ -206,6 +206,19 @@ function paraAnlyzeSet(iidaxepara){
                 '" style="left: '+ decompPosL[posn] +'px; top: '+ decompPosT[posn] +'px;">' + disp_name + '</div>';
             
             parent_object.appendChild(div_element);
+
+            //†の場合 文字を赤に
+            if(disp_name.indexOf("†") != -1){
+                if(disp_name != "p†p" && 
+                    disp_name != "渚" && 
+                    disp_name != "DEATH"){
+                    var Lid = "#iidaxe_"+ music_table[selected_music_index[target_num]][MUSIC_INDEX];
+                    $(Lid).css({
+                        "color": "red",
+                    });
+                }
+            }
+
             setDraggableAndDblclick("#iidaxe_" + String(music_table[id2][MUSIC_INDEX]));
             setHover("#iidaxe_" + String(music_table[id2][MUSIC_INDEX]), 
                                          music_table[id2][NAME_INDEX]);
@@ -400,7 +413,8 @@ function MulchGenerate(){
         });
         
         var div_element = document.createElement("div");
-        
+        var ver_top = (music_table[selected_music_index[target_num]][VER_INDEX] - 2) * 35;
+
         //attrで行うべき? このままだと2重のdivになるから控えたい。
         div_element.innerHTML = '<div class="music_box music_box_' + 
                                 music_table[selected_music_index[target_num]][VER_INDEX] + 
@@ -408,11 +422,25 @@ function MulchGenerate(){
                                 music_table[selected_music_index[target_num]][MUSIC_INDEX] +
                                 '" style="left:' + 
                                 (40 * target_num) +
-                                'px">' + 
+                                'px; top:' + 
+                                ver_top +
+                                'px">' +
                                 disp_name + 
                                 '</div>';
         var parent_object = document.getElementById("generate_position");
         parent_object.append(div_element);
+
+        //†の場合 文字を赤に
+        if(disp_name.indexOf("†") != -1){
+            if(disp_name != "p†p" && 
+                disp_name != "渚" && 
+                disp_name != "DEATH"){
+                var Lid = "#iidaxe_"+ music_table[selected_music_index[target_num]][MUSIC_INDEX];
+                $(Lid).css({
+                    "color": "red",
+                });
+            }
+        }
 
         //対象IDをドラッグ可, ダブルクリックイベント付与
         setDraggableAndDblclick("#iidaxe_" + String(music_table[selected_music_index[target_num]][MUSIC_INDEX]));
@@ -574,7 +602,19 @@ jQuery(function(){
             case 'genarate_modal':
                 MulchGenerate();
                 break;
+            
+            //セレクトボックス全選択状態
+            case 'genarate_modal_all':
+                var values = $("#musiclistid").children("option");
+                var vArray = [];
                 
+                for(var i = 0; i < values.length; i++){
+                    vArray.push(values[i].value);
+                }
+                $("#musiclistid").val(vArray);
+            
+                break;
+
             //当モーダルをクローズ
             case 'genarate_modal_close':
                 $("#generate_modal-main").fadeOut();
