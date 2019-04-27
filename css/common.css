@@ -79,3 +79,8 @@
     font-size: 30px;
     margin-top: 1px;
 }
+
+#preview{
+    height:80%;
+    width:80%;
+}
