@@ -49,7 +49,7 @@ function setHover(){
         }
         $(this).children("h4").text(t);
         
-        $(".child:not(:animated)", this).slideDown();
+        $(".slide_child:not(:animated)", this).slideDown();
         
     },function(){
         
@@ -69,6 +69,6 @@ function setHover(){
         }
         $(this).children("h4").text(bt);
         
-        $("div.child",this).slideUp();
+        $("div.slide_child",this).slideUp();
     });
 }

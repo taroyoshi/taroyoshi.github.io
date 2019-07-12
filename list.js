@@ -46,7 +46,7 @@ music_table = [
     [8,22, "murmur twins", "murmur", "murmur", "A", 0],
     [8,23, "桜", "_sakura", "桜", "A", 1],
     
-    //8th
+    //9th
     [9,24, "Karma", "karma", "Karma", "A", 0],
     [9,25, "lower world", "loworld", "lower", "A", 1],
     [9,26, "moon_child", "m_child", "moon", "A", 2],
@@ -134,14 +134,15 @@ music_table = [
     [15,95, "ミラージュレジデンス", "_m_resid", "ミラージュ", "A", 16],
     
     //EMPRESS
-    [16,96, "Colorful Cookie", "cocookie", "Cookie", "A", 0],
-    [16,97, "Go Beyond!!", "gobeyond", "Beyond", "A", 1],
-    [16,98, "Kung-fu Empire†", "kungfu_l", "Empire†", "A", 2],
-    [16,99, "Y&Co. is dead or alive", "ycodoa25", "Y&Co", "A", 3],
-    [16,100, "3y3s", "3y3s", "3y3s", "A", 4],
-    [16,101, "卑弥呼", "_himiko", "卑弥呼", "A", 5],
-    [16,102, "ミッドナイト堕天使", "_mdatn24", "堕天使", "A", 6],
-    [16,103, "凛として咲く花の如く†", "_rintosl", "凛†", "A", 7],
+    //B4U(BEMANI FOR YOU MIX)† 0
+    [16,96, "Colorful Cookie", "cocookie", "Cookie", "A", 1],
+    [16,97, "Go Beyond!!", "gobeyond", "Beyond", "A", 2],
+    [16,98, "Kung-fu Empire†", "kungfu_l", "Kung-fu†", "A", 3],
+    [16,99, "Y&Co. is dead or alive", "ycodoa25", "Y&Co", "A", 4],
+    [16,100, "3y3s", "3y3s", "3y3s", "A", 5],
+    [16,101, "卑弥呼", "_himiko", "卑弥呼", "A", 6],
+    [16,102, "ミッドナイト堕天使", "_mdatn24", "堕天使", "A", 7],
+    [16,103, "凛として咲く花の如く†", "_rintosl", "凛†", "A", 8],
     
     //SIRIUS
     [17,104, "Almagest", "almag_ra", "Almag", "A", 0],
@@ -342,14 +343,15 @@ music_table = [
     [23,286, "STARLIGHT DANCEHALL†", "starltdl", "STAR D†", "A", 19],
     [23,287, "StrayedCatz", "strycatz", "Strayed", "A", 20],
     [23,288, "Triple Counter", "tripleco", "TripleC", "A", 21],
-    [23,289, "X", "x_amuro", "X", "A", 22],
-    [23,290, "199024club -ReBounceKiller-", "199024cl", "199024", "A", 23],
-    [23,291, "紫陽花 -AZISAI-", "_azisai", "紫陽花", "A", 24],
-    [23,292, "駅猫のワルツ", "_ekineko", "駅猫", "A", 25],
-    [23,293, "炸裂！イェーガー電光チョップ!!(JAEGER FINAL ATTACK)", "_jfinala", "電光チョップ", "A", 26],
-    [23,294, "めいさいアイドル☆あいむちゃん♪", "_meisai", "めいさい", "A", 27],
-    [23,295, "灼熱 Pt.2 Long Train Running", "_syaku_2", "灼熱 Pt.2", "A", 28],
-    [23,296, "真 地獄超特急 -HELL or HELL-", "_sjigoku", "地獄超特急", "A", 29],
+    //Welcome† 22
+    [23,289, "X", "x_amuro", "X", "A", 23],
+    [23,290, "199024club -ReBounceKiller-", "199024cl", "199024", "A", 24],
+    [23,291, "紫陽花 -AZISAI-", "_azisai", "紫陽花", "A", 25],
+    [23,292, "駅猫のワルツ", "_ekineko", "駅猫", "A", 26],
+    [23,293, "炸裂！イェーガー電光チョップ!!(JAEGER FINAL ATTACK)", "_jfinala", "電光チョップ", "A", 27],
+    [23,294, "めいさいアイドル☆あいむちゃん♪", "_meisai", "めいさい", "A", 28],
+    [23,295, "灼熱 Pt.2 Long Train Running", "_syaku_2", "灼熱 Pt.2", "A", 29],
+    [23,296, "真 地獄超特急 -HELL or HELL-", "_sjigoku", "地獄超特急", "A", 30],
     
     //SINOBUZ
     [24,297, "Amazing Mirage†", "amazingl", "Amazing†", "A", 0],
@@ -425,35 +427,50 @@ music_table = [
     [26,361, "Drastic Dramatic", "drasticd", "Drastic", "A", 5],
     //EVANESCENT 6
     [26,362, "GIGA THRASH", "gigathra", "GIGA", "A", 7],
-    [26,363, "KILL EACH OTHER", "killeach", "KILL", "A", 8],
-    [26,364, "L.F.O", "lfo", "L.F.O", "A", 9],
-    [26,365, "Level One", "levelone", "Lv One", "A", 10],
-    [26,366, "LOST TECHNOLOGIE", "losttech", "LOST TEC", "A", 11],
-    //Mächö Mönky 12
-    //Necroxis Girl 13
-    [26,367, "Painful Fate", "painfate", "Painful", "A", 14],
-    [26,368, "Red. by Jack Trance", "red_jack", "Red J", "A", 15],
-    [26,369, "SIGMA", "sigma", "SIGMA", "A", 16],
-    [26,370, "THE DAY OF JUBILATIONS", "t_jubila", "JUBI", "A", 17],
-    [26,371, "The Rebellion of Sequencer", "t_rebeli", "TRoS", "A", 18],
-    //Unbelief 19
-    [26,372, "Xlo", "xlo", "Xlo", "A", 20],
-    //抱きしめてモナムール 21
-    //Χ-DEN 22
-    [26,373, "金野火織の金色提言", "_k_hiori", "金色", "A", 23],
+    //HARD BRAIN 8
+    [26,363, "KILL EACH OTHER", "killeach", "KILL", "A", 9],
+    [26,364, "L.F.O", "lfo", "L.F.O", "A", 10],
+    [26,365, "Level One", "levelone", "Lv One", "A", 11],
+    [26,366, "LOST TECHNOLOGIE", "losttech", "LOST TEC", "A", 12],
+    //Mächö Mönky 13
+    //Necroxis Girl 14
+    //ONIGOROSHI 15
+    [26,367, "Painful Fate", "painfate", "Painful", "A", 16],
+    [26,368, "Red. by Jack Trance", "red_jack", "Red J", "A", 17],
+    //ruin of opals 18
+    [26,369, "SIGMA", "sigma", "SIGMA", "A", 19],
+    [26,370, "THE DAY OF JUBILATIONS", "t_jubila", "JUBI", "A", 20],
+    [26,371, "The Rebellion of Sequencer", "t_rebeli", "TRoS", "A", 21],
+    //Unbelief 22
+    //Visterhv 23
+    [26,372, "Xlo", "xlo", "Xlo", "A", 24],
+    //抱きしめてモナムール 25
+    //Χ-DEN 26
+    [26,373, "金野火織の金色提言", "_k_hiori", "金色", "A", 27],
     
-    //2019/4/22追加
+    //2019/04/22追加
     [14,374, "GRID KNIGHT†", "gknightl", "GRID †", "A", 2],
     [18,375, "New Castle Legions", "nwcasl26", "New Castle", "A", 4],
     [26,376, "Carmina", "carmina", "Carmina", "A", 0],
     [26,377, "Carry Me Away", "carryme", "Carry", "A", 1],
     [26,378, "EVANESCENT", "evanscnt", "EVANESCENT", "A", 6],
-    [26,379, "Mächö Mönky", "machomnk", "Mächö", "A", 12],
-    [26,380, "Necroxis Girl", "necroxis", "Necroxis", "A", 13],
-    [26,381, "Unbelief", "unbelief", "Unbelief", "A", 19],
-    [26,382, "抱きしめてモナムール", "_dakismt", "モナムール", "A", 21],
-    [26,383, "Χ-DEN", "_kai_den", "Χ-DEN", "A", 22]
+    [26,379, "Mächö Mönky", "machomnk", "Mächö", "A", 13],
+    [26,380, "Necroxis Girl", "necroxis", "Necroxis", "A", 14],
+    [26,381, "Unbelief", "unbelief", "Unbelief", "A", 22],
+    [26,382, "抱きしめてモナムール", "_dakismt", "モナムール", "A", 25],
+    [26,383, "Χ-DEN", "_kai_den", "Χ-DEN", "A", 26],
     
+    //2019/07/12追加
+    [16,384, "B4U(BEMANI FOR YOU MIX)†", "bemani4l", "B4U(MIX)†", "A", 0],
+    [23,385, "Welcome†", "welcomel", "Welcome†", "A", 22],
+    [26,386, "HARD BRAIN", "hrdbrain", "HARD BR", "A", 8],
+    [26,387, "ONIGOROSHI", "onigoros", "ONI", "A", 15],
+    [26,388, "ruin of opals", "ruinopal", "ruin", "A", 18],
+    [26,389, "Visterhv", "visterhv", "Visterhv", "A", 23],
+    
+    //[26,385, "", "", "", "A", 22],
+    //[26,385, "", "", "", "A", 22],
+    //[26,385, "", "", "", "A", 22],
 ];
 
 VER_NAME_INDEX = 2;
