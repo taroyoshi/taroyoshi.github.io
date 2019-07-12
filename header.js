@@ -49,6 +49,8 @@ function setHover(){
         }
         $(this).children("h4").text(t);
         
+        $(".child:not(:animated)", this).slideDown();
+        
     },function(){
         
         var id = $(this).attr("id");
@@ -67,5 +69,6 @@ function setHover(){
         }
         $(this).children("h4").text(bt);
         
+        $("div.child",this).slideUp();
     });
 }
