@@ -11,9 +11,9 @@
     padding-top:10px;
 }
 .header{
-    background-color: rgb(230,230,230);
+    background-image: url(../img/0341_mosaictile_s.jpg);
     position:fixed;
-    padding-bottom: 10px;
+    padding-bottom: 7px;
     z-index: 5;
 }
 

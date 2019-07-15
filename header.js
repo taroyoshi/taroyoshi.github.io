@@ -5,6 +5,7 @@ $(function(){
     //js読み込みのタイミングの関係で遅延
     setTimeout(function(){
         
+        //以後 ↓不要の予定?
         var gatFile = document.location.pathname.split("/").pop();
         var id;
         switch(gatFile.replace(".html", "")){
@@ -23,14 +24,49 @@ $(function(){
         button_elements = document.getElementById(id);
         $("#" + id).parent().css('background-color', '#d67877');
         button_elements.remove();
+        //以後 ↑不要の予定?
     
         setHover();
+        
+        
+        //スムーススクロール
+        $('a[href^="#"]').click(function(){
+        
+        var speed = 500;
+        var href= $(this).attr("href");
+        var target = $(href == "#" || href === "" ? 'html' : href);
+        var position = target.offset().top;
+        $("html, body").animate({scrollTop:position}, speed, "swing");
+        
+        
+        topY =   $('#index').scrollTop();
+        pflY = $('#name').pageYOffset;
+        pdtY = $('#product').scrollTop();
+        
+        console.log(topY);
+        
+        window.addEventListener('scroll', function() {
+        
+            
+            nowYpos = window.pageYOffset;
+            
+            
+        }, false);
+        
+        return false;
+        
+    });
+        
+        
     },130);
     
 });
 
 
+
+
 function setHover(){
+    
     $('.head_button').hover(function(){
     
         var id = $(this).attr("id");
