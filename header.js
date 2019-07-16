@@ -38,33 +38,34 @@ $(function(){
             var position = target.offset().top;
             $("html, body").animate({scrollTop:position}, speed, "swing");
             
-            var indexele    = document.getElementById('index').getBoundingClientRect();;
-            var nameele     = document.getElementById('name').getBoundingClientRect();;
-            var productele  = document.getElementById('product').getBoundingClientRect();;
-                        
-            topY = indexele.top + window.pageYOffset;   // x座標(絶対座標)
-            pflY = nameele.top + window.pageYOffset;   // x座標(絶対座標)
-            pdtY = productele.top + window.pageYOffset;   // x座標(絶対座標)
+            var indexele    = document.getElementById('index').getBoundingClientRect();
+            var nameele     = document.getElementById('name').getBoundingClientRect();
+            var productele  = document.getElementById('product').getBoundingClientRect();
+            var iidaxeele   = document.getElementById('iidaxe_wrap').getBoundingClientRect();
+            topY = indexele.top + window.pageYOffset;   // Y座標(絶対座標)
+            pflY = nameele.top + window.pageYOffset;   // Y座標(絶対座標)
+            pdtY = productele.top + window.pageYOffset;   // Y座標(絶対座標)
+            idxY = iidaxeele.top + window.pageYOffset;   // Y座標(絶対座標)
             
             
-            window.addEventListener('scroll', function() {
             
-                
-                nowYpos = window.pageYOffset;
-                
-                
-            }, false);
         
-        return false;
+            return false;
         
-    });
+        });
         
+        window.addEventListener('scroll', function() {
+                           
+            nowYpos = window.pageYOffset;
+            
+            
+        }, false);
         
     },130);
     
 });
 
-
+// 元色background-color: rgb(255,175,255);
 
 
 function setHover(){
