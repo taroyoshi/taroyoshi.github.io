@@ -10,7 +10,7 @@
         // lanunchまたはattachを指定
         "request": "launch",
         // 読み込むHTMLファイルを指定（プロジェクトからのパスを指定）
-        "file": "${workspaceRoot}/tier_main.html"
+        "file": "${workspaceRoot}/index.html"
       },
       // Webサーバー上にあるファイルをデバッグ
       {

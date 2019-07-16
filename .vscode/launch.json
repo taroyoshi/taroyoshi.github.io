@@ -10,7 +10,7 @@
         // lanunchまたはattachを指定
         "request": "launch",
         // 読み込むHTMLファイルを指定（プロジェクトからのパスを指定） デバッグ開始点
-        "file": "${workspaceRoot}/html/tier_main.html",
+        "file": "${workspaceRoot}/html/index.html",
         //google chromeのローカルファイルの読み込みを制限解除
         "runtimeArgs": [
           "--allow-file-access-from-files"         

@@ -32,26 +32,28 @@ $(function(){
         //スムーススクロール
         $('a[href^="#"]').click(function(){
         
-        var speed = 500;
-        var href= $(this).attr("href");
-        var target = $(href == "#" || href === "" ? 'html' : href);
-        var position = target.offset().top;
-        $("html, body").animate({scrollTop:position}, speed, "swing");
-        
-        
-        topY =   $('#index').scrollTop();
-        pflY = $('#name').pageYOffset;
-        pdtY = $('#product').scrollTop();
-        
-        console.log(topY);
-        
-        window.addEventListener('scroll', function() {
-        
+            var speed = 500;
+            var href= $(this).attr("href");
+            var target = $(href == "#" || href === "" ? 'html' : href);
+            var position = target.offset().top;
+            $("html, body").animate({scrollTop:position}, speed, "swing");
             
-            nowYpos = window.pageYOffset;
+            var indexele    = document.getElementById('index').getBoundingClientRect();;
+            var nameele     = document.getElementById('name').getBoundingClientRect();;
+            var productele  = document.getElementById('product').getBoundingClientRect();;
+                        
+            topY = indexele.top + window.pageYOffset;   // x座標(絶対座標)
+            pflY = nameele.top + window.pageYOffset;   // x座標(絶対座標)
+            pdtY = productele.top + window.pageYOffset;   // x座標(絶対座標)
             
             
-        }, false);
+            window.addEventListener('scroll', function() {
+            
+                
+                nowYpos = window.pageYOffset;
+                
+                
+            }, false);
         
         return false;
         
