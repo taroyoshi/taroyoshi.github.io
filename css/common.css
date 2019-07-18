@@ -41,24 +41,27 @@
 }
 
 .main_wrraper{
-    padding:15px 0 15px;
     min-height:980px;
     width:auto;
     background-size: cover;
     background-attachment:fixed;
     background-image: url(../img/wpIMGL2790_TP_V.jpg);
-    
 }
 
-#index_main, #name{
+#index_main{
     color:black;
     background-color: white;
     opacity: 0.9;
-    /*width: 400px;*/
     height: auto;
     padding: 10px 0 10px 20px;
     margin:70px 0 20px 20px;
     border: solid 2px skyblue;
+}
+
+#all_layer{
+    padding-top: 15px;
+    width:100%;
+    z-index:30;
 }
 
 #name{
@@ -70,6 +73,7 @@
     /*padding: 10px 0 10px 20px;*/
     margin:0 0 20px 20px;
     border: solid 2px skyblue;
+    z-index:3;
 }
 #name h6{
     margin-bottom:2px;

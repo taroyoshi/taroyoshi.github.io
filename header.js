@@ -66,33 +66,42 @@ $(function(){
             
             var cArray = [3];
             var sArray = [3];
+            var layer;
             
             if((nowYpos >= topY) && (pflY > nowYpos)){
                 cArray = [1, 0, 0];
                 sArray = [0, 0, 0];
+                layer = "rgba(255,255,255,0.0)";
             }
             else if((nowYpos >= pflY) && (bioY > nowYpos)){
                 cArray = [0, 1, 0];
                 sArray = [0, 0, 0];
+                layer = "rgba(255,200,255,0.5)";
             }
             else if((nowYpos >= bioY) && (skillY > nowYpos)){
                 cArray = [0, 1, 0];
                 sArray = [1, 0, 0];
+                layer = "rgba(255,200,255,0.5)";
             }
             else if((nowYpos >= skillY) && (pdtY > nowYpos)){
                 cArray = [0, 1, 0];
                 sArray = [0, 1, 0];
+                layer = "rgba(255,200,255,0.5)";
             }
             else if((nowYpos >= pdtY) && (idxY > nowYpos)){
                 cArray = [0, 0, 1];
                 sArray = [0, 0, 0];
+                layer = "rgba(200,255,200,0.5)";
             }
             else if(nowYpos >= idxY){
                 cArray = [0, 0, 1];
                 sArray = [0, 0, 1];
+                layer = "rgba(200,255,200,0.5)";
             }
             
             changeColor(cArray, sArray);
+            $(".all_layer").css('background-color', layer); 
+            
             
         }, false);
         
