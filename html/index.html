@@ -25,190 +25,200 @@
 </head>
 
 <body onload="setHover();">
-    <div>
-        <header id="header-outer" class="container-fluid header">
-            <!--JSでヘッダ読み込み-->
-        </header>
+    <div class="container-fluid">
+        <div class="row">
+            <header id="header-outer" class="header col-lg-12">
+                <!--JSでヘッダ読み込み-->
+            </header>
+        </div>
     </div>
-    <div class="all_layer">
-        <div class="main_wrraper" id="index">
-            <div class="all_layer">
-                <div class="container">
-                    <div class="row">
-                        <div id="index_main" class="col-md-12 col-md-offset-6 mx-auto">
-                            <h1>Hello, This is Taro Yoshizaki's PORT FOLIO PAGE</h1>
-                            <h2>2019/03 Opened</h2>
-                            <h2>2019/07 Reconstruction, UPDATE on IIDAXE</h2>
-                        </div>
+
+    <!--bootstrap解説 http://websae.net/twitter-bootstrap-grid-system-21060224/　　http://studio-key.com/Bootstrap/glidDecoration03.html-->
+
+    <div class="main_wrraper" id="index">
+        <div class="all_layer">
+            <div class="container">
+                <div class="row">
+                    <div id="index_main" class="col-lg-12 col-lg-offset-2 lg-auto">
+                        <h1>Hello, This is Taro Yoshizaki's PORT FOLIO PAGE</h1>
+                        <h2>2019/03 Opened, UPDATE on <a href="#profile">Profile</a> and <a href="#product">Product</a></h2>
+                        <h2>2019/07 Reconstruction, UPDATE on <a href="#iidaxe_wrap">IIDAXE</a></h2>
                     </div>
+                </div>
+                
+                <div id="about">
+                    <h3>About this page</h3>
+                    
+                    
                 </div>
             </div>
         </div>
-    
-        <div class="main_wrraper" id="profile">
-            <div class="all_layer">
-                <div class="container">
-                    <div class="row">
-                        <div id="name" class="col-md-6 col-md-offset-6 mx-auto">
-                            <h1>Profile</h1>
-                            <h2>吉﨑 太郎</h2>
-                            <h3>1984年 12月 1日生まれ</h3>
-                            <h5>東京都在住 山梨県出身</h5>
-                            <br>
-                            <h6 id="biography">●Biography(略歴)●</h6>
-                            大学における学科は電子通信工学科<br>
-                            専攻は電子物性 及びアナログ電子回路<br>
-                            学生時代と大学院修了後はゲームセンターのアルバイトに注力<br>
-                            その後は主にモータ制御装置用デバイスドライバ製作に従事<br>
-                            <br>
-                            <h6 id="skill">●Skill(技術)●</h6>
-                            C++, C#.NET, JavaScript, jQuery<br>
-                            <br>
-                            <h6>●Interest(趣味)●</h6>
-                            ゲーム, プラモデル<br>
-                            <br>
-                            <h6>●Sports(フィジカルスポーツ)●</h6>
-                            水泳<br>
-                            <br>
-                            <h6>●Certification(資格)●</h6>
-                            第一級陸上無線技術士<br>
-                            ITパスポート<br>
-                            <br>
-                            <h6>●Music(音楽ジャンル)●</h6>
-                            ハードコア, ガバ<br>
-                            <br>
-                            <h6>●Comic(漫画)●</h6>
-                            荒木 飛呂彦, 木多 康昭, 冨樫 義博, Boichi<br>
-                            <br>
-                            <h6>●Other(その他)●</h6>
-                            石渡 大輔, 角田 利之, 斎藤 広祐<br>
-                            <br>
-                            <br>
-                            <h6>●GitHUb(GitHubアカウント)●</h6>
-                            <a href="https://github.com/taroyoshi" target="_blank">GitHub Profile(taroyoshi)</a><br>
-                            <br>
-                            <h6>●Contact(eメール)●</h6>
-                            <a href="mailto:jetworldcircus@gmail.com">e-mail</a><br>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-    
-    
-        <div class="main_wrraper" id="product">
-            <div class="all_layer">
-                <div class="container">
-                    <div class="row">
-                        <div id="iidaxe_wrap" class="col-md-12 col-md-offset-6">
-                            <h1>IIDAXE TOP(概要)</h1>
-                            <p>とあるゲームの一分野における難易度比較をヒエラルキー形式で考察, 提言, 表現する為のツール</p> 
-                            
-                            <h2>機能説明</h2>
-                            <ul><!-- モーダル内説明と共有する様に別けるべきか-->
-                                <p>Generateボタン 及びウィンドウ</p>
-                                <li>上部ヘッダー内Generateボタンにより生成用モーダルウィンドウ表示</li>
-                                <li>VERSIONセレクトボックス変更でMUSIC & SCOREセレクトボックス内容が変更</li>
-                                <li>MUSIC & SCOREのセレクトボックスはShiftキーやCtrlキーを押しながらにより複数選択可能(Allボタンで全選択状態に)</li>                        
-                                <li>Box Generateボタンにより MUSIC & SCORE選択中の内容でドラッグ可能なボックスを生成</li>
-                                <span>(Shiftキー, Ctrlキーによる複数選択状態で一括生成可能)</span><br>
-                                <li>Deleteボタンにより 一括削除用モーダル表示</li>
-                                <br>
-                                <p>Deleteボタン 及びウィンドウ</p>
-                                <li>配置済みボックスがSettedセレクトボックス内に表示(マルチセレクト可能)</li>
-                                <li>＞＞ボタンにより選択中の対象をSettedからDeleteへ移動</li>
-                                <li>＜＜ボタンにより選択中の対象をDeleteからSettedへ移動</li>
-                                <li>DeleteボタンによりDeleteセレクトボックス内のボックス全てを一括削除</li>
-                                <br>
-                                <p>Config Searchボタン 及びウィンドウ</p>
-                                <li>配置済みのボックスの位置を検索, 選択しSearchボタンにてその位置に表示を移動</li>
-                                <span>(※現在 正しく動作しない可能性有り)</span>
-                                <br><li>Name Saveにて作成者名保存しページタイトルに反映</li>
-                                <li>作成した内容をTwitter共有用URLを作成しTweetボタンにて投稿可能(もしくは下部URLを利用)</li>
-                                <br>
-                                <p>ヘッダー内他ボタン</p>
-                                <li>Save, Loadボタンにより状態の保存, 読出(local Storage使用)</li>
-                                <span>(保存, 読出を行う内容は、"生成および配置した位置", "TARGET LEVEL, OPTIONセレクトボックスの選択情報")</span><br>
-                                <li>Settedボタンにより配置済みの一覧表示、モーダル内Not Settedボタンで未配置一覧表示に切り替え</li>
-                                <li>Initializeボタンで全て削除(local Storage内保存内容も削除)</li>
-                                <li>Informationボタンで当説明と同内容の表示</li>
-                                <br>
-                                <p>軸, 座標について</p>
-                                <li>X軸 : 対象譜面において特異であるか(左部 特異である[singular], 右部 一般的である[ordinary])</li>
-                                <li>Y軸 : 対象譜面において設定した目標の達成難易度(上部 達成難度高[difficult], 下部 達成難度低[easy])</li>
-                                <span>(同じY座標にて、同程度の難易度ではあると思っても個人差, 譜面の特異性, 特徴から一般的で無い と考えるならば左部へ)</span><br>
-                                <br>
-                                <p>その他</p>
-                                <li>生成したボックス複数を選択する様にドラッグすると複数選択状態に(枠線が赤の状態)、まとめてドラッグ可能</li>
-                                <li>Shiftキー+Ctrlキーの同時押しをしながらボックスをダブルクリックで対象の削除</li>
-                                <li>Altキーを押しながらボックスをダブルクリックで対象のTextageの譜面ページへ別ウィンドウにて移動</li>
-                                <li>マウスオーバーで吹き出しによる情報表示</li>
-                                <li>一部楽曲名が違います(ダブルクォーテーションの関係)</li>
-                                <br>
-                                <p>未対応譜面</p>
-                                <span>(現状 無し)</span><br>
-                            </ul>
-                            
-                            <H3>最終更新</H3>
-                            <ul>
-                                <li>ARC SCORE(SPADA)</li>
-                                <li>ARENA(第4回)</li>
-                                <li>DELABITY LABORATORY(FLOOR 2)</li>
-                                <li>蜃気楼の図書館(最後の書庫)</li>
-                                <li>20th Anniversary Secret Sound</li>
-                            </ul>
-                            <!--
-                            <h3>プレビュー</h3>
-                            <a onclick="preview(0)">■</a>
-                            <a onclick="preview(1)">■</a>
-                            <a onclick="preview(2)">■</a>
-                            <a onclick="preview(3)">■</a><br>
-                            
-                            
-                            <div id="preview">
-                                sankou https://webdesignday.jp/inspiration/technique/jquery-js/3847/
-                            </div>
-                            -->
-                            <h3>追加実装予定</h3>
-                            <ul>
-                                <li>検索移動後、対象の表示を一定時間強調, マウスアイコンの移動</li>
-                            </ul>
-                            <h4>将来対応予定</h4>
-                            <ul>
-                                <li>配置可能領域の変更設定(現在 背景画像で固定してしまっている)</li>
-                                <li>軸の表示変更の変更設定(同上)</li>
-                                <li>MUSIC & SCORE要素を追加対応した際の処理</li>
-                                <li>スマートフォン等からのブラウザ対応</li>
-                            </ul>
-                            <h4>作成環境等</h4>
-                            <ul>
-                                <li>html, JavaScript, jQuery</li>
-                                <li>Windows7, Visual Studio Code, Google Chrome(PaizaCloud)</li>
-                            </ul>
-                            
-                            <h5>動作確認(PC)</h5>
-                            Google Chrome 73.0.3683.75<br>
-                            Fire Fox 65.0.2<br>       
-                            Vivaldi	2.3.1440.61<br>
-                            <br>
-                            <h6>手法等</h6>
-                            形式等の大元は下記引用のMMCafeより、<br>
-                            主に配置した物の位置情報の取得 及びパラメータとしての変換行程を参考に構築<br>
-                            
-                            <h3 style="margin:15px 0 1px">↓IIDAXEで新規作成</h3>
-                            <a href="tier_main.html?bkf" style="margin-top:1px" target="_blank"><i>Create DP12 tier</i></a>
-                            
-                            <h4 style="margin:15px 0 1px">GitHub内 リポジトリ</h4>
-                            <a href="https://github.com/taroyoshi/iidaxe" style="margin-top:1px" target="_blank"><i>GitHub(iidaxe)</i></a>
-                            
-                            <h4 style="margin:15px 0 1px">参考, 引用</h4>
-                            <a href="http://www.mmcafe.com/tiermaker/" target="_blank"><i style="font-size:15px">MMCafe Tier Chart Maker / MMCafe キャラランクメーカー</i></a><br>
-                            <a href="http://textage.cc/" target="_blank"><i style="font-size:15px">TexTage [テクステージ] (てふたげ)</i></a>
-                        </div>
+    </div>
+
+    <div class="main_wrraper" id="profile">
+        <div class="all_layer">
+            <div class="container">
+                <div class="row">
+                    <div id="name" class="col-md-6 col-md-offset-6 mx-auto">
+                        <h1>Profile</h1>
+                        <h2>吉﨑 太郎</h2>
+                        <h3>1984年 12月 1日生まれ</h3>
+                        <h5>東京都在住 山梨県出身</h5>
+                        <br>
+                        <h6 id="biography">●Biography(略歴)●</h6>
+                        大学における学科は電子通信工学科<br>
+                        専攻は電子物性 及びアナログ電子回路<br>
+                        学生時代と大学院修了後はゲームセンターのアルバイトに注力<br>
+                        その後は主にモータ制御装置用デバイスドライバ製作に従事<br>
+                        <br>
+                        <h6 id="skill">●Skill(技術)●</h6>
+                        C++, C#.NET, JavaScript, jQuery<br>
+                        <br>
+                        <h6>●Interest(趣味)●</h6>
+                        ゲーム, プラモデル<br>
+                        <br>
+                        <h6>●Sports(フィジカルスポーツ)●</h6>
+                        水泳<br>
+                        <br>
+                        <h6>●Certification(資格)●</h6>
+                        第一級陸上無線技術士<br>
+                        ITパスポート<br>
+                        <br>
+                        <h6>●Music(音楽ジャンル)●</h6>
+                        ハードコア, ガバ<br>
+                        <br>
+                        <h6>●Comic(漫画)●</h6>
+                        荒木 飛呂彦, 木多 康昭, 冨樫 義博, Boichi<br>
+                        <br>
+                        <h6>●Other(その他)●</h6>
+                        石渡 大輔, 角田 利之, 斎藤 広祐<br>
+                        <br>
+                        <br>
+                        <h6>●GitHUb(GitHubアカウント)●</h6>
+                        <a href="https://github.com/taroyoshi" target="_blank">GitHub Profile(taroyoshi)</a><br>
+                        <br>
+                        <h6>●Contact(eメール)●</h6>
+                        <a href="mailto:jetworldcircus@gmail.com">e-mail</a><br>
                     </div>
                 </div>
             </div>
         </div>
     </div>
+
+
+    <div class="main_wrraper" id="product">
+        <div class="all_layer">
+            <div class="container">
+                <div class="row">
+                    <div id="iidaxe_wrap" class="col-md-12 col-md-offset-6">
+                        <h1>IIDAXE TOP(概要)</h1>
+                        <p>とあるゲームの一分野における難易度比較をヒエラルキー形式で考察, 提言, 表現する為のツール</p> 
+                        
+                        <h2>機能説明</h2>
+                        <ul><!-- モーダル内説明と共有する様に別けるべきか-->
+                            <p>Generateボタン 及びウィンドウ</p>
+                            <li>上部ヘッダー内Generateボタンにより生成用モーダルウィンドウ表示</li>
+                            <li>VERSIONセレクトボックス変更でMUSIC & SCOREセレクトボックス内容が変更</li>
+                            <li>MUSIC & SCOREのセレクトボックスはShiftキーやCtrlキーを押しながらにより複数選択可能(Allボタンで全選択状態に)</li>                        
+                            <li>Box Generateボタンにより MUSIC & SCORE選択中の内容でドラッグ可能なボックスを生成</li>
+                            <span>(Shiftキー, Ctrlキーによる複数選択状態で一括生成可能)</span><br>
+                            <li>Deleteボタンにより 一括削除用モーダル表示</li>
+                            <br>
+                            <p>Deleteボタン 及びウィンドウ</p>
+                            <li>配置済みボックスがSettedセレクトボックス内に表示(マルチセレクト可能)</li>
+                            <li>＞＞ボタンにより選択中の対象をSettedからDeleteへ移動</li>
+                            <li>＜＜ボタンにより選択中の対象をDeleteからSettedへ移動</li>
+                            <li>DeleteボタンによりDeleteセレクトボックス内のボックス全てを一括削除</li>
+                            <br>
+                            <p>Config Searchボタン 及びウィンドウ</p>
+                            <li>配置済みのボックスの位置を検索, 選択しSearchボタンにてその位置に表示を移動</li>
+                            <span>(※現在 正しく動作しない可能性有り)</span>
+                            <br><li>Name Saveにて作成者名保存しページタイトルに反映</li>
+                            <li>作成した内容をTwitter共有用URLを作成しTweetボタンにて投稿可能(もしくは下部URLを利用)</li>
+                            <br>
+                            <p>ヘッダー内他ボタン</p>
+                            <li>Save, Loadボタンにより状態の保存, 読出(local Storage使用)</li>
+                            <span>(保存, 読出を行う内容は、"生成および配置した位置", "TARGET LEVEL, OPTIONセレクトボックスの選択情報")</span><br>
+                            <li>Settedボタンにより配置済みの一覧表示、モーダル内Not Settedボタンで未配置一覧表示に切り替え</li>
+                            <li>Initializeボタンで全て削除(local Storage内保存内容も削除)</li>
+                            <li>Informationボタンで当説明と同内容の表示</li>
+                            <br>
+                            <p>軸, 座標について</p>
+                            <li>X軸 : 対象譜面において特異であるか(左部 特異である[singular], 右部 一般的である[ordinary])</li>
+                            <li>Y軸 : 対象譜面において設定した目標の達成難易度(上部 達成難度高[difficult], 下部 達成難度低[easy])</li>
+                            <span>(同じY座標にて、同程度の難易度ではあると思っても個人差, 譜面の特異性, 特徴から一般的で無い と考えるならば左部へ)</span><br>
+                            <br>
+                            <p>その他</p>
+                            <li>生成したボックス複数を選択する様にドラッグすると複数選択状態に(枠線が赤の状態)、まとめてドラッグ可能</li>
+                            <li>Shiftキー+Ctrlキーの同時押しをしながらボックスをダブルクリックで対象の削除</li>
+                            <li>Altキーを押しながらボックスをダブルクリックで対象のTextageの譜面ページへ別ウィンドウにて移動</li>
+                            <li>マウスオーバーで吹き出しによる情報表示</li>
+                            <li>一部楽曲名が違います(ダブルクォーテーションの関係)</li>
+                            <br>
+                            <p>未対応譜面</p>
+                            <span>(現状 無し)</span><br>
+                        </ul>
+                        
+                        <H3>最終更新(対応イベント等)</H3>
+                        <ul>
+                            <li>ARC SCORE(SPADA)</li>
+                            <li>ARENA(第5回)</li>
+                            <li>DELABITY LABORATORY(FLOOR 2)</li>
+                            <li>蜃気楼の図書館(最後の書庫)</li>
+                            <li>20th Anniversary Secret Sound</li>
+                        </ul>
+                        <!--
+                        <h3>プレビュー</h3>
+                        <a onclick="preview(0)">■</a>
+                        <a onclick="preview(1)">■</a>
+                        <a onclick="preview(2)">■</a>
+                        <a onclick="preview(3)">■</a><br>
+                        
+                        
+                        <div id="preview">
+                            sankou https://webdesignday.jp/inspiration/technique/jquery-js/3847/
+                        </div>
+                        -->
+                        <h3>追加実装予定</h3>
+                        <ul>
+                            <li>検索移動後、対象の表示を一定時間強調, マウスアイコンの移動</li>
+                        </ul>
+                        <h4>将来対応予定</h4>
+                        <ul>
+                            <li>配置可能領域の変更設定(現在 背景画像で固定してしまっている)</li>
+                            <li>軸の表示変更の変更設定(同上)</li>
+                            <li>MUSIC & SCORE要素を追加対応した際の処理</li>
+                            <li>スマートフォン等からのブラウザ対応</li>
+                        </ul>
+                        <h4>作成環境等</h4>
+                        <ul>
+                            <li>html, JavaScript, jQuery</li>
+                            <li>Windows7, Visual Studio Code, Google Chrome(PaizaCloud)</li>
+                        </ul>
+                        
+                        <h5>動作確認(PC)</h5>
+                        Google Chrome 73.0.3683.75<br>
+                        Fire Fox 65.0.2<br>       
+                        Vivaldi	2.3.1440.61<br>
+                        <br>
+                        <h6>手法等</h6>
+                        形式等の大元は下記引用のMMCafeより、<br>
+                        主に配置した物の位置情報の取得 及びパラメータとしての変換行程を参考に構築<br>
+                        
+                        <h3 style="margin:15px 0 1px">↓IIDAXEで新規作成</h3>
+                        <a href="tier_main.html?bkf" style="margin-top:1px" target="_blank"><i>Create DP12 tier</i></a>
+                        
+                        <h4 style="margin:15px 0 1px">GitHub内 リポジトリ</h4>
+                        <a href="https://github.com/taroyoshi/iidaxe" style="margin-top:1px" target="_blank"><i>GitHub(iidaxe)</i></a>
+                        
+                        <h4 style="margin:15px 0 1px">参考, 引用</h4>
+                        <a href="http://www.mmcafe.com/tiermaker/" target="_blank"><i style="font-size:15px">MMCafe Tier Chart Maker / MMCafe キャラランクメーカー</i></a><br>
+                        <a href="http://textage.cc/" target="_blank"><i style="font-size:15px">TexTage [テクステージ] (てふたげ)</i></a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
 </body>
 </HTML>

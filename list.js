@@ -130,8 +130,9 @@ music_table = [
     [15,91, "THE DEEP STRIKER†", "tdeepstl", "DEEP †", "A", 12],
     [15,92, "TROOPERS", "troopers", "TROOPE", "A", 13],
     [15,93, "Ubertreffen†", "ubertrel", "Uber†", "A", 14],
-    [15,94, "少年A", "_kid_a", "少年A", "A", 15],
-    [15,95, "ミラージュレジデンス", "_m_resid", "ミラージュ", "A", 16],
+    //Wanna Party 15
+    [15,94, "少年A", "_kid_a", "少年A", "A", 16],
+    [15,95, "ミラージュレジデンス", "_m_resid", "ミラージュ", "A", 17],
     
     //EMPRESS
     //B4U(BEMANI FOR YOU MIX)† 0
@@ -145,21 +146,22 @@ music_table = [
     [16,103, "凛として咲く花の如く†", "_rintosl", "凛†", "A", 8],
     
     //SIRIUS
-    [17,104, "Almagest", "almag_ra", "Almag", "A", 0],
-    [17,105, "Bad Maniacs", "bmaniacs", "Bad", "A", 1],
-    [17,106, "DOMINION", "dominion", "DOMI", "A", 2],
-    [17,107, "eRAseRmOToRpHAntOM", "ephantom", "sRaseR", "A", 3],
-    [17,108, "Evans", "evans", "Evans", "A", 4],
-    [17,109, "EXUSIA", "exusia", "EXUSIA", "A", 5],
-    [17,110, "G59", "g59", "G59", "A", 6],
-    [17,111, "GALGALIM", "galgalim", "GALGAL", "A", 7],
-    [17,112, "GOLDEN CROSS", "goldcros", "GOLCRO", "A", 8],
-    [17,113, "quell～the seventh slave～", "quell", "quell", "A", 9],
-    [17,114, "Raison d'etre～交差する宿命～", "raison", "Raison", "A", 10],
-    [17,115, "Red. by Full Metal Jacket", "red_fmj", "Red F", "A", 11],
-    [17,116, "SOLID STATE SQUAD", "sssquad", "SOLID", "A", 12],
-    [17,117, "SOLID STATE SQUAD†", "sssquadl", "SOLID†", "A", 13],
-    [17,118, "ワルツ第17番 ト短調 大犬のワルツ", "_valse17", "大犬", "A", 14],
+    // AIR RAID FROM THA UNDAGROUND† 0
+    [17,104, "Almagest", "almag_ra", "Almag", "A", 1],
+    [17,105, "Bad Maniacs", "bmaniacs", "Bad", "A", 2],
+    [17,106, "DOMINION", "dominion", "DOMI", "A", 3],
+    [17,107, "eRAseRmOToRpHAntOM", "ephantom", "sRaseR", "A", 4],
+    [17,108, "Evans", "evans", "Evans", "A", 5],
+    [17,109, "EXUSIA", "exusia", "EXUSIA", "A", 6],
+    [17,110, "G59", "g59", "G59", "A", 7],
+    [17,111, "GALGALIM", "galgalim", "GALGAL", "A", 8],
+    [17,112, "GOLDEN CROSS", "goldcros", "GOLCRO", "A", 9],
+    [17,113, "quell～the seventh slave～", "quell", "quell", "A", 10],
+    [17,114, "Raison d'etre～交差する宿命～", "raison", "Raison", "A", 11],
+    [17,115, "Red. by Full Metal Jacket", "red_fmj", "Red F", "A", 12],
+    [17,116, "SOLID STATE SQUAD", "sssquad", "SOLID", "A", 13],
+    [17,117, "SOLID STATE SQUAD†", "sssquadl", "SOLID†", "A", 14],
+    [17,118, "ワルツ第17番 ト短調 大犬のワルツ", "_valse17", "大犬", "A", 15],
     
     //RESORT ANTHEM
     [18,119, "Broken", "brokenrb", "Broken", "A", 0],
@@ -468,9 +470,11 @@ music_table = [
     [26,388, "ruin of opals", "ruinopal", "ruin", "A", 18],
     [26,389, "Visterhv", "visterhv", "Visterhv", "A", 23],
     
-    //[26,385, "", "", "", "A", 22],
-    //[26,385, "", "", "", "A", 22],
-    //[26,385, "", "", "", "A", 22],
+    [15,390, "Wanna Party?†", "wnpartyl", "Wanna †", "A", 15],
+    [17,391, "AIR RAID FROM THA UNDAGROUND†", "airraidl", "AIR RAID†", "A", 0]
+    //[26,392, "", "", "", "A", 22],
+    //[26,393, "", "", "", "A", 22],
+    //[26,394, "", "", "", "A", 22],
 ];
 
 VER_NAME_INDEX = 2;
@@ -483,22 +487,23 @@ ver_table = [
     [6, 4, "6th style"],
     [7, 5, "7th style"],
     [8, 6, "8th style"],
-    [9, 8, "9th style"],
-    [10, 9, "10th style"],
-    [11, 10, "IIDX RED"],
-    [12, 11, "HAPPY SKY"],
-    [13, 12, "Distorted"],
-    [14, 13, "GOLD"],
-    [15, 14, "DJ TROOPERS"],
-    [16, 15, "EMPRESS"],
-    [17, 16, "SIRIUS"],
-    [18, 17, "Resort Anthem"],
-    [19, 18, "Lincle"],
-    [20, 19, "tricolo"],
-    [21, 20, "SPADA"],
-    [22, 21, "PENDUAL"],
-    [23, 22, "copula"],
-    [24, 23, "SINOBUZ"],
-    [25, 24, "CANNON BALLERS"],
-    [26, 25, "Rootage"]
+    [9, 7, "9th style"],
+    [10, 8, "10th style"],
+    [11, 9, "IIDX RED"],
+    [12, 10, "HAPPY SKY"],
+    [13, 11, "Distorted"],
+    [14, 12, "GOLD"],
+    [15, 13, "DJ TROOPERS"],
+    [16, 14, "EMPRESS"],
+    [17, 15, "SIRIUS"],
+    [18, 16, "Resort Anthem"],
+    [19, 17, "Lincle"],
+    [20, 18, "tricolo"],
+    [21, 19, "SPADA"],
+    [22, 20, "PENDUAL"],
+    [23, 21, "copula"],
+    [24, 22, "SINOBUZ"],
+    [25, 23, "CANNON BALLERS"],
+    [26, 24, "Rootage"]
+    //[27, 25, "HEROIC VERTH"]
 ];

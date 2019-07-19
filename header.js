@@ -5,7 +5,7 @@ $(function(){
     //js読み込みのタイミングの関係で遅延
     setTimeout(function(){
         
-        //以後 ↓不要の予定?
+        //↓不要に 参考の為保存
         /*
         var gatFile = document.location.pathname.split("/").pop();
         var id;
@@ -26,7 +26,8 @@ $(function(){
         $("#" + id).parent().css('background-color', '#d67877');
         button_elements.remove();
         */
-        //以後 ↑不要の予定?
+        
+        
     
         setHover();
         
@@ -71,22 +72,22 @@ $(function(){
             if((nowYpos >= topY) && (pflY > nowYpos)){
                 cArray = [1, 0, 0];
                 sArray = [0, 0, 0];
-                layer = "rgba(255,255,255,0.0)";
+                layer = "rgba(255,255,255,0.1)";
             }
             else if((nowYpos >= pflY) && (bioY > nowYpos)){
                 cArray = [0, 1, 0];
                 sArray = [0, 0, 0];
-                layer = "rgba(255,200,255,0.5)";
+                layer = "rgba(200,200,255,0.5)";
             }
             else if((nowYpos >= bioY) && (skillY > nowYpos)){
                 cArray = [0, 1, 0];
                 sArray = [1, 0, 0];
-                layer = "rgba(255,200,255,0.5)";
+                layer = "rgba(200,200,255,0.5)";
             }
             else if((nowYpos >= skillY) && (pdtY > nowYpos)){
                 cArray = [0, 1, 0];
                 sArray = [0, 1, 0];
-                layer = "rgba(255,200,255,0.5)";
+                layer = "rgba(200,200,255,0.5)";
             }
             else if((nowYpos >= pdtY) && (idxY > nowYpos)){
                 cArray = [0, 0, 1];
@@ -100,6 +101,8 @@ $(function(){
             }
             
             changeColor(cArray, sArray);
+            
+            $(".all_layer").css('transition', 'background-color 0.5s linear'); 
             $(".all_layer").css('background-color', layer); 
             
             
