@@ -13,23 +13,46 @@
     <!-- jQuery読み込み -->
     <!-- <script src="//ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script> -->
     <script type="text/javascript" src="../external/jquery/jquery.js"></script>
+    <script type="text/javascript" src="../external/jquery/jquery.easing.1.3.js"></script>
     
     <!-- BootstrapのJS読み込み -->
     <!-- <script src="//maxcdn.bootstrapcdn.com/bootstrap/3.3.5/js/bootstrap.min.js"></script> -->
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
     
-    <script language="javascript" src="../header.js"></script>
     <link rel="stylesheet" type="text/css" href="../css/common.css" />
-        
+    <link rel="stylesheet" type="text/css" href="../css/side.css" />
+    <script language="javascript" src="../header.js"></script>
+    
+    
+   
     <title>Taro Yoshizaki's PORT FOLIO</title>
 </head>
 
 <body onload="setHover();">
-    <div class="container-fluid">
-        <div class="row">
-            <header id="header-outer" class="header col-lg-12">
-                <!--JSでヘッダ読み込み-->
+    <div class="container-fruid">
+        <div class="row header">
+            <header id="header-outer" class="col-sm-12 d-none d-md-block">
+                <!--JSでヘッダ読み込み-->    
             </header>
+            
+            <div calss="d-xs-block">
+                <aside class="sidebar">
+                    <ul>
+                        <li>
+                            <a href="#" class="img_01">画像1</a>
+                        </li>
+                        <li>
+                            <a href="#" class="img_02">画像2</a>
+                        </li>
+                        <li>
+                            <a href="#" class="img_03">画像3</a>
+                        </li>
+                    </ul>
+                    <div class="button">
+                        <a href="#"></a>
+                    </div>
+                </aside>
+            </div>
         </div>
     </div>
 
@@ -39,7 +62,7 @@
         <div class="all_layer">
             <div class="container">
                 <div class="row">
-                    <div id="index_main" class="col-lg-12 col-lg-offset-2 lg-auto">
+                    <div id="index_main" class="col-lg-12">
                         <h1>Hello, This is Taro Yoshizaki's PORT FOLIO PAGE</h1>
                         <h2>2019/03 Opened, UPDATE on <a href="#profile">Profile</a> and <a href="#product">Product</a></h2>
                         <h2>2019/07 Reconstruction, UPDATE on <a href="#iidaxe_wrap">IIDAXE</a></h2>
