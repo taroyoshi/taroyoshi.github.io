@@ -192,7 +192,7 @@ function setHover(){
                 t = "制作物";
                 break;
         }
-        $(this).children("h4").text(t);
+        $(this).children(".hdt").text(t);
         
         $(".slide_child:not(:animated)", this).slideDown();
         
@@ -212,7 +212,7 @@ function setHover(){
                 bt = "Product";
                 break;
         }
-        $(this).children("h4").text(bt);
+        $(this).children(".hdt").text(bt);
         
         $("div.slide_child",this).slideUp();
     });
