@@ -36,11 +36,31 @@ $(function(){
         var duration = 500;
         var $sidebar = $('.sidebar');
         var $button = $('.button a');
-    
+        var $a = $('.img_03');
+        
         $button.addClass('open');
+        //↑のaddclass openは1回？
+        
         $button.click(function(){
             $button.toggleClass('close');
             $button.removeClass('open');
+            
+            if ($button.hasClass('close')){
+                $sidebar.stop().animate({
+                    left: '0'
+                }, duration, 'easeOutQuint');
+            }
+            else{
+                $sidebar.stop().animate({
+                    left: '-100px'
+                }, duration, 'easeOutQuint');
+                $button.addClass('open');
+            }
+        });
+        $a.click(function(){
+            $button.toggleClass('close');
+            $button.removeClass('open');
+            
             if ($button.hasClass('close')){
                 $sidebar.stop().animate({
                     left: '0'
@@ -133,16 +153,12 @@ $(function(){
             
         }, false);
         
-       
-
-        
-        
     },130);
     
 });
 
 
-
+//ヘッダボタン, レイヤーの色変更
 function changeColor(arr1, arr2){
     
     var carr = ['top_button', 
@@ -173,7 +189,7 @@ function changeColor(arr1, arr2){
     }
 }
 
-
+//ヘッダボタンホバーイベント
 function setHover(){
     
     $('.head_button').hover(function(){
@@ -217,3 +233,5 @@ function setHover(){
         $("div.slide_child",this).slideUp();
     });
 }
+
+

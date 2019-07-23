@@ -3,11 +3,12 @@ body {
 }
 
 .sidebar {
-    position: relative;
+    position: fixed;
     left: -110px;
     width: 100px;
     height: auto;
     background-color: rgba(0, 0, 0, 0.5);
+    z-index: 6;
 }
 
 .sidebar ul {
@@ -24,7 +25,7 @@ body {
     height: 70px;
     display: block;
     border: 3px solid #CCC;
-    border-radius: 50%;
+    
     text-align: center;
     text-decoration: none;
     line-height: 70px;

@@ -1,6 +1,6 @@
 const MUSIC_NUM = music_table.length;
 
-var existArray= new Array(MUSIC_NUM);
+var existArray = new Array(MUSIC_NUM);
 
 //TODO モーダル表示関連の関数での一括化 及びhtmlの分割, JSによる読み込み化
 //TODO Save, Load時に名前の一致かを確認
@@ -27,7 +27,7 @@ function initchart(){
         }
         
         //20190227現在 RUGGED ASHのみ確認して譜面選択セレクトボックスの初期化
-        //以後、Substreamや2ndや1stに追加されたら要改修
+        //以後、1st, Substream, 2ndに追加されたら要改修
         if(existArray[0] == "0"){
             $("#musiclistid").append($("<option>").val(music_table[0][MUSIC_INDEX]).text(music_table[0][NAME_INDEX]));
         }
@@ -50,6 +50,7 @@ function setDraggableAndDblclick(id){
 	    containment: '#main',
         scroll: false,
 
+        //まとめてドラッグ用
         //以下 http://uenomemo.sakura.ne.jp/pcmemo/202 より引用
         start:function(e,ui){
             $(".ui-selected").not("#fadeLayer").each(function(){
@@ -261,7 +262,7 @@ function paraAnlyzeSet(iidaxepara){
 }
 
 /*==================================================================================================
-//譜面セレクトボックス変更
+//譜面セレクトボックス変更時イベント処理
 ==================================================================================================*/
 function MusicSelectBoxChange(version){
     
@@ -294,7 +295,7 @@ function MusicSelectBoxChange(version){
 }
 
 /*==================================================================================================
-//パラメータ作成 (arr: 存在判定配列)
+//パラメータ作成 (arr: 存在判定配列(existArray))
 ==================================================================================================*/
 function makeUrlPara(arr){
     
@@ -466,7 +467,7 @@ function MulchGenerate(){
         setDraggableAndDblclick("#iidaxe_" + String(music_table[selected_music_index[target_num]][MUSIC_INDEX]));
         existArray[selected_music_index[target_num]] = "1";
         
-        //対象IDにマウスオーバーで表示
+        //対象IDにマウスオーバーで曲名表示
         setHover("#iidaxe_" + String(music_table[selected_music_index[target_num]][MUSIC_INDEX]), 
                                      music_table[selected_music_index[target_num]][NAME_INDEX]);
     }
