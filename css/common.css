@@ -1,3 +1,4 @@
+
 .head_button{
     margin:5px 10px;
     position: relative;
@@ -63,6 +64,22 @@
     padding: 10px 20px 10px 20px;
     margin:70px 20px 20px 20px;
     border: solid 2px skyblue;
+    text-align: center;
+}
+
+#greet span{
+    font-size: 32px;
+    display:inline-block;
+}
+
+@media (max-width: 640){
+  #update .sp_br{
+    display: none;
+  }
+}
+
+#update{
+    font-size: 24px;
 }
 
 #all_layer{
