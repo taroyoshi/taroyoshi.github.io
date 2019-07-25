@@ -1,0 +1,26 @@
+#greet span{
+    font-size: 32px;
+    display:inline-block;
+}
+
+
+
+#update > .sp_br{
+    display: none;
+}
+
+@media only screen and (max-width: 640px) {
+  
+    #greet span{
+        font-size: 24px;
+    }
+    
+    #update > .sp_br{
+        display: inline;
+    }
+    
+    #update{
+        font-size: 18px;
+    }
+
+}

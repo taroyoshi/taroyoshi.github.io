@@ -15,10 +15,10 @@
 .header{
     background-image: url(../img/0341_mosaictile_s.jpg);
     position:fixed;
-    padding-bottom: 7px;
+    padding-bottom: 6px;
     z-index: 5;
     width: 100%;
-    height: 69px;
+    height: 70px;
     float: left;
 }
 
@@ -67,23 +67,9 @@
     text-align: center;
 }
 
-#greet span{
-    font-size: 32px;
-    display:inline-block;
-}
-
-@media (max-width: 640){
-  #update .sp_br{
-    display: none;
-  }
-}
-
-#update{
-    font-size: 24px;
-}
 
 #all_layer{
-    padding-top: 15px;
+    
     width:100%;
     z-index:30;
 }
