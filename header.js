@@ -1,5 +1,10 @@
+
+
 $(function(){
     
+    
+    
+
     $("#header-outer").load("../html/header.html #header-inner");
     
     //js読み込みのタイミングの関係で遅延
@@ -32,15 +37,14 @@ $(function(){
         setHover();
         
         
-         //サイドメニュー
+        //サイドメニュー
         var duration = 500;
         var $sidebar = $('.sidebar');
         var $button = $('.button a');
         var $a = $('.img_03');
         
         $button.addClass('open');
-        //↑のaddclass openは1回？
-        
+               
         $button.click(function(){
             $button.toggleClass('close');
             $button.removeClass('open');
@@ -57,6 +61,7 @@ $(function(){
                 $button.addClass('open');
             }
         });
+        
         $a.click(function(){
             $button.toggleClass('close');
             $button.removeClass('open');
@@ -117,7 +122,6 @@ $(function(){
     },130);
     
 });
-
 
 
 //色制御
