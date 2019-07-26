@@ -46,7 +46,7 @@ body {
 
 .button a {
     position: absolute;
-    top: 70px;
+    top: 30px;
     left: 100px;
     display: block;
     width: 30px;
@@ -90,4 +90,46 @@ body {
     -webkit-transform: rotate(-45deg);
     -ms-transform: rotate(-45deg);
     -o-tansform: rotate(-45deg);
+}
+
+
+
+.accbox {
+    margin: 2em 0;
+    padding: 0;
+    max-width: 400px;
+}
+
+.accbox label {
+    display: block;
+    margin: 1.5px 0;
+    padding : 11px 12px;
+    color :#2f8fcf;
+    font-weight: bold;
+    background :#a4cbf3;
+    cursor :pointer;
+    transition: all 0.5s;
+}
+
+.accbox label:hover {
+    background :#85baef;
+}
+
+.accbox input {
+    display: none;
+}
+
+.accbox .accshow {
+    height: 0;
+    padding: 0;
+    overflow: hidden;
+    opacity: 0;
+    transition: 0.8s;
+}
+
+.cssacc:checked + .accshow {
+    height: auto;
+    padding: 5px;
+    background: #eaeaea;
+    opacity: 1;
 }
