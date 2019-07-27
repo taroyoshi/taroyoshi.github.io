@@ -2,9 +2,7 @@
 
 $(function(){
     
-    
-    
-
+  
     $("#header-outer").load("../html/header.html #header-inner");
     
     //js読み込みのタイミングの関係で遅延
@@ -123,6 +121,29 @@ $(function(){
     
 });
 
+
+$(function(){
+    
+    $('.accIn').click(function(){
+ 
+        if ($('input[id="topLb"]').prop('checked')) {
+
+            // チェックを外す
+            $('input[id="topLb"]').prop('checked', false);
+        }
+        if ($('input[id="profLb"]').prop('checked')) {
+
+            // チェックを外す
+            $('input[id="profLb"]').prop('checked', false);
+        }
+        if ($('input[id="prodLb"]').prop('checked')) {
+
+            // チェックを外す
+            $('input[id="prodLb"]').prop('checked', false);
+        }
+  
+    });
+});
 
 //色制御
 function controllColor(){
