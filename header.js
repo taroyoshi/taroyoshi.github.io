@@ -157,7 +157,7 @@ function controllColor(){
     if((nowYpos >= topY) && (pflY > nowYpos)){
         cArray = [1, 0, 0];
         sArray = [0, 0, 0];
-        layer = "rgba(255,255,255,0.1)";
+        layer = "rgba(200,200,200,0.5)";
     }
     else if((nowYpos >= pflY) && (bioY > nowYpos)){
         cArray = [0, 1, 0];

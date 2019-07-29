@@ -49,11 +49,14 @@
 }
 
 .main_wrraper{
-    min-height:980px;
     width:auto;
     background-size: cover;
     background-attachment:fixed;
     background-image: url(../img/wpIMGL2790_TP_V.jpg);
+}
+
+#index{
+    height:2000px;    
 }
 
 #index_main{
@@ -62,20 +65,37 @@
     opacity: 0.9;
     height: auto;
     padding: 10px 20px 10px 20px;
-    margin:70px 20px 20px 20px;
+    margin:70px 20px 500px 20px;
     border: solid 2px skyblue;
     text-align: center;
 }
 
-
-#all_layer{
-    
+.all_layer{
+    height:100%;
     width:100%;
     z-index:30;
 }
 
 #about h3{
     font-family: IMPACT;
+}
+
+#about_main{
+    color:black;
+    background-color: white;
+    opacity: 0.9;
+    width: auto;
+    height: auto;
+    /*padding: 10px 0 10px 20px;*/
+    margin:0 0 20px 20px;
+    border: solid 2px skyblue;
+    z-index:3;
+}
+
+
+
+#profile{
+    height:2000px;
 }
 
 #name{
@@ -91,6 +111,10 @@
 }
 #name h6{
     margin-bottom:2px;
+}
+
+#product{
+    height:2500px;
 }
 
 #iidaxe_wrap{
