@@ -34,6 +34,42 @@ $(function(){
         //ホバーイベント
         setHover();
         
+        //言語切り替え
+        $("#lang_button, #sidelg").click(function(){
+           
+            var con_lang = $("#lang_disp").text();
+            
+            if(con_lang == "English"){
+                $(".lang_jp").css({
+                    "display": "none",
+                });
+                $(".lang_en").css({
+                    "display": "block",
+                });
+                $("#lang_disp").text("日本語");
+                $("#sidelg").text("日本語");
+                $("#lang_button").css({
+                    "background-color": "#66CCCC"    
+                });
+            }
+            else if(con_lang == "日本語"){
+                $(".lang_jp").css({
+                    "display": "block",
+                });
+                $(".lang_en").css({
+                    "display": "none",
+                });
+                $("#lang_disp").text("English");
+                $("#sidelg").text("English");
+                $("#lang_button").css({
+                    "background-color": "#99FF66"    
+                });
+            }
+           
+            
+            
+        });
+        
         
         //サイドメニュー
         var duration = 500;
@@ -178,7 +214,7 @@ function controllColor(){
     if((nowYpos >= topY) && (pflY > nowYpos)){
         cArray = [1, 0, 0];
         sArray = [0, 0, 0];
-        layer = "rgba(200,200,200,0.5)";
+        layer = "rgba(200,255,200,0.5)";
     }
     else if((nowYpos >= pflY) && (bioY > nowYpos)){
         cArray = [0, 1, 0];
@@ -198,12 +234,12 @@ function controllColor(){
     else if((nowYpos >= pdtY) && (idxY > nowYpos)){
         cArray = [0, 0, 1];
         sArray = [0, 0, 0];
-        layer = "rgba(200,255,200,0.5)";
+        layer = "rgba(255,200,200,0.5)";
     }
     else if(nowYpos >= idxY){
         cArray = [0, 0, 1];
         sArray = [0, 0, 1];
-        layer = "rgba(200,255,200,0.5)";
+        layer = "rgba(255,200,200,0.5)";
     }
     
     changeColor(cArray, sArray);
