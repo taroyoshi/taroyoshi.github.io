@@ -1,3 +1,11 @@
+.lang_jp{
+    display:block;
+}
+
+.lang_en{
+    display:none;
+}
+
 
 .head_button{
     margin:5px 10px;
@@ -10,8 +18,18 @@
     background-color: rgb(255,175,255);
     border: solid 2px skyblue;
     padding-top:10px;
-    
 }
+
+#lang_button{
+    border-radius: 90%;
+    background-color: #99FF66;
+    margin:5px 10px;
+    position: relative;
+    width:100px;
+    height:50px;
+}
+
+
 .header{
     background-image: url(../img/0341_mosaictile_s.jpg);
     position:fixed;
@@ -65,7 +83,7 @@
     opacity: 0.9;
     height: auto;
     padding: 10px 20px 10px 20px;
-    margin:70px 20px 500px 20px;
+    margin:70px 20px 700px 20px;
     border: solid 2px skyblue;
     text-align: center;
 }
@@ -80,16 +98,17 @@
     font-family: IMPACT;
 }
 
-#about_main{
+.about_main{
     color:black;
     background-color: white;
     opacity: 0.9;
-    width: auto;
+    width: 50%;
     height: auto;
-    padding: 10px 20px;
+    padding: 20px 30px;
     border: solid 2px skyblue;
     border-radius: 10%;
     z-index:3;
+    
 }
 
 
@@ -98,14 +117,14 @@
     height:2000px;
 }
 
-#name{
+.name{
     color:black;
     background-color: white;
     opacity: 0.9;
     width: 550px;
     height: auto;
     /*padding: 10px 0 10px 20px;*/
-    margin:0 0 20px 20px;
+    /*margin:0 0 20px 20px;*/
     border: solid 2px skyblue;
     z-index:3;
 }
