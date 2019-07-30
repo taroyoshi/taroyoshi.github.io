@@ -8,29 +8,6 @@ $(function(){
     //js読み込みのタイミングの関係で遅延
     setTimeout(function(){
         
-        //↓不要に 参考の為保存
-        /*
-        var gatFile = document.location.pathname.split("/").pop();
-        var id;
-        switch(gatFile.replace(".html", "")){
-            case "index":
-                id = "index_button"; 
-                break;
-                
-            case "profile":
-                id = "profile_button"; 
-                break;
-                
-            case "product":
-                id = "product_button"; 
-                break;
-        }
-        button_elements = document.getElementById(id);
-        $("#" + id).parent().css('background-color', '#d67877');
-        button_elements.remove();
-        */
-        
-        
         //ホバーイベント
         setHover();
         
@@ -65,9 +42,7 @@ $(function(){
                     "background-color": "#99FF66"    
                 });
             }
-           
-            
-            
+                       
         });
         
         
@@ -115,26 +90,7 @@ $(function(){
                     $button.addClass('open');
                 }
             });                
-        });
-        /*
-        $a.click(function(){
-            $button.toggleClass('close');
-            $button.removeClass('open');
-            
-            if ($button.hasClass('close')){
-                $sidebar.stop().animate({
-                    left: '0'
-                }, duration, 'easeOutQuint');
-            }
-            else{
-                $sidebar.stop().animate({
-                    left: '-100px'
-                }, duration, 'easeOutQuint');
-                $button.addClass('open');
-            }
-        });
-        */
-        
+        });        
         
         //キーバリューとか使ってスマートに
         
