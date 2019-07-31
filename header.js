@@ -1,5 +1,3 @@
-
-
 $(function(){
     
   
@@ -49,7 +47,7 @@ $(function(){
         //サイドメニュー
         var duration = 500;
         var $sidebar = $('.sidebar');
-        var $button = $('.button a');
+        var $button = $('.button span');
         
         var array = [$('.img_01'), $('.img_02'), $('.img_03'), $('#sidelg')];
         
@@ -70,13 +68,6 @@ $(function(){
                     left: '-100px'
                 }, duration, 'easeOutQuint');
                 $button.addClass('open');
-                
-                /*
-                nowYpos = window.pageYOffset + 70;
-                window.scrollTo({
-                    top: nowYpos,
-                    behavior: "instant"
-                });*/
             }
         });
         
@@ -100,6 +91,8 @@ $(function(){
         });        
         
         //キーバリューとか使ってスマートに
+
+        var a = document.getElementsByName('link');
         
         var indexele    = document.getElementById('index').getBoundingClientRect();
         var aboutele    = document.getElementById('about').getBoundingClientRect();
@@ -130,16 +123,6 @@ $(function(){
             return false;
         });
         
-        
-        /*
-        $button.click(function(){
-            nowYpos = window.pageYOffset + 70;
-            window.scrollTo({
-                top: nowYpos,
-                behavior: "instant"
-            });
-        });
-        */
         window.addEventListener('scroll', function() {
                            
             controllColor();               
