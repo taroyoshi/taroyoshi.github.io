@@ -18,6 +18,7 @@
     background-color: rgb(255,175,255);
     border: solid 2px skyblue;
     padding-top:10px;
+    opacity: 0.9;
 }
 
 #lang_button{
@@ -71,6 +72,7 @@
     background-size: cover;
     background-attachment:fixed;
     background-image: url(../img/wpIMGL2790_TP_V.jpg);
+    
 }
 
 #index{
@@ -133,7 +135,7 @@
 }
 
 #product{
-    height:2500px;
+    max-height:3210px;
 }
 
 #iidaxe_wrap{

@@ -110,9 +110,11 @@ body {
     padding : 11px 12px;
     color :#2f8fcf;
     font-weight: bold;
-    background :#a4cbf3;
+    background :#ffccff;
     cursor :pointer;
     transition: all 0.5s;
+    text-align: center;
+    border-radius: 10px 5px 1px 5px/5px 5px 1px 5px;
 }
 
 .accbox label:hover {
@@ -136,4 +138,5 @@ body {
     padding: 5px;
     background: #eaeaea;
     opacity: 1;
+    border-radius: 0 0 5px 5px/0 0 5px 5px;
 }

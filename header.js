@@ -24,7 +24,7 @@ $(function(){
                     "display": "block",
                 });
                 $("#lang_disp").text("日本語");
-                $("#sidelg").text("日本語");
+                $("#sidelg > label").text("日本語");
                 $("#lang_button").css({
                     "background-color": "#66CCCC"    
                 });
@@ -37,7 +37,7 @@ $(function(){
                     "display": "none",
                 });
                 $("#lang_disp").text("English");
-                $("#sidelg").text("English");
+                $("#sidelg > label").text("English");
                 $("#lang_button").css({
                     "background-color": "#99FF66"    
                 });
@@ -51,7 +51,7 @@ $(function(){
         var $sidebar = $('.sidebar');
         var $button = $('.button a');
         
-        var array = [$('.img_01'), $('.img_02'), $('.img_03')];
+        var array = [$('.img_01'), $('.img_02'), $('.img_03'), $('#sidelg')];
         
         
         $button.addClass('open');
@@ -70,6 +70,13 @@ $(function(){
                     left: '-100px'
                 }, duration, 'easeOutQuint');
                 $button.addClass('open');
+                
+                /*
+                nowYpos = window.pageYOffset + 70;
+                window.scrollTo({
+                    top: nowYpos,
+                    behavior: "instant"
+                });*/
             }
         });
         
@@ -95,6 +102,7 @@ $(function(){
         //キーバリューとか使ってスマートに
         
         var indexele    = document.getElementById('index').getBoundingClientRect();
+        var aboutele    = document.getElementById('about').getBoundingClientRect();
         var profele     = document.getElementById('profile').getBoundingClientRect();
         var bioele     = document.getElementById('biography').getBoundingClientRect();
         var skillele     = document.getElementById('skill').getBoundingClientRect();
@@ -102,6 +110,7 @@ $(function(){
         var iidaxeele   = document.getElementById('iidaxe_wrap').getBoundingClientRect();
         
         topY = indexele.top + window.pageYOffset;   // Y座標(絶対座標)
+        aboutY = aboutele.top + window.pageYOffset;   // Y座標(絶対座標)
         pflY = profele.top + window.pageYOffset;   // Y座標(絶対座標)
         bioY = bioele.top + window.pageYOffset;   // Y座標(絶対座標)
         skillY = skillele.top + window.pageYOffset;   // Y座標(絶対座標)
@@ -119,9 +128,18 @@ $(function(){
             $("html, body").animate({scrollTop:position}, speed, "swing");
             
             return false;
-        
         });
         
+        
+        /*
+        $button.click(function(){
+            nowYpos = window.pageYOffset + 70;
+            window.scrollTo({
+                top: nowYpos,
+                behavior: "instant"
+            });
+        });
+        */
         window.addEventListener('scroll', function() {
                            
             controllColor();               
@@ -162,39 +180,45 @@ $(function(){
 function controllColor(){
     
     nowYpos = window.pageYOffset + 70;
-            
+    
+    //この定義等は要自動化 head_buttonやslide_childの数か
     var cArray = [3];
-    var sArray = [3];
+    var sArray = [4];
     var layer;
     
-    if((nowYpos >= topY) && (pflY > nowYpos)){
+    if((nowYpos >= topY) && (aboutY > nowYpos)){
         cArray = [1, 0, 0];
-        sArray = [0, 0, 0];
+        sArray = [0, 0, 0, 0];
         layer = "rgba(200,255,200,0.5)";
+    }
+    else if((nowYpos >= aboutY) && (pflY > nowYpos)){
+        cArray = [1, 0, 0];
+        sArray = [1, 0, 0, 0];
+        layer = "rgba(200,200,255,0.5)";
     }
     else if((nowYpos >= pflY) && (bioY > nowYpos)){
         cArray = [0, 1, 0];
-        sArray = [0, 0, 0];
+        sArray = [0, 0, 0, 0];
         layer = "rgba(200,200,255,0.5)";
     }
     else if((nowYpos >= bioY) && (skillY > nowYpos)){
         cArray = [0, 1, 0];
-        sArray = [1, 0, 0];
+        sArray = [0, 1, 0, 0];
         layer = "rgba(200,200,255,0.5)";
     }
     else if((nowYpos >= skillY) && (pdtY > nowYpos)){
         cArray = [0, 1, 0];
-        sArray = [0, 1, 0];
+        sArray = [0, 0, 1, 0];
         layer = "rgba(200,200,255,0.5)";
     }
     else if((nowYpos >= pdtY) && (idxY > nowYpos)){
         cArray = [0, 0, 1];
-        sArray = [0, 0, 0];
+        sArray = [0, 0, 0, 0];
         layer = "rgba(255,200,200,0.5)";
     }
     else if(nowYpos >= idxY){
         cArray = [0, 0, 1];
-        sArray = [0, 0, 1];
+        sArray = [0, 0, 0, 1];
         layer = "rgba(255,200,200,0.5)";
     }
     
@@ -209,11 +233,13 @@ function controllColor(){
 //ヘッダボタン, レイヤーの色変更
 function changeColor(arr1, arr2){
     
+    //この定義は要自動化 head_buttonやslide_childを取得すべきか
     var carr = ['top_button', 
                 'prof_button', 
                 'prod_button'];
                 
-    var sarr = ['bio_button', 
+    var sarr = ['about_button',
+                'bio_button', 
                 'skill_button', 
                 'iidaxe_button'];
     

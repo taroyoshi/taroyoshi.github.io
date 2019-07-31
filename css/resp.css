@@ -5,7 +5,7 @@
 
 
 
-#update > .sp_br{
+.sp_br{
     display: none;
 }
 
@@ -15,7 +15,11 @@
         font-size: 24px;
     }
     
-    #update > .sp_br{
+    /*#update > .sp_br{
+        display: inline;
+    }
+    */
+    .sp_br{
         display: inline;
     }
     
