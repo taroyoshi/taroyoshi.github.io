@@ -8,16 +8,17 @@
 
 
 .head_button{
-    margin:5px 10px;
+    margin:5px 0;
     position: relative;
     width:100px;
-    height:50px;
+    height:45px;
     float:left;
     text-align:center;
     vertical-align:middle;
-    background-color: rgb(255,175,255);
-    border: solid 2px skyblue;
-    padding-top:10px;
+    /*background-color: rgb(255,175,255);*/
+    /*border: groove 2px skyblue;*/
+    /*border-radius: 5px 5px 0 0/ 5px 5px 0 0;*/
+    padding-top:7px;
     opacity: 0.9;
 }
 
@@ -60,14 +61,18 @@
     float:left;
     text-align:center;
     vertical-align:middle;
-    background-color: rgb(200,175,255);
-    border: solid 1px skyblue;
+    /*background-color: rgb(200,175,255);*/
+    /*border: solid 1px skyblue;*/
     padding-top:5px;
     display:none;
     opacity: 0.9;
 }
 
-.main_wrraper{
+.s_b{
+    border-radius: 0 0 5px 5px/0 0 5px 5px;
+}
+
+.main_wraper{
     width:auto;
     background-size: cover;
     background-attachment:fixed;
@@ -96,19 +101,22 @@
     z-index:30;
 }
 
+.prof_layer{
+    background-color: #fffaf0;
+    
+}
+
 #about h3{
     font-family: IMPACT;
 }
 
 .about_main{
     color:black;
-    background-color: white;
-    opacity: 0.9;
+    
+    
     width: 50%;
     height: auto;
     padding: 20px 30px;
-    border: solid 2px skyblue;
-    border-radius: 10%;
     z-index:3;
     
 }
@@ -121,17 +129,36 @@
 
 .name{
     color:black;
-    background-color: white;
-    opacity: 0.9;
+    /*background-color: white;*/
+    /*opacity: 0.9;*/
     width: 550px;
     height: auto;
     /*padding: 10px 0 10px 20px;*/
     /*margin:0 0 20px 20px;*/
-    border: solid 2px skyblue;
+    /*border: solid 2px skyblue;*/
     z-index:3;
+    /*border-radius: 15px 15px 15px 15px/ 15px 15px 15px 15px;*/
 }
 #name h6{
     margin-bottom:2px;
+}
+
+#biography{
+    margin-top: 10px;    
+    
+}
+
+.bio_contents::before{
+    width:115px;
+    left: 105px;
+    background-color: red;
+    margin-left: 50px;
+    
+    
+}
+
+.b_year::after{
+    content:"";
 }
 
 #product{

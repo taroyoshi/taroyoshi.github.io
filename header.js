@@ -117,7 +117,7 @@ $(function(){
             var speed = 500;
             var href= $(this).attr("href");
             var target = $(href == "#" || href === "" ? 'html' : href);
-            var position = target.offset().top - 69;
+            var position = target.offset().top - 70;
             $("html, body").animate({scrollTop:position}, speed, "swing");
             
             return false;
@@ -167,48 +167,56 @@ function controllColor(){
     //この定義等は要自動化 head_buttonやslide_childの数か
     var cArray = [3];
     var sArray = [4];
-    var layer;
+    var layer = [2];
     
     if((nowYpos >= topY) && (aboutY > nowYpos)){
         cArray = [1, 0, 0];
         sArray = [0, 0, 0, 0];
-        layer = "rgba(200,255,200,0.5)";
+        layer[0] = "#f0fff0";
+        layer[1] = "0.9";
     }
     else if((nowYpos >= aboutY) && (pflY > nowYpos)){
         cArray = [1, 0, 0];
         sArray = [1, 0, 0, 0];
-        layer = "rgba(200,200,255,0.5)";
+        layer[0] = "#f0fff0";
+        layer[1] = "0.9";
     }
     else if((nowYpos >= pflY) && (bioY > nowYpos)){
         cArray = [0, 1, 0];
         sArray = [0, 0, 0, 0];
-        layer = "rgba(200,200,255,0.5)";
+        layer[0] = "#ffffe0";
+        layer[1] = "0.9";
     }
     else if((nowYpos >= bioY) && (skillY > nowYpos)){
         cArray = [0, 1, 0];
         sArray = [0, 1, 0, 0];
-        layer = "rgba(200,200,255,0.5)";
+        layer[0] = "#ffffe0";
+        layer[1] = "0.9";
     }
     else if((nowYpos >= skillY) && (pdtY > nowYpos)){
         cArray = [0, 1, 0];
         sArray = [0, 0, 1, 0];
-        layer = "rgba(200,200,255,0.5)";
+        layer[0] = "#98fb98";
+        layer[1] = "0.9";
     }
     else if((nowYpos >= pdtY) && (idxY > nowYpos)){
         cArray = [0, 0, 1];
         sArray = [0, 0, 0, 0];
-        layer = "rgba(255,200,200,0.5)";
+        layer[0] = "#ffb6c1";
+        layer[1] = "0.8";
     }
     else if(nowYpos >= idxY){
         cArray = [0, 0, 1];
         sArray = [0, 0, 0, 1];
-        layer = "rgba(255,200,200,0.5)";
+        layer[0] = "#ffb6c1";
+        layer[1] = "0.8";
     }
     
     changeColor(cArray, sArray);
     
     $(".all_layer").css('transition', 'background-color 0.5s linear'); 
-    $(".all_layer").css('background-color', layer); 
+    $(".all_layer").css('background-color', layer[0]);
+    $(".all_layer").css('opacity', layer[1]);
     
 }
 
@@ -228,11 +236,13 @@ function changeColor(arr1, arr2){
     
     for(var i = 0; i < carr.length; i++){
         if(arr1[i] == 1){
-            $("#" + carr[i]).css('background-color', '#d67877'); 
+            $("#" + carr[i]).css('background-color', '#ffffff');
+            $("#" + carr[i]).css('opacity', '0.5');
         }
         else if(arr1[i] === 0){
             
-            $("#" + carr[i]).css('background-color', 'rgb(255,175,255)'); 
+            $("#" + carr[i]).css('background-color', 'transparent'); 
+            $("#" + carr[i]).css('opacity', '0.1');
         }
     }
     for(var j = 0; j < sarr.length; j++){
@@ -241,7 +251,7 @@ function changeColor(arr1, arr2){
         }
         else if(arr2[j] === 0){
             
-            $("#" + sarr[j]).css('background-color', 'rgb(200,175,255)'); 
+            $("#" + sarr[j]).css('background-color', 'transparent'); 
         }
     }
 }
