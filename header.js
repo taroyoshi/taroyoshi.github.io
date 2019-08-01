@@ -215,8 +215,8 @@ function controllColor(){
     changeColor(cArray, sArray);
     
     $(".all_layer").css('transition', 'background-color 0.5s linear'); 
-    $(".all_layer").css('background-color', layer[0]);
-    $(".all_layer").css('opacity', layer[1]);
+    //$(".all_layer").css('background-color', "rgba");
+    
     
 }
 
@@ -236,8 +236,8 @@ function changeColor(arr1, arr2){
     
     for(var i = 0; i < carr.length; i++){
         if(arr1[i] == 1){
-            $("#" + carr[i]).css('background-color', '#ffffff');
-            $("#" + carr[i]).css('opacity', '0.5');
+            $("#" + carr[i]).css('background-color', 'rgba(255,255,255,0.9)');
+            
         }
         else if(arr1[i] === 0){
             
@@ -276,7 +276,8 @@ function setHover(){
                 break;
         }
         $(this).children(".hdt").text(t);
-        
+        $(this).css('background-color', 'rgba(255,255,255, 0.9)');
+
         $(".slide_child:not(:animated)", this).slideDown();
         
     },function(){
@@ -296,6 +297,7 @@ function setHover(){
                 break;
         }
         $(this).children(".hdt").text(bt);
+        $(this).css('background-color', 'rgba(240,240,240, 0.5)');
         
         $("div.slide_child",this).slideUp();
     });
