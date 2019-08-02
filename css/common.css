@@ -16,7 +16,6 @@
     text-align:center;
     vertical-align:middle;
     background-color: rgba(240,240,240, 0.5);
-    
     padding-top:7px;
     /*background-color: rgb(255,175,255);*/
     /*border: groove 2px skyblue;*/
@@ -24,12 +23,11 @@
 }
 
 #lang_button{
+    right : 30px;
     border-radius: 90%;
     background-color: #99FF66;
-    margin:5px 10px;
-    position: relative;
-    width:100px;
-    height:50px;
+    margin:0 0 0 10px;
+    position: absolute;
 }
 
 
