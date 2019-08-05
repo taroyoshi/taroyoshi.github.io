@@ -17,14 +17,13 @@ body {
 }
 
 .sidebar li {
-    padding: 10px;
+    padding: 5px 0;
 }
 
 .sidebar li a {
-    width: 70px;
+    width: 100px;
     height: 35px;
     display: block;
-    border: 2px solid #CCC;
     text-align: center;
     text-decoration: none;
     line-height: 35px;
@@ -103,13 +102,16 @@ body {
     max-width: 400px;
 }
 
+.accshow > p{
+    margin-bottom: 1px;
+}
 .accbox label {
     display: block;
+    width: 100px;
     margin: 1.5px 0;
     padding : 11px 12px;
-    color :#2f8fcf;
+    color :#f0f0f0;
     font-weight: bold;
-    background :#ffccff;
     cursor :pointer;
     transition: all 0.5s;
     text-align: center;
@@ -117,7 +119,7 @@ body {
 }
 
 .accbox label:hover {
-    background :#85baef;
+    background-color:rgba( 135, 180, 240, 0.9);
 }
 
 .accbox input {
@@ -134,8 +136,8 @@ body {
 
 .cssacc:checked + .accshow {
     height: auto;
-    padding: 5px;
-    background: #eaeaea;
-    opacity: 1;
+    padding: 5px 0;
+    
+    opacity: 0.9;
     border-radius: 0 0 5px 5px/0 0 5px 5px;
 }

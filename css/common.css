@@ -20,12 +20,13 @@
     /*background-color: rgb(255,175,255);*/
     /*border: groove 2px skyblue;*/
     /*border-radius: 5px 5px 0 0/ 5px 5px 0 0;*/
+    
 }
 
 #lang_button{
     right : 30px;
     border-radius: 90%;
-    background-color: #99FF66;
+    background-color: rgba(240,240,240, 0.5);
     margin:0 0 0 10px;
     position: absolute;
 }
@@ -98,12 +99,9 @@
     height:100%;
     width:100%;
     z-index:30;
+    transition: background-color 0.5s linear; 
 }
 
-.prof_layer{
-    background-color: #fffaf0;
-    
-}
 
 #about h3{
     font-family: IMPACT;
@@ -126,13 +124,18 @@
     height:2000px;
 }
 
+
+.prof_layer{
+    background-color: rgba(215, 250, 240, 0.75);
+}
+
 .name{
-    color:black;
+    color:rgb(50, 50, 0);
     /*background-color: white;*/
     /*opacity: 0.9;*/
     width: 550px;
     height: auto;
-    /*padding: 10px 0 10px 20px;*/
+    padding: 10px 0 10px;
     /*margin:0 0 20px 20px;*/
     /*border: solid 2px skyblue;*/
     z-index:3;
