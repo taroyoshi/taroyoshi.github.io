@@ -428,27 +428,28 @@ music_table = [
     [26,360, "Dr.Chemical & Killing Machine", "dr_chemi", "Dr.C", "A", 4],
     [26,361, "Drastic Dramatic", "drasticd", "Drastic", "A", 5],
     //EVANESCENT 6
-    [26,362, "GIGA THRASH", "gigathra", "GIGA", "A", 7],
-    //HARD BRAIN 8
-    [26,363, "KILL EACH OTHER", "killeach", "KILL", "A", 9],
-    [26,364, "L.F.O", "lfo", "L.F.O", "A", 10],
-    [26,365, "Level One", "levelone", "Lv One", "A", 11],
-    [26,366, "LOST TECHNOLOGIE", "losttech", "LOST TEC", "A", 12],
-    //Mächö Mönky 13
-    //Necroxis Girl 14
-    //ONIGOROSHI 15
-    [26,367, "Painful Fate", "painfate", "Painful", "A", 16],
-    [26,368, "Red. by Jack Trance", "red_jack", "Red J", "A", 17],
-    //ruin of opals 18
-    [26,369, "SIGMA", "sigma", "SIGMA", "A", 19],
-    [26,370, "THE DAY OF JUBILATIONS", "t_jubila", "JUBI", "A", 20],
-    [26,371, "The Rebellion of Sequencer", "t_rebeli", "TRoS", "A", 21],
-    //Unbelief 22
-    //Visterhv 23
-    [26,372, "Xlo", "xlo", "Xlo", "A", 24],
-    //抱きしめてモナムール 25
-    //Χ-DEN 26
-    [26,373, "金野火織の金色提言", "_k_hiori", "金色", "A", 27],
+    //GENE 7
+    [26,362, "GIGA THRASH", "gigathra", "GIGA", "A", 8],
+    //HARD BRAIN 9
+    [26,363, "KILL EACH OTHER", "killeach", "KILL", "A", 10],
+    [26,364, "L.F.O", "lfo", "L.F.O", "A", 11],
+    [26,365, "Level One", "levelone", "Lv One", "A", 12],
+    [26,366, "LOST TECHNOLOGIE", "losttech", "LOST TEC", "A", 13],
+    //Mächö Mönky 14
+    //Necroxis Girl 15
+    //ONIGOROSHI 16
+    [26,367, "Painful Fate", "painfate", "Painful", "A", 17],
+    [26,368, "Red. by Jack Trance", "red_jack", "Red J", "A", 18],
+    //ruin of opals 19
+    [26,369, "SIGMA", "sigma", "SIGMA", "A", 20],
+    [26,370, "THE DAY OF JUBILATIONS", "t_jubila", "JUBI", "A", 21],
+    [26,371, "The Rebellion of Sequencer", "t_rebeli", "TRoS", "A", 22],
+    //Unbelief 23
+    //Visterhv 24
+    [26,372, "Xlo", "xlo", "Xlo", "A", 25],
+    //抱きしめてモナムール 26
+    //Χ-DEN 27
+    [26,373, "金野火織の金色提言", "_k_hiori", "金色", "A", 28],
     
     //2019/04/22追加
     [14,374, "GRID KNIGHT†", "gknightl", "GRID †", "A", 2],
@@ -456,23 +457,23 @@ music_table = [
     [26,376, "Carmina", "carmina", "Carmina", "A", 0],
     [26,377, "Carry Me Away", "carryme", "Carry", "A", 1],
     [26,378, "EVANESCENT", "evanscnt", "EVANESCENT", "A", 6],
-    [26,379, "Mächö Mönky", "machomnk", "Mächö", "A", 13],
-    [26,380, "Necroxis Girl", "necroxis", "Necroxis", "A", 14],
-    [26,381, "Unbelief", "unbelief", "Unbelief", "A", 22],
-    [26,382, "抱きしめてモナムール", "_dakismt", "モナムール", "A", 25],
-    [26,383, "Χ-DEN", "_kai_den", "Χ-DEN", "A", 26],
+    [26,379, "Mächö Mönky", "machomnk", "Mächö", "A", 14],
+    [26,380, "Necroxis Girl", "necroxis", "Necroxis", "A", 15],
+    [26,381, "Unbelief", "unbelief", "Unbelief", "A", 23],
+    [26,382, "抱きしめてモナムール", "_dakismt", "モナムール", "A", 26],
+    [26,383, "Χ-DEN", "_kai_den", "Χ-DEN", "A", 27],
     
     //2019/07/12追加
     [16,384, "B4U(BEMANI FOR YOU MIX)†", "bemani4l", "B4U(MIX)†", "A", 0],
     [23,385, "Welcome†", "welcomel", "Welcome†", "A", 22],
-    [26,386, "HARD BRAIN", "hrdbrain", "HARD BR", "A", 8],
-    [26,387, "ONIGOROSHI", "onigoros", "ONI", "A", 15],
-    [26,388, "ruin of opals", "ruinopal", "ruin", "A", 18],
-    [26,389, "Visterhv", "visterhv", "Visterhv", "A", 23],
+    [26,386, "HARD BRAIN", "hrdbrain", "HARD BR", "A", 9],
+    [26,387, "ONIGOROSHI", "onigoros", "ONI", "A", 16],
+    [26,388, "ruin of opals", "ruinopal", "ruin", "A", 19],
+    [26,389, "Visterhv", "visterhv", "Visterhv", "A", 24],
     
     [15,390, "Wanna Party?†", "wnpartyl", "Wanna †", "A", 15],
     [17,391, "AIR RAID FROM THA UNDAGROUND†", "airraidl", "AIR RAID†", "A", 0]
-    //[26,392, "", "", "", "A", 22],
+    [26,392, "GENE", "gene", "GENE", "A", 22],
     //[26,393, "", "", "", "A", 22],
     //[26,394, "", "", "", "A", 22],
 ];
