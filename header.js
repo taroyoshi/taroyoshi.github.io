@@ -110,7 +110,7 @@ $(function(){
             var speed = 500;
             var href= $(this).attr("href");
             var target = $(href == "#" || href === "" ? 'html' : href);
-            var position = target.offset().top - 70;
+            var position = target.offset().top - 44;//要調整
             $("html, body").animate({scrollTop:position}, speed, "swing");
             
             return false;
@@ -155,7 +155,7 @@ $(function(){
 //色制御
 function controllColor(){
     
-    nowYpos = window.pageYOffset + 70;
+    nowYpos = window.pageYOffset + 45;
     
     //この定義等は要自動化 head_buttonやslide_childの数か
     var cArray = [3];
@@ -165,51 +165,49 @@ function controllColor(){
     if((nowYpos >= topY) && (aboutY > nowYpos)){
         cArray = [1, 0, 0];
         sArray = [0, 0, 0, 0];
-        layer[0] = "#f0fff0";
-        layer[1] = "0.9";
+        layer[0] = "240, 255, 240, ";
+        layer[1] = "0.75";
     }
     else if((nowYpos >= aboutY) && (pflY > nowYpos)){
         cArray = [1, 0, 0];
         sArray = [1, 0, 0, 0];
-        layer[0] = "#f0fff0";
-        layer[1] = "0.9";
+        layer[0] = "240, 255, 240, ";
+        layer[1] = "0.75";
     }
     else if((nowYpos >= pflY) && (bioY > nowYpos)){
         cArray = [0, 1, 0];
         sArray = [0, 0, 0, 0];
-        layer[0] = "#ffffe0";
-        layer[1] = "0.9";
+        layer[0] = "255, 255, 225, ";
+        layer[1] = "0.75";
     }
     else if((nowYpos >= bioY) && (skillY > nowYpos)){
         cArray = [0, 1, 0];
         sArray = [0, 1, 0, 0];
-        layer[0] = "#ffffe0";
-        layer[1] = "0.9";
+        layer[0] = "255, 255, 225, ";
+        layer[1] = "0.75";
     }
     else if((nowYpos >= skillY) && (pdtY > nowYpos)){
         cArray = [0, 1, 0];
         sArray = [0, 0, 1, 0];
-        layer[0] = "#98fb98";
-        layer[1] = "0.9";
+        layer[0] = "255, 255, 225, ";
+        layer[1] = "0.75";
     }
     else if((nowYpos >= pdtY) && (idxY > nowYpos)){
         cArray = [0, 0, 1];
         sArray = [0, 0, 0, 0];
-        layer[0] = "#ffb6c1";
-        layer[1] = "0.8";
+        layer[0] = "225, 200, 200, ";
+        layer[1] = "0.75";
     }
     else if(nowYpos >= idxY){
         cArray = [0, 0, 1];
         sArray = [0, 0, 0, 1];
-        layer[0] = "#ffb6c1";
-        layer[1] = "0.8";
+        layer[0] = "225, 200, 200, ";
+        layer[1] = "0.75";
     }
     
     changeColor(cArray, sArray);
     
-    $(".all_layer").css('background-color', "rgba");
-    
-    
+    $(".all_layer").css('background-color', "rgba(" + layer[0] + layer[1] + ")");
 }
 
 
