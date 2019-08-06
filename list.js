@@ -451,6 +451,9 @@ music_table = [
     //Χ-DEN 27
     [26,373, "金野火織の金色提言", "_k_hiori", "金色", "A", 28],
     
+
+
+    //追加対応分
     //2019/04/22追加
     [14,374, "GRID KNIGHT†", "gknightl", "GRID †", "A", 2],
     [18,375, "New Castle Legions", "nwcasl26", "New Castle", "A", 4],
@@ -472,11 +475,13 @@ music_table = [
     [26,389, "Visterhv", "visterhv", "Visterhv", "A", 24],
     
     [15,390, "Wanna Party?†", "wnpartyl", "Wanna †", "A", 15],
-    [17,391, "AIR RAID FROM THA UNDAGROUND†", "airraidl", "AIR RAID†", "A", 0]
-    [26,392, "GENE", "gene", "GENE", "A", 22],
+    [17,391, "AIR RAID FROM THA UNDAGROUND†", "airraidl", "AIR RAID†", "A", 0],
+    [26,392, "GENE", "gene", "GENE", "A", 7]
     //[26,393, "", "", "", "A", 22],
     //[26,394, "", "", "", "A", 22],
-];
+    //[26,395, "", "", "", "A", 22],
+    //[26,396, "", "", "", "A", 22],
+];  //テーブルの最後尾要チェック
 
 VER_NAME_INDEX = 2;
 

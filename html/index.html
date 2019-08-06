@@ -15,6 +15,9 @@
     
     <!-- Bootstrap4のJS読み込み -->
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
+    <!-- aos-animateのcss-->
+    <!--<link rel="stylesheet" href="https://cdn.rawgit.com/michalsnik/aos/1.0.1/dist/aos.css">-->
+    <link href="https://cdn.rawgit.com/michalsnik/aos/2.0.4/dist/aos.css" rel="stylesheet">
     
     <link rel="stylesheet" type="text/css" href="../css/common.css" />
     <link rel="stylesheet" type="text/css" href="../css/resp.css" />
@@ -27,9 +30,15 @@
 </head>
 
 <body onload="setHover();">
+    
+    <!-- aos-animateのjs-->
+    <!--<script src="https://cdnjs.cloudflare.com/ajax/libs/aos/2.3.4/aos.js"></script>-->
+    <script src="https://cdn.rawgit.com/michalsnik/aos/2.0.4/dist/aos.js"></script>
+    <script>AOS.init();</script>
+
     <div class="container-fluid">
         <div class="row header">
-            <header id="header-outer" class="col-sm-8 offset-sm-2 d-none d-md-block">
+            <header id="header-outer" class="col-md-7 offset-md-3 d-none d-md-block">
                 <!--JSでヘッダ読み込み--> 
             </header>
         </div>
@@ -100,24 +109,36 @@
                     </div>
                 </div>
                 <div class="row">
-                    <div id="about" class="col-md-12" name="link">
+                    <div id="about" class="col-sm-12 offset-sm-0 offset-2 text-center" name="link">
                         <h3>About this page</h3>
                     </div>
                 </div>
-                <div class="row">    
-                    <div class="about_main col-12 col-md-7 lang_jp">
+                <div class="row about_cont">    
+                    <div class="about_main col-lg-6 col-12 justify-content-sm-center lang_jp">
                         当webページは、私 吉﨑太郎のポートフォリオサイトとなります。<br>
                         コンテンツとしては、自己紹介等と現在は製作物1点と少ないですが、<br>
                         自身の事に関していくらかでもご理解いただけたら幸いです。<br>
                     </div>
-                    <div class="about_main col-12 col-md-7 lang_en">
+                    <div class="about_main col-lg-6 col-12 lang_en">
                         Hi, My name is Taro Yoshizaki.<br>
                         This is my portfolio website.<br>
                         Contents is not many(Bio and one product),<br>
                         but I hope you will understand any better me.<br>
                     </div>
-                    <div class="col-12 col-md-5">
-                        a<!--何か画像-->
+                    <div class="col-lg-6 col-12">
+                        <div class="row" style="line-height: 0">
+                            <div class="col-12">
+                                <div data-aos="fade-left">
+                                    <img src="../img/pra.JPG" alt="pra" width="240px">
+                                </div>
+                                <div data-aos="fade-right">
+                                    <img src="../img/rap.JPG" alt="rap" width="240px">
+                                </div>
+                            </div>
+                            <div class="col-12">
+                                <img src="../img/iidxcp.JPG" alt="iidx" width="490px" data-aos="fade-up">
+                            </div>
+                        </div>
                     </div>
                 </div>
             </div>
