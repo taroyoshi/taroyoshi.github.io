@@ -88,7 +88,8 @@ $(function(){
         var a = document.getElementsByName('link');
         
         var indexele    = document.getElementById('index').getBoundingClientRect();
-        var aboutele    = document.getElementById('about').getBoundingClientRect();
+        var abtpele    = document.getElementById('about_p').getBoundingClientRect();
+        var abtmele    = document.getElementById('about_m').getBoundingClientRect();
         var profele     = document.getElementById('profile').getBoundingClientRect();
         var bioele     = document.getElementById('biography').getBoundingClientRect();
         var skillele     = document.getElementById('skill').getBoundingClientRect();
@@ -96,7 +97,8 @@ $(function(){
         var iidaxeele   = document.getElementById('iidaxe_wrap').getBoundingClientRect();
         
         topY = indexele.top + window.pageYOffset;   // Y座標(絶対座標)
-        aboutY = aboutele.top + window.pageYOffset;   // Y座標(絶対座標)
+        abtpY = abtpele.top + window.pageYOffset;   // Y座標(絶対座標)
+        abtmY = abtmele.top + window.pageYOffset;   // Y座標(絶対座標)
         pflY = profele.top + window.pageYOffset;   // Y座標(絶対座標)
         bioY = bioele.top + window.pageYOffset;   // Y座標(絶対座標)
         skillY = skillele.top + window.pageYOffset;   // Y座標(絶対座標)
@@ -159,50 +161,49 @@ function controllColor(){
     
     //この定義等は要自動化 head_buttonやslide_childの数か
     var cArray = [3];
-    var sArray = [4];
+    var sArray = [5];
     var layer = [2];
+    layer[1] = "0.90";
     
-    if((nowYpos >= topY) && (aboutY > nowYpos)){
+    if((nowYpos >= topY) && (abtpY > nowYpos)){
         cArray = [1, 0, 0];
-        sArray = [0, 0, 0, 0];
+        sArray = [0, 0, 0, 0, 0];
         layer[0] = "240, 255, 240, ";
-        layer[1] = "0.75";
     }
-    else if((nowYpos >= aboutY) && (pflY > nowYpos)){
+    else if((nowYpos >= abtpY) && (abtmY > nowYpos)){
         cArray = [1, 0, 0];
-        sArray = [1, 0, 0, 0];
+        sArray = [1, 0, 0, 0, 0];
         layer[0] = "240, 255, 240, ";
-        layer[1] = "0.75";
+    }
+    else if((nowYpos >= abtmY) && (pflY > nowYpos)){
+        cArray = [1, 0, 0];
+        sArray = [0, 1, 0, 0, 0];
+        layer[0] = "240, 255, 240, ";
     }
     else if((nowYpos >= pflY) && (bioY > nowYpos)){
         cArray = [0, 1, 0];
-        sArray = [0, 0, 0, 0];
+        sArray = [0, 0, 0, 0, 0];
         layer[0] = "255, 255, 225, ";
-        layer[1] = "0.75";
     }
     else if((nowYpos >= bioY) && (skillY > nowYpos)){
         cArray = [0, 1, 0];
-        sArray = [0, 1, 0, 0];
+        sArray = [0, 0, 1, 0, 0];
         layer[0] = "255, 255, 225, ";
-        layer[1] = "0.75";
     }
     else if((nowYpos >= skillY) && (pdtY > nowYpos)){
         cArray = [0, 1, 0];
-        sArray = [0, 0, 1, 0];
+        sArray = [0, 0, 0, 1, 0];
         layer[0] = "255, 255, 225, ";
-        layer[1] = "0.75";
     }
     else if((nowYpos >= pdtY) && (idxY > nowYpos)){
         cArray = [0, 0, 1];
-        sArray = [0, 0, 0, 0];
+        sArray = [0, 0, 0, 0, 0];
         layer[0] = "225, 200, 200, ";
-        layer[1] = "0.75";
     }
     else if(nowYpos >= idxY){
         cArray = [0, 0, 1];
-        sArray = [0, 0, 0, 1];
+        sArray = [0, 0, 0, 0, 1];
         layer[0] = "225, 200, 200, ";
-        layer[1] = "0.75";
     }
     
     changeColor(cArray, sArray);
@@ -219,7 +220,8 @@ function changeColor(arr1, arr2){
                 'prof_button', 
                 'prod_button'];
                 
-    var sarr = ['about_button',
+    var sarr = ['abtp_button',
+                'abtm_button', 
                 'bio_button', 
                 'skill_button', 
                 'iidaxe_button'];

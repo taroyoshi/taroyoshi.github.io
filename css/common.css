@@ -103,7 +103,7 @@
 }
 
 
-#about h3{
+#index h1{
     font-family: IMPACT;
 }
 
@@ -111,14 +111,14 @@
     color:black;
     width: 50%;
     height: auto;
-    padding: 40px 20px 30px;
+    padding: 10px 20px 30px;
     z-index:3;
     
 }
 
 .about_cont img{
     margin-right: 5px;
-    margin-bottom: 5px;
+    margin-bottom: 10px;
 }
 
 
