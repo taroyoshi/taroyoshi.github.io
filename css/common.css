@@ -17,10 +17,6 @@
     vertical-align:middle;
     background-color: rgba(240,240,240, 0.5);
     padding-top:7px;
-    /*background-color: rgb(255,175,255);*/
-    /*border: groove 2px skyblue;*/
-    /*border-radius: 5px 5px 0 0/ 5px 5px 0 0;*/
-    
 }
 
 #lang_button{
@@ -60,11 +56,11 @@
     float:left;
     text-align:center;
     vertical-align:middle;
-    background-color:rgba(240,240,240, 0.5);
+    background-color:rgba(240,240,240, 1.0);
     /*border: solid 1px skyblue;*/
     padding-top:5px;
     display:none;
-    opacity: 0.9;
+    
 }
 
 .s_b{
@@ -73,25 +69,24 @@
 
 .main_wraper{
     width:auto;
+    height:auto;
     background-size: cover;
     background-attachment:fixed;
     background-image: url(../img/wpIMGL2790_TP_V.jpg);
     
 }
 
-#index{
-    height:2000px;   
+#index :not(h1){
+    height:100%;   
     color:rgb(50, 25, 25);
+    font-family: ヒラギノ角ゴ Pro W3;    
 }
 
 #index_main{
-    
-    
     opacity: 0.9;
     height: auto;
     padding: 10px 20px 10px 20px;
     margin:70px 20px 90vh 20px;
-    
     text-align: center;
 }
 
@@ -99,9 +94,8 @@
     height:100%;
     width:100%;
     z-index:30;
-    transition: background-color 0.5s linear; 
+    transition: background-color 0.2s linear; 
 }
-
 
 #index h1{
     font-family: IMPACT;
@@ -109,18 +103,19 @@
 
 .about_main{
     color:black;
-    width: 50%;
     height: auto;
-    padding: 10px 20px 30px;
-    z-index:3;
     
+    z-index:3;
 }
 
-.about_cont img{
-    margin-right: 5px;
-    margin-bottom: 10px;
+#about_p{
+    margin-bottom: 80vh;
 }
 
+
+#about_m{
+    margin-bottom: 400px;
+}
 
 #profile{
     height:2000px;
@@ -170,12 +165,9 @@
 }
 
 #iidaxe_wrap{
-    color:black;
-    background-color: white;
-    opacity:0.9;
+    color:rgb(50, 25, 25);
     padding:10px 0 20px 10px;
     margin:0 0 20px 20px;
-    border: solid 2px skyblue;
 }
 #iidaxe_wrap span{
     font-size:12px;

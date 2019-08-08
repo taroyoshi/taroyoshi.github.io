@@ -157,13 +157,13 @@ $(function(){
 //色制御
 function controllColor(){
     
-    nowYpos = window.pageYOffset + 45;
+    nowYpos = window.pageYOffset + 100;
     
-    //この定義等は要自動化 head_buttonやslide_childの数か
+    //この辺りは要自動化 head_buttonやslide_childの数か
     var cArray = [3];
     var sArray = [5];
     var layer = [2];
-    layer[1] = "0.90";
+    layer[1] = "0.95";
     
     if((nowYpos >= topY) && (abtpY > nowYpos)){
         cArray = [1, 0, 0];
@@ -173,12 +173,12 @@ function controllColor(){
     else if((nowYpos >= abtpY) && (abtmY > nowYpos)){
         cArray = [1, 0, 0];
         sArray = [1, 0, 0, 0, 0];
-        layer[0] = "240, 255, 240, ";
+        layer[0] = "200, 200, 255, ";
     }
     else if((nowYpos >= abtmY) && (pflY > nowYpos)){
         cArray = [1, 0, 0];
         sArray = [0, 1, 0, 0, 0];
-        layer[0] = "240, 255, 240, ";
+        layer[0] = "200, 200, 255, ";
     }
     else if((nowYpos >= pflY) && (bioY > nowYpos)){
         cArray = [0, 1, 0];
@@ -198,12 +198,12 @@ function controllColor(){
     else if((nowYpos >= pdtY) && (idxY > nowYpos)){
         cArray = [0, 0, 1];
         sArray = [0, 0, 0, 0, 0];
-        layer[0] = "225, 200, 200, ";
+        layer[0] = "255, 225, 225, ";
     }
     else if(nowYpos >= idxY){
         cArray = [0, 0, 1];
         sArray = [0, 0, 0, 0, 1];
-        layer[0] = "225, 200, 200, ";
+        layer[0] = "255, 225, 225, ";
     }
     
     changeColor(cArray, sArray);
@@ -252,18 +252,23 @@ function setHover(){
         var id = $(this).attr("id");
         var t;
         
-        switch(id){
-            case "top_button":
-                t = "トップ";
-                break;
-            case "prof_button":
-                t = "自己紹介";
-                break;
-            case "prod_button":
-                t = "制作物";
-                break;
+        var con_lang = $("#lang_disp").text();
+        
+        if(con_lang != "日本語"){
+            switch(id){
+                case "top_button":
+                    t = "トップ";
+                    break;
+                case "prof_button":
+                    t = "自己紹介";
+                    break;
+                case "prod_button":
+                    t = "制作物";
+                    break;
+            }
+            $(this).children(".hdt").text(t);
         }
-        $(this).children(".hdt").text(t);
+            
         $(this).css('transition', 'background-color 0.3s linear'); 
         $(this).css('background-color', 'rgba(185,255,215, 0.75)');
         if(id != "lang_button"){
@@ -305,7 +310,15 @@ function setHover(){
         
     },function(){
 
-        $(this).css('background-color', 'rgba(240,240,240, 0.5)');
+        var op;
+        
+        if($(this).attr("class") == "head_button"){
+            op = 0.5;
+        }
+        else{
+            op = 1.0;
+        }
+        $(this).css('background-color', 'rgba(240,240,240, ' + op);
     });
 }
 
