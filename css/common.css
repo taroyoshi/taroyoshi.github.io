@@ -50,7 +50,7 @@
 .slide_child{
     position: relative;
     right:0;
-    top: 12px;
+    top: 10px;
     width:100px;
     height:40px;
     float:left;
@@ -97,7 +97,7 @@
     transition: background-color 0.2s linear; 
 }
 
-#index h1{
+h1{
     font-family: IMPACT;
 }
 
@@ -164,10 +164,31 @@
     max-height:3210px;
 }
 
+.slider{
+    margin: 50px auto;
+    width: 100%;
+}
+.slider img{
+    height: auto;
+    width: 80%;
+    padding: 0 0;
+    margin:auto;
+}
+
+.slick-prev:before,.slick-next:before {
+    color: #000;
+}
+
+.slider ul{
+    padding: 0;
+    width:90%;
+    
+}
+
 #iidaxe_wrap{
     color:rgb(50, 25, 25);
-    padding:10px 0 20px 10px;
-    margin:0 0 20px 20px;
+    
+    
 }
 #iidaxe_wrap span{
     font-size:12px;

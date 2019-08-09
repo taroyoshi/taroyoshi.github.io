@@ -1,5 +1,4 @@
 $(function(){
-    
   
     $("#header-outer").load("../html/header.html #header-inner");
     
@@ -8,6 +7,13 @@ $(function(){
         
         //ホバーイベント
         setHover();
+        //slick
+        $('.slider').slick({
+            //autoplay:true,
+            //autoplaySpeed:5000,
+            dots:true,
+            centerMode: false
+        });
         
         //言語切り替え
         $("#lang_button, #sidelg").click(function(){

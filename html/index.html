@@ -9,12 +9,17 @@
     <!-- Bootstrap4のCSS読み込み -->
     <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
 
+    <link href="../external/slick/slick-theme.css" rel="stylesheet" type="text/css">
+    <link href="../external/slick/slick.css" rel="stylesheet" type="text/css">
+    
     <!-- jQuery読み込み -->
     <script type="text/javascript" src="../external/jquery/jquery.js"></script>
     <script type="text/javascript" src="../external/jquery/jquery.easing.1.3.js"></script>
+    <script type="text/javascript" src="../external/slick/slick.min.js"></script>
     
     <!-- Bootstrap4のJS読み込み -->
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
+    
     <!-- aos-animateのcss-->
     <!--<link rel="stylesheet" href="https://cdn.rawgit.com/michalsnik/aos/1.0.1/dist/aos.css">-->
     <link href="https://cdn.rawgit.com/michalsnik/aos/2.0.4/dist/aos.css" rel="stylesheet">
@@ -23,7 +28,7 @@
     <link rel="stylesheet" type="text/css" href="../css/resp.css" />
     <link rel="stylesheet" type="text/css" href="../css/side.css" />
 
-    <script language="javascript" src="../header.js"></script>
+    <script language="javascript" src="../js/header.js"></script>
     
    
     <title>Taro Yoshizaki's PORT FOLIO</title>
@@ -110,14 +115,14 @@
                     </div>
                 </div>
                 
-                <div class="" id="about_p">
+                <div id="about_p">
                     <div class="row">
                         <div class="col-sm-12 text-center mb-0 mb-sm-3" name="link" >
                             <h1>About this page</h1>
                         </div>
                     </div>
                     <div class="row about_page">
-                        <div class="about_main col-sm-6 offset-sm-3 text-center">
+                        <div class="about_main col-sm-8 offset-sm-2 text-center">
                             <div class="lang_jp">
                                 当webページは、<br>
                                 私 吉﨑太郎のポートフォリオサイトとなります。<br>
@@ -297,11 +302,33 @@
 
     <!-- 以下はサムネイルとモーダルで表示するようわける-->
 
+
+
+
     <div class="main_wraper" id="product" name="link">
         <div class="all_layer">
             <div class="container">
                 <div class="row">
+                    
+                    <div class="col-sm-12 text-center mb-0 mb-sm-3" name="link">
+                        <h1>Products</h1>
+                    </div>
+                    
+                    
+                    
                     <div id="iidaxe_wrap" class="col-md-12" name="link">
+                        
+                        <!--PC表示用-->
+                        <ul class="slider">
+                            <li><img src="../img/pre0.jpg" alt="image0"></li>
+                            <li><img src="../img/pre1.jpg" alt="image1"></li>
+                            <li><img src="../img/pre2.jpg" alt="image2"></li>
+                            <li><img src="../img/pre3.jpg" alt="image3"></li>
+                        </ul>
+                    </div>
+
+
+                    <div id="iidaxe_wrap" class="col-md-12 d-flex justify-content-between" name="link">
                         <div class="lang_jp">
                             <h1>IIDAXE TOP(概要)</h1>
                             <p>とあるゲームの一分野における難易度比較をヒエラルキー形式で<br class="sp_br">
@@ -374,18 +401,9 @@
                                 <li>蜃気楼の図書館(最後の書庫)</li>
                                 <li>20th Anniversary Secret Sound</li>
                             </ul>
-                            <!--
-                            <h3>プレビュー</h3>
-                            <a onclick="preview(0)">■</a>
-                            <a onclick="preview(1)">■</a>
-                            <a onclick="preview(2)">■</a>
-                            <a onclick="preview(3)">■</a><br>
                             
                             
-                            <div id="preview">
-                                sankou https://webdesignday.jp/inspiration/technique/jquery-js/3847/
-                            </div>
-                            -->
+                            
                             <h3>追加実装予定</h3>
                             <ul>
                                 <li>検索移動後、対象の表示を一定時間強調, マウスアイコンの移動</li>
@@ -528,6 +546,7 @@
                             <a href="http://www.mmcafe.com/tiermaker/" target="_blank"><i style="font-size:15px">MMCafe Tier Chart Maker / MMCafe キャラランクメーカー</i></a><br>
                             <a href="http://textage.cc/" target="_blank"><i style="font-size:15px">TexTage [テクステージ] (てふたげ)</i></a>
                         </div>
+                        
                     </div>
                 </div>
             </div>
