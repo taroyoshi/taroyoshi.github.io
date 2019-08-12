@@ -15,6 +15,28 @@ $(function(){
             centerMode: false
         });
         
+        //サイドメニュー入れ替え
+        $("#tg_button").click(function(){
+            
+            if($("#tg_button").hasClass("left")){
+                
+                $(".sidebar").css('left', 'initial');
+                $(".sidebar").css('right', '-100px');
+                $(".button > span").css('left', 'initial');
+                $(".button > span").css('right', '100px');
+            }
+            else{
+                $(".sidebar").css('left', '-100px');
+                $(".sidebar").css('right', 'initial');
+                $(".button > span").css('left', '100px');
+                $(".button > span").css('right', 'initial');
+            }
+
+            $(this).toggleClass("left");
+        });
+
+
+
         //言語切り替え
         $("#lang_button, #sidelg").click(function(){
            
@@ -58,14 +80,29 @@ $(function(){
             $button.removeClass('open');
             
             if ($button.hasClass('close')){
-                $sidebar.stop().animate({
-                    left: '0'
-                }, duration, 'easeOutQuint');
+
+                if($("#tg_button").hasClass("left")){
+                    $sidebar.stop().animate({
+                        left: '0'
+                    }, duration, 'easeOutQuint');
+                }
+                else{
+                    $sidebar.stop().animate({
+                        right: '0'
+                    }, duration, 'easeOutQuint');
+                }                
             }
             else{
-                $sidebar.stop().animate({
-                    left: '-100px'
-                }, duration, 'easeOutQuint');
+                if($("#tg_button").hasClass("left")){
+                    $sidebar.stop().animate({
+                        left: '-100px'
+                    }, duration, 'easeOutQuint');
+                }
+                else{
+                    $sidebar.stop().animate({
+                        right: '-100px'
+                    }, duration, 'easeOutQuint');
+                }
                 $button.addClass('open');
             }
         });
@@ -76,14 +113,28 @@ $(function(){
                 $button.removeClass('open');
                 
                 if ($button.hasClass('close')){
-                    $sidebar.stop().animate({
-                        left: '0'
-                    }, duration, 'easeOutQuint');
+                    if($("#tg_button").hasClass("left")){
+                        $sidebar.stop().animate({
+                            left: '0'
+                        }, duration, 'easeOutQuint');
+                    }
+                    else{
+                        $sidebar.stop().animate({
+                            right: '0'
+                        }, duration, 'easeOutQuint');
+                    }
                 }
                 else{
-                    $sidebar.stop().animate({
-                        left: '-100px'
-                    }, duration, 'easeOutQuint');
+                    if($("#tg_button").hasClass("left")){
+                        $sidebar.stop().animate({
+                            left: '-100px'
+                        }, duration, 'easeOutQuint');
+                    }
+                    else{
+                        $sidebar.stop().animate({
+                            right: '-100px'
+                        }, duration, 'easeOutQuint');
+                    }
                     $button.addClass('open');
                 }
             });                
@@ -124,11 +175,7 @@ $(function(){
             return false;
         });
         
-        window.addEventListener('scroll', function() {
-                           
-            controllColor();               
-
-        }, false);
+        addScrollEvent();
         
         controllColor();
         
@@ -137,8 +184,30 @@ $(function(){
 });
 
 
+
+
 $(function(){
     
+    $(".slider img").click(function(){
+        //画面中央を計算する関数を実行
+        modalResize("#iidaxe_modal");;
+        
+        $(".all_layer").css('background-color', "rgba(0, 0, 0, 0.5)")
+        
+
+        //モーダルウィンドウを表示
+        $("#iidaxe_modal").fadeIn("slow", function(){
+            $(".all_layer").click(function(){
+                $("#iidaxe_modal").fadeOut();
+                addScrollEvent();
+                controllColor();
+                $(".all_layer").off();
+            });
+        });
+
+        window.removeEventListener('scroll', controllColor, true);
+    });
+
     $('.accIn').click(function(){
  
         if ($('input[id="topLb"]').prop('checked')) {
@@ -159,6 +228,27 @@ $(function(){
   
     });
 });
+
+function addScrollEvent(){
+    window.addEventListener('scroll', controllColor, true);
+};
+
+//モーダルウィンドウ位置 (tier.jsからコピー、どうにかして呼び出しはできないか) 
+function modalResize(id){
+        
+    var w = $(window).width();
+    var h = $(window).height();
+    
+    var cw = $(id).outerWidth();
+    var ch = $(id).outerHeight();
+    
+    //取得した値をcssに追加する
+    $(id).css({
+        "left": ((w - cw)/2) + "px",
+        "top": ((h - ch)/2) + "px"
+    });
+}
+
 
 //色制御
 function controllColor(){

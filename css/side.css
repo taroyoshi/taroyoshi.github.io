@@ -5,6 +5,7 @@ body {
 .sidebar {
     position: fixed;
     left: -100px;
+    
     width: 100px;
     height: auto;
     background-color: rgba(0, 0, 0, 0.5);
@@ -47,6 +48,51 @@ body {
     background-color: #99FF66;
 }
 
+#tg_button{
+    position: fixed;
+    text-align: center;
+    color: #FFF;
+    background-color: rgba(0, 0, 0, 0.4);
+    height : 35px;
+    width : 55px;
+    top:5px;
+    vertical-align:middle;
+    z-index: 6;
+    border-radius: 5px;
+}
+
+#tg_button > span:before{
+    content: "";
+    display: block;
+    position: absolute;
+    top: 9px;
+    width: 10px;
+    height: 10px;
+    border-bottom: 1px solid #FFF;
+    border-left: 1px solid #FFF;
+    transform: rotate(45deg);
+    -moz-transform: rotate(45deg);
+    -webkit-transform: rotate(45deg);
+    -ms-transform: rotate(45deg);
+    -o-tansform: rotate(45deg);
+    left: 10px;
+}
+#tg_button > span:after{
+    content: "";
+    display: block;
+    position: absolute;
+    top: 9px;
+    width: 10px;
+    height: 10px;
+    border-top: 1px solid #FFF;
+    border-right: 1px solid #FFF;
+    transform: rotate(45deg);
+    -moz-transform: rotate(45deg);
+    -webkit-transform: rotate(45deg);
+    -ms-transform: rotate(45deg);
+    -o-tansform: rotate(45deg);
+    right: 10px;
+}
 
 .button span {    
     position: absolute;

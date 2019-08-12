@@ -60,7 +60,6 @@
     /*border: solid 1px skyblue;*/
     padding-top:5px;
     display:none;
-    
 }
 
 .s_b{
@@ -73,7 +72,6 @@
     background-size: cover;
     background-attachment:fixed;
     background-image: url(../img/wpIMGL2790_TP_V.jpg);
-    
 }
 
 #index :not(h1){
@@ -128,15 +126,10 @@ h1{
 
 .name{
     color:rgb(50, 50, 0);
-    /*background-color: white;*/
-    /*opacity: 0.9;*/
     width: 550px;
     height: auto;
     padding: 30px 0 10px;
-    /*margin:0 0 20px 20px;*/
-    /*border: solid 2px skyblue;*/
     z-index:3;
-    /*border-radius: 15px 15px 15px 15px/ 15px 15px 15px 15px;*/
 }
 #name h6{
     margin-bottom:2px;
@@ -184,6 +177,20 @@ h1{
     width:90%;
     
 }
+
+#iidaxe_modal{
+    display: none;
+    height: 80%;
+    width: 80%;
+    padding-bottom: 20px;
+    background-color: white;
+    position:fixed;
+    z-index: 20;
+    border-radius: 5px;
+    border: solid 1px blue;
+    overflow-y: scroll;
+}
+
 
 #iidaxe_wrap{
     color:rgb(50, 25, 25);
