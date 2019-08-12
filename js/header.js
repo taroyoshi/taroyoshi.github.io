@@ -9,8 +9,8 @@ $(function(){
         setHover();
         //slick
         $('.slider').slick({
-            //autoplay:true,
-            //autoplaySpeed:5000,
+            autoplay:true,
+            autoplaySpeed:5000,
             dots:true,
             centerMode: false
         });
@@ -175,8 +175,9 @@ $(function(){
             return false;
         });
         
+        //スクロール時にイベント付与
         addScrollEvent();
-        
+        //直後に色変更
         controllColor();
         
     },130);
@@ -191,12 +192,12 @@ $(function(){
     $(".slider img").click(function(){
         //画面中央を計算する関数を実行
         modalResize("#iidaxe_modal");;
-        
+        //レイヤー黒に
         $(".all_layer").css('background-color', "rgba(0, 0, 0, 0.5)")
         
-
         //モーダルウィンドウを表示
         $("#iidaxe_modal").fadeIn("slow", function(){
+            //モーダル外クリックでモーダル非表示
             $(".all_layer").click(function(){
                 $("#iidaxe_modal").fadeOut();
                 addScrollEvent();

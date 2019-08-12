@@ -821,7 +821,7 @@ jQuery(function(){
                     
                     var div_element = document.createElement("div");
                     var parent_object = document.getElementById('main');
-                    div_element.innerHTML = '<div id="searchSQ" style="left: ' +
+                    div_element.innerHTML = '<div data-aos="flip-up" data-aos-once="false" id="searchSQ" style="left: ' +
                                             (positionLeft -3) +
                                             'px; top:' +
                                             (positionTop -3) +
