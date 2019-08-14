@@ -886,6 +886,8 @@ jQuery(function(){
                     $(this).val("Not Setted");
                     $("#list_name").text("配置済み一覧");
                 }
+
+                modalResize("#setted_modal-main");
                 
                 break;
             //当モーダルをクローズ
@@ -1051,7 +1053,7 @@ jQuery(function(){
         $("#nosetted_list").children().remove();
 
         //TODO existArrayから判定しないでmusic_tableのバージョン順→IN_VER_INDEX順→INDEXを見て判定 か?
-        // もしくはバージョン名に-1のバリューを与えてソート?
+        //もしくはバージョン名に-1のバリューを与えてソート?
 
         for(var ver = 2; ver <= 26; ver++){
             var singleVerList = music_table.filter(item => item[VER_INDEX] == ver);

@@ -10,7 +10,7 @@ $(function(){
         //slick
         $('.slider').slick({
             autoplay:true,
-            autoplaySpeed:5000,
+            autoplaySpeed:2500,
             dots:true,
             centerMode: false
         });

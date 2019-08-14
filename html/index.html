@@ -314,12 +314,11 @@
         <div class="all_layer">
             <div class="container">
                 <div class="row">
-                    
                     <div class="col-sm-12 text-center" name="link">
                         <h1>Products</h1>
                     </div>
                     
-                    <div id="iidaxe" class="col-md-12" name="link">
+                    <div id="iidaxe" class="col-md-12 mb-5" name="link">
                         <h2 class="text-center">1. IIDAXE</h2>
                         
                         <!--PC表示用-->
@@ -481,9 +480,9 @@
                                 <li>Information display this explanatory text.</li>
                                 <br>
                                 <p>Axis, Position</p>
-                                <li>X Axis : 対象譜面において特異であるか(左部 特異である[singular], 右部 一般的である[ordinary])</li>
-                                <li>Y Axis : 対象譜面において設定した目標の達成難易度(上部 達成難度高[difficult], 下部 達成難度低[easy])</li>
-                                <span>(同じY座標にて、同程度の難易度ではあると思っても個人差, 譜面の特異性, 特徴から一般的で無い と考えるならば左部へ)</span><br>
+                                <li>X Axis : Whether an target score is singular(left side : It's singular, right side : It's ordinary).</li>
+                                <li>Y Axis : Compleat difficulty of setted on "TARGET LEVEL".(Top side : It's difficult, Buttom side :  It's easy).</li>
+                                <span>(If you think on same level Y axis both score and it has singularyty, you should set left side)</span><br>
                                 <br>
                                 <p>Other function</p>
                                 <li>生成したボックス複数を選択する様にドラッグすると複数選択状態に(枠線が赤の状態)、まとめてドラッグ可能</li>
@@ -505,16 +504,7 @@
                                 <li>20th Anniversary Secret Sound</li>
                             </ul>
                             <!--
-                            <h3>プレビュー</h3>
-                            <a onclick="preview(0)">■</a>
-                            <a onclick="preview(1)">■</a>
-                            <a onclick="preview(2)">■</a>
-                            <a onclick="preview(3)">■</a><br>
-                            
-                            
-                            <div id="preview">
                                 sankou https://webdesignday.jp/inspiration/technique/jquery-js/3847/
-                            </div>
                             -->
                             <h3>追加実装予定</h3>
                             <ul>
@@ -553,27 +543,31 @@
                         </div>
                     </div>
                 </div>
-
-
-
-        </div>
-    </div>
-    
-    <div class="main_wraper">
-        <div class="container">
-            <div class="row">
-                <div class="end_greet col-md-10 offset-md-1">
-                    <p>Thank You For Browsing!!</p>
-                    
-                    <a href="#index">
-                        <img src="../img/ダウンロード.png" >
-                    </a>
-                    
-                </div>
             </div>
         </div>
     </div>
-    
-    
+
+    <footer>
+        <div class="main_wraper">
+            <div class="layer">   
+                <div class="container-fluid">
+                    <div class="row">
+                        <div class="end_greet col-md-10 offset-md-1 text-center pt-5">
+                            <p class="h1 mb-5">Thank You For Browsing!!</p>
+                            
+                            <a href="#index">
+                                <img src="../img/ダウンロード.png" class="pb-2">
+                            </a>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-12 pl-5 pt-2 pb-2" style="background-color: rgba(248, 153, 85, 0.39)">
+                            <p>@2019 Taro Yoshizaki</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </footer>
 </body>
 </HTML>

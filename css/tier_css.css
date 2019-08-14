@@ -296,9 +296,17 @@ header{
     display: block;
 }
 
+#setted_list > p{
+    color: rgb(150, 15, 15);
+}
+
 
 #nosetted_list{
     display: none;
+}
+
+#nosetted_list > p{
+    color: rgb(150, 15, 15);
 }
 
 

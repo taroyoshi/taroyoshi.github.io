@@ -146,7 +146,6 @@ h1{
     background-color: red;
     margin-left: 50px;
     
-    
 }
 
 .b_year::after{
@@ -154,7 +153,8 @@ h1{
 }
 
 #product{
-    max-height:3210px;
+    height:auto;
+    margin-bottom: 0px;
 }
 
 .slider{
@@ -163,7 +163,7 @@ h1{
 }
 .slider img{
     height: auto;
-    width: 80%;
+    width: 90%;
     padding: 0 0;
     margin:auto;
 }
@@ -193,8 +193,6 @@ h1{
 
 #iidaxe_wrap{
     color:rgb(50, 25, 25);
-    
-    
 }
 #iidaxe_wrap span{
     font-size:12px;
@@ -219,7 +217,14 @@ h1{
     margin-top: 1px;
 }
 
-#preview{
-    height:80%;
-    width:80%;
+footer .layer{
+    background-color: rgba(252, 178, 199, 0.8);
+    padding-bottom: 0;
+}
+footer img{
+    width: 5vw;
+    transition: 0.3s ease 0s;
+}
+footer img:hover{
+    transform: translateY(-10px);
 }
