@@ -1,3 +1,9 @@
+body{
+    background-size: cover;
+    background-attachment:fixed;
+    background-image: url(../img/wpIMGL2790_TP_V.jpg);
+}
+
 .lang_jp{
     display:block;
 }
@@ -57,7 +63,6 @@
     text-align:center;
     vertical-align:middle;
     background-color:rgba(240,240,240, 1.0);
-    /*border: solid 1px skyblue;*/
     padding-top:5px;
     display:none;
 }
@@ -67,15 +72,13 @@
 }
 
 .main_wraper{
-    width:auto;
+    /*padding-left:0;
+    padding-right:0;*/
     height:auto;
-    background-size: cover;
-    background-attachment:fixed;
-    background-image: url(../img/wpIMGL2790_TP_V.jpg);
+    
 }
 
 #index :not(h1){
-    height:100%;   
     color:rgb(50, 25, 25);
     font-family: ヒラギノ角ゴ Pro W3;    
 }
@@ -102,8 +105,8 @@ h1{
 .about_main{
     color:black;
     height: auto;
-    
     z-index:3;
+    font-size: 1rem;
 }
 
 #about_p{
@@ -116,7 +119,7 @@ h1{
 }
 
 #profile{
-    height:2000px;
+    height:auto;
 }
 
 
@@ -157,13 +160,15 @@ h1{
     margin-bottom: 0px;
 }
 
+
+
 .slider{
     margin: 50px auto;
-    width: 100%;
+    width: 80%;
 }
 .slider img{
     height: auto;
-    width: 90%;
+    width: 80%;
     padding: 0 0;
     margin:auto;
 }
@@ -176,6 +181,8 @@ h1{
     padding: 0;
     width:90%;
 }
+
+
 
 #iidaxe_modal{
     display: none;

@@ -41,14 +41,16 @@
     <script>AOS.init();</script>
 
     <div class="container-fluid">
-        <div class="row header">
-            <header id="header-outer" class="col-md-7 offset-md-3 d-none d-md-block">
-                <!--JSでヘッダ読み込み--> 
-            </header>
+        <div class="row">
+            <div class="header">   
+                <header id="header-outer" class="col-md-7 offset-md-3 d-none d-md-block">
+                    <!--JSでヘッダ読み込み--> 
+                </header>
+            </div>
         </div>
     </div>
 
-    <div class="container">
+    <div class="container-fluid">
         <div class="row">
             <div class="d-md-none" id="side_menu">
                 <aside class="sidebar">
@@ -98,15 +100,13 @@
                     <span>-</span>
                 </div>
             </div>
-
         </div>
     </div>
-    
-    <div class="main_wraper" id="index" name="link">
-        <div class="all_layer">
-            <div class="container">
-                <div class="row">
-                    <div id="index_main" class="col-sm-12">
+    <div class="all_layer">
+        <div class="container-fluid">
+            <div class="row">
+                <div class=" col-12" id="index" name="link">
+                    <div id="index_main">
                         <div id="greet">
                             <span>Hello,</span>
                             <span>This is</span>
@@ -119,86 +119,84 @@
                         </div>
                     </div>
                 </div>
-                
-                <div id="about_p">
-                    <div class="row">
-                        <div class="col-sm-12 text-center mb-0 mb-sm-3" name="link" >
-                            <h1>About this page</h1>
-                        </div>
+            </div>
+
+            <div class="main_wraper" id="about_p" name="link">
+                <div class="row">
+                    <div class="col-sm-12 text-center mb-0 mb-sm-3" name="link" >
+                        <h1>About this page</h1>
                     </div>
-                    <div class="row about_page">
-                        <div class="about_main col-sm-8 offset-sm-2 text-center">
-                            <div class="lang_jp">
-                                当webページは、<br>
-                                私 吉﨑太郎のポートフォリオサイトとなります。<br>
-                                コンテンツとしては現在、自己紹介等と製作物1点と少ないですが、<br>
-                                自身の事に関して幾らかでもご理解いただけたら幸いです。<br>
-                            </div>
-                            <div class="lang_en">
-                                Hi, My name is Taro Yoshizaki.<br>
-                                This is my portfolio website.<br>
-                                Contents is not many(Bio and one product),<br>
-                                but I hope you will understand any better me.<br>
-                            </div>
+                </div>
+                <div class="row">
+                    <div class="about_main col-sm-8 offset-sm-2 text-center">
+                        <div class="lang_jp">
+                            当webページは、<br>
+                            私 吉﨑太郎のポートフォリオサイトとなります。<br>
+                            コンテンツとしては現在、自己紹介等と製作物1点と少ないですが、<br>
+                            自身の事に関して幾らかでもご理解いただけたら幸いです。<br>
+                        </div>
+                        <div class="lang_en">
+                            Hi, My name is Taro Yoshizaki.<br>
+                            This is my portfolio website.<br>
+                            Contents is not many(Bio and one product),<br>
+                            but I hope you will understand any better me.<br>
                         </div>
                     </div>
                 </div>
+            </div>
                 
-                <div id="about_m">
-                    <div class="row">
-                        <div  class="col-sm-12 text-center mb-0 mb-sm-3" name="link">
-                            <h1>About me</h1>
+            <div class="row">
+                <div  class="col-sm-12 text-center mb-0 mb-sm-3" id="about_m" name="link">
+                    <h1>About me</h1>
+                </div>
+            </div>
+                    
+            <div class="row">
+                <div class="about_main col-md-5 col-12 text-md-left text-center pt-lg-5 pl-lg-5 pr-lg-0">
+                    <div class="lang_jp">
+                        趣味はゲームとプラモデル、<br>
+                        大学の学部は電子通信工学に進学。<br>
+                        また学生時代と大学院修了後は、<br>
+                        ゲームセンターのアルバイトに注力。<br>
+                        その後はモータ用デバイスドライバ制作に従事。<br>
+                        <br>
+                        何事も"広く浅く"になってしまいがちで<br>
+                        器用貧乏気味な事を痛感。<br>
+                    </div>
+                    <div class="lang_en">
+                        My hobby are game and plamodel.<br>
+                        School of Engineering Science, <br>
+                        Department of Electronic communication.<br>
+                        In university days and after completed master's degree, <br>
+                        work at an amusement arcade. <br> 
+                        After that, be engaged in product <br>
+                        device driver for stepping motors.<br>
+                        <br>
+                        I tend to be wide and shallow,<br>
+                        and keenly realize that I'm Dexterity.<br>
+                    </div>
+                </div>
+                <div class="col-md-7 col-12">
+                    <div class="row text-center">
+                        <div class="col-12">
+                            <img src="../img/pra.JPG" alt="pra" width="46%" data-aos="fade-right" data-aos-once="false">
+                            <img src="../img/rap.JPG" alt="rap" width="46%" data-aos="fade-left" data-aos-once="false">
                         </div>
                     </div>
-                    <div class="row about_me pt-1" style="font-size: 1rem" >
-                        <div class="about_main col-md-5 col-12 text-md-left text-center pt-lg-5 pl-lg-5 pr-lg-0">
-                            <div class="lang_jp">
-                                趣味はゲームとプラモデル、<br>
-                                大学の学部は電子通信工学に進学。<br>
-                                また学生時代と大学院修了後は、<br>
-                                ゲームセンターのアルバイトに注力。<br>
-                                その後はモータ用デバイスドライバ制作に従事。<br>
-                                <br>
-                                何事も"広く浅く"になってしまいがちで<br>
-                                器用貧乏気味な事を痛感。<br>
-                            </div>
-                            <div class="lang_en">
-                                My hobby are game and plamodel.<br>
-                                School of Engineering Science, <br>
-                                Department of Electronic communication.<br>
-                                In university days and after completed master's degree, <br>
-                                work at an amusement arcade. <br> 
-                                After that, be engaged in product <br>
-                                device driver for stepping motors.<br>
-                                <br>
-                                I tend to be wide and shallow,<br>
-                                and keenly realize that I'm Dexterity.<br>
-                            </div>
-                        </div>
-                        <div class="col-md-7 col-12">
-                            <div class="row text-center">
-                                <div class="col-12">
-                                    <img src="../img/pra.JPG" alt="pra" width="46%" data-aos="fade-right" data-aos-once="false">
-                                    <img src="../img/rap.JPG" alt="rap" width="46%" data-aos="fade-left" data-aos-once="false">
-                                </div>
-                            </div>
-                            <div class="row text-center">
-                                <div class="col-12">
-                                    <img src="../img/iidxcp.jpg" alt="iidx" width="93%" data-aos="fade-up" style="margin-top: 2px" data-aos-once="false">
-                                </div>
-                            </div>
+                    <div class="row text-center">
+                        <div class="col-12">
+                            <img src="../img/iidxcp.jpg" alt="iidx" width="93%" data-aos="fade-up" style="margin-top: 2px" data-aos-once="false">
                         </div>
                     </div>
                 </div>
             </div>
         </div>
-    </div>
 
-    <div class="main_wraper" id="profile" name="link">
-        <div class="all_layer">
-            <div class="container">
-                <div class="row">
-                    <div class="name col-md-8 offset-2 lang_jp">
+    
+        <div class="container-fluid">
+            <div class="row">
+                <div class="main_wraper col-md-8 offset-2" id="profile" name="link">
+                    <div class="name lang_jp">
                         <h1>Profile</h1>
                         <h2>吉﨑 太郎</h2>
                         <h3>1984年 12月 1日生まれ</h3>
@@ -240,23 +238,23 @@
                         <h6>●Contact(eメール)</h6>
                         <a href="mailto:jetworldcircus@gmail.com">e-mail</a><br>
                     </div>
-                </div>
                 
-                <div class="row">
-                    <div class="name col-md-8 offset-2" id="biography">
-                    
-                        <div class="lang_jp bio_contents">
-                            a<!--<h2>●Biography(略歴)</h2>
-                        
-                            <div class="b_year">1984年</div> 
-                            -->
+                    <!--
+                        <div class="row">
+                            <div class="name col-md-8 offset-2" id="biography">
+                            
+                                <div class="lang_jp bio_contents">
+                                    <h2>●Biography(略歴)</h2>
+                                
+                                    <div class="b_year">1984年</div> 
+                                    
+                                </div>
+                            </div>
                         </div>
-                    </div>
-                </div>
+                    -->
                     
-                    
-                <div class="row">
-                    <div class="name col-md-8 offset-md-2 lang_en">
+                
+                    <div class="lang_en">
                         <h1>Profile</h1>
                         <h2>Taro Yoshizaki</h2>
                         <h3>Born on December 1st, 1984</h3>
@@ -300,7 +298,6 @@
                 </div>
             </div>
         </div>
-    </div>
 
 
     <!-- TODO product と iidaxeの間開けて区別-->
@@ -309,243 +306,244 @@
 
 
 
-
-    <div class="main_wraper" id="product" name="link">
-        <div class="all_layer">
-            <div class="container">
-                <div class="row">
-                    <div class="col-sm-12 text-center" name="link">
+        <div class="container-fluid">
+            <div class="row">
+                <div class="main_wraper text-center" id="product" name="link">
+                    <div class="col-sm-12" name="link">
                         <h1>Products</h1>
                     </div>
                     
-                    <div id="iidaxe" class="col-md-12 mb-5" name="link">
+                    <div id="iidaxe" class="col-md-10 offset-md-1 col-12" name="link">
                         <h2 class="text-center">1. IIDAXE</h2>
                         
-                        <!--PC表示用-->
+                        <!--
                         <ul class="slider">
                             <li><img src="../img/pre0.jpg" alt="image0"></li>
                             <li><img src="../img/pre1.jpg" alt="image1"></li>
                             <li><img src="../img/pre2.jpg" alt="image2"></li>
                             <li><img src="../img/pre3.jpg" alt="image3"></li>
                         </ul>
+                        -->
                     </div>
-                </div>
+                
 
-                <div id="iidaxe_modal">
-                    <div id="iidaxe_wrap" class="col-md-12 d-flex justify-content-between" name="link">
-                        <div class="lang_jp">
-                            <h1>IIDAXE TOP(概要)</h1>
-                            <p>とあるゲームの一分野における難易度比較をヒエラルキー形式で<br class="sp_br">
-                                考察, 提言, 表現する為のツール</p> 
-                            
-                            <h2>機能説明</h2>
-                            <ul><!-- Searchは https://blog.cntlog.net/archives/2048 でどうにかできるか モーダル内説明と共有する様に別けるべきか-->
-                                <p>Generateボタン 及びウィンドウ</p>
-                                <li>上部ヘッダー内Generateボタンにより生成用モーダルウィンドウ表示</li>
-                                <li>VERSIONセレクトボックス変更で<br class="sp_br">
-                                    MUSIC & SCOREセレクトボックス内容が変更</li>
-                                <li>MUSIC & SCOREのセレクトボックスはShiftキーやCtrlキーを<br class="sp_br">
-                                    押しながらで複数選択可能(Allボタンで全選択状態に)</li>                        
-                                <li>Box Generateボタンにより MUSIC & SCORE選択中の内容で<br class="sp_br">
-                                    ドラッグ可能なボックスを生成</li>
-                                <li>Deleteボタンにより 一括削除用モーダル表示</li>
+                    <div id="iidaxe_modal">
+                        <div id="iidaxe_wrap" class="col-md-12 d-flex justify-content-between" name="link">
+                            <div class="lang_jp">
+                                <h1>IIDAXE TOP(概要)</h1>
+                                <p>とあるゲームの一分野における難易度比較をヒエラルキー形式で<br class="sp_br">
+                                    考察, 提言, 表現する為のツール</p> 
+                                
+                                <h2>機能説明</h2>
+                                <ul><!-- Searchは https://blog.cntlog.net/archives/2048 でどうにかできるか モーダル内説明と共有する様に別けるべきか-->
+                                    <p>Generateボタン 及びウィンドウ</p>
+                                    <li>上部ヘッダー内Generateボタンにより生成用モーダルウィンドウ表示</li>
+                                    <li>VERSIONセレクトボックス変更で<br class="sp_br">
+                                        MUSIC & SCOREセレクトボックス内容が変更</li>
+                                    <li>MUSIC & SCOREのセレクトボックスはShiftキーやCtrlキーを<br class="sp_br">
+                                        押しながらで複数選択可能(Allボタンで全選択状態に)</li>                        
+                                    <li>Box Generateボタンにより MUSIC & SCORE選択中の内容で<br class="sp_br">
+                                        ドラッグ可能なボックスを生成</li>
+                                    <li>Deleteボタンにより 一括削除用モーダル表示</li>
+                                    <br>
+                                    <p>Deleteボタン 及びウィンドウ</p>
+                                    <li>生成済みボックスがSettedセレクトボックス内に表示<br class="sp_br">
+                                        (マルチセレクト可能)</li>
+                                    <li>＞＞ボタンにより選択中の対象をSettedからDeleteへ移動</li>
+                                    <li>＜＜ボタンにより選択中の対象をDeleteからSettedへ移動</li>
+                                    <li>DeleteボタンによりDeleteセレクトボックス内の<br class="sp_br">
+                                        ボックス全てを一括削除</li>
+                                    <br>
+                                    <p>Config Searchボタン 及びウィンドウ</p>
+                                    <li>配置済みのボックスの位置を検索, 選択しSearchボタンにて<br class="sp_br">
+                                        その位置に表示を移動</li>
+                                    <span>(※現在 正しく動作しない可能性有り)</span>
+                                    <br><li>Name Saveにて作成者名保存しページタイトルに反映</li>
+                                    <li>作成した内容をTwitter共有用URLを作成し<br class="sp_br">
+                                        Tweetボタンにて投稿可能(もしくは下部URLを利用)</li>
+                                    <br>
+                                    <p>ヘッダー内他ボタン</p>
+                                    <li>Save, Loadボタンにより状態の保存, 読出(local Storage使用)</li>
+                                    <span>(保存, 読出を行う内容は、"生成および配置した位置", <br class="sp_br">
+                                        "TARGET LEVEL, OPTIONセレクトボックスの選択情報")</span><br>
+                                    <li>Settedボタンにより配置済みの一覧表示、<br class="sp_br">
+                                        モーダル内Not Settedボタンで未配置一覧表示に切り替え</li>
+                                    <li>Initializeボタンで全て削除(local Storage内保存内容も削除)</li>
+                                    <li>Informationボタンで当説明と同内容の表示</li>
+                                    <br>
+                                    <p>軸, 座標について</p>
+                                    <li>X軸 : 対象譜面において特異であるか<br class="sp_br">
+                                        (左部 特異である[singular], 右部 一般的である[ordinary])</li>
+                                    <li>Y軸 : 対象譜面において設定した目標の達成難易度<br class="sp_br">
+                                        (上部 達成難度高[difficult], 下部 達成難度低[easy])</li>
+                                    <span>(同じY座標にて、同程度の難易度ではあると思っても<br class="sp_br">
+                                        個人差, 譜面の特異性, 特徴から一般的で無い と考えるならば左部へ)</span><br>
+                                    <br>
+                                    <p>その他</p>
+                                    <li>生成したボックス複数を選択する様にドラッグすると<br class="sp_br">
+                                        複数選択状態に(枠線が赤の状態)、まとめてドラッグ可能</li>
+                                    <li>Shiftキー+Ctrlキーの同時押しをしながら<br class="sp_br">
+                                        ボックスをダブルクリックで対象の削除</li>
+                                    <li>Altキーを押しながらボックスをダブルクリックで<br class="sp_br">
+                                        対象のTextageの譜面ページへ別ウィンドウにて移動</li>
+                                    <li>マウスオーバーで吹き出しによる曲名表示</li>
+                                    <li>一部楽曲名が違います(ダブルクォーテーションの関係)</li>
+                                    <br>
+                                    <p>未対応譜面</p>
+                                    <span>(現状 無し)</span><br>
+                                </ul>
+                                
+                                <H3>最終更新(対応イベント等)</H3>
+                                <ul>
+                                    <li>ARC SCORE(HAPPY SKY)</li>
+                                    <li>ARENA(第5回)</li>
+                                    <li>DELABITY LABORATORY(FLOOR 2)</li>
+                                    <li>蜃気楼の図書館(最後の書庫)</li>
+                                    <li>20th Anniversary Secret Sound</li>
+                                </ul>
+                                
+                                
+                                
+                                <h3>追加実装予定</h3>
+                                <ul>
+                                    <li>検索移動後、対象の表示を一定時間強調, マウスアイコンの移動</li>
+                                </ul>
+                                <h4>将来対応予定</h4>
+                                <ul>
+                                    <li>配置可能領域の変更設定(現在 背景画像で固定してしまっている)</li>
+                                    <li>軸の表示変更の変更設定(同上)</li>
+                                    <li>スマートフォン等からのブラウザ対応</li>
+                                </ul>
+                                <h4>作成環境等</h4>
+                                <ul>
+                                    <li>html, JavaScript, jQuery</li>
+                                    <li>Windows7, Visual Studio Code, Google Chrome(PaizaCloud)</li>
+                                </ul>
+                                
+                                <h5>動作確認(PC)</h5>
+                                Google Chrome 73.0.3683.75<br>
+                                Fire Fox 65.0.2<br>       
+                                Vivaldi	2.3.1440.61<br>
                                 <br>
-                                <p>Deleteボタン 及びウィンドウ</p>
-                                <li>生成済みボックスがSettedセレクトボックス内に表示<br class="sp_br">
-                                    (マルチセレクト可能)</li>
-                                <li>＞＞ボタンにより選択中の対象をSettedからDeleteへ移動</li>
-                                <li>＜＜ボタンにより選択中の対象をDeleteからSettedへ移動</li>
-                                <li>DeleteボタンによりDeleteセレクトボックス内の<br class="sp_br">
-                                    ボックス全てを一括削除</li>
-                                <br>
-                                <p>Config Searchボタン 及びウィンドウ</p>
-                                <li>配置済みのボックスの位置を検索, 選択しSearchボタンにて<br class="sp_br">
-                                    その位置に表示を移動</li>
-                                <span>(※現在 正しく動作しない可能性有り)</span>
-                                <br><li>Name Saveにて作成者名保存しページタイトルに反映</li>
-                                <li>作成した内容をTwitter共有用URLを作成し<br class="sp_br">
-                                    Tweetボタンにて投稿可能(もしくは下部URLを利用)</li>
-                                <br>
-                                <p>ヘッダー内他ボタン</p>
-                                <li>Save, Loadボタンにより状態の保存, 読出(local Storage使用)</li>
-                                <span>(保存, 読出を行う内容は、"生成および配置した位置", <br class="sp_br">
-                                    "TARGET LEVEL, OPTIONセレクトボックスの選択情報")</span><br>
-                                <li>Settedボタンにより配置済みの一覧表示、<br class="sp_br">
-                                    モーダル内Not Settedボタンで未配置一覧表示に切り替え</li>
-                                <li>Initializeボタンで全て削除(local Storage内保存内容も削除)</li>
-                                <li>Informationボタンで当説明と同内容の表示</li>
-                                <br>
-                                <p>軸, 座標について</p>
-                                <li>X軸 : 対象譜面において特異であるか<br class="sp_br">
-                                    (左部 特異である[singular], 右部 一般的である[ordinary])</li>
-                                <li>Y軸 : 対象譜面において設定した目標の達成難易度<br class="sp_br">
-                                    (上部 達成難度高[difficult], 下部 達成難度低[easy])</li>
-                                <span>(同じY座標にて、同程度の難易度ではあると思っても<br class="sp_br">
-                                    個人差, 譜面の特異性, 特徴から一般的で無い と考えるならば左部へ)</span><br>
-                                <br>
-                                <p>その他</p>
-                                <li>生成したボックス複数を選択する様にドラッグすると<br class="sp_br">
-                                    複数選択状態に(枠線が赤の状態)、まとめてドラッグ可能</li>
-                                <li>Shiftキー+Ctrlキーの同時押しをしながら<br class="sp_br">
-                                    ボックスをダブルクリックで対象の削除</li>
-                                <li>Altキーを押しながらボックスをダブルクリックで<br class="sp_br">
-                                    対象のTextageの譜面ページへ別ウィンドウにて移動</li>
-                                <li>マウスオーバーで吹き出しによる曲名表示</li>
-                                <li>一部楽曲名が違います(ダブルクォーテーションの関係)</li>
-                                <br>
-                                <p>未対応譜面</p>
-                                <span>(現状 無し)</span><br>
-                            </ul>
-                            
-                            <H3>最終更新(対応イベント等)</H3>
-                            <ul>
-                                <li>ARC SCORE(HAPPY SKY)</li>
-                                <li>ARENA(第5回)</li>
-                                <li>DELABITY LABORATORY(FLOOR 2)</li>
-                                <li>蜃気楼の図書館(最後の書庫)</li>
-                                <li>20th Anniversary Secret Sound</li>
-                            </ul>
-                            
-                            
-                            
-                            <h3>追加実装予定</h3>
-                            <ul>
-                                <li>検索移動後、対象の表示を一定時間強調, マウスアイコンの移動</li>
-                            </ul>
-                            <h4>将来対応予定</h4>
-                            <ul>
-                                <li>配置可能領域の変更設定(現在 背景画像で固定してしまっている)</li>
-                                <li>軸の表示変更の変更設定(同上)</li>
-                                <li>スマートフォン等からのブラウザ対応</li>
-                            </ul>
-                            <h4>作成環境等</h4>
-                            <ul>
-                                <li>html, JavaScript, jQuery</li>
-                                <li>Windows7, Visual Studio Code, Google Chrome(PaizaCloud)</li>
-                            </ul>
-                            
-                            <h5>動作確認(PC)</h5>
-                            Google Chrome 73.0.3683.75<br>
-                            Fire Fox 65.0.2<br>       
-                            Vivaldi	2.3.1440.61<br>
-                            <br>
-                            <h6>手法等</h6>
-                            形式等の大元は下記引用のMMCafeより、<br>
-                            主に配置した物の位置情報の取得 及びパラメータとしての変換行程を参考に構築<br>
-                            
-                            <h3 style="margin:15px 0 1px">↓IIDAXEで新規作成(PCのみ)</h3>
-                            <a href="tier_main.html?bkf" style="margin-top:1px" target="_blank"><i>Create DP12 tier</i></a>
-                            
-                            <h4 style="margin:15px 0 1px">GitHub内 リポジトリ</h4>
-                            <a href="https://github.com/taroyoshi/iidaxe" style="margin-top:1px" target="_blank"><i>GitHub(iidaxe)</i></a>
-                            
-                            <h4 style="margin:15px 0 1px">参考, 引用</h4>
-                            <a href="http://www.mmcafe.com/tiermaker/" target="_blank"><i style="font-size:15px">MMCafe Tier Chart Maker / MMCafe キャラランクメーカー</i></a><br>
-                            <a href="http://textage.cc/" target="_blank"><i style="font-size:15px">TexTage [テクステージ] (てふたげ)</i></a>
-                        </div>
+                                <h6>手法等</h6>
+                                形式等の大元は下記引用のMMCafeより、<br>
+                                主に配置した物の位置情報の取得 及びパラメータとしての変換行程を参考に構築<br>
+                                
+                                <h3 style="margin:15px 0 1px">↓IIDAXEで新規作成(PCのみ)</h3>
+                                <a href="tier_main.html?bkf" style="margin-top:1px" target="_blank"><i>Create DP12 tier</i></a>
+                                
+                                <h4 style="margin:15px 0 1px">GitHub内 リポジトリ</h4>
+                                <a href="https://github.com/taroyoshi/iidaxe" style="margin-top:1px" target="_blank"><i>GitHub(iidaxe)</i></a>
+                                
+                                <h4 style="margin:15px 0 1px">参考, 引用</h4>
+                                <a href="http://www.mmcafe.com/tiermaker/" target="_blank"><i style="font-size:15px">MMCafe Tier Chart Maker / MMCafe キャラランクメーカー</i></a><br>
+                                <a href="http://textage.cc/" target="_blank"><i style="font-size:15px">TexTage [テクステージ] (てふたげ)</i></a>
+                            </div>
 
-                        <div class="lang_en">
-                            <h1>IIDAXE TOP(Overview)</h1>
-                            <p>A tool for DP difficult12 in beatmania IIDX <br class="sp_br">
-                            to consider, propose and express difficulty comparison <br class="sp_br">
-                            in a certain field in hierarchical form.</p> 
-                            
-                            <h2>Feature Description</h2>
-                            <ul>
-                                <p>Generate Button with window</p>
-                                <li>By "Generate Button" in header push, display window for genarate.</li>
-                                <li>If change the "VERSION" sellectbox, changed contents of "MUSIC & SCORE" sellectbox.</li>
-                                <li>Contents of "MUSIC & SCORE" sellectbox can be sellected multiple by Shift or Ctrl(All button can all sellected).</li>           
-                                <li>"Box Generate" button make draggable BOX with sellected in "MUSIC & SCORE".</li>
-                                <li>"Delete" button call window for bulk delete.</li>
+                            <div class="lang_en">
+                                <h1>IIDAXE TOP(Overview)</h1>
+                                <p>A tool for DP difficult12 in beatmania IIDX <br class="sp_br">
+                                to consider, propose and express difficulty comparison <br class="sp_br">
+                                in a certain field in hierarchical form.</p> 
+                                
+                                <h2>Feature Description</h2>
+                                <ul>
+                                    <p>Generate Button with window</p>
+                                    <li>By "Generate Button" in header push, display window for genarate.</li>
+                                    <li>If change the "VERSION" sellectbox, changed contents of "MUSIC & SCORE" sellectbox.</li>
+                                    <li>Contents of "MUSIC & SCORE" sellectbox can be sellected multiple by Shift or Ctrl(All button can all sellected).</li>           
+                                    <li>"Box Generate" button make draggable BOX with sellected in "MUSIC & SCORE".</li>
+                                    <li>"Delete" button call window for bulk delete.</li>
+                                    <br>
+                                    <p>Delete Button with window</p>
+                                    <li>Displayed list of made draggable box in "Setted" sellectbox (Multiple sellectable).</li>
+                                    <li>"＞＞" button move sellected to "Delete" from "Setted".</li>
+                                    <li>"＜＜" button move sellected to "Setted" from "Delete".</li>
+                                    <li>"Delete" button pushed, delete draggable boxes of sellected contents in "Delete" sellectbox.</li>
+                                    <br>
+                                    <p>Config Search Button with window</p>
+                                    <li>Search position of setted boxes, display moved to the position by pushing "Search" button.</li>
+                                    <span>(※May not work properly)</span>
+                                    <br>
+                                    <li>"Name Save" button saves author name and applies that name.</li>
+                                    <li>Created tier chart can be posted by "Tweet" button with URL share( or use direct URL).</li>
+                                    <br>
+                                    <p>Other bitton in headder</p>
+                                    <li>"Save" and "Load" buttons can save and load position status(Using local Storage).</li>
+                                    <span>(Save and load contents is "Generate and set position", "status ofTARGET LEVEl and OPTION sellectbox")</span><br>
+                                    <li>By "Setted" button, display the setted List. And "Not Setted" button toggled not setted list.</li>
+                                    <li>"Initialize" button delete All setted box( with local Storage).</li>
+                                    <li>Information display this explanatory text.</li>
+                                    <br>
+                                    <p>Axis, Position</p>
+                                    <li>X Axis : Whether an target score is singular(left side : It's singular, right side : It's ordinary).</li>
+                                    <li>Y Axis : Compleat difficulty of setted on "TARGET LEVEL".(Top side : It's difficult, Buttom side :  It's easy).</li>
+                                    <span>(If you think on same level Y axis both score and it has singularyty, you should set left side)</span><br>
+                                    <br>
+                                    <p>Other function</p>
+                                    <li>生成したボックス複数を選択する様にドラッグすると複数選択状態に(枠線が赤の状態)、まとめてドラッグ可能</li>
+                                    <li>Shiftキー+Ctrlキーの同時押しをしながらボックスをダブルクリックで対象の削除</li>
+                                    <li>Altキーを押しながらボックスをダブルクリックで対象のTextageの譜面ページへ別ウィンドウにて移動</li>
+                                    <li>By mouse over display music name.</li>
+                                    <li>Some music name different original name(In relation to double quotation).</li>
+                                    <br>
+                                    <p>Not still support</p>
+                                    <span>nothing</span><br>
+                                </ul>
+                                
+                                <H3>Last Update(Added events)</H3>
+                                <ul>
+                                    <li>ARC SCORE(SPADA)</li>
+                                    <li>ARENA(5th round)</li>
+                                    <li>DELABITY LABORATORY(FLOOR 2)</li>
+                                    <li>The Bibliotheca of Mirage(Last Archive)</li>
+                                    <li>20th Anniversary Secret Sound</li>
+                                </ul>
+                                <!--
+                                    sankou https://webdesignday.jp/inspiration/technique/jquery-js/3847/
+                                -->
+                                <h3>追加実装予定</h3>
+                                <ul>
+                                    <li>検索移動後、対象の表示を一定時間強調, マウスアイコンの移動</li>
+                                </ul>
+                                <h4>将来対応予定</h4>
+                                <ul>
+                                    <li>配置可能領域の変更設定(現在 背景画像で固定してしまっている)</li>
+                                    <li>軸の表示変更の変更設定(同上)</li>
+                                    <li>for Smartphone</li>
+                                </ul>
+                                <h4>Production environment</h4>
+                                <ul>
+                                    <li>html, JavaScript, jQuery</li>
+                                    <li>Windows7, Visual Studio Code, Google Chrome(PaizaCloud)</li>
+                                </ul>
+                                
+                                <h5>Operation check(PC)</h5>
+                                Google Chrome 73.0.3683.75<br>
+                                Fire Fox 65.0.2<br>       
+                                Vivaldi	2.3.1440.61<br>
                                 <br>
-                                <p>Delete Button with window</p>
-                                <li>Displayed list of made draggable box in "Setted" sellectbox (Multiple sellectable).</li>
-                                <li>"＞＞" button move sellected to "Delete" from "Setted".</li>
-                                <li>"＜＜" button move sellected to "Setted" from "Delete".</li>
-                                <li>"Delete" button pushed, delete draggable boxes of sellected contents in "Delete" sellectbox.</li>
-                                <br>
-                                <p>Config Search Button with window</p>
-                                <li>Search position of setted boxes, display moved to the position by pushing "Search" button.</li>
-                                <span>(※May not work properly)</span>
-                                <br>
-                                <li>"Name Save" button saves author name and applies that name.</li>
-                                <li>Created tier chart can be posted by "Tweet" button with URL share( or use direct URL).</li>
-                                <br>
-                                <p>Other bitton in headder</p>
-                                <li>"Save" and "Load" buttons can save and load position status(Using local Storage).</li>
-                                <span>(Save and load contents is "Generate and set position", "status ofTARGET LEVEl and OPTION sellectbox")</span><br>
-                                <li>By "Setted" button, display the setted List. And "Not Setted" button toggled not setted list.</li>
-                                <li>"Initialize" button delete All setted box( with local Storage).</li>
-                                <li>Information display this explanatory text.</li>
-                                <br>
-                                <p>Axis, Position</p>
-                                <li>X Axis : Whether an target score is singular(left side : It's singular, right side : It's ordinary).</li>
-                                <li>Y Axis : Compleat difficulty of setted on "TARGET LEVEL".(Top side : It's difficult, Buttom side :  It's easy).</li>
-                                <span>(If you think on same level Y axis both score and it has singularyty, you should set left side)</span><br>
-                                <br>
-                                <p>Other function</p>
-                                <li>生成したボックス複数を選択する様にドラッグすると複数選択状態に(枠線が赤の状態)、まとめてドラッグ可能</li>
-                                <li>Shiftキー+Ctrlキーの同時押しをしながらボックスをダブルクリックで対象の削除</li>
-                                <li>Altキーを押しながらボックスをダブルクリックで対象のTextageの譜面ページへ別ウィンドウにて移動</li>
-                                <li>By mouse over display music name.</li>
-                                <li>Some music name different original name(In relation to double quotation).</li>
-                                <br>
-                                <p>Not still support</p>
-                                <span>nothing</span><br>
-                            </ul>
-                            
-                            <H3>Last Update(Added events)</H3>
-                            <ul>
-                                <li>ARC SCORE(SPADA)</li>
-                                <li>ARENA(5th round)</li>
-                                <li>DELABITY LABORATORY(FLOOR 2)</li>
-                                <li>The Bibliotheca of Mirage(Last Archive)</li>
-                                <li>20th Anniversary Secret Sound</li>
-                            </ul>
-                            <!--
-                                sankou https://webdesignday.jp/inspiration/technique/jquery-js/3847/
-                            -->
-                            <h3>追加実装予定</h3>
-                            <ul>
-                                <li>検索移動後、対象の表示を一定時間強調, マウスアイコンの移動</li>
-                            </ul>
-                            <h4>将来対応予定</h4>
-                            <ul>
-                                <li>配置可能領域の変更設定(現在 背景画像で固定してしまっている)</li>
-                                <li>軸の表示変更の変更設定(同上)</li>
-                                <li>for Smartphone</li>
-                            </ul>
-                            <h4>Production environment</h4>
-                            <ul>
-                                <li>html, JavaScript, jQuery</li>
-                                <li>Windows7, Visual Studio Code, Google Chrome(PaizaCloud)</li>
-                            </ul>
-                            
-                            <h5>Operation check(PC)</h5>
-                            Google Chrome 73.0.3683.75<br>
-                            Fire Fox 65.0.2<br>       
-                            Vivaldi	2.3.1440.61<br>
-                            <br>
-                            <h6>Meathod</h6>
-                            Format and etc.. quote from MMCafe.<br>
-                            In particular, Method of getting setted things position data and conversion to parameter.<br>
-                            
-                            <h3 style="margin:15px 0 1px">↓IIDAXE (PC only)</h3>
-                            <a href="tier_main.html?bkf" style="margin-top:1px" target="_blank"><i>Create DP12 tier</i></a>
-                            
-                            <h4 style="margin:15px 0 1px">GitHub Repository</h4>
-                            <a href="https://github.com/taroyoshi/iidaxe" style="margin-top:1px" target="_blank"><i>GitHub(iidaxe)</i></a>
-                            
-                            <h4 style="margin:15px 0 1px">Reference, Quotation</h4>
-                            <a href="http://www.mmcafe.com/tiermaker/" target="_blank"><i style="font-size:15px">MMCafe Tier Chart Maker / MMCafe キャラランクメーカー</i></a><br>
-                            <a href="http://textage.cc/" target="_blank"><i style="font-size:15px">TexTage [テクステージ] (てふたげ)</i></a>
+                                <h6>Meathod</h6>
+                                Format and etc.. quote from MMCafe.<br>
+                                In particular, Method of getting setted things position data and conversion to parameter.<br>
+                                
+                                <h3 style="margin:15px 0 1px">↓IIDAXE (PC only)</h3>
+                                <a href="tier_main.html?bkf" style="margin-top:1px" target="_blank"><i>Create DP12 tier</i></a>
+                                
+                                <h4 style="margin:15px 0 1px">GitHub Repository</h4>
+                                <a href="https://github.com/taroyoshi/iidaxe" style="margin-top:1px" target="_blank"><i>GitHub(iidaxe)</i></a>
+                                
+                                <h4 style="margin:15px 0 1px">Reference, Quotation</h4>
+                                <a href="http://www.mmcafe.com/tiermaker/" target="_blank"><i style="font-size:15px">MMCafe Tier Chart Maker / MMCafe キャラランクメーカー</i></a><br>
+                                <a href="http://textage.cc/" target="_blank"><i style="font-size:15px">TexTage [テクステージ] (てふたげ)</i></a>
+                            </div>
                         </div>
                     </div>
+                    
                 </div>
             </div>
         </div>
-    </div>
+    </div><!--all_layer-->
 
     <footer>
         <div class="main_wraper">

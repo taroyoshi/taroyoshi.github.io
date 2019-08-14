@@ -260,12 +260,12 @@ function controllColor(){
     var cArray = [3];
     var sArray = [5];
     var layer = [2];
-    layer[1] = "0.95";
+    layer[1] = "0.90";
     
     if((nowYpos >= topY) && (abtpY > nowYpos)){
         cArray = [1, 0, 0];
         sArray = [0, 0, 0, 0, 0];
-        layer[0] = "240, 255, 240, ";
+        layer[0] = "230, 255, 230, ";
     }
     else if((nowYpos >= abtpY) && (abtmY > nowYpos)){
         cArray = [1, 0, 0];
