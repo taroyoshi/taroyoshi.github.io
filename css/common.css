@@ -4,6 +4,10 @@ body{
     background-image: url(../img/wpIMGL2790_TP_V.jpg);
 }
 
+.container-fluid:not(.nt){
+    padding-bottom:80vh;
+}
+
 .lang_jp{
     display:block;
 }
@@ -71,12 +75,6 @@ body{
     border-radius: 0 0 10px 10px/0 0 10px 10px;
 }
 
-.main_wraper{
-    /*padding-left:0;
-    padding-right:0;*/
-    height:auto;
-    
-}
 
 #index :not(h1){
     color:rgb(50, 25, 25);
@@ -95,7 +93,7 @@ body{
     height:100%;
     width:100%;
     z-index:30;
-    transition: background-color 0.2s linear; 
+    transition: background-color 0.3s linear; 
 }
 
 h1{
@@ -113,19 +111,15 @@ h1{
     margin-bottom: 80vh;
 }
 
-
 #about_m{
     margin-bottom: 400px;
 }
 
 #profile{
     height:auto;
+    /*padding-bottom:80vh;*/
 }
 
-
-.prof_layer{
-    background-color: rgba(215, 250, 240, 0.75);
-}
 
 .name{
     color:rgb(50, 50, 0);
@@ -158,6 +152,7 @@ h1{
 #product{
     height:auto;
     margin-bottom: 0px;
+    
 }
 
 
@@ -180,6 +175,11 @@ h1{
 .slider ul{
     padding: 0;
     width:90%;
+}
+
+#iidaxe{
+    /*padding-bottom:80vh*/
+
 }
 
 
@@ -225,7 +225,7 @@ h1{
 }
 
 footer .layer{
-    background-color: rgba(252, 178, 199, 0.8);
+    background-color: rgba(255, 175, 200, 0.5);
     padding-bottom: 0;
 }
 footer img{

@@ -141,7 +141,7 @@ $(function(){
         });        
         
         //キーバリューとか使ってスマートに
-
+        //name属性全て取得してどうにか要自動化
         var a = document.getElementsByName('link');
         
         var indexele    = document.getElementById('index').getBoundingClientRect();
@@ -151,17 +151,18 @@ $(function(){
         var bioele     = document.getElementById('biography').getBoundingClientRect();
         var skillele     = document.getElementById('skill').getBoundingClientRect();
         var productele  = document.getElementById('product').getBoundingClientRect();
-        var iidaxeele   = document.getElementById('iidaxe_wrap').getBoundingClientRect();
+        var iidaxeele   = document.getElementById('iidaxe').getBoundingClientRect();
+        var contactele   = document.getElementById('contact').getBoundingClientRect();
         
-        topY = indexele.top + window.pageYOffset;   // Y座標(絶対座標)
-        abtpY = abtpele.top + window.pageYOffset;   // Y座標(絶対座標)
-        abtmY = abtmele.top + window.pageYOffset;   // Y座標(絶対座標)
-        pflY = profele.top + window.pageYOffset;   // Y座標(絶対座標)
-        bioY = bioele.top + window.pageYOffset;   // Y座標(絶対座標)
-        skillY = skillele.top + window.pageYOffset;   // Y座標(絶対座標)
-        pdtY = productele.top + window.pageYOffset;   // Y座標(絶対座標)
-        idxY = iidaxeele.top + window.pageYOffset;   // Y座標(絶対座標)
-            
+        topY = indexele.top + window.pageYOffset;   
+        abtpY = abtpele.top + window.pageYOffset;   
+        abtmY = abtmele.top + window.pageYOffset;  
+        pflY = profele.top + window.pageYOffset;   
+        bioY = bioele.top + window.pageYOffset;   
+        skillY = skillele.top + window.pageYOffset; 
+        pdtY = productele.top + window.pageYOffset;  
+        idxY = iidaxeele.top + window.pageYOffset;  
+        contY = contactele.top + window.pageYOffset;  
         
         //スムーススクロール
         $('a[href^="#"]').click(function(){
@@ -193,7 +194,7 @@ $(function(){
         //画面中央を計算する関数を実行
         modalResize("#iidaxe_modal");;
         //レイヤー黒に
-        $(".all_layer").css('background-color', "rgba(0, 0, 0, 0.5)")
+        $(".all_layer").css('background-color', "rgba(0, 0, 0, 0.8)")
         
         //モーダルウィンドウを表示
         $("#iidaxe_modal").fadeIn("slow", function(){
@@ -263,46 +264,50 @@ function controllColor(){
     layer[1] = "0.90";
     
     if((nowYpos >= topY) && (abtpY > nowYpos)){
-        cArray = [1, 0, 0];
+        cArray = [1, 0, 0, 0];
         sArray = [0, 0, 0, 0, 0];
         layer[0] = "230, 255, 230, ";
     }
     else if((nowYpos >= abtpY) && (abtmY > nowYpos)){
-        cArray = [1, 0, 0];
+        cArray = [1, 0, 0, 0];
         sArray = [1, 0, 0, 0, 0];
         layer[0] = "200, 200, 255, ";
     }
     else if((nowYpos >= abtmY) && (pflY > nowYpos)){
-        cArray = [1, 0, 0];
+        cArray = [1, 0, 0, 0];
         sArray = [0, 1, 0, 0, 0];
         layer[0] = "200, 200, 255, ";
     }
     else if((nowYpos >= pflY) && (bioY > nowYpos)){
-        cArray = [0, 1, 0];
+        cArray = [0, 1, 0, 0];
         sArray = [0, 0, 0, 0, 0];
         layer[0] = "255, 255, 225, ";
     }
     else if((nowYpos >= bioY) && (skillY > nowYpos)){
-        cArray = [0, 1, 0];
+        cArray = [0, 1, 0, 0];
         sArray = [0, 0, 1, 0, 0];
         layer[0] = "255, 255, 225, ";
     }
     else if((nowYpos >= skillY) && (pdtY > nowYpos)){
-        cArray = [0, 1, 0];
+        cArray = [0, 1, 0, 0];
         sArray = [0, 0, 0, 1, 0];
         layer[0] = "255, 255, 225, ";
     }
     else if((nowYpos >= pdtY) && (idxY > nowYpos)){
-        cArray = [0, 0, 1];
+        cArray = [0, 0, 1, 0];
         sArray = [0, 0, 0, 0, 0];
         layer[0] = "255, 225, 225, ";
     }
-    else if(nowYpos >= idxY){
-        cArray = [0, 0, 1];
+    else if((nowYpos >= idxY) && (contY > nowYpos)){
+        cArray = [0, 0, 1, 0];
         sArray = [0, 0, 0, 0, 1];
         layer[0] = "255, 225, 225, ";
     }
-    
+    else if(nowYpos >= contY){
+        cArray = [0, 0, 0, 1];
+        sArray = [0, 0, 0, 0, 0];
+        layer[0] = "255, 225, 225, ";
+    }
     changeColor(cArray, sArray);
     
     $(".all_layer").css('background-color', "rgba(" + layer[0] + layer[1] + ")");
@@ -315,7 +320,8 @@ function changeColor(arr1, arr2){
     //この定義は要自動化 head_buttonやslide_childを取得すべきか
     var carr = ['top_button', 
                 'prof_button', 
-                'prod_button'];
+                'prod_button',
+                'cnt_button'];
                 
     var sarr = ['abtp_button',
                 'abtm_button', 
@@ -362,6 +368,9 @@ function setHover(){
                 case "prod_button":
                     t = "制作物";
                     break;
+                case "cnt_button":
+                    t = "ご連絡";
+                    break;
             }
             $(this).children(".hdt").text(t);
         }
@@ -388,6 +397,9 @@ function setHover(){
                 break;
             case "prod_button":
                 bt = "Product";
+                break;
+            case "cnt_button":
+                bt = "Contact";
                 break;
         }
         $(this).children(".hdt").text(bt);

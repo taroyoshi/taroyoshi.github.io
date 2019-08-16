@@ -56,8 +56,7 @@ header{
 }
 
 
-#main .ui-selected {
-    
+#main > .ui-selected {
     border: solid 2px red;;
 }
 
@@ -238,6 +237,8 @@ header{
 
 #fadeLayer {
     position:absolute;
+    top:0;
+    left:0;
     width:100%;
     height:100%;
     background-color:#000000;
@@ -296,19 +297,13 @@ header{
     display: block;
 }
 
-#setted_list > p{
+#setted_list > p, #nosetted_list > p{
     color: rgb(150, 15, 15);
+    font-size: 18px;
 }
-
-
-#nosetted_list{
-    display: none;
+#setted_list > li, #nosetted_list > li{
+    font-size: 14px;
 }
-
-#nosetted_list > p{
-    color: rgb(150, 15, 15);
-}
-
 
 /*吹き出し*/
 .arrow_box {
@@ -320,5 +315,5 @@ header{
     background: #333;
     color: #fff;
     z-index: 17;
-  }
+}
   
