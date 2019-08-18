@@ -527,28 +527,49 @@
         </div>
 
         <div class="container-fluid">
-            <div class="row">
-                <div class="offset-5 col-2 text-center" id="contact" name="link">
+            <div class="row justify-content-center" >
+                <div class="col-2 text-center" id="contact" name="link">
                     <h1>Contact</h1>
                 </div>
             </div>
-            <div class="row">
-                <div class="lastgreet lang_jp col-6 offset-4">
+            <div class="row justify-content-center">
+                <div class="lastgreet lang_jp col-5 mb-5 pb-5">
                     閲覧いただき ありがとうございました。<br>
                     当webより、少しでも私の事をご理解いただけたのなら幸いです。<br>
                     もし、何かしらのコメント またはご質問等ありましたら、<br>
                     下記フォームよりご連絡ください。<br>
                 </div>
-                <div class="lastgreet lang_en col-6 offset-4">
+                <div class="lastgreet lang_en col-5 mb-5 pb-5">
                     Thank You For Browsing.<br>
                     By browsing, I hope you will understand any better me.<br>
                     If you have same comments or questions,<br>
                     Please contact me from beneath form.<br>
                 </div>
             </div>
+            
+            
             <div class="row">
+                <form class="col-12" method="POST" action="https://formspree.io/jetworldcircus@gmail.com">
+                    <div class="row">
+                        <div class="offset-2"></div>
+                        <div class="col-4 h5">
+                            <input id="name" name="name" type="text">
+                            <label for="name">Name</label>
+                        </div>
+                        <div class="col-4 h5">
+                            <input id="email" name="email" type="email">
+                            <label for="email">Email</label>
+                        </div>
+                        <div class="col-12 text-center">
+                            <textarea id="textarea" name="message"></textarea>
+                            <label for="textarea">Comment</label>
+                        </div>
+                        <div class="col-12">
+                            <button type="submit">Send</button>
+                        </div>
+                    </div>
+                </form>
             </div>
-                    
         </div>
 
     </div><!--all_layer div-->
