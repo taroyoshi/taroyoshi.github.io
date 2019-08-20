@@ -9,6 +9,7 @@
     <!-- Bootstrap4のCSS読み込み -->
     <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
 
+    <!-- slick関連読み込み -->
     <link href="../external/slick/slick-theme.css" rel="stylesheet" type="text/css">
     <link href="../external/slick/slick.css" rel="stylesheet" type="text/css">
     
@@ -23,13 +24,13 @@
     <!-- aos-animateのcss-->
     <link href="https://cdn.rawgit.com/michalsnik/aos/2.0.4/dist/aos.css" rel="stylesheet">
     
+    <!-- 各種css -->
     <link rel="stylesheet" type="text/css" href="../css/common.css" />
     <link rel="stylesheet" type="text/css" href="../css/resp.css" />
     <link rel="stylesheet" type="text/css" href="../css/side.css" />
+    <link rel="stylesheet" type="text/css" href="../css/form.css" />
 
-    
     <script language="javascript" src="../js/header.js"></script>
-    
    
     <title>Taro Yoshizaki's PORT FOLIO</title>
 </head>
@@ -60,8 +61,9 @@
                                 <label for="topLb">TOP</label>
                                 <input type="checkbox" id="topLb" class="cssacc"/>
                                 <div class="accshow">
-                                    <p><a href="#about_p" class="img_01 accIn">PAGE</a></p>
-                                    <p><a href="#about_m" class="img_01 accIn">ME</a></p>
+                                    <p><a href="#index" class="accIn">TOP</a></p>
+                                    <p><a href="#about_p" class="accIn">PAGE</a></p>
+                                    <p><a href="#about_m" class="accIn">ME</a></p>
                                 </div>
                             </div>
                         </li>
@@ -70,8 +72,8 @@
                                 <label for="profLb">Profile</label>
                                 <input type="checkbox" id="profLb" class="cssacc"/>
                                 <div class="accshow">
-                                    <p><a href="#biography" class="img_02 accIn">BIO</a></p>
-                                    <p><a href="#skill" class="img_02 accIn">SKILL</a></p>
+                                    <p><a href="#biography" class="accIn">BIO</a></p>
+                                    <p><a href="#skill" class="accIn">SKILL</a></p>
                                 </div>
                             </div>
                         </li>
@@ -80,8 +82,15 @@
                                 <label for="prodLb">Product</label>
                                 <input type="checkbox" id="prodLb" class="cssacc"/>
                                 <div class="accshow">
-                                    <p><a href="#iidaxe" class="img_03 accIn">IIDAXE</a></p>
+                                    <p><a href="#iidaxe" class="accIn">IIDAXE</a></p>
                                 </div>
+                            </div>
+                        </li>
+                        <li>
+                            <div class="accbox">
+                                <a href="#contact">
+                                <label>Contact</label>
+                                </a>
                             </div>
                         </li>
                         <li>
@@ -548,21 +557,28 @@
             </div>
             
             
-            <div class="row">
+            <div class="row cp_iptxt">
                 <form class="col-12" method="POST" action="https://formspree.io/jetworldcircus@gmail.com">
                     <div class="row">
                         <div class="offset-2"></div>
-                        <div class="col-4 h5">
-                            <input id="name" name="name" type="text">
-                            <label for="name">Name</label>
+                        <div >
+                            <div class="col-4">
+                                <input class="ef" placeholder="" id="name" name="name" type="text">
+                                <label for="name">Name</label>
+                                <span class="focus_line"></span>
+                            </div>
+                            <div class="col-4">
+                                <input class="ef" placeholder="" id="email" name="email" type="email">
+                                <label for="email">Email</label>
+                                <span class="focus_line"></span>
+                            </div>
                         </div>
-                        <div class="col-4 h5">
-                            <input id="email" name="email" type="email">
-                            <label for="email">Email</label>
-                        </div>
+                    </div>
+                    <div class="row">
                         <div class="col-12 text-center">
-                            <textarea id="textarea" name="message"></textarea>
+                            <textarea class="ef" placeholder="" id="textarea" name="message"></textarea>
                             <label for="textarea">Comment</label>
+                            <span class="focus_line"></span>
                         </div>
                         <div class="col-12">
                             <button type="submit">Send</button>

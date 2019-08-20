@@ -92,7 +92,7 @@ body{
 .all_layer{
     height:100%;
     width:100%;
-    z-index:30;
+    z-index:29;
     transition: background-color 0.3s linear; 
 }
 
