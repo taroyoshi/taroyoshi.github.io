@@ -541,14 +541,14 @@
                     <h1>Contact</h1>
                 </div>
             </div>
-            <div class="row justify-content-center">
-                <div class="lastgreet lang_jp col-5 mb-5 pb-5">
+            <div class="row">
+                <div class="lastgreet lang_jp offset-4 col-5 mb-5 pb-5">
                     閲覧いただき ありがとうございました。<br>
                     当webより、少しでも私の事をご理解いただけたのなら幸いです。<br>
                     もし、何かしらのコメント またはご質問等ありましたら、<br>
                     下記フォームよりご連絡ください。<br>
                 </div>
-                <div class="lastgreet lang_en col-5 mb-5 pb-5">
+                <div class="lastgreet lang_en offset-4 col-5 mb-5 pb-5">
                     Thank You For Browsing.<br>
                     By browsing, I hope you will understand any better me.<br>
                     If you have same comments or questions,<br>
@@ -560,23 +560,22 @@
             <div class="row cp_iptxt">
                 <form class="col-12" method="POST" action="https://formspree.io/jetworldcircus@gmail.com">
                     <div class="row">
-                        <div class="offset-2"></div>
-                        <div >
-                            <div class="col-4">
-                                <input class="ef" placeholder="" id="name" name="name" type="text">
-                                <label for="name">Name</label>
-                                <span class="focus_line"></span>
-                            </div>
-                            <div class="col-4">
-                                <input class="ef" placeholder="" id="email" name="email" type="email">
-                                <label for="email">Email</label>
-                                <span class="focus_line"></span>
-                            </div>
+                        <div class="offset-3"></div>
+                        <div class="col-3">
+                            <input class="ef" placeholder="" id="name" name="name" type="text">
+                            <label for="name">Name</label>
+                            <span class="focus_line"></span>
+                        </div>
+                        <!--<div class="offset-1"></div>-->
+                        <div class="col-6">
+                            <input class="ef" placeholder="" id="email" name="email" type="email">
+                            <label for="email">Email</label>
+                            <span class="focus_line"></span>
                         </div>
                     </div>
                     <div class="row">
-                        <div class="col-12 text-center">
-                            <textarea class="ef" placeholder="" id="textarea" name="message"></textarea>
+                        <div class="col-9 offset-3" style="margin-top: 20px">
+                            <textarea class="ef" placeholder="" id="textarea" name="message" type="comment"></textarea>
                             <label for="textarea">Comment</label>
                             <span class="focus_line"></span>
                         </div>
