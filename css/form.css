@@ -28,7 +28,7 @@
 	width: 100%;
 	letter-spacing: 1px;
 	left:20px;
-	padding-left:35px;
+	padding-left:65px;
 }
 
 .cp_iptxt input[type='text']:focus {
@@ -42,8 +42,8 @@
 }
 
 textarea.ef{
-	width:100%;
-	height: 10vh;
+	
+	height: 100%;
 	resize: none;
 }
 .ef {
@@ -88,3 +88,22 @@ textarea.ef{
 	transition: 0.3s;
 	color: #da3c41;
 }
+
+.btn-square-pop {
+	position: relative;
+	display: inline-block;
+	padding: 0.25em 0.5em;
+	text-decoration: none;
+	color: #FFF;
+	background: #fd6e35;
+	border-bottom: solid 2px #d27d00;
+	border-radius: 5px;
+	box-shadow: inset 0 2px 0 rgba(255,255,255,0.2), 0 2px 2px rgba(0, 0, 0, 0.19);
+	font-weight: bold;
+	text-align:center;
+  }
+  
+  .btn-square-pop:active {
+	border-bottom: solid 2px #fd9535;
+	box-shadow: 0 0 2px rgba(0, 0, 0, 0.30);
+  }

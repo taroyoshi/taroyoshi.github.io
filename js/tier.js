@@ -506,6 +506,38 @@ function InverAndSort(arr){
 }
 
 /*==================================================================================================
+//検索 及び設置済みリスト用 検索移動
+==================================================================================================*/
+function searchMove(mounted_selectVal){
+
+    //位置情報等
+    var positionLeft = parseInt($("#iidaxe_" + mounted_selectVal).css("left").replace("px", ""), 10);
+    var positionTop = parseInt($("#iidaxe_" + mounted_selectVal).css("top").replace("px", ""), 10);
+    
+    //対象位置までスクロール
+    window.scrollTo(positionLeft, positionTop);
+    
+    var div_element = document.createElement("div");
+    var parent_object = document.getElementById('main');
+    div_element.innerHTML = '<div data-aos="flip-up" data-aos-once="false" id="searchSQ" style="left: ' +
+                            (positionLeft -3) +
+                            'px; top:' +
+                            (positionTop -3) +
+                            'px;">' +
+                            '</div>';
+    
+    parent_object.append(div_element);
+    
+    $("#searchSQ").hover(function(){
+        $(this).remove();
+    });
+    window.setTimeout("deleteSetTimeHover()", 4000);
+}
+
+
+
+
+/*==================================================================================================
 ----------------------------------------------------------------------------------------------------
 jQuery
 ----------------------------------------------------------------------------------------------------
@@ -812,6 +844,9 @@ jQuery(function(){
                         break;
                     }
                     
+                    searchMove(mounted_selectVal);
+                    //以下 外に別関数化
+                    /*
                     //位置情報等
                     var positionLeft = parseInt($("#iidaxe_" + mounted_selectVal).css("left").replace("px", ""), 10);
                     var positionTop = parseInt($("#iidaxe_" + mounted_selectVal).css("top").replace("px", ""), 10);
@@ -834,7 +869,7 @@ jQuery(function(){
                         $(this).remove();
                     });
                     window.setTimeout("deleteSetTimeHover()", 3000);
-                   
+                    */
                     break;
                     
                 //名前の保存
@@ -929,9 +964,7 @@ jQuery(function(){
         setted_sort_item.map(item => 
             $("#del_setted").append($("<option>").val(item[MUSIC_INDEX]).text(item[NAME_INDEX]))
         );
-        
-        //$("#del_setted").append(setted_sort_item);
-        
+                
     });
     
     /*==================================================================================================
@@ -1070,7 +1103,10 @@ jQuery(function(){
                         //filterで抽出したものが2次元配列のままであるので0番で代入
                         $("#setted_list").append($("<p>").text(ver_name[0][VER_NAME_INDEX]));
                     }
-                    $("#setted_list").append($("<li>").text(v[NAME_INDEX]));
+                    //リスト内曲名クリックによる移動検索
+                    $("#setted_list").append($("<li>").text(v[NAME_INDEX]).click(function(){
+                        searchMove( v[MUSIC_INDEX]);
+                    }));
                 }
                 else if(existArray[v[MUSIC_INDEX]] == "0"){
 

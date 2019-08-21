@@ -56,7 +56,7 @@ header{
 }
 
 
-#main > .ui-selected {
+#generate_position > .ui-selectee > .ui-selected {
     border: solid 2px red;;
 }
 

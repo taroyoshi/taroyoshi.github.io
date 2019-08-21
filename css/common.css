@@ -5,7 +5,7 @@ body{
 }
 
 .container-fluid:not(.nt){
-    padding-bottom:80vh;
+    padding-bottom:70vh;
 }
 
 .lang_jp{
@@ -92,7 +92,7 @@ body{
 .all_layer{
     height:100%;
     width:100%;
-    z-index:29;
+    z-index:1;
     transition: background-color 0.3s linear; 
 }
 
@@ -108,7 +108,7 @@ h1{
 }
 
 #about_p{
-    margin-bottom: 80vh;
+    margin-bottom: 70vh;
 }
 
 #about_m{
@@ -117,7 +117,6 @@ h1{
 
 #profile{
     height:auto;
-    /*padding-bottom:80vh;*/
 }
 
 

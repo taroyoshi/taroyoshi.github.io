@@ -181,7 +181,7 @@ $(function(){
         //直後に色変更
         controllColor();
         
-    },130);
+    },150);
     
 });
 
@@ -233,6 +233,7 @@ $(function(){
 
 function addScrollEvent(){
     window.addEventListener('scroll', controllColor, true);
+    AOS.refresh();
 };
 
 //モーダルウィンドウ位置 (tier.jsからコピー、どうにかして呼び出しはできないか) 
