@@ -136,16 +136,34 @@ h1{
     
 }
 
-.bio_contents::before{
-    width:115px;
-    left: 105px;
-    background-color: red;
-    margin-left: 50px;
-    
+#a > #bio_container{
+    height:inherit;
 }
 
-.b_year::after{
-    content:"";
+#a > #bio_container::before{
+    position: absolute;
+    width: 5px;
+    background: #afafff;
+    top: inherit;
+    left: 0.1rem;
+    margin-left: 15%;
+    content: '';
+    height: inherit;
+}
+
+.bio_y{
+    padding:20px 0;
+    font-family: "メイリオ";
+}
+.bio_y::after{
+    content:"~";
+    left: 0.1rem;
+    margin-left: 15%;
+}
+
+.bio_c{
+    padding:20px 0;
+    font-family: "メイリオ";
 }
 
 #product{

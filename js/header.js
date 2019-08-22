@@ -180,7 +180,7 @@ $(function(){
         addScrollEvent();
         //直後に色変更
         controllColor();
-        
+        AOS.refreshHard();
     },150);
     
 });
@@ -233,7 +233,7 @@ $(function(){
 
 function addScrollEvent(){
     window.addEventListener('scroll', controllColor, true);
-    AOS.refresh();
+    
 };
 
 //モーダルウィンドウ位置 (tier.jsからコピー、どうにかして呼び出しはできないか) 
@@ -255,6 +255,8 @@ function modalResize(id){
 
 //色制御
 function controllColor(){
+    
+    AOS.refreshHard();
     
     nowYpos = window.pageYOffset + 100;
     

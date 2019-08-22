@@ -3,11 +3,10 @@
     display:inline-block;
 }
 
-
-
 .sp_br{
     display: none;
 }
+
 
 @media only screen and (max-width: 640px) {
   
@@ -15,10 +14,6 @@
         font-size: 24px;
     }
     
-    /*#update > .sp_br{
-        display: inline;
-    }
-    */
     .sp_br{
         display: inline;
     }
