@@ -17,6 +17,10 @@ body{
 }
 
 
+#update:link{
+    color:blue;
+}
+
 .head_button{
     margin: 0;
     position: relative;
@@ -76,7 +80,7 @@ body{
 }
 
 
-#index :not(h1){
+#index :not(h1) :not(a){
     color:rgb(50, 25, 25);
     font-family: ヒラギノ角ゴ Pro W3;    
 }
@@ -176,11 +180,11 @@ h1{
 
 .slider{
     margin: 50px auto;
-    width: 80%;
+    width: 85%;
 }
 .slider img{
     height: auto;
-    width: 80%;
+    width: 85%;
     padding: 0 0;
     margin:auto;
 }

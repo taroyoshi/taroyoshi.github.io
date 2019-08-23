@@ -21,5 +21,35 @@
     #update{
         font-size: 18px;
     }
+}
 
+@media only screen and (max-width: 767px) {
+    .slider{
+        margin: 10px auto;
+        width: 100%;
+        padding-left: 0;
+    }
+    .slider img{
+        height: auto;
+        width: 110vw;
+    }
+    
+    .slick-prev:before,.slick-next:before {
+        color: #000;
+    }
+    .slick-prev{
+        color: #000;
+        left: calc((70vw - 225px) / 2);
+        z-index:32;
+    }
+    .slick-next{
+        color: #000;
+        right: calc((70vw - 225px) / 2);
+        z-index:32;
+    }
+    
+    .slider ul{
+        
+        width:90%;
+    }
 }
