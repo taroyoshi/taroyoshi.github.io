@@ -81,7 +81,8 @@ music_table = [
     [12,49, "INAZUMA", "inazuma", "INAZUMA", "A", 1],
     [12,50, "Little Little Princess†", "littlepl", "LLP†", "A", 2],
     [12,51, "SCREAM SQUAD", "sc_squad", "SCREAM", "A", 3],
-    [12,52, "冥", "_mei", "冥", "A", 4],
+    //Twelfth Style† 4
+    [12,52, "冥", "_mei", "冥", "A", 5],
     
     //DistorteD
     [13,53, "Concertino in Blue", "concert", "Concertino", "A", 0],
@@ -486,9 +487,9 @@ music_table = [
     [26,393, "Night! Night! Night!", "nightx3", "Night!", "A", 16],
     [26,394, "Please Welcome Mr.C", "pls_mr_c", "PWMr.C", "A", 18],
     [26,395, "お菓子の王国", "_candykd", "お菓子", "A", 28],
-    [26,396, "泰東ノ翠霞", "_taito26", "泰東", "A", 32]
+    [26,396, "泰東ノ翠霞", "_taito26", "泰東", "A", 32],
     
-    //[26,397, "", "", "", "A", ],
+    [12,397, "Twelfth Style†", "twelfthl", "Twelfth†", "A", 4]
 ];  //テーブルの最後尾と一つ前は要チェック
 
 VER_NAME_INDEX = 2;
