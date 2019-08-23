@@ -7,13 +7,23 @@ $(function(){
         
         //ホバーイベント
         setHover();
+        
+        $(window).resize( function() {
+            $('.slider.slick-initialized').slick('unslick');
+            sliderControl();
+        });
+        
+        sliderControl();
+        
         //slick
+        /*
         $('.slider').slick({
             autoplay:true,
             autoplaySpeed:2500,
             dots:true,
             centerMode: false
         });
+        */
         
         //サイドメニュー入れ替え
         $("#tg_button").click(function(){
@@ -167,7 +177,7 @@ $(function(){
         //スムーススクロール
         $('a[href^="#"]').click(function(){
         
-            var speed = 500;
+            var speed = 600;
             var href= $(this).attr("href");
             var target = $(href == "#" || href === "" ? 'html' : href);
             var position = target.offset().top - 44;//要調整
@@ -188,13 +198,19 @@ $(function(){
 
 
 
+
+
+
+////////////////////////////////////////////////
+//サイドメニューコントロール, モーダル位置
+////////////////////////////////////////////////
 $(function(){
     
     $(".slider img").click(function(){
         //画面中央を計算する関数を実行
-        modalResize("#iidaxe_modal");;
+        modalResize("#iidaxe_modal");
         //レイヤー黒に
-        $(".all_layer").css('background-color', "rgba(0, 0, 0, 0.8)")
+        $(".all_layer").css('background-color', "rgba(0, 0, 0, 0.8)");
         
         //モーダルウィンドウを表示
         $("#iidaxe_modal").fadeIn("slow", function(){
@@ -230,6 +246,42 @@ $(function(){
   
     });
 });
+
+
+
+///////////////////////////////////////////////////
+//以下個別関数
+///////////////////////////////////////////////////
+
+function sliderControl(){
+    
+    var mql = window.matchMedia('screen and (max-width: 767px)');
+        
+    if (mql.matches) {
+        
+        // スマホ向け（599px以下のとき）
+        $('.slider').not('.slick-initialized').slick({
+            autoplay:true,
+            autoplaySpeed:2500,
+            dots:true,
+            centerMode: false
+        });
+    }
+    else{
+        // PC向け
+        $('.slider').not('.slick-initialized').slick({
+            dots:true,
+            centerMode: false
+        });
+    }
+}     
+        
+        
+
+
+
+
+
 
 function addScrollEvent(){
     window.addEventListener('scroll', controllColor, true);
