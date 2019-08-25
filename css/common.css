@@ -140,11 +140,11 @@ h1{
     
 }
 
-#a > #bio_container{
-    height:inherit;
+#biography{
+    height:1000px;
 }
 
-#a > #bio_container::before{
+#biography::before{
     position: absolute;
     width: 5px;
     background: #afafff;
@@ -162,7 +162,7 @@ h1{
 .bio_y::after{
     content:"~";
     left: 0.1rem;
-    margin-left: 15%;
+    margin-left: 5%;
 }
 
 .bio_c{

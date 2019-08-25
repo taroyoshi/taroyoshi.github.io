@@ -179,7 +179,8 @@ $(function(){
         
             var speed = 600;
             var href= $(this).attr("href");
-            var target = $(href == "#" || href === "" ? 'html' : href);
+            var target = $(href);
+            //var target = $(href == "#" || href === "" ? 'html' : href);
             var position = target.offset().top - 44;//要調整
             $("html, body").animate({scrollTop:position}, speed, "swing");
             
@@ -191,7 +192,7 @@ $(function(){
         //直後に色変更
         controllColor();
         AOS.refreshHard();
-    },150);
+    },200);
     
 });
 
