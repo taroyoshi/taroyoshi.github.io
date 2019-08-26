@@ -49,7 +49,17 @@
     }
     
     .slider ul{
-        
         width:90%;
+    }
+    
+    .bio_content::before{
+        position: absolute;
+        width: 5px;
+        background: #e1e1c8;
+        top: inherit;
+        left: 0.1rem;
+        margin-left: 14vw;
+        content: '';
+        height: 100%;
     }
 }
