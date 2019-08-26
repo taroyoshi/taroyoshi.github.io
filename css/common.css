@@ -137,30 +137,38 @@ h1{
 
 #biography{
     margin-top: 10px;    
-    height:1000px;
+    height:2000px;
     
 }
 
 .bio_content{
-    margin-top:5vh;
+    margin:5vh 0 10vh;
 }
 
-.bio_content::before{
+#biography::before{
     position: absolute;
     width: 5px;
     background: #e1e1c8;
-    top: inherit;
+    top: 3rem;
     left: 0.1rem;
     margin-left: 10vw;
     content: '';
     height: 100%;
-    z-index:31;
+    z-index:10;
+
 }
 
+/*
+.bio_s{
+    vertical-align: middle; 
+    display:inline-block;
+}
+*/
 .bio_y{
-    padding:20px 0;
     font-family: "メイリオ";
-    
+    position: absolute;
+    top: 50%;
+    margin-top: -1.0rem;
 }
 .bio_y::after{
     content:"~";
@@ -169,14 +177,16 @@ h1{
 }
 
 .bio_c{
-    padding:20px 0;
-    margin-left:8vw;
+    padding:4px 0 4px 12px;
+    width:70%;
+    margin-left:12vw;
     font-family: "メイリオ";
-    text-align: right;
+    display:inline-block;
+    background-color: rgba(225, 225, 75, 0.5);
 }
 
 .bio_g{
-    background-color: rgb(245, 245, 215);
+    
     width:80%;
 }
 
@@ -192,6 +202,7 @@ h1{
 .slider{
     margin: 50px auto;
     width: 85%;
+    z-index: 30;
 }
 .slider img{
     height: auto;

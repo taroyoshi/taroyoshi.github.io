@@ -229,17 +229,8 @@ function paraAnlyzeSet(iidaxepara){
             parent_object.appendChild(div_element);
 
             //†の場合 文字を赤に
-            if(disp_name.indexOf("†") != -1){
-                if(disp_name != "p†p" && 
-                    disp_name != "渚" && 
-                    disp_name != "DEATH"){
-                    var Lid = "#iidaxe_"+ music_table[id2][MUSIC_INDEX];
-                    $(Lid).css({
-                        "color": "red",
-                    });
-                }
-            }
-
+            daggerToRed(music_table[id2][MUSIC_INDEX]);
+            
             setDraggableAndDblclick("#iidaxe_" + String(music_table[id2][MUSIC_INDEX]));
             setHover("#iidaxe_" + String(music_table[id2][MUSIC_INDEX]), 
                                          music_table[id2][NAME_INDEX]);
@@ -454,6 +445,9 @@ function MulchGenerate(){
         parent_object.append(div_element);
 
         //†の場合 文字を赤に
+        daggerToRed(music_table[selected_music_index[target_num]][MUSIC_INDEX]);
+
+        /*
         if(disp_name.indexOf("†") != -1){
             if(disp_name != "p†p" && 
                 disp_name != "渚" && 
@@ -463,7 +457,7 @@ function MulchGenerate(){
                     "color": "red",
                 });
             }
-        }
+        }*/
 
         //対象IDをドラッグ可, ダブルクリックイベント付与
         setDraggableAndDblclick("#iidaxe_" + String(music_table[selected_music_index[target_num]][MUSIC_INDEX]));
@@ -534,7 +528,32 @@ function searchMove(mounted_selectVal){
     window.setTimeout("deleteSetTimeHover()", 4000);
 }
 
+function daggerToRed(id){
 
+    if(music_table[id][NAME_INDEX].indexOf("†") != -1){
+
+        var disp_name = music_table[id][DISP_INDEX];
+
+        if(disp_name != "p†p" && 
+            disp_name != "渚" && 
+            disp_name != "DEATH"){
+            var Lid = "#iidaxe_"+ id;
+            var Vid = music_table[id][VER_INDEX];
+            
+            //RED, HAPPY SKY, SPADAのみピンク
+            if(Vid == 11 || Vid == 12 || Vid == 21){
+                $(Lid).css({
+                    "color": "#FF00FF",
+                });
+            }
+            else{
+                $(Lid).css({
+                    "color": "red",
+                });
+            }
+        }
+    }
+}
 
 
 /*==================================================================================================
