@@ -136,57 +136,64 @@ h1{
 }
 
 #biography{
-    margin-top: 10px;    
-    height:2000px;
-    
+    margin-top: 10px;
+    height:230vw;
 }
 
 .bio_content{
-    margin:5vh 0 10vh;
+    margin:10vh 0 10vh;
 }
 
-#biography::before{
-    position: absolute;
-    width: 5px;
-    background: #e1e1c8;
-    top: 3rem;
-    left: 0.1rem;
-    margin-left: 10vw;
-    content: '';
-    height: 100%;
-    z-index:10;
-
+@media only screen and (min-width: 768px) {
+    #biography::before{
+        position: absolute;
+        width: 5px;
+        background: #e1e1c8;
+        top: 3rem;
+        left: 0.1rem;
+        margin-left: 10vw;
+        content: '';
+        height: calc( 99% - 1rem);
+        z-index:1;
+    }
 }
 
-/*
-.bio_s{
-    vertical-align: middle; 
-    display:inline-block;
-}
-*/
 .bio_y{
     font-family: "メイリオ";
     position: absolute;
     top: 50%;
     margin-top: -1.0rem;
 }
-.bio_y::after{
-    content:"~";
-    left: 0.1rem;
-    margin-left: 1vw;
+@media only screen and (min-width: 576px) {
+    .bio_y::after{
+        content:"~";
+        left: 0.1rem;
+        margin-left: 0.5vw;
+    }
 }
-
 .bio_c{
     padding:4px 0 4px 12px;
-    width:70%;
+    width:85%;
     margin-left:12vw;
     font-family: "メイリオ";
     display:inline-block;
     background-color: rgba(225, 225, 75, 0.5);
+    border-left: #e1e1c8 5px solid;
+}
+
+@media only screen and (max-width: 576px) {
+    .bio_y{
+        margin-left:2px;
+    }
+    .bio_s{
+        padding-left:0;
+    }
+    .bio_c{
+        margin-left:calc(12vw + 15px);
+    }
 }
 
 .bio_g{
-    
     width:80%;
 }
 
