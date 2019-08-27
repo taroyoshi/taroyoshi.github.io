@@ -154,7 +154,7 @@ h1{
         margin-left: 11vw;
         content: '';
         height: 100%;
-        min-height:2300px;
+        min-height:2200px;
         max-height:3100px;
         z-index:1;
     }
