@@ -52,7 +52,8 @@
         width:90%;
     }
     
-    .bio_content::before{
+    /*
+    .biography::before{
         position: absolute;
         width: 5px;
         background: #e1e1c8;
@@ -60,7 +61,20 @@
         left: 0.1rem;
         margin-left: 14vw;
         content: '';
-        height:100%;
+        height:calc( 99% - 1rem);
         max-height: 500px;
-    }
+    }*/
+    /*
+    #biography::before{
+        position: absolute;
+        width: 5px;
+        background: #e1e1c8;
+        top: 3rem;
+        left: 0.40rem;
+        margin-left: 12vw;
+        content: '';
+        height: calc( 99% - 1rem);
+        min-height:2500px;
+        z-index:1;
+    }*/
 }
