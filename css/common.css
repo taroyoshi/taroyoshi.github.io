@@ -115,9 +115,6 @@ h1{
     margin-bottom: 70vh;
 }
 
-#about_m{
-    margin-bottom: 400px;
-}
 
 #profile{
     height:auto;
@@ -157,7 +154,7 @@ h1{
         margin-left: 11vw;
         content: '';
         height: 100%;
-        min-height:2500px;
+        min-height:2300px;
         max-height:3100px;
         z-index:1;
     }
@@ -182,6 +179,17 @@ h1{
         content:"~";
         left: 0.1rem;
     }
+    
+    .bio_c::before{
+        position: absolute;
+        width: calc(1vw + 14px);
+        height: 5px;
+        background: #e1e1c8;
+        top: 10px;
+        left: calc(10vw + 16px);
+        content: '';
+        z-index:1;
+    }
 }
 .bio_c{
     padding:4px 0 4px 12px;
@@ -190,8 +198,10 @@ h1{
     font-family: "メイリオ";
     display:inline-block;
     background-color: rgba(225, 225, 75, 0.5);
-    border-left: #e1e1c8 4px solid;
+    border-left: #e1e1c8 5px solid;
+    z-index:5;
 }
+
 
 @media only screen and (max-width: 576px) {
     .bio_y{

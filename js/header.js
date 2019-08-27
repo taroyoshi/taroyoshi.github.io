@@ -152,7 +152,7 @@ $(function(){
         
         //キーバリューとか使ってスマートに
         //name属性全て取得してどうにか要自動化
-        var a = document.getElementsByName('link');
+        //var a = document.getElementsByName('link');
         
         var indexele    = document.getElementById('index').getBoundingClientRect();
         var abtpele    = document.getElementById('about_p').getBoundingClientRect();

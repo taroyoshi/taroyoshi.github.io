@@ -528,6 +528,9 @@ function searchMove(mounted_selectVal){
     window.setTimeout("deleteSetTimeHover()", 4000);
 }
 
+/*==================================================================================================
+//†譜面用 文字色変更
+==================================================================================================*/
 function daggerToRed(id){
 
     if(music_table[id][NAME_INDEX].indexOf("†") != -1){
@@ -540,7 +543,7 @@ function daggerToRed(id){
             var Lid = "#iidaxe_"+ id;
             var Vid = music_table[id][VER_INDEX];
             
-            //RED, HAPPY SKY, SPADAのみピンク
+            //RED, HAPPY SKY, SPADAのみピンク寄り
             if(Vid == 11 || Vid == 12 || Vid == 21){
                 $(Lid).css({
                     "color": "#FF00FF",

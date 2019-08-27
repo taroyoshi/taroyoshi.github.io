@@ -2,7 +2,7 @@
 
 .cp_iptxt {
 	position: relative;
-	width: 80%;
+	width: 85%;
 	margin: 40px 0;
 }
 
@@ -28,7 +28,7 @@
 	width: 100%;
 	letter-spacing: 1px;
 	left:20px;
-	padding-left:65px;
+	padding-left:15px;
 }
 
 .cp_iptxt input[type='text']:focus {
@@ -42,12 +42,12 @@
 }
 
 textarea.ef{
-	
+	padding: 15px 0 15px;
 	height: 100%;
 	resize: none;
 }
 .ef {
-	padding: 4px 0;
+	/*padding: 4px 0;*/
 	border: 0;
 	border-bottom: 1px solid #1b2538;
 	background-color: transparent;
