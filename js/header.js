@@ -150,10 +150,64 @@ $(function(){
             });                
         });        
         
+        var hov_names = document.getElementsByName('hov_name');
+
+        hov_names.forEach(function(sel){
+            cls = "." + sel.className;
+
+            $(cls).hover(function(){
+                var exname;
+
+                switch(this.className){
+                    case "araki":
+                        exname1 = "ジョジョの奇妙な冒険";
+                        exname2 = "";
+                    break;
+                    case "kita":
+                        exname1 = "喧嘩稼業";
+                        exname2 = "";
+                    break;
+                    case "togashi":
+                        exname1 = "HUNTER×HUNTER";
+                        exname2 = "";
+                    break;
+                    case "boichi":
+                        exname1 = "サンケンロック";
+                        exname2 = "";
+                    break;
+                    case "ishiwatari":
+                        exname1 = "";
+                        exname2 = "GUILTY GEAR";
+                    break;
+                    case "kakuta":
+                        exname1 = "";
+                        exname2 = "L.E.D.";
+                    break;
+                    case "saito":
+                        exname1 = "";
+                        exname2 = "kors k";
+                    break;
+                    case "kaneko":
+                        exname1 = "";
+                        exname2 = "女神転生";
+                    break;
+                }
+
+                $(".example1").fadeIn();
+                $(".example2").fadeIn();
+                $(".example1").text(exname1);
+                $(".example2").text(exname2);
+
+            },function(){
+                $(".example1").fadeOut();
+                $(".example2").fadeOut();
+                $(".example1").text("");
+                $(".example2").text("");
+            });
+        });
+
         //キーバリューとか使ってスマートに
         //name属性全て取得してどうにか要自動化
-        //var a = document.getElementsByName('link');
-        
         var indexele    = document.getElementById('index').getBoundingClientRect();
         var abtpele    = document.getElementById('about_p').getBoundingClientRect();
         var abtmele    = document.getElementById('about_m').getBoundingClientRect();
@@ -165,16 +219,16 @@ $(function(){
         var iidaxeele   = document.getElementById('iidaxe').getBoundingClientRect();
         var contactele   = document.getElementById('contact').getBoundingClientRect();
         
-        topY = indexele.top + window.pageYOffset;   
-        abtpY = abtpele.top + window.pageYOffset;   
-        abtmY = abtmele.top + window.pageYOffset;  
-        pflY = profele.top + window.pageYOffset;   
-        bioY = bioele.top + window.pageYOffset; 
-        perY = perele.top + window.pageYOffset; 
-        skillY = skillele.top + window.pageYOffset; 
-        pdtY = productele.top + window.pageYOffset;  
-        idxY = iidaxeele.top + window.pageYOffset;  
-        contY = contactele.top + window.pageYOffset;  
+        topY = indexele.top + window.pageYOffset -20;   
+        abtpY = abtpele.top + window.pageYOffset -20;   
+        abtmY = abtmele.top + window.pageYOffset -20;  
+        pflY = profele.top + window.pageYOffset -20;   
+        bioY = bioele.top + window.pageYOffset -20; 
+        perY = perele.top + window.pageYOffset -20; 
+        skillY = skillele.top + window.pageYOffset -20; 
+        pdtY = productele.top + window.pageYOffset -20;  
+        idxY = iidaxeele.top + window.pageYOffset -20;  
+        contY = contactele.top + window.pageYOffset -20;  
         
         //スムーススクロール
         $('a[href^="#"]').click(function(){
