@@ -171,6 +171,7 @@ h1{
     top: 40%;
     margin-top: -1.0rem;
 }
+
 @media only screen and (min-width: 768px) {
     .bio_y{
         font-size:2vw;
@@ -186,19 +187,20 @@ h1{
         height: 5px;
         background: #e1e1c8;
         top: 10px;
-        left: calc(10vw + 16px);
+        left: calc(10vw + 16.5px);
         content: '';
         z-index:1;
     }
 }
+
 .bio_c{
     padding:4px 0 4px 12px;
     width:80%;
-    margin-left:12vw;
+    margin-left:calc(12vw - 2px);
     font-family: "メイリオ";
     display:inline-block;
     background-color: rgba(225, 225, 75, 0.5);
-    border-left: #e1e1c8 5px solid;
+    border-left: #e1e1c8 6px solid;
     z-index:5;
 }
 
@@ -231,14 +233,42 @@ h1{
     background-color: rgba(225, 225, 75, 0.5);
 }
 
+.s_type{
+    margin-bottom:0;
+    padding-left:2px;
+    background-color: #e1e1c8;
+}
+.s_cont{
+    padding-left:5px;
+    background-color: rgba(225, 225, 75, 0.5);
+}
+
+.graph {
+    font-size:1.25vw;
+    position: relative;
+    width: 90%;
+    border: 1px solid #207870;
+    padding: 2px;
+}
+.graph .bar {
+    display: block;
+    position: relative;
+    background: #409890;
+    text-align: center;
+    color: #f0ffff;
+    height: 1.5em;
+}
+.graph .bar span { 
+    position: absolute; 
+    left: 1em;
+}
+
+
 #product{
     height:auto;
     margin-bottom: 0px;
     
 }
-
-
-
 
 .slider{
     margin: 50px auto;
