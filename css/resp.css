@@ -23,6 +23,15 @@
     }
 }
 
+@media only screen and (min-width: 768px) {
+     .left_cont{
+         border-right: solid 0.5px rgb(125,125,125);
+     }
+     .right_cont{
+         border-left: solid 0.5px rgb(125,125,125);
+     }
+}
+
 @media only screen and (max-width: 767px) {
     .slider{
         margin: 10px auto;
