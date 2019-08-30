@@ -11,6 +11,18 @@ $(function(){
         $(window).resize( function() {
             $('.slider.slick-initialized').slick('unslick');
             sliderControl();
+            
+            topY =  document.getElementById('index').getBoundingClientRect().top + window.pageYOffset -20;
+            abtpY = document.getElementById('about_p').getBoundingClientRect().top + window.pageYOffset -20;
+            abtmY = document.getElementById('about_m').getBoundingClientRect().top + window.pageYOffset -20;
+            pflY = document.getElementById('profile').getBoundingClientRect().top + window.pageYOffset -20;
+            bioY = document.getElementById('biography').getBoundingClientRect().top + window.pageYOffset -20;
+            perY = document.getElementById('personal').getBoundingClientRect().top + window.pageYOffset -20;
+            skillY = document.getElementById('skill').getBoundingClientRect().top + window.pageYOffset -20;
+            pdtY = document.getElementById('product').getBoundingClientRect().top + window.pageYOffset -20;
+            idxY = document.getElementById('iidaxe').getBoundingClientRect().top + window.pageYOffset -20;
+            contY = document.getElementById('contact').getBoundingClientRect().top + window.pageYOffset -20;
+            
         });
         
         sliderControl();

@@ -238,6 +238,10 @@ h1{
 }
 
 
+.work{
+    font-family: "メイリオ";
+}
+
 .s_type{
     margin-bottom:0;
     padding-left:2px;
@@ -275,6 +279,10 @@ h1{
     left: 1em;
 }
 
+.overview{
+    border-top: solid 1.5px black;
+    margin-top:1px;
+}
 
 #product{
     height:auto;
