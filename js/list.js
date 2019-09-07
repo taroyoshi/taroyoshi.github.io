@@ -490,6 +490,7 @@ music_table = [
     [26,396, "泰東ノ翠霞", "_taito26", "泰東", "A", 32],
     
     [12,397, "Twelfth Style†", "twelfthl", "Twelfth†", "A", 4]
+    //[26,398, "GO OVER WITH GLARE -ROOTAGE 26-", "", "GLARE 26", "A", 9]
 ];  //テーブルの最後尾と一つ前は要チェック
 
 VER_NAME_INDEX = 2;

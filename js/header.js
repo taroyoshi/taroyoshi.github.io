@@ -21,6 +21,7 @@ $(function(){
             skillY = document.getElementById('skill').getBoundingClientRect().top + window.pageYOffset -20;
             pdtY = document.getElementById('product').getBoundingClientRect().top + window.pageYOffset -20;
             idxY = document.getElementById('iidaxe').getBoundingClientRect().top + window.pageYOffset -20;
+            dpsY = document.getElementById('dposts').getBoundingClientRect().top + window.pageYOffset -20;
             contY = document.getElementById('contact').getBoundingClientRect().top + window.pageYOffset -20;
             
         });
@@ -220,27 +221,18 @@ $(function(){
 
         //キーバリューとか使ってスマートに
         //name属性全て取得してどうにか要自動化
-        var indexele    = document.getElementById('index').getBoundingClientRect();
-        var abtpele    = document.getElementById('about_p').getBoundingClientRect();
-        var abtmele    = document.getElementById('about_m').getBoundingClientRect();
-        var profele     = document.getElementById('profile').getBoundingClientRect();
-        var bioele     = document.getElementById('biography').getBoundingClientRect();
-        var perele     = document.getElementById('personal').getBoundingClientRect();
-        var skillele     = document.getElementById('skill').getBoundingClientRect();
-        var productele  = document.getElementById('product').getBoundingClientRect();
-        var iidaxeele   = document.getElementById('iidaxe').getBoundingClientRect();
-        var contactele   = document.getElementById('contact').getBoundingClientRect();
-        
-        topY = indexele.top + window.pageYOffset -20;   
-        abtpY = abtpele.top + window.pageYOffset -20;   
-        abtmY = abtmele.top + window.pageYOffset -20;  
-        pflY = profele.top + window.pageYOffset -20;   
-        bioY = bioele.top + window.pageYOffset -20; 
-        perY = perele.top + window.pageYOffset -20; 
-        skillY = skillele.top + window.pageYOffset -20; 
-        pdtY = productele.top + window.pageYOffset -20;  
-        idxY = iidaxeele.top + window.pageYOffset -20;  
-        contY = contactele.top + window.pageYOffset -20;  
+        topY =  document.getElementById('index').getBoundingClientRect().top + window.pageYOffset -20;
+        abtpY = document.getElementById('about_p').getBoundingClientRect().top + window.pageYOffset -20;
+        abtmY = document.getElementById('about_m').getBoundingClientRect().top + window.pageYOffset -20;
+        pflY = document.getElementById('profile').getBoundingClientRect().top + window.pageYOffset -20;
+        bioY = document.getElementById('biography').getBoundingClientRect().top + window.pageYOffset -20;
+        perY = document.getElementById('personal').getBoundingClientRect().top + window.pageYOffset -20;
+        skillY = document.getElementById('skill').getBoundingClientRect().top + window.pageYOffset -20;
+        pdtY = document.getElementById('product').getBoundingClientRect().top + window.pageYOffset -20;
+        idxY = document.getElementById('iidaxe').getBoundingClientRect().top + window.pageYOffset -20;
+        dpsY = document.getElementById('dposts').getBoundingClientRect().top + window.pageYOffset -20;
+        contY = document.getElementById('contact').getBoundingClientRect().top + window.pageYOffset -20;
+            
         
         //スムーススクロール
         $('a[href^="#"]').click(function(){
@@ -276,22 +268,25 @@ $(function(){
 $(function(){
     
     $(".slider img").click(function(){
+        
+        var modal_id =  "#" + $(this).attr('class')+ "_modal";
+        
         //画面中央を計算する関数を実行
-        modalResize("#iidaxe_modal");
+        modalResize(modal_id);
         //レイヤー黒に
         $(".all_layer").css('background-color', "rgba(0, 0, 0, 0.8)");
         
         //モーダルウィンドウを表示
-        $("#iidaxe_modal").fadeIn("slow", function(){
+        $(modal_id).fadeIn("slow", function(){
             //モーダル外クリックでモーダル非表示
             $(".all_layer").click(function(){
-                $("#iidaxe_modal").fadeOut();
+                $(modal_id).fadeOut();
                 addScrollEvent();
                 controllColor();
                 $(".all_layer").off();
             });
         });
-
+        
         window.removeEventListener('scroll', controllColor, true);
     });
 
@@ -384,52 +379,57 @@ function controllColor(){
     
     if((nowYpos >= topY) && (abtpY > nowYpos)){
         cArray = [1, 0, 0, 0];
-        sArray = [0, 0, 0, 0, 0, 0];
+        sArray = [0, 0, 0, 0, 0, 0, 0];
         layer[0] = "230, 255, 230, ";
     }
     else if((nowYpos >= abtpY) && (abtmY > nowYpos)){
         cArray = [1, 0, 0, 0];
-        sArray = [1, 0, 0, 0, 0, 0];
+        sArray = [1, 0, 0, 0, 0, 0, 0];
         layer[0] = "200, 200, 255, ";
     }
     else if((nowYpos >= abtmY) && (pflY > nowYpos)){
         cArray = [1, 0, 0, 0];
-        sArray = [0, 1, 0, 0, 0, 0];
+        sArray = [0, 1, 0, 0, 0, 0, 0];
         layer[0] = "200, 200, 255, ";
     }
     else if((nowYpos >= pflY) && (bioY > nowYpos)){
         cArray = [0, 1, 0, 0];
-        sArray = [0, 0, 0, 0, 0, 0];
+        sArray = [0, 0, 0, 0, 0, 0, 0];
         layer[0] = "255, 255, 225, ";
     }
     else if((nowYpos >= bioY) && (perY > nowYpos)){
         cArray = [0, 1, 0, 0];
-        sArray = [0, 0, 1, 0, 0, 0];
+        sArray = [0, 0, 1, 0, 0, 0, 0];
         layer[0] = "255, 255, 225, ";
     }
     else if((nowYpos >= perY) && (skillY > nowYpos)){
         cArray = [0, 1, 0, 0];
-        sArray = [0, 0, 0, 1, 0, 0];
+        sArray = [0, 0, 0, 1, 0, 0, 0];
         layer[0] = "255, 255, 225, ";
     }
     else if((nowYpos >= skillY) && (pdtY > nowYpos)){
         cArray = [0, 1, 0, 0];
-        sArray = [0, 0, 0, 0, 1, 0];
+        sArray = [0, 0, 0, 0, 1, 0, 0];
         layer[0] = "255, 255, 225, ";
     }
     else if((nowYpos >= pdtY) && (idxY > nowYpos)){
         cArray = [0, 0, 1, 0];
-        sArray = [0, 0, 0, 0, 0, 0];
+        sArray = [0, 0, 0, 0, 0, 0, 0];
         layer[0] = "255, 225, 225, ";
     }
-    else if((nowYpos >= idxY) && (contY > nowYpos)){
+    else if((nowYpos >= idxY) && (dpsY > nowYpos)){
         cArray = [0, 0, 1, 0];
-        sArray = [0, 0, 0, 0, 0, 1];
+        sArray = [0, 0, 0, 0, 0, 1, 0];
+        layer[0] = "255, 225, 225, ";
+    }
+    else if((nowYpos >= dpsY) && (contY > nowYpos)){
+        cArray = [0, 0, 1, 0];
+        sArray = [0, 0, 0, 0, 0, 0, 1];
         layer[0] = "255, 225, 225, ";
     }
     else if(nowYpos >= contY){
         cArray = [0, 0, 0, 1];
-        sArray = [0, 0, 0, 0, 0, 0];
+        sArray = [0, 0, 0, 0, 0, 0, 0];
         layer[0] = "255, 225, 225, ";
     }
     changeColor(cArray, sArray);
@@ -452,7 +452,8 @@ function changeColor(arr1, arr2){
                 'bio_button', 
                 'personal_button',
                 'skill_button', 
-                'iidaxe_button'];
+                'iidaxe_button',
+                'dposts_button'];
     
     for(var i = 0; i < carr.length; i++){
         if(arr1[i] == 1){

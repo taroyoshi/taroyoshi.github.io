@@ -2,12 +2,8 @@ const MUSIC_NUM = music_table.length;
 
 var existArray = new Array(MUSIC_NUM);
 
-//TODO モーダル表示関連の関数での一括化 及びhtmlの分割, JSによる読み込み化
 //TODO Save, Load時に名前の一致かを確認
-//TODO LocalStoreageの名前必要?
-//TODO Searchが不正確
 //TODO GenerateにInfomation
-//TODO レイヤーの枠線
 
 /*==================================================================================================
 //チャート画面読み出し時処理(付随されているURLパラメータによって処理を判断)
@@ -363,8 +359,6 @@ function modalResize(id){
     });
 }
 
-
-
 /*==================================================================================================
 //ヘッダーボタン有効化, 無効化
 ==================================================================================================*/
@@ -446,18 +440,6 @@ function MulchGenerate(){
 
         //†の場合 文字を赤に
         daggerToRed(music_table[selected_music_index[target_num]][MUSIC_INDEX]);
-
-        /*
-        if(disp_name.indexOf("†") != -1){
-            if(disp_name != "p†p" && 
-                disp_name != "渚" && 
-                disp_name != "DEATH"){
-                var Lid = "#iidaxe_"+ music_table[selected_music_index[target_num]][MUSIC_INDEX];
-                $(Lid).css({
-                    "color": "red",
-                });
-            }
-        }*/
 
         //対象IDをドラッグ可, ダブルクリックイベント付与
         setDraggableAndDblclick("#iidaxe_" + String(music_table[selected_music_index[target_num]][MUSIC_INDEX]));
@@ -557,6 +539,10 @@ function daggerToRed(id){
         }
     }
 }
+
+
+
+
 
 
 /*==================================================================================================
@@ -865,33 +851,9 @@ jQuery(function(){
                         alert("配置済みの譜面を選択してください。");
                         break;
                     }
-                    
+                    //検索, 移動
                     searchMove(mounted_selectVal);
-                    //以下 外に別関数化
-                    /*
-                    //位置情報等
-                    var positionLeft = parseInt($("#iidaxe_" + mounted_selectVal).css("left").replace("px", ""), 10);
-                    var positionTop = parseInt($("#iidaxe_" + mounted_selectVal).css("top").replace("px", ""), 10);
                     
-                    //対象位置までスクロール
-                    window.scrollTo(positionLeft, positionTop);
-                    
-                    var div_element = document.createElement("div");
-                    var parent_object = document.getElementById('main');
-                    div_element.innerHTML = '<div data-aos="flip-up" data-aos-once="false" id="searchSQ" style="left: ' +
-                                            (positionLeft -3) +
-                                            'px; top:' +
-                                            (positionTop -3) +
-                                            'px;">' +
-                                            '</div>';
-                    
-                    parent_object.append(div_element);
-                    
-                    $("#searchSQ").hover(function(){
-                        $(this).remove();
-                    });
-                    window.setTimeout("deleteSetTimeHover()", 3000);
-                    */
                     break;
                     
                 //名前の保存
