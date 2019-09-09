@@ -64,7 +64,7 @@ body{
 .slide_child{
     position: relative;
     right:0;
-    top: 10px;
+    top: 8px;
     width:100px;
     height:40px;
     float:left;
@@ -164,11 +164,19 @@ h1{
     border-radius: 10px 0 0 10px/10px 0 0 10px;
     color:rgb(75,75,25);
     background-color: rgba(225, 225, 75, 0.5);
-    border-right: #e1e1c8 4px solid;
+    border-right: #e1e1c8 4px solid;    
     font-family: "メイリオ";
     position: absolute;
     top: 40%;
     margin-top: -1.0rem;
+}
+@media only screen and (max-width: 350px) {
+    .bio_y{
+        border-right: none; 
+        font-size:14px;
+        
+    }
+    
 }
 
 @media only screen and (min-width: 768px) {
@@ -292,7 +300,7 @@ h1{
 }
 
 .slider{
-    margin: 50px auto;
+    margin: 25px auto;
     width: 85%;
     z-index: 30;
 }

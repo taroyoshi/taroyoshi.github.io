@@ -431,30 +431,31 @@ music_table = [
     //EVANESCENT 6
     //GENE 7
     [26,362, "GIGA THRASH", "gigathra", "GIGA", "A", 8],
-    //HARD BRAIN 9
-    [26,363, "KILL EACH OTHER", "killeach", "KILL", "A", 10],
-    [26,364, "L.F.O", "lfo", "L.F.O", "A", 11],
-    [26,365, "Level One", "levelone", "Lv One", "A", 12],
-    [26,366, "LOST TECHNOLOGIE", "losttech", "LOST TEC", "A", 13],
-    //Mächö Mönky 14
-    //Necroxis Girl 15
-    //Night! Night! Night! 16  
-    //ONIGOROSHI 17
-    [26,367, "Painful Fate", "painfate", "Painful", "A", 18],
-    //Please Welcome Mr.C 19
-    [26,368, "Red. by Jack Trance", "red_jack", "Red J", "A", 20],
-    //ruin of opals 21
-    [26,369, "SIGMA", "sigma", "SIGMA", "A", 22],
-    [26,370, "THE DAY OF JUBILATIONS", "t_jubila", "JUBI", "A", 23],
-    [26,371, "The Rebellion of Sequencer", "t_rebeli", "TRoS", "A", 24],
-    //Unbelief 25
-    //Visterhv 26
-    [26,372, "Xlo", "xlo", "Xlo", "A", 27],
-    //お菓子の王国 28
-    //抱きしめてモナムール 29
-    //Χ-DEN 30
-    [26,373, "金野火織の金色提言", "_k_hiori", "金色", "A", 31],
-    //泰東ノ翠霞 32
+    //GO OVER WITH GLARE -ROOTAGE 26- 9
+    //HARD BRAIN 10
+    [26,363, "KILL EACH OTHER", "killeach", "KILL", "A", 11],
+    [26,364, "L.F.O", "lfo", "L.F.O", "A", 12],
+    [26,365, "Level One", "levelone", "Lv One", "A", 13],
+    [26,366, "LOST TECHNOLOGIE", "losttech", "LOST TEC", "A", 14],
+    //Mächö Mönky 15
+    //Necroxis Girl 16
+    //Night! Night! Night! 17
+    //ONIGOROSHI 18
+    [26,367, "Painful Fate", "painfate", "Painful", "A", 19],
+    //Please Welcome Mr.C 20
+    [26,368, "Red. by Jack Trance", "red_jack", "Red J", "A", 21],
+    //ruin of opals 22
+    [26,369, "SIGMA", "sigma", "SIGMA", "A", 23],
+    [26,370, "THE DAY OF JUBILATIONS", "t_jubila", "JUBI", "A", 24],
+    [26,371, "The Rebellion of Sequencer", "t_rebeli", "TRoS", "A", 25],
+    //Unbelief 26
+    //Visterhv 27
+    [26,372, "Xlo", "xlo", "Xlo", "A", 28],
+    //お菓子の王国 29
+    //抱きしめてモナムール 30
+    //Χ-DEN 31
+    [26,373, "金野火織の金色提言", "_k_hiori", "金色", "A", 32],
+    //泰東ノ翠霞 33
     
 
 
@@ -465,32 +466,32 @@ music_table = [
     [26,376, "Carmina", "carmina", "Carmina", "A", 0],
     [26,377, "Carry Me Away", "carryme", "Carry", "A", 1],
     [26,378, "EVANESCENT", "evanscnt", "EVANESCENT", "A", 6],
-    [26,379, "Mächö Mönky", "machomnk", "Mächö", "A", 14],
-    [26,380, "Necroxis Girl", "necroxis", "Necroxis", "A", 15],
-    [26,381, "Unbelief", "unbelief", "Unbelief", "A", 25],
-    [26,382, "抱きしめてモナムール", "_dakismt", "モナムール", "A", 29],
-    [26,383, "Χ-DEN", "_kai_den", "Χ-DEN", "A", 30],
+    [26,379, "Mächö Mönky", "machomnk", "Mächö", "A", 15],
+    [26,380, "Necroxis Girl", "necroxis", "Necroxis", "A", 16],
+    [26,381, "Unbelief", "unbelief", "Unbelief", "A", 26],
+    [26,382, "抱きしめてモナムール", "_dakismt", "モナムール", "A", 30],
+    [26,383, "Χ-DEN", "_kai_den", "Χ-DEN", "A", 31],
     
     //2019/07/12追加
     [16,384, "B4U(BEMANI FOR YOU MIX)†", "bemani4l", "B4U(MIX)†", "A", 0],
     [23,385, "Welcome†", "welcomel", "Welcome†", "A", 22],
-    [26,386, "HARD BRAIN", "hrdbrain", "HARD BR", "A", 9],
-    [26,387, "ONIGOROSHI", "onigoros", "ONI", "A", 17],
-    [26,388, "ruin of opals", "ruinopal", "ruin", "A", 21],
-    [26,389, "Visterhv", "visterhv", "Visterhv", "A", 26],
+    [26,386, "HARD BRAIN", "hrdbrain", "HARD BR", "A", 10],
+    [26,387, "ONIGOROSHI", "onigoros", "ONI", "A", 18],
+    [26,388, "ruin of opals", "ruinopal", "ruin", "A", 22],
+    [26,389, "Visterhv", "visterhv", "Visterhv", "A", 27],
     
     [15,390, "Wanna Party?†", "wnpartyl", "Wanna †", "A", 15],
     [17,391, "AIR RAID FROM THA UNDAGROUND†", "airraidl", "AIR RAID†", "A", 0],
-    [26,392, "GENE", "gene", "GENE", "A", 7],
+    [26,392, "GENE", "gene", "GENE", "A", 8],
     
     //2019/08/09追加
-    [26,393, "Night! Night! Night!", "nightx3", "Night!", "A", 16],
-    [26,394, "Please Welcome Mr.C", "pls_mr_c", "PWMr.C", "A", 18],
-    [26,395, "お菓子の王国", "_candykd", "お菓子", "A", 28],
-    [26,396, "泰東ノ翠霞", "_taito26", "泰東", "A", 32],
+    [26,393, "Night! Night! Night!", "nightx3", "Night!", "A", 17],
+    [26,394, "Please Welcome Mr.C", "pls_mr_c", "PWMr.C", "A", 19],
+    [26,395, "お菓子の王国", "_candykd", "お菓子", "A", 29],
+    [26,396, "泰東ノ翠霞", "_taito26", "泰東", "A", 33],
     
-    [12,397, "Twelfth Style†", "twelfthl", "Twelfth†", "A", 4]
-    //[26,398, "GO OVER WITH GLARE -ROOTAGE 26-", "", "GLARE 26", "A", 9]
+    [12,397, "Twelfth Style†", "twelfthl", "Twelfth†", "A", 4],
+    [26,398, "GO OVER WITH GLARE -ROOTAGE 26-", "go_glare", "GLARE 26", "A", 9]
 ];  //テーブルの最後尾と一つ前は要チェック
 
 VER_NAME_INDEX = 2;
