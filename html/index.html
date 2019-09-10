@@ -115,6 +115,7 @@
             </div>
         </div>
     </div>
+    
     <div class="all_layer">
         <div class="container-fluid">
             <div class="row">
@@ -333,7 +334,7 @@
                                     </span>
                                 </div>
                                 <div class="text-center bio_g mx-auto" data-aos="fade-up" data-aos-once="true">
-                                    <img class="mt-3" src="../img/dded.jpg" style="vertical-align:top;" alt="dd" width="80%">
+                                    <img class="mt-3" src="../img/dded.jpg" style="vertical-align:top;" alt="dd" width="70%">
                                 </div>
                             </div>
                         </div>
@@ -990,9 +991,9 @@
                                 <span>(現状 無し)</span><br>
                             </ul>
                             
-                            <H3>最終更新(対応イベント等)</H3>
+                            <h3>最終更新(対応イベント等)</h3>
                             <ul>
-                                <li>ARC SCORE(HAPPY SKY)</li>
+                                <li>ARC SCORE(FINAL)</li>
                                 <li>ARENA(第6回)</li>
                                 <li>DELABITY LABORATORY(FLOOR 3)</li>
                                 <li>蜃気楼の図書館(最後の書庫)</li>
@@ -1082,9 +1083,9 @@
                                 <span>nothing</span><br>
                             </ul>
                             
-                            <H3>Last Update(Added events)</H3>
+                            <h3>Last Update(Added events)</h3>
                             <ul>
-                                <li>ARC SCORE(HAPPY SKY)</li>
+                                <li>ARC SCORE(FINAL)</li>
                                 <li>ARENA(6th round)</li>
                                 <li>DELABITY LABORATORY(FLOOR 3)</li>
                                 <li>The Bibliotheca of Mirage(Last Archive)</li>
@@ -1127,7 +1128,7 @@
             </div>
             
             <div class="row">
-                <div id="dposts" class="col-12 mb-5">
+                <div id="dposts" class="col-12 mb-5 mt-5">
                     <div data-aos="fade-up">
                         <h2 class="text-center mb-0">2. D-Posts</h2>
                         <ul class="slider">
@@ -1144,64 +1145,87 @@
                         <div class="lang_jp">
                             <h1>D-Posts(概要)</h1>
                             <p>就労移行支援事業所内のRuby on Railsの学習で作製<br>
-                                Twitterと同様の当特性, 文章投稿, 閲覧機能</p> 
+                                Twitterと同様の登録性, 文章投稿, 画像投稿, 閲覧機能</p> 
                             <h2>機能説明</h2>
                             <ul>
-                               
-                                <p></p>
-                                <li>上部ヘッダー内Generateボタンにより生成用モーダルウィンドウ表示。</li>
-                                
+                                <p>新規登録</p>
+                                <li>アカウント名, E-mailアドレス, ログイン用パスワードを入力し新規登録完了</li>
+                                <li>Log inボタンより登録に用いたE-mailアドレス, パスワードでログイン</li>
                                 <br>
-                                <p>Deleteボタン 及びウィンドウ</p>
-                                <li>生成済みボックスがSettedセレクトボックス内に表示<br class="sp_br">
-                                    (マルチセレクト可能)。</li>
-                                
+                                <p>Homeボタン</p>
+                                <li>
+                                    自身のアカウント 及びフォローしているアカウントの投稿を<br>
+                                    時系列に沿って表示
+                                </li>
                                 <br>
-                                <p>Config Searchボタン 及びウィンドウ</p>
-                                <li>配置済みのボックスの位置を検索, 選択しSearchボタンにて<br class="sp_br">
-                                    その位置に表示を移動。</li>
-                                <span>(※正しく動作しない可能性有り)</span>
-                                <br><li>Name Saveにて作成者名保存しページタイトルに反映。</li>
-                                <li>作成した内容をTwitter共有用URLを作成し、<br class="sp_br">
-                                    Tweetボタンにて投稿可能(もしくは下部URLを利用)。</li>
+                                <p>投稿</p>
+                                <li>
+                                    "Compose new micropost" より文章を入力し投稿可能(空白不可能, 140字以内)<br>
+                                    画像も添付可能
+                                </li>
                                 <br>
-                                
-                                
-                            </ul>
-                            
-                            
-                            
-                            <h4>将来対応予定</h4>
-                            <ul>
-                                <li></li>
-                                
+                                <li>Usersボタン</li>
+                                <li>
+                                    登録済みのユーザー一覧表示(現在 大半はダミーのデータ)<br>
+                                    ユーザー ページよりフォローが可能。  
+                                </li>
                             </ul>
                             <h4>作成環境等</h4>
                             <ul>
-                                <li>html, JavaScript, jQuery</li>
-                                <li>Windows7, Visual Studio Code, Google Chrome(PaizaCloud)</li>
+                                <li>html, Ruby on Rails, JavaScript, jQuery</li>
+                                <li>Windows10, Google Chrome(PaizaCloud)</li>
                             </ul>
                             
                             <h5>動作確認(PC)</h5>
                             Google Chrome 73.0.3683.75<br>
-                            Fire Fox 65.0.2<br>       
                             Vivaldi	2.3.1440.61<br>
                             <br>
                             
                             <h4 style="margin:15px 0 1px">GitHub内 リポジトリ</h4>
                             <a href="https://github.com/taroyoshi/d-posts" style="margin-top:1px" target="_blank"><i>GitHub(dp-posts)</i></a>
-                                
-                            
                         </div>
 
                         <div class="lang_en">
-                            <h1>IIDAXE-dp TOP(Overview)</h1>
-                            <p>A tool for DP difficult12 in beatmania IIDX <br class="sp_br">
-                            to consider, propose and express difficulty comparison <br class="sp_br">
-                            in a certain field in hierarchical form.</p> 
-                            
+                            <h1>D-Posts(Overview)</h1>
+                            <p>Created by learning Ruby on Rails in the work transfer support office.<br>
+                                Registerability similar to Twitter, text submission, image submission, browsing function.</p> 
                             <h2>Feature Description</h2>
- 
+                            <ul>
+                                <p>Sign up</p>
+                                <li>Enter your account name, e-mail address, login password and complete new registration.</li>
+                                <li>Login with the e-mail address and password used for registration from the login button.</li>
+                                <br>
+                                <p>Home Button</p>
+                                <li>
+                                    Display posts from your account and the accounts you are following, in time series.
+                                </li>
+                                <br>
+                                <p>Post</p>
+                                <li>
+                                    You can post by entering text from "Compose new micropost".<br>
+                                    (cannot be blank, within 140 characters).<br>
+                                    Images can also be attached.
+                                </li>
+                                <br>
+                                <li>Users Button</li>
+                                <li>
+                                    List of registered users (currently mostly dummy data).<br>
+                                    You can follow from the user page.
+                                </li>
+                            </ul>
+                            <h4>Production environment</h4>
+                            <ul>
+                                <li>html, Ruby on Rails, JavaScript, jQuery</li>
+                                <li>Windows10, Google Chrome(PaizaCloud)</li>
+                            </ul>
+                            
+                            <h5>Operation check(PC)</h5>
+                            Google Chrome 73.0.3683.75<br>
+                            Vivaldi	2.3.1440.61<br>
+                            <br>
+                            
+                            <h4 style="margin:15px 0 1px">GitHub Repository</h4>
+                            <a href="https://github.com/taroyoshi/d-posts" style="margin-top:1px" target="_blank"><i>GitHub(dp-posts)</i></a>
                         </div>
                     </div>
                 </div>

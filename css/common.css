@@ -376,6 +376,24 @@ h1{
     overflow-y: scroll;
 }
 
+#dposts_wrap h1{
+    margin-top: 1px;
+    margin-bottom: 3px;
+}
+
+#dposts_wrap h2{
+    margin-top: 10px;
+}
+#dposts_wrap p{
+    margin-bottom: 1px;
+}
+#dposts_wrap li{
+    font-size: 14px;
+}
+#dposts_wrap i{
+    font-size: 30px;
+    margin-top: 1px;
+}
 
 footer .layer{
     background-color: rgba(255, 175, 200, 0.5);
