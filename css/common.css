@@ -174,9 +174,7 @@ h1{
     .bio_y{
         border-right: none; 
         font-size:14px;
-        
     }
-    
 }
 
 @media only screen and (min-width: 768px) {
