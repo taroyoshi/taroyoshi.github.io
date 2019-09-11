@@ -421,7 +421,7 @@ function MulchGenerate(){
         });
         
         var div_element = document.createElement("div");
-        var ver_top = (music_table[selected_music_index[target_num]][VER_INDEX] - 2) * 35;
+        var ver_top = (music_table[selected_music_index[target_num]][VER_INDEX] - 2) * 25;
 
         //attrで行うべき? このままだと2重のdivになるから控えたい。
         div_element.innerHTML = '<div class="music_box music_box_' + 
@@ -540,8 +540,18 @@ function daggerToRed(id){
     }
 }
 
+//ウィンドウサイズ取得
+function getWindowSize() {
+	var wh
+	sW = window.innerWidth;
+	sH = window.innerHeight;
 
-
+    returnArray = new Array(2);
+    
+    returnArray[0] = sW; 
+    returnArray[1] = sH; 
+	
+}
 
 
 

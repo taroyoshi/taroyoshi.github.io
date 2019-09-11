@@ -1,6 +1,7 @@
 
-html,body, #main{
+html,body{
     height:100%;
+    margin:0px;
 }
 
 header{
@@ -44,15 +45,36 @@ header{
 }
 
 #main{
-    width:2000px;
-    height:1500px;
-    margin-top:50px;
+    width:100%;
+    height:calc(100% - 50px);
+    top:50px;
     background-size: cover;
     text-align: center;
-    background-image : url(../img/backaxis.jpg );
+    /*background-image : url(../img/backaxis.jpg );*/
     z-index:0;
     left:0;
     position:relative;
+}
+
+#main::before{
+    position: absolute;
+    width: 2px;
+    background:black;
+    left: 50%;
+    content: '';
+    height: 100%;
+    z-index:1;
+}
+
+#generate_position::before{
+    position: absolute;
+    width: 100%;
+    background:black;
+    top: 50%;
+    content: '';
+    height: 2px;
+    z-index:1;
+    right: 0;
 }
 
 
@@ -62,13 +84,13 @@ header{
 
 .music_box{
     float:left;
-    font-size: 11px;
+    font-size: 10px;
     border-radius: 5px;
     word-break : break-all;
     z-index: 10;
-    width:40px;
-    height:40px;
-    
+    width:41px;
+    height:38px;
+    font-weight:500;
     border-style: groove;
     position:absolute;
 }
