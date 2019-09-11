@@ -8,6 +8,12 @@
 }
 
 
+@media only screen and (max-height: 662px) {
+    #biography{
+        min-height:2200px;
+    }
+}
+
 @media only screen and (max-width: 640px) {
   
     #greet span{
@@ -23,6 +29,69 @@
     }
 }
 
+
+@media only screen and (min-width: 1024px) and (max-width: 1400px){
+    #biography{
+        margin-top: 10px;
+        margin-bottom: 100px;
+        height:90%;
+        
+        min-height:0;
+    }
+    
+    #biography::before{
+        position: absolute;
+        width: 5px;
+        background: #e1e1c8;
+        top: 6rem;
+        left: 0.15rem;
+        margin-left: 11vw;
+        content: '';
+        height: 80%;
+        min-height:2300px;
+        max-height:2800px;
+        z-index:1;
+    }
+}
+
+@media only screen and (min-width: 1400px) {
+    
+    
+    
+    #biography::before{
+        position: absolute;
+        width: 5px;
+        background: #e1e1c8;
+        top: 6rem;
+        left: 0.15rem;
+        margin-left: 11vw;
+        content: '';
+        height: 100%;
+        min-height:2200px;
+        max-height:3200px;
+        z-index:1;
+    }
+}
+
+@media only screen and (min-width: 768px) and (max-width: 1024px){
+    #biography::before{
+        position: absolute;
+        width: 5px;
+        background: #e1e1c8;
+        top: 6rem;
+        left: 0.15rem;
+        margin-left: 11vw;
+        content: '';
+        height: 80%;
+        min-height:2200px;
+        max-height:3200px;
+        z-index:1;
+    }
+    
+    
+}
+
+
 @media only screen and (min-width: 768px) {
     .phase{
         border-top:solid 1.5px black;
@@ -34,6 +103,34 @@
     }
     .right_cont{
         border-left: dotted 0.5px rgb(125,125,125);
+    }
+}
+
+@media only screen and (max-width: 350px) {
+    .bio_y{
+        border-right: none; 
+        font-size:14px;
+    }
+}
+
+@media only screen and (min-width: 768px) {
+    .bio_y{
+        font-size:2vw;
+    }
+    .bio_y::after{
+        content:"~";
+        left: 0.1rem;
+    }
+    
+    .bio_c::before{
+        position: absolute;
+        width: calc(1vw + 14px);
+        height: 5px;
+        background: #e1e1c8;
+        top: 10px;
+        left: calc(10vw + 16.5px);
+        content: '';
+        z-index:1;
     }
 }
 

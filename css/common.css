@@ -143,21 +143,6 @@ h1{
     margin:5vh 0 10vh;
 }
 
-@media only screen and (min-width: 768px) {
-    #biography::before{
-        position: absolute;
-        width: 5px;
-        background: #e1e1c8;
-        top: 6rem;
-        left: 0.15rem;
-        margin-left: 11vw;
-        content: '';
-        height: 100%;
-        min-height:2200px;
-        max-height:3200px;
-        z-index:1;
-    }
-}
 
 .bio_y{
     padding-left:3px;
@@ -169,33 +154,6 @@ h1{
     position: absolute;
     top: 40%;
     margin-top: -1.0rem;
-}
-@media only screen and (max-width: 350px) {
-    .bio_y{
-        border-right: none; 
-        font-size:14px;
-    }
-}
-
-@media only screen and (min-width: 768px) {
-    .bio_y{
-        font-size:2vw;
-    }
-    .bio_y::after{
-        content:"~";
-        left: 0.1rem;
-    }
-    
-    .bio_c::before{
-        position: absolute;
-        width: calc(1vw + 14px);
-        height: 5px;
-        background: #e1e1c8;
-        top: 10px;
-        left: calc(10vw + 16.5px);
-        content: '';
-        z-index:1;
-    }
 }
 
 .bio_c{
