@@ -179,6 +179,8 @@ function paraAnlyzeSet(iidaxepara){
     var psst = iidaxepara.indexOf("-p-");
     var tost = iidaxepara.indexOf("-to-");
     var nst  = iidaxepara.indexOf("-n-");
+    
+    //TODO パラメータからのウィンドウサイズの取得, 変更
 
     //BOX全削除
     for(var id = 0; id < MUSIC_NUM; id++){
@@ -224,7 +226,7 @@ function paraAnlyzeSet(iidaxepara){
             
             parent_object.appendChild(div_element);
 
-            //†の場合 文字を赤に
+            //†譜面の場合 文字を赤に
             daggerToRed(music_table[id2][MUSIC_INDEX]);
             
             setDraggableAndDblclick("#iidaxe_" + String(music_table[id2][MUSIC_INDEX]));
@@ -540,7 +542,10 @@ function daggerToRed(id){
     }
 }
 
+
+/*==================================================================================================
 //ウィンドウサイズ取得
+==================================================================================================*/
 function getWindowSize() {
 	var wh
 	sW = window.innerWidth;
@@ -549,8 +554,9 @@ function getWindowSize() {
     returnArray = new Array(2);
     
     returnArray[0] = sW; 
-    returnArray[1] = sH; 
+    returnArray[1] = sH; p
 	
+	return returnArray;
 }
 
 
