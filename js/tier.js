@@ -120,6 +120,7 @@ function setDraggableAndDblclick(id){
 	    }
     });
 }
+
 /*======================================================================
 //ホバーイベント付与 (id : "iidaxe_～")
 ======================================================================*/
@@ -176,9 +177,10 @@ function setHover(id, music_name){
 function paraAnlyzeSet(iidaxepara){
     
     //iidaxeparaを分解, パラメータ分割位置把握
-    var psst = iidaxepara.indexOf("-p-");
-    var tost = iidaxepara.indexOf("-to-");
-    var nst  = iidaxepara.indexOf("-n-");
+    var psst = iidaxepara.indexOf("?p-");
+    var tost = iidaxepara.indexOf("?t-");
+    var nmst = iidaxepara.indexOf("?n-");
+    var wnst = iidaxepara.indexOf("?w-");
     
     //TODO パラメータからのウィンドウサイズの取得, 変更
 
@@ -191,10 +193,17 @@ function paraAnlyzeSet(iidaxepara){
         existArray[id] = "0";
     }
 
-    var compExist = iidaxepara.substring(2, psst);              //解凍前存在判定
-    var compPos = iidaxepara.substring(psst + 3, tost);         //解凍前配置位置
-    var TargetOption = iidaxepara.substring(tost + 4, nst);     //目標, オプション
-    var Name = iidaxepara.substring(nst + 3, iidaxepara.length);//名前
+    var compExist = iidaxepara.substring(2, psst);                      //解凍前存在判定
+    var compPos = iidaxepara.substring(psst + 3, tost);                 //解凍前配置位置
+    var TargetOption = iidaxepara.substring(tost + 3, nmst);            //目標, オプション
+    var Name = iidaxepara.substring(nmst + 3, wnst);                    //名前
+    var winSize =  iidaxepara.substring(wnst + 3, iidaxepara.length);   //ウィンドウサイズ
+    
+    var ww = tot(winSize.substring(0, 2));
+    var wh = tot(winSize.substring(2, 4));
+    
+    //ウィンドウサイズ変更
+    window.resizeTo(ww, wh);
 
     //存在判定を解凍, カンマで区切って配列化
     existArray =  lzbase62.decompress(compExist).split(",");
@@ -289,6 +298,7 @@ function MusicSelectBoxChange(version){
 function makeUrlPara(arr){
     
     var retUrl = "";
+    var win = new Array(2);
     
     for(var id = 0; id < MUSIC_NUM; id++){
         if(arr[id] == 1){
@@ -338,8 +348,26 @@ function makeUrlPara(arr){
     var targetsl = $("#targetid").val();
     var optsl = $("#optid").val();
     var name = window.localStorage.getItem(['IIDAXEname']);
+    
+    //ウィンドウサイズ取得, 変換
+    var win =  getWindowSize();
+    win[0] = tos(win[0]);
+    win[1] = tos(win[1]);
+    
+    while(win[0].length < 2){
+        win[0] = "0" + win[0];
+    }
+    while(win[1].length < 2){
+        win[1] = "0" + win[1];
+    }
+    
+    
     //パラメータ作成
-    return ("?e-" + compressedExist + "-p-" +compressedPos + "-to-" + targetsl + optsl + "-n-" + name);
+    return ("?e-" + compressedExist
+            + "?p-" +compressedPos
+            + "?t-" + targetsl + optsl
+            + "?n-" + name
+            + "?w-" + win[0] + win[1] );
 }
 
 
@@ -544,7 +572,7 @@ function daggerToRed(id){
 
 
 /*==================================================================================================
-//ウィンドウサイズ取得
+//ウィンドウサイズ取得(返り値[0]: 幅, [1]: 高さ)
 ==================================================================================================*/
 function getWindowSize() {
 	var wh
@@ -554,7 +582,7 @@ function getWindowSize() {
     returnArray = new Array(2);
     
     returnArray[0] = sW; 
-    returnArray[1] = sH; p
+    returnArray[1] = sH;
 	
 	return returnArray;
 }
