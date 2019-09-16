@@ -573,7 +573,7 @@ function daggerToRed(id){
 
         //下記楽曲は元より†マークがある為除外
         if(disp_name != "p†p" && 
-            disp_name != "渚" && 
+            disp_name != "渚<br>IIDX" && 
             disp_name != "DEATH"){
             var Lid = "#iidaxe_"+ id;
             var Vid = music_table[id][VER_INDEX];
