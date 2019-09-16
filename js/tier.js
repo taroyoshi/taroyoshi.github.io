@@ -200,8 +200,8 @@ function paraAnlyzeSet(iidaxepara, url){
        
 		window.open(openUrl, "_blank", wp);
 		
-		//現在のウィンドウを閉じる、Firefoxでは空タブが残る
-        window.open('about:blank','_self').close();
+		//現在のウィンドウを閉じる
+        //window.open('about:blank','_self').close();
         
         return;
     }
