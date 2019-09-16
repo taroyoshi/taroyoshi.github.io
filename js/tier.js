@@ -16,11 +16,15 @@ function initchart(){
     var n = gatUrl.search("tier_main.html");
     var a = gatUrl.slice(n + 14, n + 18);
     
+    //下記if内から移動
+    for(var i = 0; i < MUSIC_NUM; i++){
+        existArray[i] = "0";
+    }
+    
     //URL付随パラメータの判定 及び解析
     if(a == "?bkf" || a === ""){
-        for(var i = 0; i < MUSIC_NUM; i++){
-            existArray[i] = "0";
-        }
+        
+        //存在判定をifの外に、必ず実行されるように
         
         //20190227現在 RUGGED ASHのみ確認して譜面選択セレクトボックスの初期化
         //以後、1st, Substream, 2ndに追加されたら要改修
@@ -32,7 +36,7 @@ function initchart(){
         //パラメータを持って表示した場合、解析し配置
         var para = gatUrl.slice(n + 15, urlLength);
         //パラメータ解析, 配置
-        paraAnlyzeSet(para);
+        paraAnlyzeSet(para, gatUrl);
     }
 }
 
@@ -125,9 +129,13 @@ function setDraggableAndDblclick(id){
 //ホバーイベント付与 (id : "iidaxe_～")
 ======================================================================*/
 function setHover(id, music_name){
+    
+    //ボックスにマウスオーバーで吹き出しで曲名表示のイベント
     $( id ).hover(function(){
 
         var each_id = document.getElementById(id.replace("#", ""));
+
+        var winSize = getWindowSize();
 
         //左位置取得
         var l = each_id.style.left.replace("px","");
@@ -135,7 +143,7 @@ function setHover(id, music_name){
             l = 0;
         }
         
-        if(l >= 1800)
+        if(l >= (winSize[0] - 150))
         {
             l = l - 150;
         }
@@ -147,7 +155,7 @@ function setHover(id, music_name){
             t = 0;
         }
         
-        if(t >= 1350)
+        if(t >= (winSize[1] - 100))
         {
             t = t - 150;
         }
@@ -174,16 +182,35 @@ function setHover(id, music_name){
 /*==================================================================================================
 //パラメータ解析, 配置 (para: パラメータ)
 ==================================================================================================*/
-function paraAnlyzeSet(iidaxepara){
+function paraAnlyzeSet(iidaxepara, url){
+    
+    //ウィンドウサイズ情報がある場合、ウインドウサイズ情報を除いたパラメータと共にそのサイズで開き直す
+    if(iidaxepara.indexOf("?w-") != -1){
+        
+        var wnst = url.indexOf("?w-");
+        
+        //ウインドウサイズ情報を除いたパラメータを伴ったURL
+        var openUrl = url.substring(0, wnst);
+        
+        var winSize =  url.substring(wnst + 3, url.length);   //ウィンドウサイズ
+    
+        var ww = tot(winSize.substring(0, 2));
+        var wh = tot(winSize.substring(2, 4));
+        var wp = "left=0,top=0,width=" + ww + ",height=" + wh;
+       
+		window.open(openUrl, "_blank", wp);
+		
+		//現在のウィンドウを閉じる、Firefoxでは空タブが残る
+        window.open('about:blank','_self').close();
+        
+        return;
+    }
     
     //iidaxeparaを分解, パラメータ分割位置把握
     var psst = iidaxepara.indexOf("?p-");
     var tost = iidaxepara.indexOf("?t-");
     var nmst = iidaxepara.indexOf("?n-");
-    var wnst = iidaxepara.indexOf("?w-");
     
-    //TODO パラメータからのウィンドウサイズの取得, 変更
-
     //BOX全削除
     for(var id = 0; id < MUSIC_NUM; id++){
         if(existArray[id] == "1"){
@@ -196,15 +223,8 @@ function paraAnlyzeSet(iidaxepara){
     var compExist = iidaxepara.substring(2, psst);                      //解凍前存在判定
     var compPos = iidaxepara.substring(psst + 3, tost);                 //解凍前配置位置
     var TargetOption = iidaxepara.substring(tost + 3, nmst);            //目標, オプション
-    var Name = iidaxepara.substring(nmst + 3, wnst);                    //名前
-    var winSize =  iidaxepara.substring(wnst + 3, iidaxepara.length);   //ウィンドウサイズ
+    var Name = iidaxepara.substring(nmst + 3, iidaxepara.length);        //名前
     
-    var ww = tot(winSize.substring(0, 2));
-    var wh = tot(winSize.substring(2, 4));
-    
-    //ウィンドウサイズ変更
-    window.resizeTo(ww, wh);
-
     //存在判定を解凍, カンマで区切って配列化
     existArray =  lzbase62.decompress(compExist).split(",");
     
@@ -225,7 +245,7 @@ function paraAnlyzeSet(iidaxepara){
 
             var div_element = document.createElement("div");
             var parent_object = document.getElementById("generate_position");
-            var disp_name = music_table[id2][DISP_INDEX];
+            var disp_name = music_table[id2][DISP_INDEX]; //表示名
             
             //attrで行うべき? このままだと2重のdivになるから控えたい。
             div_element.innerHTML = 
@@ -340,7 +360,9 @@ function makeUrlPara(arr){
     }
     
     //存在判定配列の圧縮
-    var compressedExist = lzbase62.compress(existArray);  
+    var compressedExist = lzbase62.compress(existArray);
+    //var test = lzbase62.decompress(compressedExist).split(",");
+    
     //位置情報URLの圧縮
     var compressedPos = lzbase62.compress(retUrl);
     
@@ -549,13 +571,14 @@ function daggerToRed(id){
 
         var disp_name = music_table[id][DISP_INDEX];
 
+        //下記楽曲は元より†マークがある為除外
         if(disp_name != "p†p" && 
             disp_name != "渚" && 
             disp_name != "DEATH"){
             var Lid = "#iidaxe_"+ id;
             var Vid = music_table[id][VER_INDEX];
             
-            //RED, HAPPY SKY, SPADAのみピンク寄り
+            //RED, HAPPY SKY, SPADAのみピンク寄りの赤
             if(Vid == 11 || Vid == 12 || Vid == 21){
                 $(Lid).css({
                     "color": "#FF00FF",
@@ -597,7 +620,6 @@ jQuery
 jQuery(function(){
     
     $("#main").not("#fadeLayer").selectable();
-    
 
     /*==================================================================================================
     //バージョン変更jQuery
@@ -1115,7 +1137,7 @@ jQuery(function(){
 
         //TODO existArrayから判定しないでmusic_tableのバージョン順→IN_VER_INDEX順→INDEXを見て判定 か?
         //もしくはバージョン名に-1のバリューを与えてソート?
-
+        //配置済み, 未配置の一覧作成
         for(var ver = 2; ver <= 26; ver++){
             var singleVerList = music_table.filter(item => item[VER_INDEX] == ver);
     
