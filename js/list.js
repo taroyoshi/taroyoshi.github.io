@@ -247,38 +247,38 @@ music_table = [
     
     //SPADA
     [21,193, "Adularia", "adularia", "Adularia", "A", 0],
-    [21,194, "Ancient Scapes", "ancients", "Ancient S", "A", 1],
-    [21,195, "Ancient Scapes†LEGGENDARIA", "ancientl", "Ancient S†", "A", 2],
-    [21,196, "BRAINSTORM", "brainstm", "BRAIN", "A", 3],
-    [21,197, "Close the World feat.a☆ru", "closewld", "Close", "A", 4],
-    [21,198, "Close the World feat.a☆ru†LEGGENDARIA", "closewdl", "Close†", "A", 5],
-    [21,199, "DARK LEGACY", "darklgcy", "DARK ", "A", 6],
-    [21,200, "Elektrick U-Phoria", "euphoria", "U-Phoria", "A", 7],
-    [21,201, "Feel The Beat†LEGGENDARIA", "feelbetl", "Feel†", "A", 8],
-    [21,202, "I will be back-オレは帰ってきた-", "iwilback", "I will", "A", 9],
+    [21,194, "Ancient Scapes", "ancients", "Ancient<br>Scapes", "A", 1],
+    [21,195, "Ancient Scapes†LEGGENDARIA", "ancientl", "Ancient<br>Scapes†", "A", 2],
+    [21,196, "BRAINSTORM", "brainstm", "BRAIN<br>STORM", "A", 3],
+    [21,197, "Close the World feat.a☆ru", "closewld", "Close<br>World", "A", 4],
+    [21,198, "Close the World feat.a☆ru†LEGGENDARIA", "closewdl", "Close<br>World†", "A", 5],
+    [21,199, "DARK LEGACY", "darklgcy", "DARK<br>LEGACY", "A", 6],
+    [21,200, "Elektrick U-Phoria", "euphoria", "U-<br>Phoria", "A", 7],
+    [21,201, "Feel The Beat†LEGGENDARIA", "feelbetl", "Feel<br>Beat†", "A", 8],
+    [21,202, "I will be back-オレは帰ってきた-", "iwilback", "I will<br>back", "A", 9],
     [21,203, "Idola", "idola", "Idora", "A", 10],
-    [21,204, "Immortal", "immortal", "Immort", "A", 11],
-    [21,205, "INSOMNIA", "insomnia", "INSOMNIA", "A", 12],
+    [21,204, "Immortal", "immortal", "Im<br>mortal", "A", 11],
+    [21,205, "INSOMNIA", "insomnia", "INSOM<br>NIA", "A", 12],
     [21,206, "invoker", "invoker", "invoker", "A", 13],
-    [21,207, "invoker†LEGGENDARIA", "invokerl", "invoker†", "A", 14],
-    [21,208, "KAISER PHOENIX†", "kaiserpl", "KAISER†", "A", 15],
-    [21,209, "Last Dance", "lstdance", "Last D", "A", 16],
-    [21,210, "PUNISHER", "punisher", "PUNISH", "A", 17],
-    [21,211, "ra'am", "raam", "raam", "A", 18],
-    [21,212, "rainbow guitar weeps", "rbguitar", "rgw", "A", 19],
-    [21,213, "RIZING YOU UP", "rizingup", "RIZING", "A", 20],
-    [21,214, "Sigmund", "sigmund", "Sigmund", "A", 21],
-    [21,215, "Sigmund†LEGGENDARIA", "sigmundl", "Sigmund†", "A", 22],
-    [21,216, "Unicorn tail", "unicorn", "Unicorn", "A", 23],
-    [21,217, "Verflucht", "verflcht", "Verflu", "A", 24],
-    [21,218, "Verflucht†LEGGENDARIA", "verflchl", "Verflu†", "A", 25],
-    [21,219, "VOX UP", "voxup_sp", "VOX U", "A", 26],
-    [21,220, "バンブーソード・ガール", "_bamboos", "バンブー", "A", 27],
+    [21,207, "invoker†LEGGENDARIA", "invokerl", "invoker<br>†", "A", 14],
+    [21,208, "KAISER PHOENIX†", "kaiserpl", "KAISER<br>†", "A", 15],
+    [21,209, "Last Dance", "lstdance", "Last<br>DANCE", "A", 16],
+    [21,210, "PUNISHER", "punisher", "PUNI<br>SHER", "A", 17],
+    [21,211, "ra'am", "raam", "ra'am", "A", 18],
+    [21,212, "rainbow guitar weeps", "rbguitar", "rg<br>weeps", "A", 19],
+    [21,213, "RIZING YOU UP", "rizingup", "RIZING<br>YOU UP", "A", 20],
+    [21,214, "Sigmund", "sigmund", "Sig<br>mund", "A", 21],
+    [21,215, "Sigmund†LEGGENDARIA", "sigmundl", "Sig<br>mund†", "A", 22],
+    [21,216, "Unicorn tail", "unicorn", "Uni<br>corn", "A", 23],
+    [21,217, "Verflucht", "verflcht", "Ver<br>flucht", "A", 24],
+    [21,218, "Verflucht†LEGGENDARIA", "verflchl", "Ver<br>flucht†", "A", 25],
+    [21,219, "VOX UP", "voxup_sp", "VOX<br>UP", "A", 26],
+    [21,220, "バンブーソード・ガール", "_bamboos", "バン<br>ブー", "A", 27],
     [21,221, "煉獄のエルフェリア", "_elefthe", "煉獄", "A", 28],
-    [21,222, "疾風迅雷", "_ltspeed", "疾風", "A", 29],
-    [21,223, "疾風迅雷†LEGGENDARIA", "_ltspedl", "疾風†", "A", 30],
+    [21,222, "疾風迅雷", "_ltspeed", "疾風<br>迅雷", "A", 29],
+    [21,223, "疾風迅雷†LEGGENDARIA", "_ltspedl", "疾風<br>迅雷†", "A", 30],
     [21,224, "IX", "_nine_ix", "IX", "A", 31],
-    [21,225, "旋律のドグマ～Miserables～", "_s_dogma", "ドグマ", "A", 32],
+    [21,225, "旋律のドグマ～Miserables～", "_s_dogma", "旋律<br>ドグマ", "A", 32],
     [21,226, "轟け！恋のビーンボール！！", "_todorok", "轟け", "A", 33],
     [21,227, "廿†", "_twentyl", "廿†", "A", 34],
     [21,228, "海神", "_wadatmi", "海神", "A", 35],
@@ -422,40 +422,45 @@ music_table = [
     [25,357, "東京神話", "_tksinwa", "東京神話", "A", 29],
     
     //Rootage 投票戦楽曲のVer内INDEX未編集
-    //Carmina 0
-    //Carry Me Away 1
-    [26,358, "Catch Our Fire!", "catchfir", "Catch", "A", 2],
-    [26,359, "dAuntl3ss", "dauntl3s", "dAunt3ss", "A", 3],
-    [26,360, "Dr.Chemical & Killing Machine", "dr_chemi", "Dr.C", "A", 4],
-    [26,361, "Drastic Dramatic", "drasticd", "Drastic", "A", 5],
-    //EVANESCENT 6
-    //GENE 7
-    [26,362, "GIGA THRASH", "gigathra", "GIGA", "A", 8],
-    //GO OVER WITH GLARE -ROOTAGE 26- 9
-    //HARD BRAIN 10
-    [26,363, "KILL EACH OTHER", "killeach", "KILL", "A", 11],
-    [26,364, "L.F.O", "lfo", "L.F.O", "A", 12],
-    [26,365, "Level One", "levelone", "Lv One", "A", 13],
-    [26,366, "LOST TECHNOLOGIE", "losttech", "LOST TEC", "A", 14],
-    //Mächö Mönky 15
-    //Necroxis Girl 16
-    //Night! Night! Night! 17
-    //ONIGOROSHI 18
-    [26,367, "Painful Fate", "painfate", "Painful", "A", 19],
-    //Please Welcome Mr.C 20
-    [26,368, "Red. by Jack Trance", "red_jack", "Red J", "A", 21],
-    //ruin of opals 22
-    [26,369, "SIGMA", "sigma", "SIGMA", "A", 23],
-    [26,370, "THE DAY OF JUBILATIONS", "t_jubila", "JUBI", "A", 24],
-    [26,371, "The Rebellion of Sequencer", "t_rebeli", "TRoS", "A", 25],
-    //Unbelief 26
-    //Visterhv 27
-    [26,372, "Xlo", "xlo", "Xlo", "A", 28],
-    //お菓子の王国 29
-    //抱きしめてモナムール 30
-    //Χ-DEN 31
-    [26,373, "金野火織の金色提言", "_k_hiori", "金色", "A", 32],
-    //泰東ノ翠霞 33
+    //Afterimage d'automne 0
+    //Carmina 1
+    //Carry Me Away 2
+    [26,358, "Catch Our Fire!", "catchfir", "Catch", "A", 3],
+    [26,359, "dAuntl3ss", "dauntl3s", "dAunt3ss", "A", 4],
+    [26,360, "Dr.Chemical & Killing Machine", "dr_chemi", "Dr.C", "A", 5],
+    [26,361, "Drastic Dramatic", "drasticd", "Drastic", "A", 6],
+    //EVANESCENT 7
+    //GENE 8
+    [26,362, "GIGA THRASH", "gigathra", "GIGA", "A", 9],
+    //GO OVER WITH GLARE -ROOTAGE 26- 10
+    //HARD BRAIN 11
+    [26,363, "KILL EACH OTHER", "killeach", "KILL", "A", 12],
+    [26,364, "L.F.O", "lfo", "L.F.O", "A", 13],
+    [26,365, "Level One", "levelone", "Lv One", "A", 14],
+    [26,366, "LOST TECHNOLOGIE", "losttech", "LOST TEC", "A", 15],
+    //Mächö Mönky 16
+    //Necroxis Girl 17
+    //Night! Night! Night! 18
+    //ONIGOROSHI 19
+    [26,367, "Painful Fate", "painfate", "Painful", "A", 20],
+    //Please Welcome Mr.C 21
+    [26,368, "Red. by Jack Trance", "red_jack", "Red J", "A", 22],
+    //ruin of opals 23
+    [26,369, "SIGMA", "sigma", "SIGMA", "A", 24],
+    [26,370, "THE DAY OF JUBILATIONS", "t_jubila", "JUBI", "A", 25],
+    [26,371, "The Rebellion of Sequencer", "t_rebeli", "TRoS", "A", 26],
+    //Trill auf G 27
+    //Unbelief 28
+    //Visterhv 29
+    //voltississimo 30
+    [26,372, "Xlo", "xlo", "Xlo", "A", 31],
+    //お菓子の王国 32
+    //抱きしめてモナムール 33
+    //Χ-DEN 34
+    [26,373, "金野火織の金色提言", "_k_hiori", "金色", "A", 35],
+    //最小三倍完全数 36
+    //泰東ノ翠霞 37
+    
     
 
 
@@ -464,39 +469,39 @@ music_table = [
     [14,374, "GRID KNIGHT†", "gknightl", "GRID<br>KNIGHT†", "A", 2],
     [18,375, "New Castle Legions", "nwcasl26", "New<br>Castle", "A", 4],
     [26,376, "Carmina", "carmina", "Carmina", "A", 0],
-    [26,377, "Carry Me Away", "carryme", "Carry", "A", 1],
-    [26,378, "EVANESCENT", "evanscnt", "EVANESCENT", "A", 6],
-    [26,379, "Mächö Mönky", "machomnk", "Mächö", "A", 15],
-    [26,380, "Necroxis Girl", "necroxis", "Necroxis", "A", 16],
-    [26,381, "Unbelief", "unbelief", "Unbelief", "A", 26],
-    [26,382, "抱きしめてモナムール", "_dakismt", "モナムール", "A", 30],
-    [26,383, "Χ-DEN", "_kai_den", "Χ-DEN", "A", 31],
+    [26,377, "Carry Me Away", "carryme", "Carry", "A", 2],
+    [26,378, "EVANESCENT", "evanscnt", "EVANESCENT", "A", 7],
+    [26,379, "Mächö Mönky", "machomnk", "Mächö", "A", 16],
+    [26,380, "Necroxis Girl", "necroxis", "Necroxis", "A", 17],
+    [26,381, "Unbelief", "unbelief", "Unbelief", "A", 28],
+    [26,382, "抱きしめてモナムール", "_dakismt", "モナムール", "A", 33],
+    [26,383, "Χ-DEN", "_kai_den", "Χ-DEN", "A", 34],
     
     //2019/07/12追加
     [16,384, "B4U(BEMANI FOR YOU MIX)†", "bemani4l", "B4U<br>(MIX)†", "A", 0],
     [23,385, "Welcome†", "welcomel", "Welcome†", "A", 22],
-    [26,386, "HARD BRAIN", "hrdbrain", "HARD BR", "A", 10],
-    [26,387, "ONIGOROSHI", "onigoros", "ONI", "A", 18],
-    [26,388, "ruin of opals", "ruinopal", "ruin", "A", 22],
-    [26,389, "Visterhv", "visterhv", "Visterhv", "A", 27],
+    [26,386, "HARD BRAIN", "hrdbrain", "HARD BR", "A", 11],
+    [26,387, "ONIGOROSHI", "onigoros", "ONI", "A", 19],
+    [26,388, "ruin of opals", "ruinopal", "ruin", "A", 23],
+    [26,389, "Visterhv", "visterhv", "Visterhv", "A", 29],
     
     [15,390, "Wanna Party?†", "wnpartyl", "Wanna<br>Party†", "A", 15],
     [17,391, "AIR RAID FROM THA UNDAGROUND†", "airraidl", "AIR<br>RAID†", "A", 0],
     [26,392, "GENE", "gene", "GENE", "A", 8],
     
     //2019/08/09追加
-    [26,393, "Night! Night! Night!", "nightx3", "Night!", "A", 17],
-    [26,394, "Please Welcome Mr.C", "pls_mr_c", "PWMr.C", "A", 19],
-    [26,395, "お菓子の王国", "_candykd", "お菓子", "A", 29],
-    [26,396, "泰東ノ翠霞", "_taito26", "泰東", "A", 33],
+    [26,393, "Night! Night! Night!", "nightx3", "Night!", "A", 18],
+    [26,394, "Please Welcome Mr.C", "pls_mr_c", "PWMr.C", "A", 21],
+    [26,395, "お菓子の王国", "_candykd", "お菓子", "A", 32],
+    [26,396, "泰東ノ翠霞", "_taito26", "泰東", "A", 37],
     
     [12,397, "Twelfth Style†", "twelfthl", "Twelfth<br>Style†", "A", 4],
-    [26,398, "GO OVER WITH GLARE -ROOTAGE 26-", "go_glare", "GLARE 26", "A", 9],
-
+    [26,398, "GO OVER WITH GLARE -ROOTAGE 26-", "go_glare", "GLARE 26", "A", 10],
+    //2019/09/16追加
     [26,399, "Afterimage d'automne", "afterimg", "After<br>autom", "A", 0],
     [26,400, "Trill auf G", "trill_g", "Trill<br>auf G", "A", 27],
     [26,401, "voltississimo", "voltissi", "volti<br>ssissi", "A", 30],
-    [26,402, "最小三倍完全数", "_saisho3", "最小<br>三倍", "A", 37]
+    [26,402, "最小三倍完全数", "_saisho3", "最小<br>三倍", "A", 36]
     
     
 ];  //テーブルの最後尾と一つ前は要チェック
