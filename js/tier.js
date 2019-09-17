@@ -4,6 +4,7 @@ var existArray = new Array(MUSIC_NUM);
 
 //TODO Save, Load時に名前の一致かを確認
 //TODO GenerateにInfomation
+//TODO difficult等のドラッグ無効化
 
 /*==================================================================================================
 //チャート画面読み出し時処理(付随されているURLパラメータによって処理を判断)
@@ -200,8 +201,11 @@ function paraAnlyzeSet(iidaxepara, url){
        
 		window.open(openUrl, "_blank", wp);
 		
-		//現在のウィンドウを閉じる
-        //window.open('about:blank','_self').close();
+		//TODO 別ウィンドウが画面より大きい場合の処理や警告
+		window.alert('別ウィンドウで開かれます\n開かれていない場合はポップアップを許可してください');
+		
+		//現在のウィンドウを閉じる()不要か
+        window.open('about:blank','_self').close();
         
         return;
     }
