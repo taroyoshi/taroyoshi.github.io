@@ -4,7 +4,6 @@ var existArray = new Array(MUSIC_NUM);
 
 //TODO Save, Load時に名前の一致かを確認
 //TODO GenerateにInfomation
-//TODO difficult等のドラッグ無効化
 
 /*==================================================================================================
 //チャート画面読み出し時処理(付随されているURLパラメータによって処理を判断)
@@ -54,7 +53,7 @@ function setDraggableAndDblclick(id){
         //まとめてドラッグ用
         //以下 http://uenomemo.sakura.ne.jp/pcmemo/202 より引用
         start:function(e,ui){
-            $(".ui-selected").not("#fadeLayer").each(function(){
+            $(".ui-selected").not("#fadeLayer, .axis").each(function(){
             var apos = {
                 top:$(this).position().top-ui.position.top,
                 left:$(this).position().left-ui.position.left
@@ -63,7 +62,7 @@ function setDraggableAndDblclick(id){
             });
         },
         drag:function(e,ui){
-            $(".ui-selected").not("#fadeLayer").each(function(){
+            $(".ui-selected").not("#fadeLayer, .axis").each(function(){
                 $(this).css({
                     top:ui.position.top+$(this).data("apos").top,
                     left:ui.position.left+$(this).data("apos").left
@@ -202,9 +201,11 @@ function paraAnlyzeSet(iidaxepara, url){
 		window.open(openUrl, "_blank", wp);
 		
 		//TODO 別ウィンドウが画面より大きい場合の処理や警告
-		window.alert('別ウィンドウで開かれます\n開かれていない場合はポップアップを許可してください');
+		window.alert('別ウィンドウで開かれます\n' + 
+		    '開かれていない場合はポップアップを許可してください\n' + 
+		    'ウィンドウサイズ 幅' + ww + 'px, 高さ' + wh + 'px');
 		
-		//現在のウィンドウを閉じる()不要か
+		//現在のウィンドウを閉じる
         window.open('about:blank','_self').close();
         
         return;
@@ -227,7 +228,7 @@ function paraAnlyzeSet(iidaxepara, url){
     var compExist = iidaxepara.substring(2, psst);                      //解凍前存在判定
     var compPos = iidaxepara.substring(psst + 3, tost);                 //解凍前配置位置
     var TargetOption = iidaxepara.substring(tost + 3, nmst);            //目標, オプション
-    var Name = iidaxepara.substring(nmst + 3, iidaxepara.length);        //名前
+    var Name = iidaxepara.substring(nmst + 3, iidaxepara.length);       //名前
     
     //存在判定を解凍, カンマで区切って配列化
     existArray =  lzbase62.decompress(compExist).split(",");
@@ -365,7 +366,6 @@ function makeUrlPara(arr){
     
     //存在判定配列の圧縮
     var compressedExist = lzbase62.compress(existArray);
-    //var test = lzbase62.decompress(compressedExist).split(",");
     
     //位置情報URLの圧縮
     var compressedPos = lzbase62.compress(retUrl);
@@ -544,7 +544,7 @@ function searchMove(mounted_selectVal){
 
     //位置情報等
     var positionLeft = parseInt($("#iidaxe_" + mounted_selectVal).css("left").replace("px", ""), 10);
-    var positionTop = parseInt($("#iidaxe_" + mounted_selectVal).css("top").replace("px", ""), 10);
+    var positionTop  = parseInt($("#iidaxe_" + mounted_selectVal).css("top").replace("px", ""), 10);
     
     //対象位置までスクロール
     window.scrollTo(positionLeft, positionTop);
@@ -623,7 +623,8 @@ jQuery
 ==================================================================================================*/
 jQuery(function(){
     
-    $("#main").not("#fadeLayer").selectable();
+    $("#main").selectable();
+    $(".axis, #fadeLayer").removeClass("ui-selectee");
 
     /*==================================================================================================
     //バージョン変更jQuery
@@ -963,6 +964,7 @@ jQuery(function(){
             //配置済み, 未配置の表示切替
             case 'setted_change':
 
+                //配置済みが表示時 且つ未配置が非表示時
                 if( $("#setted_list").css("display") == "block" && $("#nosetted_list").css("display") == "none"){
                     $("#setted_list").css("display", "none");
                     $("#nosetted_list").css("display", "block");
@@ -1005,7 +1007,6 @@ jQuery(function(){
         for(var id =0; id < existArray.length; id++){
             //配置済み一覧作成(ソート前)
             if(existArray[id] == "1"){
-                //$("#del_setted").append($("<option>").val(music_table[id][MUSIC_INDEX]).text(music_table[id][NAME_INDEX]));
                 pre_sort_items.push(music_table[id]);
             }
         }
@@ -1015,6 +1016,7 @@ jQuery(function(){
         
         //一旦全削除し その後ソートしたものを格納
         $("#del_setted").children("option").remove();
+        
         setted_sort_item.map(item => 
             $("#del_setted").append($("<option>").val(item[MUSIC_INDEX]).text(item[NAME_INDEX]))
         );
