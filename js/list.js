@@ -392,7 +392,7 @@ music_table = [
     //CANNON BALLERS
     [25,328, "AA -rebuild-", "aa_rebld", "AA<br>rebld", "A", 0],
     [25,329, "ANCHOR", "anchor", "ANC<br>HOR", "A", 1],
-    [25,330, "Antigravity", "antigrav", "Anti<br>grvty", "A", 2],
+    [25,330, "Antigravity", "antigrav", "Anti<br>grvity", "A", 2],
     [25,331, "Arca", "arca", "Arca", "A", 3],
     [25,332, "Boomy and The Boost", "booboost", "Boomy<br>Boost", "A", 4],
     [25,333, "DEADHEAT", "deadheat", "DEAD<br>HEAT", "A", 5],

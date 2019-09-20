@@ -4,6 +4,7 @@ var existArray = new Array(MUSIC_NUM);
 
 //TODO Save, Load時に名前の一致かを確認
 //TODO GenerateにInfomation
+//TODO 新規ウィンドウで開いた場合にドラッグ不可能にする
 
 /*==================================================================================================
 //チャート画面読み出し時処理(付随されているURLパラメータによって処理を判断)
@@ -578,7 +579,7 @@ function daggerToRed(id){
         //下記楽曲は元より†マークがある為除外
         if(disp_name != "p†p" && 
             disp_name != "渚<br>IIDX" && 
-            disp_name != "DEATH"){
+            disp_name != "DEATH<br>ZIGOQ"){
             var Lid = "#iidaxe_"+ id;
             var Vid = music_table[id][VER_INDEX];
             
