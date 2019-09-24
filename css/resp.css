@@ -10,7 +10,7 @@
 
 @media only screen and (max-height: 662px) {
     #biography{
-        min-height:2200px;
+        min-height:2400px;
     }
 }
 
@@ -35,8 +35,9 @@
         margin-top: 10px;
         margin-bottom: 100px;
         height:90%;
+        padding-bottom:150px;
+        min-height:300vh;
         
-        min-height:0;
     }
     
     #biography::before{
