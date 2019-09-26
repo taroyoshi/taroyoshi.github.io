@@ -204,6 +204,8 @@ h1{
     font-family: "メイリオ";
 }
 
+
+
 .s_type{
     margin-bottom:0;
     padding-left:2px;
@@ -220,6 +222,14 @@ h1{
     height:100%;
 }
 
+#lang_cont, #fwlb_cont{
+    float:right;
+    background: #409890;
+    color:white;
+    border-radius: 10px;
+    opacity:0.8;
+    margin-right:10px;
+}
 
 .graph {
     font-size:1.3vw;

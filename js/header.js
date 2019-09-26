@@ -4,7 +4,11 @@ $(function(){
     
     //js読み込みのタイミングの関係で遅延
     setTimeout(function(){
-        
+        /*
+        var script = document.createElement('script');
+        script.type = 'text/javascript';
+        script.src = './tier.js';
+        */
         //ホバーイベント
         setHover();
         
@@ -223,15 +227,18 @@ $(function(){
         
         Array.prototype.forEach.call(bar_classes, function(item) {
             var each_id = item.id;
-        
+            var target;
             $("#" + each_id).hover(function(){
-            
-                var id_doc = document.getElementById(each_id);
+            /*
+                var off = $("#" + each_id).offset();
+                
+                //var id_doc = document.getElementById(each_id);
     
                 var winSize = getWindowSize();
         
                 //左位置取得
-                var l = id_doc.style.left.replace("px","");
+                //var l = id_doc.style.left.replace("px","");
+                var l = off.left;
                 if(l === ""){
                     l = 0;
                 }
@@ -240,10 +247,11 @@ $(function(){
                 {
                     l = l - 150;
                 }
-                l = String(parseInt(l, 10) + 50) + "px";
+                l = String(parseInt(l, 10) + 1000) + "px";
         
                 //上位置取得
-                var t = id_doc.style.top.replace("px","");
+                //var t = id_doc.style.top.replace("px","");
+                var t = off.top;
                 if(t === ""){
                     t = 0;
                 }
@@ -252,60 +260,92 @@ $(function(){
                 {
                     t = t - 150;
                 }
-                t = String(parseInt(t, 10) + 50) + "px";
-                
+                t = String(parseInt(t, 10) + 200) + "px";
+            */    
                 var cntJ, cntE;
                 
                 switch(each_id){
                     case "CPP":
-                        cntJ = "ある";
+                        cntJ = "業務経験 概要1, 概要3";
                         cntE = "A";
+                        target = "#lang_cont";
                         break;
-                        
                         
                     case "CSharp":
+                        cntJ = "業務経験 概要1, 概要2";
+                        cntE = "A";
+                        target = "#lang_cont";
                         break;
                     case "VBN":
+                        cntJ = "業務経験 概要1";
+                        cntE = "A";
+                        target = "#lang_cont";
                         break;
                     case "Java":
+                        cntJ = "paiza上での自学習";
+                        cntE = "A";
+                        target = "#lang_cont";
                         break;
                     case "js":
+                        cntJ = "ポートフォリオ, paiza上での自学習";
+                        cntE = "A";
+                        target = "#lang_cont";
                         break;
                     case "html":
+                        cntJ = "ポートフォリオ";
+                        cntE = "A";
+                        target = "#lang_cont";
                         break;
+                        
                     case "Livet":
+                        cntJ = "業務経験 概要2";
+                        cntE = "A";
+                        target = "#fwlb_cont";
                         break;
                     case "jq":
+                        cntJ = "ポートフォリオ, 制作物";
+                        cntE = "A";
+                        target = "#fwlb_cont";
+                        break;
+                    case "BS":
+                        cntJ = "ポートフォリオ";
+                        cntE = "A";
+                        target = "#fwlb_cont";
+                        break;
+                    case "Rails":
+                        cntJ = "自学習, 制作物";
+                        cntE = "A";
+                        target = "#fwlb_cont";
                         break;
                 }
                 
+                var con_lang = $("#lang_disp").text();
+                var cont = "";
+                if(con_lang != "日本語"){
+                    cont = cntJ;
+                }
+                else{
+                    cont = cntE;
+                }
         
+                $(target).text(cont);
+                /*
                 var div_element = document.createElement("div");
-                var parent_object = document.getElementById('main');
-                div_element.innerHTML = '<div class="arrow_box lang_jp" style="left: ' +
+                var parent_object = document.getElementById('skill');
+                div_element.innerHTML = '<div class="arrow_box" style="left: ' +
                                         l +
                                         '; top:' +
                                         t +
                                         ';">' +
-                                        cntJ +
+                                        cont +
                                         '</div>';
                 
                 parent_object.append(div_element);
+                */
                 
-                div_element.innerHTML = '<div class="arrow_box lang_en" style="left: ' +
-                                        l +
-                                        '; top:' +
-                                        t +
-                                        ';">' +
-                                        cntE +
-                                        '</div>';
-                
-                parent_object.append(div_element);
-                
-            }),function(){
-                $(".arrow_box").unwrap();
-                $(".arrow_box").remove();
-            };
+            },function(){
+                $(target).text("");
+            });
             
         });
         
