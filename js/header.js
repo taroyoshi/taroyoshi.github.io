@@ -164,7 +164,7 @@ $(function(){
         });        
         
         var hov_names = document.getElementsByName('hov_name');
-
+        
         hov_names.forEach(function(sel){
             cls = "." + sel.className;
 
@@ -218,7 +218,97 @@ $(function(){
                 $(".example2").text("");
             });
         });
-
+        
+        var bar_classes = document.getElementsByClassName('bar');
+        
+        Array.prototype.forEach.call(bar_classes, function(item) {
+            var each_id = item.id;
+        
+            $("#" + each_id).hover(function(){
+            
+                var id_doc = document.getElementById(each_id);
+    
+                var winSize = getWindowSize();
+        
+                //左位置取得
+                var l = id_doc.style.left.replace("px","");
+                if(l === ""){
+                    l = 0;
+                }
+                
+                if(l >= (winSize[0] - 150))
+                {
+                    l = l - 150;
+                }
+                l = String(parseInt(l, 10) + 50) + "px";
+        
+                //上位置取得
+                var t = id_doc.style.top.replace("px","");
+                if(t === ""){
+                    t = 0;
+                }
+                
+                if(t >= (winSize[1] - 100))
+                {
+                    t = t - 150;
+                }
+                t = String(parseInt(t, 10) + 50) + "px";
+                
+                var cntJ, cntE;
+                
+                switch(each_id){
+                    case "CPP":
+                        cntJ = "ある";
+                        cntE = "A";
+                        break;
+                        
+                        
+                    case "CSharp":
+                        break;
+                    case "VBN":
+                        break;
+                    case "Java":
+                        break;
+                    case "js":
+                        break;
+                    case "html":
+                        break;
+                    case "Livet":
+                        break;
+                    case "jq":
+                        break;
+                }
+                
+        
+                var div_element = document.createElement("div");
+                var parent_object = document.getElementById('main');
+                div_element.innerHTML = '<div class="arrow_box lang_jp" style="left: ' +
+                                        l +
+                                        '; top:' +
+                                        t +
+                                        ';">' +
+                                        cntJ +
+                                        '</div>';
+                
+                parent_object.append(div_element);
+                
+                div_element.innerHTML = '<div class="arrow_box lang_en" style="left: ' +
+                                        l +
+                                        '; top:' +
+                                        t +
+                                        ';">' +
+                                        cntE +
+                                        '</div>';
+                
+                parent_object.append(div_element);
+                
+            }),function(){
+                $(".arrow_box").unwrap();
+                $(".arrow_box").remove();
+            };
+            
+        });
+        
         //キーバリューとか使ってスマートに
         //name属性全て取得してどうにか要自動化
         topY =  document.getElementById('index').getBoundingClientRect().top + window.pageYOffset -20;
