@@ -4,15 +4,11 @@ $(function(){
     
     //js読み込みのタイミングの関係で遅延
     setTimeout(function(){
-        /*
-        var script = document.createElement('script');
-        script.type = 'text/javascript';
-        script.src = './tier.js';
-        */
+       
         //ホバーイベント
         setHover();
         
-        $(window).resize( function() {
+        $(window).resize(function() {
             $('.slider.slick-initialized').slick('unslick');
             sliderControl();
             
@@ -31,16 +27,6 @@ $(function(){
         });
         
         sliderControl();
-        
-        //slick
-        /*
-        $('.slider').slick({
-            autoplay:true,
-            autoplaySpeed:2500,
-            dots:true,
-            centerMode: false
-        });
-        */
         
         //サイドメニュー入れ替え
         $("#tg_button").click(function(){
@@ -229,92 +215,60 @@ $(function(){
             var each_id = item.id;
             var target;
             $("#" + each_id).hover(function(){
-            /*
-                var off = $("#" + each_id).offset();
-                
-                //var id_doc = document.getElementById(each_id);
-    
-                var winSize = getWindowSize();
-        
-                //左位置取得
-                //var l = id_doc.style.left.replace("px","");
-                var l = off.left;
-                if(l === ""){
-                    l = 0;
-                }
-                
-                if(l >= (winSize[0] - 150))
-                {
-                    l = l - 150;
-                }
-                l = String(parseInt(l, 10) + 1000) + "px";
-        
-                //上位置取得
-                //var t = id_doc.style.top.replace("px","");
-                var t = off.top;
-                if(t === ""){
-                    t = 0;
-                }
-                
-                if(t >= (winSize[1] - 100))
-                {
-                    t = t - 150;
-                }
-                t = String(parseInt(t, 10) + 200) + "px";
-            */    
+            
                 var cntJ, cntE;
                 
                 switch(each_id){
                     case "CPP":
                         cntJ = "業務経験 概要1, 概要3";
-                        cntE = "A";
+                        cntE = "Work overview1, 3";
                         target = "#lang_cont";
                         break;
                         
                     case "CSharp":
                         cntJ = "業務経験 概要1, 概要2";
-                        cntE = "A";
+                        cntE = "Work overview1, 2";
                         target = "#lang_cont";
                         break;
                     case "VBN":
                         cntJ = "業務経験 概要1";
-                        cntE = "A";
+                        cntE = "Work overview1";
                         target = "#lang_cont";
                         break;
                     case "Java":
                         cntJ = "paiza上での自学習";
-                        cntE = "A";
+                        cntE = "Self (on paiza)";
                         target = "#lang_cont";
                         break;
                     case "js":
                         cntJ = "ポートフォリオ, paiza上での自学習";
-                        cntE = "A";
+                        cntE = "Portfolio, Self (on paiza)";
                         target = "#lang_cont";
                         break;
                     case "html":
                         cntJ = "ポートフォリオ";
-                        cntE = "A";
+                        cntE = "Portfolio";
                         target = "#lang_cont";
                         break;
                         
                     case "Livet":
                         cntJ = "業務経験 概要2";
-                        cntE = "A";
+                        cntE = "Work overview2";
                         target = "#fwlb_cont";
                         break;
                     case "jq":
                         cntJ = "ポートフォリオ, 制作物";
-                        cntE = "A";
+                        cntE = "Portfolio, Products";
                         target = "#fwlb_cont";
                         break;
                     case "BS":
                         cntJ = "ポートフォリオ";
-                        cntE = "A";
+                        cntE = "Portfolio";
                         target = "#fwlb_cont";
                         break;
                     case "Rails":
                         cntJ = "自学習, 制作物";
-                        cntE = "A";
+                        cntE = "Portfolio, Products";
                         target = "#fwlb_cont";
                         break;
                 }
@@ -329,19 +283,6 @@ $(function(){
                 }
         
                 $(target).text(cont);
-                /*
-                var div_element = document.createElement("div");
-                var parent_object = document.getElementById('skill');
-                div_element.innerHTML = '<div class="arrow_box" style="left: ' +
-                                        l +
-                                        '; top:' +
-                                        t +
-                                        ';">' +
-                                        cont +
-                                        '</div>';
-                
-                parent_object.append(div_element);
-                */
                 
             },function(){
                 $(target).text("");
@@ -453,7 +394,7 @@ function sliderControl(){
         
     if (mql.matches) {
         
-        // スマホ向け（599px以下のとき）
+        // スマホ向け（767px以下のとき）
         $('.slider').not('.slick-initialized').slick({
             autoplay:true,
             autoplaySpeed:2500,
